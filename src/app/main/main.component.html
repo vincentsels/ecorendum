@@ -1,0 +1,7 @@
+<div class="page-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="12px">
+  <div fxFlex="60%" fxFlex.lt-md="100%">
+    <h1>{{ 'Proposals' | translate }}</h1>
+
+    <app-proposal *ngFor="let proposal of proposals" [proposal]="proposal"></app-proposal>
+  </div>
+</div>

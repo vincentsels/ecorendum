@@ -17,6 +17,11 @@ import { UserService } from './user/user.service';
 import { LimitLengthPipe } from './common/limit-length.pipe';
 import { NavBarProfileMenuComponent } from './navbar/navbar-profile-menu/navbar-profile-menu';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MainComponent } from './main/main.component';
+import { ProposalComponent } from './main/proposal/proposal.component';
+import { ProposalService } from './main/proposal.service';
+import { TranslateTextPipe } from './common/translate-text.pipe';
+import { TranslateTextAsyncPipe } from './common/translate-text-async.pipe';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -30,6 +35,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavbarComponent,
     NavBarProfileMenuComponent,
     LimitLengthPipe,
+    MainComponent,
+    ProposalComponent,
+    TranslateTextPipe,
+    TranslateTextAsyncPipe,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LanguageService,
     UserService,
     MatSnackbarErrorHandler,
+    ProposalService,
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 10000 } },
     { provide: ErrorHandler, useClass: MatSnackbarErrorHandler, deps: [MatSnackBar, NgZone] },
   ],

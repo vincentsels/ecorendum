@@ -2,22 +2,22 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DateAdapter } from '@angular/material/core';
 import { BehaviorSubject } from 'rxjs';
+import { LanguageType } from '../main/proposal';
 
 export const LOCAL_STORAGE_KEY_LANGUAGE = 'language';
 
 @Injectable()
 export class LanguageService {
   constructor(private translate: TranslateService, private adapter: DateAdapter<any>) {
-    this.language.next(localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || 'en');
+    this.language.next(<LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || 'en');
   }
 
-  language = new  BehaviorSubject<string>(localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || 'en');
+  language = new BehaviorSubject<LanguageType>(<LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || 'en');
 
-  setLanguage(inputLang: string) {
-    const lang = inputLang.toLowerCase();
-    localStorage.setItem(LOCAL_STORAGE_KEY_LANGUAGE, lang);
-    this.translate.use(lang);
-    this.adapter.setLocale(lang + '-BE');
-    setTimeout(() => this.language.next(lang));
+  setLanguage(inputLang: LanguageType) {
+    localStorage.setItem(LOCAL_STORAGE_KEY_LANGUAGE, inputLang);
+    this.translate.use(inputLang);
+    this.adapter.setLocale(inputLang + '-BE');
+    setTimeout(() => this.language.next(inputLang));
   }
 }
