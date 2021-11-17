@@ -14,8 +14,8 @@ export class Proposal {
 
 export enum PolicyLevel {
   local,
-  province,
-  region,
+  provincial,
+  regional,
   federal,
 }
 
@@ -24,19 +24,41 @@ export class Variant {
     Object.assign(this, props);
   }
 
-  description?: TranslatedText;
-  co2reductionBy2030?: number;
-  costOnce?: number;
-  impact?: Impact[];
+  ambitionLevel?: number;
+  description?: TranslatedText[];
+  targets?: Target[];
+  costInitial?: number;
+  costPerYear?: { [year: number]: number } | number;
+  impacts?: Impact[];
 }
 
-export class Impact {
-  constructor(props: Partial<Impact> = {}) {
+export class Target {
+  constructor(props: Partial<Target> = {}) {
     Object.assign(this, props);
   }
 
-  domain?: ImpactDomain;
+  type?: TargetType;
+  year?: number;
   amount?: number;
+}
+
+export enum TargetType {
+  /**
+   * CO2-reduction in megatons by target date.
+   */
+  co2reduction,
+  /**
+   * Reduction of energy consumption in MWh by target date.
+   */
+  energyEfficiency,
+  /**
+   * Increase in production of renewable energy in MWh by target date.
+   */
+  renewableEnergy,
+}
+
+export class Impact {
+  constructor(public domain: ImpactDomain, public amount: ImpactAmount) {}
 }
 
 export enum ImpactDomain {
@@ -49,8 +71,22 @@ export enum ImpactDomain {
   ozoneDepletion,
   aerosols,
   chemicalPollution,
+  redistributionLocal,
+  redistributionGlobal,
   humanRightsLocal,
   humanRightsGlobal,
+}
+
+export enum ImpactAmount {
+  extremelyPositive = 1,
+  veryPositive = 2,
+  moderatelyPositive = 3,
+  somewhatPositive = 4,
+  neutral = 5,
+  somewhatNegative = 6,
+  moderatelyNegative = 7,
+  veryNegative = 8,
+  extremelyNegative = 9,
 }
 
 export class TranslatedText {
