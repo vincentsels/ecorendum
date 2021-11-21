@@ -22,6 +22,8 @@ import { ProposalComponent } from './main/proposal/proposal.component';
 import { ProposalService } from './main/proposal.service';
 import { TranslateTextPipe } from './common/translate-text.pipe';
 import { TranslateTextAsyncPipe } from './common/translate-text-async.pipe';
+import { EnumsService } from './common/enums.service';
+import { ResultsComponent } from './main/results/results.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -39,6 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProposalComponent,
     TranslateTextPipe,
     TranslateTextAsyncPipe,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserService,
     MatSnackbarErrorHandler,
     ProposalService,
+    EnumsService,
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 10000 } },
     { provide: ErrorHandler, useClass: MatSnackbarErrorHandler, deps: [MatSnackBar, NgZone] },
   ],

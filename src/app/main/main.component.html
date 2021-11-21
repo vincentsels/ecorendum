@@ -1,12 +1,12 @@
-<div class="page-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="12px">
+<div class="page-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="24px">
   <div fxFlex="60%" fxFlex.lt-md="100%">
     <h1>{{ 'Proposals' | translate }}</h1>
 
-    <app-proposal *ngFor="let proposal of proposals" [proposal]="proposal"></app-proposal>
+    <app-proposal *ngFor="let proposal of proposalService.proposals" [proposal]="proposal"></app-proposal>
   </div>
   <div fxFlex="40%" fxFlex.lt-md="100%">
     <h1>{{ 'Results' | translate }}</h1>
 
-    <app-results [proposals]="proposals"></app-results>
+    <app-results></app-results>
   </div>
 </div>

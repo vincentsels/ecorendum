@@ -1,4 +1,24 @@
 <div *ngIf="proposal">
   <h2>{{ proposal.title | translateText }}</h2>
   <p>{{ proposal.summary | translateText }}</p>
+
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let variant of proposal.variants">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-checkbox [checked]="variant.selected"
+            (change)="updateSelected(variant);"
+            (click)="$event.stopPropagation()"></mat-checkbox>
+          {{ variant.description | translateText }}
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon class="inline">cloud_download</mat-icon> {{ variant.getTargetAmount(enums.TargetType.ghgReduction) }}kt
+          <mat-icon class="inline">euro</mat-icon> €{{ variant.getTotalCost() }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      All details here
+
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

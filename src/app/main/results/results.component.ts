@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Proposal } from '../proposal';
-import { ResultCalculatorService } from './result-calculator.service';
+import { ProposalService } from '../proposal.service';
 import { Results } from './results';
 
 @Component({
@@ -12,7 +12,9 @@ import { Results } from './results';
 export class ResultsComponent {
   results$: Observable<Results>;
 
-  constructor(calculator: ResultCalculatorService) {
-    this.results$ = calculator.results$;
+  ghgGapCumulativeKt = Results.ghgGapCumulativeKt;
+
+  constructor(service: ProposalService) {
+    this.results$ = service.results$;
   }
 }

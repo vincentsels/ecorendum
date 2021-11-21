@@ -44,6 +44,9 @@ export class Variant {
   impacts: Impact[] = [];
 
   selected: boolean = false;
+
+  getTargetAmount = (type: TargetType) => this.targets.find(t => t.type === type)?.amount;
+  getTotalCost = () => this.costInitial + (Object.values(this.costPerYear || {}).reduce((a, b) => a + b, 0) || 0);
 }
 
 export class Target {
