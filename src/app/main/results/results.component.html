@@ -1,0 +1,16 @@
+<h4>{{ 'CO2 reduction by 2030' | translate }}</h4>
+<div *ngIf="results$ | async; let results">
+  <div class="ghg-reduction">
+    <div class="numerical">
+      <span class="selected-reduction">{{ results.ghgReducedKt }}</span>
+      /
+      <span class="required-reduction">{{ results.ghgGapCumulativeKt }}</span>
+    </div>
+
+    <mat-progress-bar class="progress"
+      [color]="results.ghgReductionColor"
+      mode="determinate"
+      [value]="results.ghgReductionPercentage">
+    </mat-progress-bar>
+  </div>
+</div>

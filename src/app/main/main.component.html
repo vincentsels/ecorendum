@@ -4,4 +4,9 @@
 
     <app-proposal *ngFor="let proposal of proposals" [proposal]="proposal"></app-proposal>
   </div>
+  <div fxFlex="40%" fxFlex.lt-md="100%">
+    <h1>{{ 'Results' | translate }}</h1>
+
+    <app-results [proposals]="proposals"></app-results>
+  </div>
 </div>

@@ -3,13 +3,15 @@ export class Proposal {
     Object.assign(this, props);
   }
 
-  title?: TranslatedText[];
-  slug?: TranslatedText[];
-  summary?: TranslatedText[];
-  description?: TranslatedText[];
+  title: TranslatedText[] = [];
+  slug: TranslatedText[] = [];
+  summary: TranslatedText[] = [];
+  description: TranslatedText[] = [];
   policyLevel?: PolicyLevel;
-  variants?: Variant[];
+  variants: Variant[] = [];
+  sector?: Sector;
 
+  selected: boolean = false;
 }
 
 export enum PolicyLevel {
@@ -19,17 +21,29 @@ export enum PolicyLevel {
   federal,
 }
 
+export enum Sector {
+  transport,
+  buildings,
+  agriculture,
+  industry,
+  wasteManagement,
+  general,
+  other
+}
+
 export class Variant {
   constructor(props: Partial<Variant> = {}) {
     Object.assign(this, props);
   }
 
-  ambitionLevel?: number;
-  description?: TranslatedText[];
-  targets?: Target[];
-  costInitial?: number;
+  ambitionLevel: number = 1;
+  description: TranslatedText[] = [];
+  targets: Target[] = [];
+  costInitial: number = 0;
   costPerYear?: { [year: number]: number } | number;
-  impacts?: Impact[];
+  impacts: Impact[] = [];
+
+  selected: boolean = false;
 }
 
 export class Target {
@@ -39,20 +53,20 @@ export class Target {
 
   type?: TargetType;
   year?: number;
-  amount?: number;
+  amount: number = 0;
 }
 
 export enum TargetType {
   /**
-   * CO2-reduction in megatons by target date.
+   * CO2e-reduction in kilotons by target date.
    */
-  co2reduction,
+  ghgReduction,
   /**
-   * Reduction of energy consumption in MWh by target date.
+   * Reduction of energy consumption in GWh by target date.
    */
   energyEfficiency,
   /**
-   * Increase in production of renewable energy in MWh by target date.
+   * Increase in production of renewable energy in GWh by target date.
    */
   renewableEnergy,
 }
