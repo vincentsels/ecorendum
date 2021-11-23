@@ -14,7 +14,7 @@
 
     <div *ngIf="results.ghgReductionPercentage < 100">
       {{ 'Since the target reduction is not met, this amounts to a carbon tax of: ' }}
-      <span class="color-warn">€{{ results.ghgTax | number }}</span>
+      <span class="color-warn">€ {{ results.ghgTax | number }}</span>
     </div>
 
     <div *ngIf="results.ghgReductionPercentage >= 100">
@@ -49,7 +49,7 @@
     <div class="numerical">
       <span class="amount-selected" [class]="'color-' + results.renewableEnergyAddedColor">{{ results.reAddedGwh | number }}</span>
       /
-      <span class="amount-required">{{ eeGapTargetGwh | number }}</span> GWh
+      <span class="amount-required">{{ reGapTargetGwh | number }}</span> GWh
     </div>
 
     <mat-progress-bar class="progress" mode="determinate"
@@ -63,6 +63,13 @@
 
     <div *ngIf="results.reAddedPercentage >= 100">
       {{ 'Good job! Your selection of measures meets the European target' }}
+    </div>
+  </mat-card>
+
+  <mat-card class="result-section">
+    <h2><mat-icon class="inline">sell</mat-icon> {{ 'Total cost' | translate }}</h2>
+    <div class="numerical">
+      <span class="amount-selected">€ {{ results.totalCost | number }}</span>
     </div>
   </mat-card>
 </div>

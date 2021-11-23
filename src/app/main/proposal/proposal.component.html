@@ -44,9 +44,9 @@
       <div fxLayout fxLayoutGap="12px">
         <div fxFlex="40%">
           <h3>{{ 'Cost' | translate }}</h3>
-          <div>{{ 'Initial cost' | translate }}: €{{ selectedVariant.costInitial | number }}</div>
-          <div *ngIf="selectedVariant.costPerYearFixed">{{ 'Yearly cost' | translate }}: €{{ selectedVariant.costPerYearFixed | number }}</div>
-          <div><label>{{ 'Total cost' | translate }}: €{{ selectedVariant.getTotalCost() | number }}</label></div>
+          <div>{{ 'Initial cost' | translate }}: € {{ selectedVariant.costInitial | number }}</div>
+          <div *ngIf="selectedVariant.costPerYearFixed">{{ 'Yearly cost' | translate }}: € {{ selectedVariant.costPerYearFixed | number }}</div>
+          <div><label>{{ 'Total cost' | translate }}: € {{ selectedVariant.getTotalCost() | number }}</label></div>
         </div>
         <div fxFlex="20%">
           <h3>{{ 'Targets' | translate }}</h3>

@@ -3,66 +3,74 @@ import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, Sector, Targ
 export const PROPOSALS: Proposal[] = [
   new Proposal({
     title: [
-      new TranslatedText('en', 'Test proposal')
+      new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
     ],
     summary: [
-      new TranslatedText('en', 'This is a summary a summary yeah This is a summary a summary yeah This is a summary a summary yeahThis is a summary a summary yeah This is a summary a summary yeahThis is a summary a summary yeahThis is a summary a summary yeah.')
+      new TranslatedText('nl', 'De federale overheid verbiedt de verkoop van personen- en bestelwagens met een verbrandingsmotor. Op de tweedehandsmarkt kunnen deze wagens wel nog verkocht worden.')
     ],
     slug: [
-      new TranslatedText('en', 'test-proposal')
+      new TranslatedText('nl', 'uitfasering-aankoop-fossiele-verbrandingsmotoren')
     ],
-    policyLevel: PolicyLevel.flemish,
-    sector: Sector.industry,
+    policyLevel: PolicyLevel.federal,
+    sector: Sector.transport,
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 1000000,
-        costPerYearFixed: 600000,
+        costInitial: 100000,
+        costPerYearFixed: 0,
         description: [
-          new TranslatedText('en', 'A basic target')
+          new TranslatedText('nl', 'Vanaf 2029')
         ],
         impacts: [
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 10000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 5000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 5000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -1000 }),
         ]
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: 2000000,
-        costPerYearFixed: 800000,
+        costInitial: 100000,
+        costPerYearFixed: 0,
         description: [
-          new TranslatedText('en', 'A more ambitious target')
+          new TranslatedText('nl', 'Vanaf 2027')
         ],
         impacts: [
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.veryNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 25000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 10000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 15000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -3000 }),
         ]
       }),
       new Variant({
         ambitionLevel: 3,
-        costInitial: 3000000,
-        costPerYearFixed: 1000000,
+        costInitial: 200000,
         description: [
-          new TranslatedText('en', 'A very ambitious target')
+          new TranslatedText('nl', 'Vanaf 2025')
         ],
         impacts: [
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.veryNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.veryNegative),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.extremelyNegative),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
+          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 40000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 15000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 25000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -5000 }),
         ]
       })
     ]
@@ -72,7 +80,7 @@ export const PROPOSALS: Proposal[] = [
       new TranslatedText('en', 'Some other proposal')
     ],
     summary: [
-      new TranslatedText('en', 'And this is its summary And this is its summaryAnd this is its summaryAnd this is its summary. This is a summary a summary yeahThis is a summary a summary yeah This is a summary a summary yeah.')
+      new TranslatedText('en', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
     ],
     slug: [
       new TranslatedText('en', 'other-proposal')
@@ -140,7 +148,7 @@ export const PROPOSALS: Proposal[] = [
       new TranslatedText('en', 'Single-variant proposal')
     ],
     summary: [
-      new TranslatedText('en', 'Soooo this is the texteelllee aet zaer Soooo this is the texteelllee aet zaerSoooo this is the texteelllee aet zaerSoooo this is the texteelllee aet zaer.')
+      new TranslatedText('en', 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
     ],
     slug: [
       new TranslatedText('en', 'single-variant-proposal')

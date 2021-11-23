@@ -30,6 +30,8 @@ export class ProposalService {
     const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy);
     const reAddedPercentage = reAddedGwh / Results.reGapTargetGwh * 100;
 
+    const totalCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
+
     this.results$.next(
       new Results({
         ghgReducedKt,
@@ -42,6 +44,7 @@ export class ProposalService {
         reAddedGwh,
         reAddedPercentage,
         renewableEnergyAddedColor: reAddedPercentage >= 100 ? 'accent' : 'warn',
+        totalCost,
       })
     )
   }

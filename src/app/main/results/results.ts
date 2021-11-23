@@ -30,6 +30,8 @@ export class Results {
   reAddedPercentage = 0;
 
   ghgTax = 0;
+
+  totalCost = 0;
 }
 
 /*

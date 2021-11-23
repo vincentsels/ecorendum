@@ -17,25 +17,28 @@ export class Proposal {
 }
 
 export enum PolicyLevel {
-  local,
-  provincial,
-  flemish,
-  walonian,
-  brussels,
-  federal,
+  unknown = 0,
+  local = 1,
+  provincial = 2,
+  flemish = 3,
+  walonian = 4,
+  brussels = 5,
+  federal = 6,
 }
 
 export enum Sector {
-  transport,
-  buildings,
-  agriculture,
-  industry,
-  wasteManagement,
-  general,
-  other
+  unknown = 0,
+  transport = 1,
+  buildings = 2,
+  agriculture = 3,
+  industry = 4,
+  wasteManagement = 5,
+  general = 6,
+  other = 7,
 }
 
 export const SectorMap = {
+  [Sector.unknown]: 'question_mark',
   [Sector.transport]: 'commute',
   [Sector.buildings]: 'location_city',
   [Sector.agriculture]: 'agriculture',
@@ -76,18 +79,19 @@ export class Target {
 }
 
 export enum TargetType {
+  none = 0,
   /**
    * CO2e-reduction in kilotons by target date.
    */
-  ghgReduction,
+  ghgReduction = 1,
   /**
    * Reduction of energy consumption in GWh by target date.
    */
-  energyEfficiency,
+  energyEfficiency = 2,
   /**
    * Increase in production of renewable energy in GWh by target date.
    */
-  renewableEnergy,
+  renewableEnergy = 3,
 }
 
 export class Impact {
@@ -98,22 +102,24 @@ export class Impact {
 }
 
 export enum ImpactDomain {
-  biodiversityLoss,
-  nitrogenPollution,
-  phosphorusPollution,
-  oceanAcidification,
-  luLuCf,
-  waterConsumption,
-  ozoneDepletion,
-  aerosols,
-  chemicalPollution,
-  redistributionLocal,
-  redistributionGlobal,
-  humanRightsLocal,
-  humanRightsGlobal,
+  unknown = 0,
+  biodiversityLoss = 1,
+  nitrogenPollution = 2,
+  phosphorusPollution = 3,
+  oceanAcidification = 4,
+  luLuCf = 5,
+  waterConsumption = 6,
+  ozoneDepletion = 7,
+  aerosols = 8,
+  chemicalPollution = 9,
+  redistributionLocal = 10,
+  redistributionGlobal = 11,
+  humanRightsLocal = 12,
+  humanRightsGlobal = 13,
 }
 
 export const ImpactDomainMap = {
+  [ImpactDomain.unknown]: 'question_mark',
   [ImpactDomain.biodiversityLoss]: 'grass',
   [ImpactDomain.nitrogenPollution]: 'cloud_queue',
   [ImpactDomain.phosphorusPollution]: 'cloud_queue',
@@ -130,6 +136,7 @@ export const ImpactDomainMap = {
 }
 
 export enum ImpactAmount {
+  unknown = 0,
   extremelyPositive = 1,
   veryPositive = 2,
   moderatelyPositive = 3,
@@ -142,6 +149,7 @@ export enum ImpactAmount {
 }
 
 export const ImpactAmountMap = {
+  [ImpactAmount.unknown]: 'impact-neutral',
   [ImpactAmount.extremelyPositive]: 'impact-extremely-positive',
   [ImpactAmount.veryPositive]: 'impact-very-positive',
   [ImpactAmount.moderatelyPositive]: 'impact-moderately-positive',
