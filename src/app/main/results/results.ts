@@ -15,6 +15,8 @@ export class Results {
   static eeGapTargetGwh = 20000; // Still to be calculated
   static reGapTargetGwh = 10000; // Still to be calculated
 
+  static pricePerKtGhg = 100000;
+
   ghgReducedKt = 0;
   energySavedGwh = 0;
   reAddedGwh = 0;
@@ -26,6 +28,8 @@ export class Results {
   ghgReductionPercentage = 0;
   energySavedPercentage = 0;
   renewableEnergyAddedPercentage = 0;
+
+  ghgTax = 0;
 }
 
 /*

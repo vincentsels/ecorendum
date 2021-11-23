@@ -50,7 +50,7 @@
         <div fxFlex="33%" *ngIf="selectedVariant.impacts && selectedVariant.impacts.length > 1">
           <h3>{{ 'Impact' | translate }}</h3>
           <span class="icon-list-item" *ngFor="let impact of selectedVariant.impacts">
-            <mat-icon class="inline icon-list-item" color="warn" matTooltip="{{ enums.ImpactDomain[impact.domain] | translate }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
+            <mat-icon class="inline icon-list-item" [class]="impact.getImpactAmountClass()" matTooltip="{{ enums.ImpactDomain[impact.domain] | translate }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
           </span>
         </div>
         <div fxFlex="33%" *ngIf="selectedVariant.targets && selectedVariant.targets.length > 1">

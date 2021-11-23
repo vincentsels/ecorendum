@@ -22,9 +22,9 @@ export const PROPOSALS: Proposal[] = [
           new TranslatedText('en', 'A basic target')
         ],
         impacts: [
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.veryNegative),
+          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 10000 })
@@ -39,7 +39,7 @@ export const PROPOSALS: Proposal[] = [
         ],
         impacts: [
           new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatNegative),
+          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.veryNegative),
         ],
         targets: [
@@ -54,9 +54,9 @@ export const PROPOSALS: Proposal[] = [
           new TranslatedText('en', 'A very ambitious target')
         ],
         impacts: [
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.veryNegative),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.veryNegative),
+          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.veryNegative),
+          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.extremelyNegative),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 40000 })
@@ -85,9 +85,9 @@ export const PROPOSALS: Proposal[] = [
           new TranslatedText('en', 'A basic target')
         ],
         impacts: [
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.veryNegative),
+          new Impact(ImpactDomain.luLuCf, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 15000 })
@@ -100,9 +100,9 @@ export const PROPOSALS: Proposal[] = [
           new TranslatedText('en', 'A more ambitious target')
         ],
         impacts: [
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.veryNegative),
+          new Impact(ImpactDomain.luLuCf, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.waterConsumption, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 25000 })
@@ -116,9 +116,9 @@ export const PROPOSALS: Proposal[] = [
           new TranslatedText('en', 'A very ambitious target')
         ],
         impacts: [
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.veryNegative),
+          new Impact(ImpactDomain.luLuCf, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.waterConsumption, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.veryPositive),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 30000 })
@@ -148,8 +148,7 @@ export const PROPOSALS: Proposal[] = [
         ],
         impacts: [
           new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.veryNegative),
+          new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 10000 })

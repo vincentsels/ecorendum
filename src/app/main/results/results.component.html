@@ -1,15 +1,24 @@
-<h4>{{ 'CO2 reduction by 2030' | translate }}</h4>
 <div *ngIf="results$ | async; let results">
   <div class="ghg-reduction">
+    <h3>{{ 'CO2 reduction by 2030' | translate }}</h3>
     <div class="numerical">
-      <span class="selected-reduction">{{ results.ghgReducedKt }}</span>
+      <span class="selected-reduction" [class]="'color-' + results.ghgReductionColor">{{ results.ghgReducedKt }}</span>
       /
-      <span class="required-reduction">{{ ghgGapCumulativeKt }}</span>
+      <span class="required-reduction">{{ ghgGapCumulativeKt }}</span> kt
     </div>
 
     <mat-progress-bar class="progress" mode="determinate"
       [color]="results.ghgReductionColor"
       [value]="results.ghgReductionPercentage">
     </mat-progress-bar>
+
+    <div *ngIf="results.ghgReductionPercentage < 100">
+      {{ 'Since the target reduction is not met, this amounts to a carbon tax of: ' }}
+      <span class="color-warn">€{{ results.ghgTax | number }}</span>
+    </div>
+
+    <div *ngIf="results.ghgReductionPercentage >= 100">
+      {{ 'Good job! Your selection of measures meets the European target' }}
+    </div>
   </div>
 </div>

@@ -44,6 +44,18 @@ $margin-default: 16px;
 $margin-small: 8px;
 $margin-inline: 4px;
 
+.color-primary {
+  color: mat.get-color-from-palette($ecorendum-primary) !important;
+}
+
+.color-accent {
+  color: mat.get-color-from-palette($ecorendum-accent) !important;
+}
+
+.color-warn {
+  color: mat.get-color-from-palette($ecorendum-warn) !important;
+}
+
 a {
   color: mat.get-color-from-palette($ecorendum-primary);
   text-decoration: none;

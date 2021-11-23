@@ -94,6 +94,7 @@ export class Impact {
   constructor(public domain: ImpactDomain, public amount: ImpactAmount) {}
 
   getImpactDomainIcon = () => ImpactDomainMap[this.domain];
+  getImpactAmountClass = () => ImpactAmountMap[this.amount];
 }
 
 export enum ImpactDomain {
@@ -138,6 +139,18 @@ export enum ImpactAmount {
   moderatelyNegative = 7,
   veryNegative = 8,
   extremelyNegative = 9,
+}
+
+export const ImpactAmountMap = {
+  [ImpactAmount.extremelyPositive]: 'impact-extremely-positive',
+  [ImpactAmount.veryPositive]: 'impact-very-positive',
+  [ImpactAmount.moderatelyPositive]: 'impact-moderately-positive',
+  [ImpactAmount.somewhatPositive]: 'impact-somewhat-positive',
+  [ImpactAmount.neutral]: 'impact-neutral',
+  [ImpactAmount.somewhatNegative]: 'impact-somewhat-negative',
+  [ImpactAmount.moderatelyNegative]: 'impact-moderately-negative',
+  [ImpactAmount.veryNegative]: 'impact-very-negative',
+  [ImpactAmount.extremelyNegative]: 'impact-extremely-negative',
 }
 
 export class TranslatedText {

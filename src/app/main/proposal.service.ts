@@ -12,6 +12,8 @@ export class ProposalService {
 
   constructor() {
     this.proposals = PROPOSALS;
+
+    this.updateResults();
   }
 
   updateResults() {
@@ -21,11 +23,14 @@ export class ProposalService {
     const ghgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction);
     const ghgReductionPercentage = ghgReducedKt / Results.ghgGapCumulativeKt * 100;
 
+    const ghgTax = (Results.ghgGapCumulativeKt - ghgReducedKt) * Results.pricePerKtGhg;
+
     this.results$.next(
       new Results({
         ghgReducedKt,
         ghgReductionPercentage,
         ghgReductionColor: ghgReductionPercentage >= 100 ? 'accent' : 'warn',
+        ghgTax,
       })
     )
   }
