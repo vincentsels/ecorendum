@@ -16,6 +16,7 @@ export class ProposalComponent implements OnChanges {
 
   selectedAmbitionLevel = 0;
   selectedVariant?: Variant;
+  variableCostPerYear?: any;
 
   ngOnChanges(changes: SimpleChanges) {
     // const proposal = changes.proposal;
@@ -48,6 +49,16 @@ export class ProposalComponent implements OnChanges {
     this.selectedVariant = variant;
     for (let notClickedVariant of this.proposal.variants.filter(v => v.ambitionLevel !== variant.ambitionLevel)) {
       notClickedVariant.selected = false;
+    }
+
+    if (variant.costPerYear) {
+      this.variableCostPerYear = [
+        {
+          name: 'Cost',
+          series: variant.costPerYear.map(cpy => ({ name: cpy.year.toString(), value: cpy.amount })),
+        }];
+    } else {
+      this.variableCostPerYear = undefined;
     }
 
     this.proposal.selected = this.proposal.variants.some(v => v.selected);

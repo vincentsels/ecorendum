@@ -16,8 +16,8 @@ export const PROPOSALS: Proposal[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 1000000,
-        costPerYear: { 2022: 1000000, 2023: 1000000, 2024: 500000 },
+        initialCost: 1000000,
+        costPerYear: [ { year: 2022, amount: 1000000 }, { year: 2023, amount: 1000000 }, { year: 2024, amount: 500000 } ],
         description: [
           new TranslatedText('en', 'A basic target')
         ],
@@ -32,8 +32,8 @@ export const PROPOSALS: Proposal[] = [
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: 2000000,
-        costPerYear: { 2022: 2000000, 2023: 2000000, 2024: 800000 },
+        initialCost: 2000000,
+        costPerYear: [ { year: 2022, amount: 3000000 }, { year: 2023, amount: 2000000 }, { year: 2024, amount: 800000 } ],
         description: [
           new TranslatedText('en', 'A more ambitious target')
         ],
@@ -48,8 +48,8 @@ export const PROPOSALS: Proposal[] = [
       }),
       new Variant({
         ambitionLevel: 3,
-        costInitial: 3000000,
-        costPerYear: { 2022: 3000000, 2023: 3000000, 2024: 800000 },
+        initialCost: 3000000,
+        costPerYear: [ { year: 2022, amount: 3000000 }, { year: 2023, amount: 3000000 }, { year: 2024, amount: 800000 } ],
         description: [
           new TranslatedText('en', 'A very ambitious target')
         ],
@@ -79,8 +79,8 @@ export const PROPOSALS: Proposal[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 0,
-        costPerYear: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
+        initialCost: 0,
+        costPerYear: [ { year: 2022, amount: 2000000 }, { year: 2023, amount: 3000000 }, { year: 2024, amount: 2000000 }, { year: 2025, amount: 2000000 }, { year: 2026, amount: 2000000 } ],
         description: [
           new TranslatedText('en', 'A basic target')
         ],
@@ -95,7 +95,7 @@ export const PROPOSALS: Proposal[] = [
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: 15000000,
+        initialCost: 15000000,
         description: [
           new TranslatedText('en', 'A more ambitious target')
         ],
@@ -110,8 +110,8 @@ export const PROPOSALS: Proposal[] = [
       }),
       new Variant({
         ambitionLevel: 3,
-        costInitial: 20000000,
-        costPerYear: { 2022: 3000000, 2023: 3000000, 2024: 800000 },
+        initialCost: 20000000,
+        costPerYear: [ { year: 2022, amount: 3000000 }, { year: 2023, amount: 3000000 }, { year: 2024, amount: 800000 } ],
         description: [
           new TranslatedText('en', 'A very ambitious target')
         ],
@@ -141,8 +141,8 @@ export const PROPOSALS: Proposal[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 20000000,
-        costPerYear: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
+        initialCost: 20000000,
+        costPerYear: [ { year: 2022, amount: 2000000 }, { year: 2023, amount: 3000000 }, { year: 2024, amount: 4000000 } ],
         description: [
           new TranslatedText('en', 'The only target')
         ],

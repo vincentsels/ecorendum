@@ -53,14 +53,15 @@ export class Variant {
   ambitionLevel: number = 1;
   description: TranslatedText[] = [];
   targets: Target[] = [];
-  costInitial: number = 0;
-  costPerYear?: { [year: number]: number } | number;
+  initialCost: number = 0;
+  fixedYearlyCost: number = 0;
+  costPerYear?: { year: number, amount: number }[];
   impacts: Impact[] = [];
 
   selected: boolean = false;
 
   getTargetAmount = (type: TargetType) => this.targets.find(t => t.type === type)?.amount;
-  getTotalCost = () => this.costInitial + (Object.values(this.costPerYear || {}).reduce((a, b) => a + b, 0) || 0);
+  getTotalCost = () => this.initialCost + (this.fixedYearlyCost * 9) + (this.costPerYear || []).reduce((a, b) => a + b.amount, 0);
 }
 
 export class Target {

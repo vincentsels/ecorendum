@@ -24,6 +24,7 @@ import { TranslateTextPipe } from './common/translate-text.pipe';
 import { TranslateTextAsyncPipe } from './common/translate-text-async.pipe';
 import { EnumsService } from './common/enums.service';
 import { ResultsComponent } from './main/results/results.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
+    NgxChartsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

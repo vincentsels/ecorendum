@@ -42,8 +42,13 @@
       costPerYear?: { [year: number]: number } | number;
       impacts: Impact[] = []; -->
       <h3>{{ 'Cost' | translate }}</h3>
-      <p>{{ 'Initial cost' | translate }}: €{{ selectedVariant.costInitial }}</p>
-
+      <p>{{ 'Initial cost' | translate }}: €{{ selectedVariant.initialCost }}</p>
+      <p *ngIf="selectedVariant.fixedYearlyCost">{{ 'Fixed yearly cost' | translate }}: €{{ selectedVariant.fixedYearlyCost }}</p>
+      <div style="width: 300px; height: 300px;">
+        <ngx-charts-line-chart *ngIf="variableCostPerYear" [results]="variableCostPerYear" [view]="[300, 300]" [timeline]="true"
+          [xAxis]="true" [yAxis]="true">
+        </ngx-charts-line-chart>
+      </div>
 
     </div>
 
