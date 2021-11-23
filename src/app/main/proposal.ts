@@ -12,12 +12,16 @@ export class Proposal {
   sector?: Sector;
 
   selected: boolean = false;
+
+  getSectorIcon = () => SectorMap[this.sector || Sector.other]
 }
 
 export enum PolicyLevel {
   local,
   provincial,
-  regional,
+  flemish,
+  walonian,
+  brussels,
   federal,
 }
 
@@ -29,6 +33,16 @@ export enum Sector {
   wasteManagement,
   general,
   other
+}
+
+export const SectorMap = {
+  [Sector.transport]: 'commute',
+  [Sector.buildings]: 'location_city',
+  [Sector.agriculture]: 'agriculture',
+  [Sector.industry]: 'factory',
+  [Sector.wasteManagement]: 'delete',
+  [Sector.general]: 'open_with',
+  [Sector.other]: 'open_with',
 }
 
 export class Variant {

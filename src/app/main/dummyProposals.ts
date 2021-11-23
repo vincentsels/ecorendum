@@ -11,8 +11,8 @@ export const PROPOSALS: Proposal[] = [
     slug: [
       new TranslatedText('en', 'test-proposal')
     ],
-    policyLevel: PolicyLevel.regional,
-    sector: Sector.transport,
+    policyLevel: PolicyLevel.flemish,
+    sector: Sector.industry,
     variants: [
       new Variant({
         ambitionLevel: 1,
@@ -136,7 +136,7 @@ export const PROPOSALS: Proposal[] = [
     slug: [
       new TranslatedText('en', 'single-variant-proposal')
     ],
-    policyLevel: PolicyLevel.regional,
+    policyLevel: PolicyLevel.flemish,
     sector: Sector.buildings,
     variants: [
       new Variant({

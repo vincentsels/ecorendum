@@ -1,0 +1,30 @@
+.proposal {
+  margin-bottom: 24px;
+}
+
+mat-button-toggle-group.variants {
+  height: unset;
+  flex-wrap: wrap;
+}
+
+.ambition-level {
+  display: flex;
+  flex-direction: row;
+  padding: 6px;
+}
+
+.ambition-level-title {
+  font-size: 300%;
+}
+
+.ambition-level-body {
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: normal;
+}
+
+.variant-body {
+  margin-top: 12px;
+}

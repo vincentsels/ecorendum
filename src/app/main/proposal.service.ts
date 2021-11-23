@@ -25,7 +25,7 @@ export class ProposalService {
       new Results({
         ghgReducedKt,
         ghgReductionPercentage,
-        ghgReductionColor: ghgReductionPercentage >= 100 ? 'primary' : 'warn',
+        ghgReductionColor: ghgReductionPercentage >= 100 ? 'accent' : 'warn',
       })
     )
   }
