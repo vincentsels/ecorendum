@@ -3,5 +3,48 @@
 
   "en": "English",
   "fr": "Français",
-  "nl": "Nederlands"
+  "nl": "Nederlands",
+
+  "local": "Local",
+  "provincial": "Provincial",
+  "flemish": "Flemish",
+  "walonian": "Walonian",
+  "brussels": "Brussels",
+  "federal": "Federal",
+
+  "transport": "Transport",
+  "buildings": "Buildings",
+  "agriculture": "Agriculture",
+  "industry": "Industry",
+  "wasteManagement": "Waste management",
+  "general": "General",
+  "other": "Other",
+
+  "ghgReduction": "Greenhouse gas reduction",
+  "energyEfficiency": "Energy efficiency",
+  "renewableEnergy": "Renewable energy",
+
+  "biodiversityLoss": "Biodiversity loss",
+  "nitrogenPollution": "Nitrogen pollution",
+  "phosphorusPollution": "Phosphorus pollution",
+  "oceanAcidification": "Ocean acidification",
+  "luLuCf": "LULUCF",
+  "waterConsumption": "Water consumption",
+  "ozoneDepletion": "Ozone depletion",
+  "aerosols": "Aerosols",
+  "chemicalPollution": "Chemical pollution",
+  "redistributionLocal": "Redistribution local",
+  "redistributionGlobal": "Redistribution global",
+  "humanRightsLocal": "Human rights local",
+  "humanRightsGlobal": "Human rights global",
+
+  "extremelyPositive": "Extremely positive",
+  "veryPositive": "Very positive",
+  "moderatelyPositive": "Moderately positive",
+  "somewhatPositive": "Somewhat positive",
+  "neutral": "Neutral",
+  "somewhatNegative": "Somewhat negative",
+  "moderatelyNegative": "Moderately negative",
+  "veryNegative": "Very negative",
+  "extremelyNegative": "Extremely negative"
 }

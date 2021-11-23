@@ -17,7 +17,7 @@ export const PROPOSALS: Proposal[] = [
       new Variant({
         ambitionLevel: 1,
         costInitial: 1000000,
-        costPerYearVariable: { 2022: 1000000, 2023: 1000000, 2024: 500000 },
+        costPerYearFixed: 600000,
         description: [
           new TranslatedText('en', 'A basic target')
         ],
@@ -27,13 +27,14 @@ export const PROPOSALS: Proposal[] = [
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 10000 })
+          new Target({ type: TargetType.ghgReduction, amount: 10000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 5000 }),
         ]
       }),
       new Variant({
         ambitionLevel: 2,
         costInitial: 2000000,
-        costPerYearVariable: { 2022: 2000000, 2023: 2000000, 2024: 800000 },
+        costPerYearFixed: 800000,
         description: [
           new TranslatedText('en', 'A more ambitious target')
         ],
@@ -43,13 +44,14 @@ export const PROPOSALS: Proposal[] = [
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.veryNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 25000 })
+          new Target({ type: TargetType.ghgReduction, amount: 25000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 10000 }),
         ]
       }),
       new Variant({
         ambitionLevel: 3,
         costInitial: 3000000,
-        costPerYearVariable: { 2022: 3000000, 2023: 3000000, 2024: 800000 },
+        costPerYearFixed: 1000000,
         description: [
           new TranslatedText('en', 'A very ambitious target')
         ],
@@ -59,7 +61,8 @@ export const PROPOSALS: Proposal[] = [
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.extremelyNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 40000 })
+          new Target({ type: TargetType.ghgReduction, amount: 40000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 15000 }),
         ]
       })
     ]
@@ -90,7 +93,9 @@ export const PROPOSALS: Proposal[] = [
           new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 15000 })
+          new Target({ type: TargetType.ghgReduction, amount: 15000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 5000 }),
+          new Target({ type: TargetType.renewableEnergy, amount: 5000 }),
         ]
       }),
       new Variant({
@@ -105,7 +110,9 @@ export const PROPOSALS: Proposal[] = [
           new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 25000 })
+          new Target({ type: TargetType.ghgReduction, amount: 25000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 10000 }),
+          new Target({ type: TargetType.renewableEnergy, amount: 10000 }),
         ]
       }),
       new Variant({
@@ -121,7 +128,9 @@ export const PROPOSALS: Proposal[] = [
           new Impact(ImpactDomain.aerosols, ImpactAmount.veryPositive),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 30000 })
+          new Target({ type: TargetType.ghgReduction, amount: 30000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 15000 }),
+          new Target({ type: TargetType.renewableEnergy, amount: 15000 }),
         ]
       })
     ]
@@ -151,7 +160,8 @@ export const PROPOSALS: Proposal[] = [
           new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 10000 })
+          new Target({ type: TargetType.ghgReduction, amount: 10000 }),
+          new Target({ type: TargetType.renewableEnergy, amount: 5000 }),
         ]
       }),
     ]

@@ -27,7 +27,7 @@ export class Results {
 
   ghgReductionPercentage = 0;
   energySavedPercentage = 0;
-  renewableEnergyAddedPercentage = 0;
+  reAddedPercentage = 0;
 
   ghgTax = 0;
 }

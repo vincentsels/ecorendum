@@ -22,8 +22,13 @@ export class ProposalService {
 
     const ghgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction);
     const ghgReductionPercentage = ghgReducedKt / Results.ghgGapCumulativeKt * 100;
-
     const ghgTax = (Results.ghgGapCumulativeKt - ghgReducedKt) * Results.pricePerKtGhg;
+
+    const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency);
+    const energySavedPercentage = energySavedGwh / Results.eeGapTargetGwh * 100;
+
+    const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy);
+    const reAddedPercentage = reAddedGwh / Results.reGapTargetGwh * 100;
 
     this.results$.next(
       new Results({
@@ -31,6 +36,12 @@ export class ProposalService {
         ghgReductionPercentage,
         ghgReductionColor: ghgReductionPercentage >= 100 ? 'accent' : 'warn',
         ghgTax,
+        energySavedColor: energySavedPercentage >= 100 ? 'accent' : 'warn',
+        energySavedGwh,
+        energySavedPercentage,
+        reAddedGwh,
+        reAddedPercentage,
+        renewableEnergyAddedColor: reAddedPercentage >= 100 ? 'accent' : 'warn',
       })
     )
   }

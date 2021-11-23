@@ -21,10 +21,10 @@
         <div class="ambition-level-body">
           <span class="ambition-level-body-icons">
             <span class="ambition-level-reduction">
-              <mat-icon class="inline">cloud_download</mat-icon> {{ variant.getTargetAmount(enums.TargetType.ghgReduction) }}kt
+              <mat-icon class="inline">cloud_download</mat-icon> {{ variant.getTargetAmount(enums.TargetType.ghgReduction) | number }}kt
             </span>
             <span class="ambition-level-cost" fxHide.lt-lg>
-              <mat-icon class="inline" style="margin-left: 12px">euro</mat-icon> {{ variant.getTotalCost() }}
+              <mat-icon class="inline" style="margin-left: 12px">euro</mat-icon> {{ variant.getTotalCost() | number }}
             </span>
           </span>
           <span class="ambition-level-body-text" fxHide.lt-lg>{{ variant.description | translateText }}</span>
@@ -42,19 +42,30 @@
       costPerYear?: { [year: number]: number } | number;
       impacts: Impact[] = []; -->
       <div fxLayout fxLayoutGap="12px">
-        <div fxFlex="33%">
+        <div fxFlex="40%">
           <h3>{{ 'Cost' | translate }}</h3>
-          <p>{{ 'Initial cost' | translate }}: €{{ selectedVariant.costInitial }}</p>
-          <p *ngIf="selectedVariant.costPerYearFixed">{{ 'Yearly cost' | translate }}: €{{ selectedVariant.costPerYearFixed }}</p>
+          <div>{{ 'Initial cost' | translate }}: €{{ selectedVariant.costInitial | number }}</div>
+          <div *ngIf="selectedVariant.costPerYearFixed">{{ 'Yearly cost' | translate }}: €{{ selectedVariant.costPerYearFixed | number }}</div>
+          <div><label>{{ 'Total cost' | translate }}: €{{ selectedVariant.getTotalCost() | number }}</label></div>
         </div>
-        <div fxFlex="33%" *ngIf="selectedVariant.impacts && selectedVariant.impacts.length > 1">
-          <h3>{{ 'Impact' | translate }}</h3>
-          <span class="icon-list-item" *ngFor="let impact of selectedVariant.impacts">
-            <mat-icon class="inline icon-list-item" [class]="impact.getImpactAmountClass()" matTooltip="{{ enums.ImpactDomain[impact.domain] | translate }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
-          </span>
-        </div>
-        <div fxFlex="33%" *ngIf="selectedVariant.targets && selectedVariant.targets.length > 1">
+        <div fxFlex="20%">
           <h3>{{ 'Targets' | translate }}</h3>
+          <div *ngIf="selectedVariant.getTargetAmount(enums.TargetType.ghgReduction); let amount;">
+            <mat-icon class="inline">cloud_download</mat-icon> {{ amount | number }}kt
+          </div>
+          <div *ngIf="selectedVariant.getTargetAmount(enums.TargetType.energyEfficiency); let amount;">
+            <mat-icon class="inline">savings</mat-icon> {{ amount | number }}GWh
+          </div>
+          <div *ngIf="selectedVariant.getTargetAmount(enums.TargetType.renewableEnergy); let amount;">
+            <mat-icon class="inline">wb_sunny</mat-icon> {{ amount | number }}GWh
+          </div>
+        </div>
+        <div fxFlex="40%" *ngIf="selectedVariant.impacts && selectedVariant.impacts.length > 1">
+          <h3>{{ 'Impact' | translate }}</h3>
+          <div *ngFor="let impact of selectedVariant.impacts">
+            <mat-icon class="inline icon-list-item" [class]="impact.getImpactAmountClass()" matTooltip="{{ enums.ImpactDomain[impact.domain] | translate }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
+            {{ enums.ImpactDomain[impact.domain] | translate }}: {{ enums.ImpactAmount[impact.amount] | translate }}
+          </div>
         </div>
       </div>
 
