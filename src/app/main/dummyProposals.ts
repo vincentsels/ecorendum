@@ -164,8 +164,8 @@ export const PROPOSALS: Proposal[] = [
           new TranslatedText('en', 'The only target')
         ],
         impacts: [
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
           new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 10000 }),

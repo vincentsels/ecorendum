@@ -21,7 +21,7 @@
         <div class="ambition-level-body">
           <span class="ambition-level-body-icons">
             <span class="ambition-level-reduction">
-              <mat-icon class="inline">cloud_download</mat-icon> {{ variant.getTargetAmount(enums.TargetType.ghgReduction) | number }}kt
+              <mat-icon class="inline">cloud_download</mat-icon> {{ variant.getTargetAmount(enums.TargetType.ghgReduction) | number }} kt
             </span>
             <span class="ambition-level-cost" fxHide.lt-lg>
               <mat-icon class="inline" style="margin-left: 12px">euro</mat-icon> {{ variant.getTotalCost() | number }}
@@ -51,13 +51,13 @@
         <div fxFlex="20%">
           <h3>{{ 'Targets' | translate }}</h3>
           <div *ngIf="selectedVariant.getTargetAmount(enums.TargetType.ghgReduction); let amount;">
-            <mat-icon class="inline">cloud_download</mat-icon> {{ amount | number }}kt
+            <mat-icon class="inline">cloud_download</mat-icon> {{ amount | number }} kt
           </div>
           <div *ngIf="selectedVariant.getTargetAmount(enums.TargetType.energyEfficiency); let amount;">
-            <mat-icon class="inline">savings</mat-icon> {{ amount | number }}GWh
+            <mat-icon class="inline">savings</mat-icon> {{ amount | number }} GWh
           </div>
           <div *ngIf="selectedVariant.getTargetAmount(enums.TargetType.renewableEnergy); let amount;">
-            <mat-icon class="inline">wb_sunny</mat-icon> {{ amount | number }}GWh
+            <mat-icon class="inline">wb_sunny</mat-icon> {{ amount | number }} GWh
           </div>
         </div>
         <div fxFlex="40%" *ngIf="selectedVariant.impacts && selectedVariant.impacts.length > 1">
