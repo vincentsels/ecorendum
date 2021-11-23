@@ -1,10 +1,10 @@
 <div *ngIf="results$ | async; let results">
-  <div class="ghg-reduction">
-    <h3>{{ 'CO2 reduction by 2030' | translate }}</h3>
+  <mat-card class="result-section">
+    <h2><mat-icon class="inline">cloud_download</mat-icon> {{ 'CO2 reduction by 2030' | translate }}</h2>
     <div class="numerical">
-      <span class="selected-reduction" [class]="'color-' + results.ghgReductionColor">{{ results.ghgReducedKt }}</span>
+      <span class="amount-selected" [class]="'color-' + results.ghgReductionColor">{{ results.ghgReducedKt }}</span>
       /
-      <span class="required-reduction">{{ ghgGapCumulativeKt }}</span> kt
+      <span class="amount-required">{{ ghgGapCumulativeKt }}</span> kt
     </div>
 
     <mat-progress-bar class="progress" mode="determinate"
@@ -18,7 +18,51 @@
     </div>
 
     <div *ngIf="results.ghgReductionPercentage >= 100">
+      {{ 'Good job! Your selection of measures meets the European target.' }}
+    </div>
+  </mat-card>
+
+  <mat-card class="result-section">
+    <h2><mat-icon class="inline">savings</mat-icon> {{ 'Improved energy efficiency by 2030' | translate }}</h2>
+    <div class="numerical">
+      <span class="amount-selected" [class]="'color-' + results.energySavedColor">{{ results.energySavedGwh }}</span>
+      /
+      <span class="amount-required">{{ eeGapTargetGwh }}</span> GWh
+    </div>
+
+    <mat-progress-bar class="progress" mode="determinate"
+      [color]="results.energySavedColor"
+      [value]="results.energySavedPercentage">
+    </mat-progress-bar>
+
+    <div *ngIf="results.energySavedPercentage < 100">
+      {{ 'Your selection of measures is not enough to meet the European target. Try selecting more.' }}
+    </div>
+
+    <div *ngIf="results.energySavedPercentage >= 100">
       {{ 'Good job! Your selection of measures meets the European target' }}
     </div>
-  </div>
+  </mat-card>
+
+  <mat-card class="result-section">
+    <h2><mat-icon class="inline">wb_sunny</mat-icon> {{ 'Renewable energy added by 2030' | translate }}</h2>
+    <div class="numerical">
+      <span class="amount-selected" [class]="'color-' + results.renewableEnergyAddedColor">{{ results.reAddedGwh }}</span>
+      /
+      <span class="amount-required">{{ eeGapTargetGwh }}</span> GWh
+    </div>
+
+    <mat-progress-bar class="progress" mode="determinate"
+      [color]="results.renewableEnergyAddedColor"
+      [value]="results.renewableEnergyAddedPercentage">
+    </mat-progress-bar>
+
+    <div *ngIf="results.renewableEnergyAddedPercentage < 100">
+      {{ 'Your selection of measures is not enough to meet the European target. Try selecting more.' }}
+    </div>
+
+    <div *ngIf="results.renewableEnergyAddedPercentage >= 100">
+      {{ 'Good job! Your selection of measures meets the European target' }}
+    </div>
+  </mat-card>
 </div>

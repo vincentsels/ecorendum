@@ -13,6 +13,8 @@ export class ResultsComponent {
   results$: Observable<Results>;
 
   ghgGapCumulativeKt = Results.ghgGapCumulativeKt;
+  reGapTargetGwh = Results.reGapTargetGwh;
+  eeGapTargetGwh = Results.eeGapTargetGwh;
 
   constructor(service: ProposalService) {
     this.results$ = service.results$;
