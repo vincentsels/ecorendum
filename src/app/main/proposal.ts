@@ -13,7 +13,7 @@ export class Proposal {
 
   selected: boolean = false;
 
-  getSectorIcon = () => SectorMap[this.sector || Sector.other]
+  getSectorIcon = () => SectorMap[this.sector || Sector.other];
 }
 
 export enum PolicyLevel {
@@ -54,13 +54,15 @@ export class Variant {
   description: TranslatedText[] = [];
   targets: Target[] = [];
   costInitial: number = 0;
-  costPerYear?: { [year: number]: number } | number;
+  costPerYearFixed: number = 0;
+  costPerYearVariable?: { [year: number]: number };
   impacts: Impact[] = [];
 
   selected: boolean = false;
 
   getTargetAmount = (type: TargetType) => this.targets.find(t => t.type === type)?.amount;
-  getTotalCost = () => this.costInitial + (Object.values(this.costPerYear || {}).reduce((a, b) => a + b, 0) || 0);
+  getTotalCost = () => this.costInitial + (this.costPerYearFixed * 9) +
+    (Object.values(this.costPerYearVariable || {}).reduce((a, b) => a + b, 0) || 0);
 }
 
 export class Target {
@@ -90,6 +92,8 @@ export enum TargetType {
 
 export class Impact {
   constructor(public domain: ImpactDomain, public amount: ImpactAmount) {}
+
+  getImpactDomainIcon = () => ImpactDomainMap[this.domain];
 }
 
 export enum ImpactDomain {
@@ -106,6 +110,22 @@ export enum ImpactDomain {
   redistributionGlobal,
   humanRightsLocal,
   humanRightsGlobal,
+}
+
+export const ImpactDomainMap = {
+  [ImpactDomain.biodiversityLoss]: 'grass',
+  [ImpactDomain.nitrogenPollution]: 'cloud_queue',
+  [ImpactDomain.phosphorusPollution]: 'cloud_queue',
+  [ImpactDomain.oceanAcidification]: 'waves',
+  [ImpactDomain.luLuCf]: 'forest',
+  [ImpactDomain.waterConsumption]: 'water_drop',
+  [ImpactDomain.ozoneDepletion]: 'public',
+  [ImpactDomain.aerosols]: 'ac_unit',
+  [ImpactDomain.chemicalPollution]: 'science',
+  [ImpactDomain.redistributionLocal]: 'payments',
+  [ImpactDomain.redistributionGlobal]: 'payments',
+  [ImpactDomain.humanRightsLocal]: 'volunteer_activism',
+  [ImpactDomain.humanRightsGlobal]: 'volunteer_activism',
 }
 
 export enum ImpactAmount {

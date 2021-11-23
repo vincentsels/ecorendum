@@ -41,9 +41,22 @@
       costInitial: number = 0;
       costPerYear?: { [year: number]: number } | number;
       impacts: Impact[] = []; -->
-      <h3>{{ 'Cost' | translate }}</h3>
-      <p>{{ 'Initial cost' | translate }}: €{{ selectedVariant.costInitial }}</p>
-
+      <div fxLayout fxLayoutGap="12px">
+        <div fxFlex="33%">
+          <h3>{{ 'Cost' | translate }}</h3>
+          <p>{{ 'Initial cost' | translate }}: €{{ selectedVariant.costInitial }}</p>
+          <p *ngIf="selectedVariant.costPerYearFixed">{{ 'Yearly cost' | translate }}: €{{ selectedVariant.costPerYearFixed }}</p>
+        </div>
+        <div fxFlex="33%" *ngIf="selectedVariant.impacts && selectedVariant.impacts.length > 1">
+          <h3>{{ 'Impact' | translate }}</h3>
+          <span class="icon-list-item" *ngFor="let impact of selectedVariant.impacts">
+            <mat-icon class="inline icon-list-item" color="warn" matTooltip="{{ enums.ImpactDomain[impact.domain] | translate }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
+          </span>
+        </div>
+        <div fxFlex="33%" *ngIf="selectedVariant.targets && selectedVariant.targets.length > 1">
+          <h3>{{ 'Targets' | translate }}</h3>
+        </div>
+      </div>
 
     </div>
 

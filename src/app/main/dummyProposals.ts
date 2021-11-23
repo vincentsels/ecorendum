@@ -17,7 +17,7 @@ export const PROPOSALS: Proposal[] = [
       new Variant({
         ambitionLevel: 1,
         costInitial: 1000000,
-        costPerYear: { 2022: 1000000, 2023: 1000000, 2024: 500000 },
+        costPerYearVariable: { 2022: 1000000, 2023: 1000000, 2024: 500000 },
         description: [
           new TranslatedText('en', 'A basic target')
         ],
@@ -33,7 +33,7 @@ export const PROPOSALS: Proposal[] = [
       new Variant({
         ambitionLevel: 2,
         costInitial: 2000000,
-        costPerYear: { 2022: 2000000, 2023: 2000000, 2024: 800000 },
+        costPerYearVariable: { 2022: 2000000, 2023: 2000000, 2024: 800000 },
         description: [
           new TranslatedText('en', 'A more ambitious target')
         ],
@@ -49,7 +49,7 @@ export const PROPOSALS: Proposal[] = [
       new Variant({
         ambitionLevel: 3,
         costInitial: 3000000,
-        costPerYear: { 2022: 3000000, 2023: 3000000, 2024: 800000 },
+        costPerYearVariable: { 2022: 3000000, 2023: 3000000, 2024: 800000 },
         description: [
           new TranslatedText('en', 'A very ambitious target')
         ],
@@ -80,7 +80,7 @@ export const PROPOSALS: Proposal[] = [
       new Variant({
         ambitionLevel: 1,
         costInitial: 0,
-        costPerYear: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
+        costPerYearVariable: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
         description: [
           new TranslatedText('en', 'A basic target')
         ],
@@ -111,7 +111,7 @@ export const PROPOSALS: Proposal[] = [
       new Variant({
         ambitionLevel: 3,
         costInitial: 20000000,
-        costPerYear: { 2022: 3000000, 2023: 3000000, 2024: 800000 },
+        costPerYearVariable: { 2022: 3000000, 2023: 3000000, 2024: 800000 },
         description: [
           new TranslatedText('en', 'A very ambitious target')
         ],
@@ -142,7 +142,7 @@ export const PROPOSALS: Proposal[] = [
       new Variant({
         ambitionLevel: 1,
         costInitial: 20000000,
-        costPerYear: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
+        costPerYearVariable: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
         description: [
           new TranslatedText('en', 'The only target')
         ],
