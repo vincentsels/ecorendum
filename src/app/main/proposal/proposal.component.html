@@ -5,6 +5,15 @@
       <mat-icon *ngIf="proposal.sector" matTooltip="{{ enums.Sector[proposal.sector] | translate }}">
         {{ proposal.getSectorIcon() }}
       </mat-icon>
+      <mat-icon *ngIf="proposal.policyLevel === enums.PolicyLevel.federal" matTooltip="{{ 'federal' | translate }}"
+        svgIcon="belgium">
+      </mat-icon>
+      <mat-icon *ngIf="proposal.policyLevel === enums.PolicyLevel.flemish" matTooltip="{{ 'flemish' | translate }}"
+        svgIcon="flanders">
+      </mat-icon>
+      <mat-icon *ngIf="proposal.policyLevel === enums.PolicyLevel.wallonian" matTooltip="{{ 'wallonian' | translate }}"
+        svgIcon="wallonia">
+      </mat-icon>
     </span>
   </mat-card-title>
   <p>{{ proposal.summary | translateText }}</p>

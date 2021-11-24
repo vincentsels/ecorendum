@@ -13,8 +13,8 @@
     </mat-progress-bar>
 
     <div *ngIf="results.ghgReductionPercentage < 100">
-      {{ 'Since the target reduction is not met, this amounts to a carbon tax of: ' }}
-      <span class="color-warn">€ {{ results.ghgTax | number }}</span>
+      {{ 'Since the target reduction is not met, this amounts to a carbon tax of ' }}
+      <span class="color-warn">€ {{ results.ghgTax | number }}</span>.
     </div>
 
     <div *ngIf="results.ghgReductionPercentage >= 100">

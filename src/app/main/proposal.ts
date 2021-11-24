@@ -21,7 +21,7 @@ export enum PolicyLevel {
   local = 1,
   provincial = 2,
   flemish = 3,
-  walonian = 4,
+  wallonian = 4,
   brussels = 5,
   federal = 6,
 }
