@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { CommonDialogService } from './dialog.component';
 
 @Component({
   selector: 'app-help-widget',
   template:
 `
-&nbsp;<span [class.dialog]="dialogKey" [matTooltip]="tooltipKey | translate">{{ textKey }}<mat-icon>contact_support</mat-icon></span>
+&nbsp;<span [class.dialog]="dialogKey" [matTooltip]="tooltipKey | translate" (click)="openDialog()">{{ textKey }}<mat-icon>contact_support</mat-icon></span>
 `,
   styles: [
 `mat-icon {
@@ -34,7 +36,17 @@ span:hover {
   ]
 })
 export class HelpWidgetComponent {
-  @Input() textKey: string = '';
+  constructor(private dialogService: CommonDialogService, private translate: TranslateService) {}
+
+  @Input() textKey?: string;
   @Input() tooltipKey: string = '';
-  @Input() dialogKey: string = '';
+  @Input() dialogKey?: string;
+
+  openDialog() {
+    if (this.dialogKey) {
+      this.dialogService.show(
+        this.textKey ? this.translate.instant(this.textKey) : undefined,
+        this.translate.instant(this.dialogKey));
+    }
+  }
 }

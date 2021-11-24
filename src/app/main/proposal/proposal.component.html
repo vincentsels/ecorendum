@@ -1,5 +1,5 @@
 <mat-card *ngIf="proposal" class="proposal">
-  <mat-card-title>
+  <h2>
     {{ proposal.title | translateText }}
     <span class="pull-right proposal-icons">
       <mat-icon *ngIf="proposal.sector" matTooltip="{{ enums.Sector[proposal.sector] | translate }}">
@@ -15,13 +15,14 @@
         svgIcon="wallonia">
       </mat-icon>
     </span>
-  </mat-card-title>
+  </h2>
   <p>{{ proposal.summary | translateText }}</p>
 
   <mat-button-toggle-group class="variants" appearance="legacy" name="variant" [(ngModel)]="selectedAmbitionLevel">
     <mat-button-toggle [value]="0" (click)="clearVariant()">
       <div class="ambition-level">
-        <div class="ambition-level-title">X</div>
+        <div class="ambition-level-title" fxHide.lt-sm>X</div>
+        <div fxHide.gt-xs>{{ 'None' | translate }}</div>
       </div>
     </mat-button-toggle>
     <mat-button-toggle *ngFor="let variant of proposal.variants" [value]="variant.ambitionLevel" (click)="updateSelected(variant)">
@@ -67,7 +68,7 @@
           <h3>{{ 'Impact' | translate }}</h3>
           <div *ngFor="let impact of selectedVariant.impacts">
             <mat-icon class="inline icon-list-item" [class]="impact.getImpactAmountClass()" matTooltip="{{ enums.ImpactDomain[impact.domain] | translate }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
-            {{ enums.ImpactDomain[impact.domain] | translate }}: {{ enums.ImpactAmount[impact.amount] | translate }}
+            {{ enums.ImpactDomain[impact.domain] | translate }}<span fxHide.lt-md>: {{ enums.ImpactAmount[impact.amount] | translate }}</span>
           </div>
         </div>
       </div>

@@ -25,6 +25,7 @@ import { TranslateTextAsyncPipe } from './common/translate-text-async.pipe';
 import { EnumsService } from './common/enums.service';
 import { ResultsComponent } from './main/results/results.component';
 import { HelpWidgetComponent } from './common/help-widget.component';
+import { CommonDialogComponent, CommonDialogService } from './common/dialog.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -44,6 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateTextAsyncPipe,
     ResultsComponent,
     HelpWidgetComponent,
+    CommonDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +69,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatSnackbarErrorHandler,
     ProposalService,
     EnumsService,
+    CommonDialogService,
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 10000 } },
     { provide: ErrorHandler, useClass: MatSnackbarErrorHandler, deps: [MatSnackBar, NgZone] },
   ],
