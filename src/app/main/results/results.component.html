@@ -1,6 +1,8 @@
 <div *ngIf="results$ | async; let results">
   <mat-card class="result-section">
-    <h2><mat-icon class="inline">cloud_download</mat-icon> {{ 'CO2 reduction by 2030' | translate }}</h2>
+    <h2>
+      <mat-icon class="inline">cloud_download</mat-icon><app-help-widget tooltipKey="helpCo2reductionTarget" textKey="CO2 reduction" dialogKey="helpDialogCo2reductionTarget"></app-help-widget> {{ 'by 2030' }}
+    </h2>
     <div class="numerical">
       <span class="amount-selected" [class]="'color-' + results.ghgReductionColor">{{ results.ghgReducedKt | number }}</span>
       /

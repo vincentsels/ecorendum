@@ -46,5 +46,7 @@
   "somewhatNegative": "Somewhat negative",
   "moderatelyNegative": "Moderately negative",
   "veryNegative": "Very negative",
-  "extremelyNegative": "Extremely negative"
+  "extremelyNegative": "Extremely negative",
+
+  "helpCo2reductionTarget": "The amount of greenhouse gass emissions that we need to reduce according to European regulation. Greenhouse gasses include CO2, which is emitted by burning fossil fuels; and methane, which is emitted by various chemical processes."
 }

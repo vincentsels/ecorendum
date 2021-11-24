@@ -24,6 +24,7 @@ import { TranslateTextPipe } from './common/translate-text.pipe';
 import { TranslateTextAsyncPipe } from './common/translate-text-async.pipe';
 import { EnumsService } from './common/enums.service';
 import { ResultsComponent } from './main/results/results.component';
+import { HelpWidgetComponent } from './common/help-widget.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateTextPipe,
     TranslateTextAsyncPipe,
     ResultsComponent,
+    HelpWidgetComponent,
   ],
   imports: [
     BrowserModule,
