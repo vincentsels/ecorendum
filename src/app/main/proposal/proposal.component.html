@@ -28,6 +28,7 @@
       <div class="ambition-level">
         <div class="ambition-level-title" fxHide.lt-sm>{{ variant.ambitionLevel }}</div>
         <div class="ambition-level-body">
+          <span class="ambition-level-body-text" fxHide.lt-lg>{{ variant.description | translateText }}</span>
           <span class="ambition-level-body-icons">
             <span class="ambition-level-reduction">
               <mat-icon class="inline">cloud_download</mat-icon> {{ variant.getTargetAmount(enums.TargetType.ghgReduction) | number }} kt
@@ -36,7 +37,6 @@
               <mat-icon class="inline" style="margin-left: 12px">euro</mat-icon> {{ variant.getTotalCost() | number }}
             </span>
           </span>
-          <span class="ambition-level-body-text" fxHide.lt-lg>{{ variant.description | translateText }}</span>
         </div>
       </div>
     </mat-button-toggle>
