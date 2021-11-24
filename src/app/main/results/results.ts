@@ -6,6 +6,8 @@
 //   ktGhgGapToFill = 10994;
 // }
 
+import { Impact, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap } from '../proposal';
+
 export class Results {
   constructor(props: Partial<Results> = {}) {
     Object.assign(this, props);
@@ -33,6 +35,16 @@ export class Results {
   ghgIncome = 0;
 
   totalCost = 0;
+
+  totalImpact: TotalImpact[] = [];
+}
+
+export class TotalImpact {
+  constructor(public domain: ImpactDomain, public amount: number) {}
+
+  class: string = ImpactAmountMap[ImpactAmount.neutral];
+
+  getImpactDomainIcon = () => ImpactDomainMap[this.domain];
 }
 
 /*

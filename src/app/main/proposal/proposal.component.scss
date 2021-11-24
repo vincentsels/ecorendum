@@ -2,6 +2,12 @@
   margin-bottom: 24px;
 }
 
+.proposal-icons {
+  mat-icon+mat-icon {
+    margin-left: 12px;
+  }
+}
+
 mat-button-toggle-group.variants {
   height: unset;
   flex-wrap: wrap;
@@ -32,13 +38,3 @@ mat-button-toggle-group.variants {
 .icon-list-item {
   margin-right: 12px;
 }
-
-.impact-extremely-positive { color: #00ffc3 }
-.impact-very-positive { color: #46f8cf }
-.impact-moderately-positive { color: #86fadf }
-.impact-somewhat-positive { color: #d2f8ef }
-.impact-neutral { color: #ffffff }
-.impact-somewhat-negative { color: #fcc3bf }
-.impact-moderately-negative { color: #f8837b }
-.impact-very-negative { color: #fa4c40 }
-.impact-extremely-negative { color: #ff1d0d }

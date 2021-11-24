@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { EnumsService } from '../../common/enums.service';
 
 import { Proposal } from '../proposal';
 import { ProposalService } from '../proposal.service';
@@ -18,7 +19,7 @@ export class ResultsComponent {
   reGapTargetGwh = Results.reGapTargetGwh;
   eeGapTargetGwh = Results.eeGapTargetGwh;
 
-  constructor(service: ProposalService, private snackBar: MatSnackBar) {
+  constructor(service: ProposalService, private snackBar: MatSnackBar, public enums: EnumsService) {
     this.results$ = service.results$;
   }
 

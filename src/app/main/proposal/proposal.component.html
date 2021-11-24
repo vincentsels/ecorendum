@@ -1,7 +1,7 @@
 <mat-card *ngIf="proposal" class="proposal">
   <mat-card-title>
     {{ proposal.title | translateText }}
-    <span class="pull-right">
+    <span class="pull-right proposal-icons">
       <mat-icon *ngIf="proposal.sector" matTooltip="{{ enums.Sector[proposal.sector] | translate }}">
         {{ proposal.getSectorIcon() }}
       </mat-icon>
@@ -44,12 +44,6 @@
 
   <div class="variant-body">
     <div *ngIf="selectedVariant">
-      <!-- ambitionLevel: number = 1;
-      description: TranslatedText[] = [];
-      targets: Target[] = [];
-      costInitial: number = 0;
-      costPerYear?: { [year: number]: number } | number;
-      impacts: Impact[] = []; -->
       <div fxLayout fxLayoutGap="12px">
         <div fxFlex="40%">
           <h3>{{ 'Cost' | translate }}</h3>

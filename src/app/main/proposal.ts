@@ -135,8 +135,10 @@ export const ImpactDomainMap = {
   [ImpactDomain.humanRightsGlobal]: 'volunteer_activism',
 }
 
+/**
+ * Subtract -5 to get weighed amount.
+ */
 export enum ImpactAmount {
-  unknown = 0,
   extremelyPositive = 1,
   veryPositive = 2,
   moderatelyPositive = 3,
@@ -149,7 +151,6 @@ export enum ImpactAmount {
 }
 
 export const ImpactAmountMap = {
-  [ImpactAmount.unknown]: 'impact-neutral',
   [ImpactAmount.extremelyPositive]: 'impact-extremely-positive',
   [ImpactAmount.veryPositive]: 'impact-very-positive',
   [ImpactAmount.moderatelyPositive]: 'impact-moderately-positive',
