@@ -1,12 +1,12 @@
 <div *ngIf="results$ | async; let results">
   <mat-card class="result-section">
     <h2>
-      <mat-icon class="inline">cloud_download</mat-icon><app-help-widget tooltipKey="helpCo2reductionTarget" textKey="CO2 reduction" dialogKey="helpDialogCo2reductionTarget"></app-help-widget> {{ 'by 2030' }}
+      <mat-icon class="inline">cloud_download</mat-icon><app-help-widget tooltipKey="helpCo2reductionTarget" textKey="CO2 reduction by 2030" dialogKey="helpCo2reductionTarget"></app-help-widget>
     </h2>
     <div class="numerical">
       <span class="amount-selected" [class]="'color-' + results.ghgReductionColor">{{ results.ghgReducedKt | number }}</span>
       /
-      <span class="amount-required">{{ ghgGapCumulativeKt | number }}</span> kt
+      <span class="amount-required">{{ ghgGapCumulativeKt | number }}</span> kt <app-help-widget tooltipKey="helpCo2targetKt" dialogKey="helpDialogCo2targetKt"></app-help-widget>
     </div>
 
     <mat-progress-bar class="progress" mode="determinate"
@@ -16,7 +16,8 @@
 
     <div *ngIf="results.ghgReductionPercentage < 100">
       {{ 'Reduction target not met. Carbon tax:' }}
-      <span class="color-warn">€&nbsp;{{ results.ghgTax | number }}</span>.
+      <span class="color-warn">€&nbsp;{{ results.ghgTax | number }}</span>
+      <app-help-widget tooltipKey="helpCarbonTax" dialogKey="helpDialogCarbonTax"></app-help-widget>
     </div>
 
     <div *ngIf="results.ghgReductionPercentage >= 100">
@@ -24,6 +25,7 @@
       <span *ngIf="results.ghgReductionPercentage >= 100">
         {{ 'Excess emissions sold for:' }}
         <span class="color-accent">€&nbsp;{{ results.ghgIncome | number }}</span>
+        <app-help-widget tooltipKey="helpCarbonIncome" dialogKey="helpDialogCarbonIncome"></app-help-widget>
       </span>
     </div>
   </mat-card>

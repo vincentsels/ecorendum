@@ -5,7 +5,9 @@
     <app-proposal *ngFor="let proposal of proposalService.proposals" [proposal]="proposal"></app-proposal>
   </div>
   <div fxFlex="40%" fxFlex.lt-md="100%" #results>
-    <h1>{{ 'Results' | translate }}</h1>
+    <h1>
+      <app-help-widget tooltipKey="helpResults" textKey="Results" dialogKey="helpResults" [withoutSpace]="true"></app-help-widget>
+    </h1>
 
     <app-results inViewport (inViewportAction)="setResultsInViewport($event)"></app-results>
   </div>
