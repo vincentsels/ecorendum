@@ -15,4 +15,8 @@ export class MainComponent {
   setResultsInViewport({ visible }: { visible: boolean }) {
     this.resultsVisible = visible;
   }
+
+  navigateToResults(el: HTMLElement) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
 }
