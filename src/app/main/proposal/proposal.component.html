@@ -18,7 +18,7 @@
   </h2>
   <p>{{ proposal.summary | translateText }}</p>
 
-  <mat-button-toggle-group class="variants" appearance="legacy" name="variant" [(ngModel)]="selectedAmbitionLevel">
+  <mat-button-toggle-group class="variants" name="variant" [(ngModel)]="selectedAmbitionLevel">
     <mat-button-toggle [value]="0" (click)="clearVariant()">
       <div class="ambition-level">
         <div class="ambition-level-title" fxHide.lt-sm>X</div>
