@@ -9,4 +9,10 @@ import { ProposalService } from './proposal.service';
 })
 export class MainComponent {
   constructor(public proposalService: ProposalService) {}
+
+  resultsVisible = false;
+
+  setResultsInViewport({ visible }: { visible: boolean }) {
+    this.resultsVisible = visible;
+  }
 }

@@ -27,6 +27,7 @@ import { ResultsComponent } from './main/results/results.component';
 import { HelpWidgetComponent } from './common/help-widget.component';
 import { CommonDialogComponent, CommonDialogService } from './common/dialog.component';
 import { ResultsMobileSummaryComponent } from './main/results-mobile-summary/results-mobile-summary.component';
+import { InViewportModule } from 'ng-in-viewport';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -57,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
+    InViewportModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

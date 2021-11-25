@@ -7,8 +7,8 @@
   <div fxFlex="40%" fxFlex.lt-md="100%">
     <h1>{{ 'Results' | translate }}</h1>
 
-    <app-results></app-results>
+    <app-results inViewport (inViewportAction)="setResultsInViewport($event)"></app-results>
   </div>
 </div>
 
-<app-results-mobile-summary ngShow.lt-md></app-results-mobile-summary>
+<app-results-mobile-summary ngShow.lt-md *ngIf="!resultsVisible"></app-results-mobile-summary>
