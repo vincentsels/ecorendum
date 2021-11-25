@@ -16,14 +16,14 @@
 
     <div *ngIf="results.ghgReductionPercentage < 100">
       {{ 'Since the target reduction is not met, this amounts to a carbon tax of ' }}
-      <span class="color-warn">€ {{ results.ghgTax | number }}</span>.
+      <span class="color-warn">€&nbsp;{{ results.ghgTax | number }}</span>.
     </div>
 
     <div *ngIf="results.ghgReductionPercentage >= 100">
       {{ 'Good job! Your selection of measures meets the European target.' }}
       <span *ngIf="results.ghgReductionPercentage >= 100">
         {{ 'By selling excess emission rights, Belgium will receive an additional amount of ' }}
-        <span class="color-accent">€ {{ results.ghgIncome | number }}</span> {{ 'from the EU.' }}
+        <span class="color-accent">€&nbsp;{{ results.ghgIncome | number }}</span> {{ 'from the EU.' }}
       </span>
     </div>
   </mat-card>
@@ -75,9 +75,9 @@
   <mat-card class="result-section">
     <h2><mat-icon class="inline">sell</mat-icon> {{ 'Total cost' | translate }}</h2>
     <div class="numerical">
-      <div class="amount-selected">{{ 'Total measures cost' }}: € {{ results.totalCost | number }}</div>
+      <div class="amount-selected">{{ 'Total measures cost' }}: €&nbsp;{{ results.totalCost | number }}</div>
       <div class="amount-selected">{{ 'Including emission trading' }}:
-        <span [class.color-accent]="results.totalCost + results.ghgTax < 0"> € {{ results.totalCost + results.ghgTax | number }}</span></div>
+        <span [class.color-accent]="results.totalCost + results.ghgTax < 0"> €&nbsp;{{ results.totalCost + results.ghgTax | number }}</span></div>
     </div>
   </mat-card>
 
