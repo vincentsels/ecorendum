@@ -9,7 +9,6 @@ export const LOCAL_STORAGE_KEY_LANGUAGE = 'language';
 @Injectable()
 export class LanguageService {
   constructor(private translate: TranslateService, private adapter: DateAdapter<any>) {
-    this.language.next(<LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || 'en');
   }
 
   language = new BehaviorSubject<LanguageType>(<LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || 'en');

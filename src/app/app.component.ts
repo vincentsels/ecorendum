@@ -5,7 +5,8 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { HelpWidgetComponent } from './common/help-widget.component';
 
-import { LanguageService } from './common/language.service';
+import { LanguageService, LOCAL_STORAGE_KEY_LANGUAGE } from './common/language.service';
+import { LanguageType } from './main/proposal';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,11 @@ import { LanguageService } from './common/language.service';
 export class AppComponent {
   constructor(languageService: LanguageService, titleService: Title, translate: TranslateService,
     matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer, injector: Injector) {
-    languageService.setLanguage('en');
+    const lang = <LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || 'en';
+    translate.setDefaultLang('en');
+    languageService.setLanguage(lang);
     languageService.language.subscribe({
-      next: lang => titleService.setTitle('Ecorendum: ' + translate.instant('create your own climate policy'))
+      next: lang => titleService.setTitle('Ecorendum - ' + translate.instant('create your own climate policy'))
     });
 
     matIconRegistry.addSvgIcon('flanders', domSanitizer.bypassSecurityTrustResourceUrl("../assets/icon_flanders.svg"));
