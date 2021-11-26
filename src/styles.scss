@@ -95,6 +95,10 @@ body:not(:-moz-handler-blocked) fieldset {
   margin-left: $margin-small;
 }
 
+.clear {
+  clear: both;
+}
+
 .alert {
   padding: $margin-default;
   border: 1px solid rgba(0,0,0,.03);

@@ -13,6 +13,7 @@ export const PROPOSALS: Proposal[] = [
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.transport,
+    pictureThumb: 'https://i.ibb.co/X5M7Fc4/transportation-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,
@@ -87,6 +88,7 @@ export const PROPOSALS: Proposal[] = [
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.agriculture,
+    pictureThumb: 'https://i.ibb.co/j3YSRyQ/agriculture-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,
@@ -155,6 +157,7 @@ export const PROPOSALS: Proposal[] = [
     ],
     policyLevel: PolicyLevel.flemish,
     sector: Sector.buildings,
+    pictureThumb: 'https://i.ibb.co/1Mp0cN3/construction-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,

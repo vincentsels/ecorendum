@@ -1,6 +1,8 @@
 <div class="page-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="24px">
   <div fxFlex="60%" fxFlex.lt-md="100%">
-    <h1>{{ 'Proposals' | translate }}</h1>
+    <h1>
+      <app-help-widget tooltipKey="helpProposals" textKey="Proposals" dialogKey="helpProposals" [withoutSpace]="true"></app-help-widget>
+    </h1>
 
     <app-proposal *ngFor="let proposal of proposalService.proposals" [proposal]="proposal"></app-proposal>
   </div>

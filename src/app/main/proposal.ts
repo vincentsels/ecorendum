@@ -11,6 +11,8 @@ export class Proposal {
   variants: Variant[] = [];
   sector?: Sector;
 
+  pictureThumb?: string;
+
   selected: boolean = false;
 
   getSectorIcon = () => SectorMap[this.sector || Sector.other];
