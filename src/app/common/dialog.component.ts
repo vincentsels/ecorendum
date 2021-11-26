@@ -43,6 +43,7 @@ export class CommonDialogService {
   show(title?: string, content?: string, contentClass?: string, contentMdSrc?: string, contentMdData?: string, buttonText?: string) {
     this.dialog.open(CommonDialogComponent, {
       data: { title, content, contentClass, contentMdSrc, contentMdData, buttonText },
+      autoFocus: false,
     });
   }
 }

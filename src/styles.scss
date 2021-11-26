@@ -436,6 +436,12 @@ mat-divider.vertical-spaced {
   white-space: normal !important;
 }
 
+markdown {
+  img {
+    max-width: 100%;
+  }
+}
+
 // This mostly doesn't work :s
 // https://stackoverflow.com/questions/53700373/how-to-customize-the-css-for-angular-material-paginator
 // https://stackoverflow.com/questions/53755894/styling-angular-material-paginator
