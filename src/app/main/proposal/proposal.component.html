@@ -1,6 +1,6 @@
 <mat-card *ngIf="proposal" class="proposal">
   <div>
-    <img [src]="proposal.pictureThumb" [alt]="proposal.title" class="proposal-thumb mat-elevation-z8" ngClass.lt-sm="proposal-thumb-xs" />
+    <img [src]="proposal.pictureThumb" [alt]="proposal.title" class="proposal-thumb" ngClass.lt-sm="proposal-thumb-xs" />
     <div>
       <h2>
         {{ proposal.title | translateText }}

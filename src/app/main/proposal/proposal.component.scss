@@ -21,9 +21,10 @@
   white-space: nowrap;
 }
 
-mat-button-toggle-group.variants {
+.variants {
   height: unset;
   flex-wrap: wrap;
+  margin: unset;
 }
 
 .ambition-level {
