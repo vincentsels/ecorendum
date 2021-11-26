@@ -2,9 +2,23 @@
   <div fxFlex="60%" fxFlex.lt-md="100%">
     <h1>
       <app-help-widget tooltipKey="helpProposals" textKey="Proposals" dialogKey="helpProposals" [withoutSpace]="true"></app-help-widget>
+      <div class="project-filters">
+        <mat-form-field>
+          <mat-label>{{ 'Filter projects' | translate }}</mat-label>
+          <input matInput type="text" [(ngModel)]="projectsFilter" (input)="filterChanged()">
+        </mat-form-field>
+      </div>
     </h1>
 
-    <app-proposal *ngFor="let proposal of proposalService.proposals" [proposal]="proposal"></app-proposal>
+    <app-proposal *ngFor="let proposal of filteredProjects" [proposal]="proposal"></app-proposal>
+
+    <p *ngIf="filteredProjects.length > 0 && filteredProjects.length < proposalService.proposals.length">
+      {{ 'Cannot find the proposal you are looking for? There is a filter applied.' | translate }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
+    </p>
+
+    <p *ngIf="filteredProjects.length === 0">
+      {{ 'No proposals found with this filter.' }}
+    </p>
   </div>
   <div fxFlex="40%" fxFlex.lt-md="100%" #results>
     <h1>
