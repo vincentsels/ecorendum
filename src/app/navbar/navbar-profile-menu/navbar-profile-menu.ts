@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { MatSelectChange } from '@angular/material/select';
 
 import { UserService } from '../../user/user.service';
 import { LanguageService } from '../../common/language.service';
+import { LanguageType } from '../../main/proposal';
 
 @Component({
   selector: 'app-navbar-profile-menu',
@@ -21,9 +21,10 @@ export class NavBarProfileMenuComponent {
     this.userName = userService.getUserName();
   }
 
-  languageChanged(item: MatSelectChange) {
-    const lang = item.value;
+  languageChanged(lang: LanguageType) {
     this.language = lang;
     this.languageService.setLanguage(lang);
   }
+
+  toUpper = (lang: string | null) => lang ? lang.toUpperCase(): '';
 }
