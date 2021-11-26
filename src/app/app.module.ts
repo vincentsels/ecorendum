@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ErrorHandler, NgModule, NgZone } from '@angular/core';
+import { ErrorHandler, NgModule, NgZone, SecurityContext } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -60,7 +60,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MaterialModule,
     FlexLayoutModule,
     InViewportModule,
-    MarkdownModule.forRoot({ loader: HttpClient }),
+    MarkdownModule.forRoot({
+      loader: HttpClient,
+      sanitize: SecurityContext.NONE,
+     }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

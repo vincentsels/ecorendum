@@ -1,11 +1,11 @@
 ## Some header
 
-This would display in detail how this target was defined, including charts, [links](www.somelink.be) etc.
+This would display in detail how this target was defined, including charts, [links](https://www.somelink.be) etc.
 
-## Another header
+We can use <small>html tags</small>.
 
-> Maybe with a quote here.
+We can even include <help-widget text="widgets as elements" tooltip-text="This is some explanatory text"></help-widget>
 
-And an image:
+### Some image
 
 ![Some image](https://i.ibb.co/X5M7Fc4/transportation-640.jpg)

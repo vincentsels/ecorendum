@@ -5,7 +5,7 @@ import { CommonDialogService } from './dialog.component';
 @Component({
   selector: 'app-help-widget',
   template:
-`<span *ngIf="!withoutSpace && textKey">&nbsp;</span><span [class.dialog]="dialogKey || dialogMdSrc || dialogMdData" [matTooltip]="tooltipKey | translate" (click)="openDialog()">{{ textKey }}<mat-icon>contact_support</mat-icon></span>
+`<span *ngIf="!withoutSpace && (textKey || text)">&nbsp;</span><span [class.dialog]="dialogKey || dialogMdSrc || dialogMdData" [matTooltip]="tooltipText || (tooltipKey | translate)" (click)="openDialog()">{{ text || (textKey && (textKey | translate)) }}<mat-icon>contact_support</mat-icon></span>
 `,
   styles: [
 `mat-icon {
@@ -38,8 +38,10 @@ export class HelpWidgetComponent {
   constructor(private dialogService: CommonDialogService, private translate: TranslateService) {}
 
   @Input() withoutSpace?: boolean;
+  @Input() text?: string;
   @Input() textKey?: string;
   @Input() tooltipKey: string = '';
+  @Input() tooltipText: string = '';
   @Input() dialogKey?: string;
   @Input() dialogMdSrc?: string;
   @Input() dialogMdData?: string;
