@@ -18,13 +18,12 @@ export class ProposalComponent implements OnChanges {
   selectedVariant?: Variant;
 
   ngOnChanges(changes: SimpleChanges) {
-    // const proposal = changes.proposal;
-    // if (proposal && proposal.currentValue) {
-    //   const currentProposal = (proposal.currentValue as Proposal);
-    //   if (currentProposal.variants.length === 1) {
-    //     this.selectedVariant = currentProposal.variants[0];
-    //   }
-    // }
+    const proposal = changes.proposal;
+    if (proposal && proposal.currentValue) {
+      const currentProposal = (proposal.currentValue as Proposal);
+      this.selectedVariant = currentProposal.getSelectedVariant();
+      if (this.selectedVariant) this.selectedAmbitionLevel = this.selectedVariant.ambitionLevel;
+    }
   }
 
   clearVariant() {

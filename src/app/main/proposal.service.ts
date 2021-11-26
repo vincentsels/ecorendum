@@ -5,6 +5,8 @@ import { PROPOSALS } from './dummyProposals';
 import { Impact, ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, TargetType, Variant } from './proposal';
 import { Results, TotalImpact } from './results/results';
 
+const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
+
 @Injectable()
 export class ProposalService {
   proposals: Proposal[] = [];
@@ -13,11 +15,29 @@ export class ProposalService {
   constructor() {
     this.proposals = PROPOSALS;
 
+    const selectedVariantNumbers = JSON.parse(localStorage.getItem(LS_KEY_SELECTED_VARIANTS) || '[]');
+    for (let selectedVariantNumber of selectedVariantNumbers) {
+      const selectedProposal = this.proposals.find(p => p.id === selectedVariantNumber.id);
+      if (selectedProposal) {
+        const selectedVariant = selectedProposal.variants.find(v => v.ambitionLevel === selectedVariantNumber.selectedVariant);
+        if (selectedVariant) {
+          selectedProposal.selected = true;
+          selectedVariant.selected = true;
+        }
+      }
+    }
+
     this.updateResults();
   }
 
   updateResults() {
     if (!this.proposals || this.proposals.length === 0) return;
+
+    const selectedVariantNumbers = this.proposals
+      .map(p => ({ id: p.id, selectedVariant: p.variants.find(v => v.selected)?.ambitionLevel }))
+      .filter(s => s.selectedVariant);
+    localStorage.setItem(LS_KEY_SELECTED_VARIANTS, JSON.stringify(selectedVariantNumbers));
+
     const selectedVariants = this.proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
 
     const ghgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction);

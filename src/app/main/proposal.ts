@@ -3,6 +3,7 @@ export class Proposal {
     Object.assign(this, props);
   }
 
+  id?: number;
   title: TranslatedText[] = [];
   slug: TranslatedText[] = [];
   summary: TranslatedText[] = [];
@@ -16,6 +17,7 @@ export class Proposal {
   selected: boolean = false;
 
   getSectorIcon = () => SectorMap[this.sector || Sector.other];
+  getSelectedVariant = () => (this.variants || []).find(v => v.selected);
 }
 
 export enum PolicyLevel {

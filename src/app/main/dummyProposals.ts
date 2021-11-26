@@ -2,6 +2,7 @@ import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, Sector, Targ
 
 export const PROPOSALS: Proposal[] = [
   new Proposal({
+    id: 1,
     title: [
       new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
     ],
@@ -77,6 +78,7 @@ export const PROPOSALS: Proposal[] = [
     ]
   }),
   new Proposal({
+    id: 2,
     title: [
       new TranslatedText('en', 'Some other proposal')
     ],
@@ -146,6 +148,7 @@ export const PROPOSALS: Proposal[] = [
     ]
   }),
   new Proposal({
+    id: 3,
     title: [
       new TranslatedText('en', 'Single-variant proposal')
     ],
