@@ -3,7 +3,7 @@
     <img [src]="proposal.pictureThumb" [alt]="proposal.title" class="proposal-thumb" ngClass.lt-sm="proposal-thumb-xs" />
     <div>
       <h2>
-        {{ proposal.title | translateText }}
+        {{ proposal.title | translateTextAsync | async }}
         <div class="proposal-icons" ngClass.gt-xs="pull-right">
           <mat-icon *ngIf="proposal.sector" matTooltip="{{ enums.Sector[proposal.sector] | translate }}">
             {{ proposal.getSectorIcon() }}
@@ -19,7 +19,7 @@
           </mat-icon>
         </div>
       </h2>
-      <p>{{ proposal.summary | translateText }}</p>
+      <p>{{ proposal.summary | translateTextAsync | async }}</p>
     </div>
   </div>
 
@@ -38,7 +38,7 @@
         <div class="ambition-level" fxHide.lt-sm>
           <div class="ambition-level-title" fxHide.lt-sm>{{ variant.ambitionLevel }}</div>
           <div class="ambition-level-body">
-            <span class="ambition-level-body-text" fxHide.lt-lg>{{ variant.description | translateText }}</span>
+            <span class="ambition-level-body-text" fxHide.lt-lg>{{ variant.description | translateTextAsync | async }}</span>
             <span class="ambition-level-body-icons">
               <span class="ambition-level-reduction">
                 <mat-icon class="inline">cloud_download</mat-icon> {{ variant.getTargetAmount(enums.TargetType.ghgReduction) | number }} kt

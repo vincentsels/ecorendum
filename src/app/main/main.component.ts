@@ -28,8 +28,8 @@ export class MainComponent {
   filterChanged() {
     if (this.projectsFilter) {
       this.filteredProjects = this.proposalService.proposals.filter(
-        p => p.title.some(t => t.text.includes(this.projectsFilter)) ||
-          p.summary.some(t => t.text.includes(this.projectsFilter))
+        p => p.title.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())) ||
+          p.summary.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase()))
       );
     } else {
       this.filteredProjects = this.proposalService.proposals;

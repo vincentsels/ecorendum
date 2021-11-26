@@ -5,12 +5,14 @@ export const PROPOSALS: Proposal[] = [
     id: 1,
     title: [
       new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
+      new TranslatedText('en', 'Phase-out purchase of internal combustion engines'),
     ],
     summary: [
-      new TranslatedText('nl', 'De federale overheid verbiedt de verkoop van personen- en bestelwagens met een verbrandingsmotor. Op de tweedehandsmarkt kunnen deze wagens wel nog verkocht worden.')
+      new TranslatedText('nl', 'De federale overheid verbiedt de verkoop van personen- en bestelwagens met een verbrandingsmotor. Op de tweedehandsmarkt kunnen deze wagens wel nog verkocht worden.'),
+      new TranslatedText('en', 'The federal government forbids the sale of personal or small transport vehicles with internal combustion engines. These can still be bought and sold on the second hand market.')
     ],
     slug: [
-      new TranslatedText('nl', 'uitfasering-aankoop-fossiele-verbrandingsmotoren')
+      new TranslatedText('nl', 'uitfasering-aankoop-fossiele-verbrandingsmotoren'),
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.transport,
@@ -21,7 +23,8 @@ export const PROPOSALS: Proposal[] = [
         costInitial: 100000,
         costPerYearFixed: 0,
         description: [
-          new TranslatedText('nl', 'Vanaf 2029')
+          new TranslatedText('nl', 'Vanaf 2029'),
+          new TranslatedText('en', 'Starting 2029'),
         ],
         impacts: [
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -41,7 +44,8 @@ export const PROPOSALS: Proposal[] = [
         costInitial: 100000,
         costPerYearFixed: 0,
         description: [
-          new TranslatedText('nl', 'Vanaf 2027')
+          new TranslatedText('nl', 'Vanaf 2027'),
+          new TranslatedText('en', 'Starting 2027'),
         ],
         impacts: [
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -60,7 +64,8 @@ export const PROPOSALS: Proposal[] = [
         ambitionLevel: 3,
         costInitial: 200000,
         description: [
-          new TranslatedText('nl', 'Vanaf 2025')
+          new TranslatedText('nl', 'Vanaf 2025'),
+          new TranslatedText('en', 'Starting 2025'),
         ],
         impacts: [
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -80,13 +85,13 @@ export const PROPOSALS: Proposal[] = [
   new Proposal({
     id: 2,
     title: [
-      new TranslatedText('en', 'Some other proposal')
+      new TranslatedText('en', 'Some other proposal'),
     ],
     summary: [
-      new TranslatedText('en', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      new TranslatedText('en', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'),
     ],
     slug: [
-      new TranslatedText('en', 'other-proposal')
+      new TranslatedText('en', 'other-proposal'),
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.agriculture,
@@ -97,7 +102,7 @@ export const PROPOSALS: Proposal[] = [
         costInitial: 0,
         costPerYearVariable: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
         description: [
-          new TranslatedText('en', 'A basic target')
+          new TranslatedText('en', 'A basic target'),
         ],
         impacts: [
           new Impact(ImpactDomain.luLuCf, ImpactAmount.somewhatPositive),
@@ -114,7 +119,7 @@ export const PROPOSALS: Proposal[] = [
         ambitionLevel: 2,
         costInitial: 15000000,
         description: [
-          new TranslatedText('en', 'A more ambitious target')
+          new TranslatedText('en', 'A more ambitious target'),
         ],
         impacts: [
           new Impact(ImpactDomain.luLuCf, ImpactAmount.moderatelyPositive),
@@ -132,7 +137,7 @@ export const PROPOSALS: Proposal[] = [
         costInitial: 20000000,
         costPerYearVariable: { 2022: 3000000, 2023: 3000000, 2024: 800000 },
         description: [
-          new TranslatedText('en', 'A very ambitious target')
+          new TranslatedText('en', 'A very ambitious target'),
         ],
         impacts: [
           new Impact(ImpactDomain.luLuCf, ImpactAmount.moderatelyPositive),
@@ -150,10 +155,10 @@ export const PROPOSALS: Proposal[] = [
   new Proposal({
     id: 3,
     title: [
-      new TranslatedText('en', 'Single-variant proposal')
+      new TranslatedText('en', 'Single-variant proposal'),
     ],
     summary: [
-      new TranslatedText('en', 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+      new TranslatedText('en', 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
     ],
     slug: [
       new TranslatedText('en', 'single-variant-proposal')
@@ -167,7 +172,7 @@ export const PROPOSALS: Proposal[] = [
         costInitial: 20000000,
         costPerYearVariable: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
         description: [
-          new TranslatedText('en', 'The only target')
+          new TranslatedText('en', 'The only target'),
         ],
         impacts: [
           new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
