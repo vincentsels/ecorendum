@@ -6,7 +6,7 @@
     <div class="numerical">
       <span class="amount-selected" [class]="'color-' + results.ghgReductionColor">{{ results.ghgReducedKt | number }}</span>
       /
-      <span class="amount-required">{{ ghgGapCumulativeKt | number }}</span> kt <app-help-widget tooltipKey="helpCo2targetKt" dialogKey="helpDialogCo2targetKt"></app-help-widget>
+      <span class="amount-required">{{ ghgGapCumulativeKt | number }}</span> kt <app-help-widget tooltipKey="helpCo2targetKt" dialogMdSrc="help-co2-target-kt"></app-help-widget>
     </div>
 
     <mat-progress-bar class="progress" mode="determinate"

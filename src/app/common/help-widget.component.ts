@@ -5,7 +5,7 @@ import { CommonDialogService } from './dialog.component';
 @Component({
   selector: 'app-help-widget',
   template:
-`<span *ngIf="!withoutSpace && textKey">&nbsp;</span><span [class.dialog]="dialogKey" [matTooltip]="tooltipKey | translate" (click)="openDialog()">{{ textKey }}<mat-icon>contact_support</mat-icon></span>
+`<span *ngIf="!withoutSpace && textKey">&nbsp;</span><span [class.dialog]="dialogKey || dialogMdSrc || dialogMdData" [matTooltip]="tooltipKey | translate" (click)="openDialog()">{{ textKey }}<mat-icon>contact_support</mat-icon></span>
 `,
   styles: [
 `mat-icon {
@@ -41,12 +41,17 @@ export class HelpWidgetComponent {
   @Input() textKey?: string;
   @Input() tooltipKey: string = '';
   @Input() dialogKey?: string;
+  @Input() dialogMdSrc?: string;
+  @Input() dialogMdData?: string;
 
   openDialog() {
-    if (this.dialogKey) {
+    if (this.dialogKey || this.dialogMdSrc || this.dialogMdData) {
       this.dialogService.show(
         this.textKey ? this.translate.instant(this.textKey) : undefined,
-        this.translate.instant(this.dialogKey));
+        this.dialogKey ? this.translate.instant(this.dialogKey) : undefined,
+        undefined,
+        '/assets/md/' + this.translate.currentLang + '/' + this.dialogMdSrc + '.md',
+        this.dialogMdData);
     }
   }
 }
