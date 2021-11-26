@@ -26,4 +26,10 @@ export class ResultsComponent {
   submit() {
     this.snackBar.open('This would submit your preferred measures so the government gets an idea of the support for each of them.', 'OK');
   }
+
+  displayImpact(impactAmount: number) {
+    if (impactAmount === 0) return '+-';
+    const sign = impactAmount < 0 ? '+' : '- ';
+    return sign.repeat(Math.abs(impactAmount));
+  }
 }

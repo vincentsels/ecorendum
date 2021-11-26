@@ -87,7 +87,7 @@
     <h2><mat-icon class="inline">public</mat-icon> {{ 'Total impact' | translate }}</h2>
     <div *ngFor="let impactItem of results.totalImpact">
       <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ enums.ImpactDomain[impactItem.domain] | translate }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
-      {{ enums.ImpactDomain[impactItem.domain] | translate }}: {{ impactItem.amount }}
+      {{ enums.ImpactDomain[impactItem.domain] | translate }}: {{ displayImpact(impactItem.amount) }}
     </div>
   </mat-card>
 </div>
