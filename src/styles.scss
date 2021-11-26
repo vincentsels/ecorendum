@@ -13,7 +13,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $ecorendum-primary: mat.define-palette(mat.$purple-palette);
-$ecorendum-accent: mat.define-palette(mat.$teal-palette, A200, A100, A400);
+$ecorendum-accent: mat.define-palette(mat.$teal-palette, A400, A200, A100);
 
 // The warn palette is optional (defaults to red).
 $ecorendum-warn: mat.define-palette(mat.$red-palette);
@@ -67,7 +67,7 @@ $margin-inline: 4px;
 .impact-extremely-negative { color: #ff1d0d }
 
 a {
-  color: mat.get-color-from-palette($ecorendum-primary);
+  color: mat.get-color-from-palette($ecorendum-primary, 200);
   text-decoration: none;
 }
 
