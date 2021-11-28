@@ -29,6 +29,7 @@ import { CommonDialogComponent, CommonDialogService } from './common/dialog.comp
 import { ResultsMobileSummaryComponent } from './main/results-mobile-summary/results-mobile-summary.component';
 import { InViewportModule } from 'ng-in-viewport';
 import { MarkdownModule } from 'ngx-markdown';
+import { ResultsDialogComponent } from './main/results/results-dialog.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -50,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HelpWidgetComponent,
     CommonDialogComponent,
     ResultsMobileSummaryComponent,
+    ResultsDialogComponent,
   ],
   imports: [
     BrowserModule,

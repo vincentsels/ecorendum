@@ -4,7 +4,12 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 @Component({
   selector: 'common-dialog',
   template: `
-  <h1 mat-dialog-title *ngIf="data.title">{{ data.title }}</h1>
+  <h1 mat-dialog-title *ngIf="data.title">
+    {{ data.title }}
+    <button mat-button class="close-button" [mat-dialog-close]="true">
+      <mat-icon>close</mat-icon>
+    </button>
+  </h1>
   <div mat-dialog-content>
     <div [class]="data.contentClass" *ngIf="data.content">{{ data.content }}</div>
     <markdown *ngIf="data.contentMdSrc" [src]="data.contentMdSrc"></markdown>
@@ -13,6 +18,9 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
   <div mat-dialog-actions>
     <button mat-button mat-dialog-close>{{ data.buttonText || ('Ok' | translate) }}</button>
   </div>`,
+  styles: [
+    `.close-button { float: right; }`
+  ]
 })
 export class CommonDialogComponent {
   constructor(

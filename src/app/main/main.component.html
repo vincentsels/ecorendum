@@ -1,10 +1,10 @@
 <div class="page-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="24px">
-  <div fxFlex="60%" fxFlex.lt-md="100%">
+  <div fxFlex="60%" fxFlex.lt-md="100%" class="proposals">
     <h1 class="results-header">
       <app-help-widget tooltipKey="helpProposals" textKey="Proposals" dialogKey="helpProposals" [withoutSpace]="true"></app-help-widget>
-      <div class="project-filters">
+      <div class="project-filters" ngClass.xs="project-filters-xs">
         <mat-form-field>
-          <mat-label>{{ 'Filter projects' | translate }}</mat-label>
+          <mat-label>{{ 'Filter proposals' | translate }}</mat-label>
           <input matInput type="text" [(ngModel)]="projectsFilter" (input)="filterChanged()">
         </mat-form-field>
       </div>
@@ -20,13 +20,13 @@
       {{ 'No proposals found with this filter.' }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
     </p>
   </div>
-  <div fxFlex="40%" fxFlex.lt-md="100%" #results>
+  <div fxFlex="40%" fxHide.lt-md>
     <h1>
       <app-help-widget tooltipKey="helpResults" textKey="Results" dialogKey="helpResults" [withoutSpace]="true"></app-help-widget>
     </h1>
 
-    <app-results inViewport (inViewportAction)="setResultsInViewport($event)"></app-results>
+    <app-results></app-results>
   </div>
 </div>
 
-<app-results-mobile-summary ngShow.lt-md *ngIf="!resultsVisible" class="mat-elevation-z8" (click)="navigateToResults(results)"></app-results-mobile-summary>
+<app-results-mobile-summary ngShow.lt-md *ngIf="!resultsVisible" class="mat-elevation-z8" (click)="showResults()"></app-results-mobile-summary>

@@ -10,3 +10,17 @@ app-results-mobile-summary {
   font-size: 14px;
   margin-top: -8px;
 }
+
+.project-filters-xs {
+  margin-top: 0px;
+  float: none;
+  width: 100%;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.proposals {
+  margin-bottom: 40px;
+}

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Proposal } from './proposal';
 
 import { ProposalService } from './proposal.service';
+import { ResultsDialogComponent } from './results/results-dialog.component';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +11,7 @@ import { ProposalService } from './proposal.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  constructor(public proposalService: ProposalService) {
+  constructor(public proposalService: ProposalService, private dialog: MatDialog) {
     this.filteredProjects = proposalService.proposals;
   }
 
@@ -21,8 +23,10 @@ export class MainComponent {
     this.resultsVisible = visible;
   }
 
-  navigateToResults(el: HTMLElement) {
-    el.scrollIntoView({ behavior: 'smooth' });
+  showResults() {
+    this.dialog.open(ResultsDialogComponent, {
+      autoFocus: false,
+    });
   }
 
   filterChanged() {
