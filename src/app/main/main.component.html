@@ -1,6 +1,6 @@
 <div class="page-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="24px">
   <div fxFlex="60%" fxFlex.lt-md="100%">
-    <h1>
+    <h1 class="results-header">
       <app-help-widget tooltipKey="helpProposals" textKey="Proposals" dialogKey="helpProposals" [withoutSpace]="true"></app-help-widget>
       <div class="project-filters">
         <mat-form-field>
@@ -17,7 +17,7 @@
     </p>
 
     <p *ngIf="filteredProjects.length === 0">
-      {{ 'No proposals found with this filter.' }}
+      {{ 'No proposals found with this filter.' }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
     </p>
   </div>
   <div fxFlex="40%" fxFlex.lt-md="100%" #results>
