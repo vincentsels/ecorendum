@@ -16,7 +16,7 @@ export const PROPOSALS: Proposal[] = [
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.transport,
-    pictureThumb: 'https://i.ibb.co/X5M7Fc4/transportation-640.jpg',
+    pictureThumb: 'https://i.ibb.co/ZcGmQV2/transportation-2-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,
