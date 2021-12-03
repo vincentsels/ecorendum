@@ -1,5 +1,5 @@
 <mat-card *ngIf="results$ | async; let results" fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="center center">
-  <div class="result-section-mobile" fxFlex="22%" fxLayoutAlign="center center">
+  <div class="result-section-mobile" fxFlex="25%" fxLayoutAlign="center center">
     <span class="result-section-mobile-title-icon">
       <mat-icon class="inline">cloud_download</mat-icon>
     </span>
@@ -10,7 +10,7 @@
     </mat-progress-bar>
   </div>
 
-  <div class="result-section-mobile" fxFlex="22%" fxLayoutAlign="center center">
+  <div class="result-section-mobile" fxFlex="25%" fxLayoutAlign="center center">
     <span class="result-section-mobile-title-icon">
       <mat-icon class="inline">savings</mat-icon>
     </span>
@@ -21,7 +21,7 @@
     </mat-progress-bar>
   </div>
 
-  <div class="result-section-mobile" fxFlex="22%" fxLayoutAlign="center center">
+  <div class="result-section-mobile" fxFlex="25%" fxLayoutAlign="center center">
     <span class="result-section-mobile-title-icon">
       <mat-icon class="inline">wb_sunny</mat-icon>
     </span>
@@ -32,13 +32,13 @@
     </mat-progress-bar>
   </div>
 
-  <div class="result-section-mobile" fxFlex="34%" fxLayoutAlign="center center">
+  <div class="result-section-mobile" fxFlex="25%" fxLayoutAlign="center center">
     <span class="result-section-mobile-title-icon">
       <mat-icon class="inline">sell</mat-icon>
     </span>
 
     <div class="numerical">
-      <span [class.color-accent]="results.totalCost + results.ghgTax < 0"> €&nbsp;{{ results.totalCost + results.ghgTax | number }}</span>
+      <span [class.color-accent]="results.totalCost + results.ghgTax < 0"> {{ results.totalCost + results.ghgTax | cost }}</span>
     </div>
   </div>
 

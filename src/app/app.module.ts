@@ -30,6 +30,7 @@ import { ResultsMobileSummaryComponent } from './main/results-mobile-summary/res
 import { InViewportModule } from 'ng-in-viewport';
 import { MarkdownModule } from 'ngx-markdown';
 import { ResultsDialogComponent } from './main/results/results-dialog.component';
+import { CostPipe } from './common/cost.pipe';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavbarComponent,
     NavBarProfileMenuComponent,
     LimitLengthPipe,
+    CostPipe,
     MainComponent,
     ProposalComponent,
     TranslateTextPipe,

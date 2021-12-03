@@ -20,7 +20,7 @@
       {{ 'No proposals found with this filter.' }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
     </p>
   </div>
-  <div fxFlex="40%" fxHide.lt-md>
+  <div fxFlex="40%" fxFlex.lt-md="100%" class="results">
     <h1>
       <app-help-widget tooltipKey="helpResults" textKey="Results" dialogKey="helpResults" [withoutSpace]="true"></app-help-widget>
     </h1>
@@ -29,4 +29,4 @@
   </div>
 </div>
 
-<app-results-mobile-summary ngShow.lt-md *ngIf="!resultsVisible" class="mat-elevation-z8" (click)="showResults()"></app-results-mobile-summary>
+<app-results-mobile-summary fxHide.gt-sm class="mat-elevation-z8" (click)="showResults()"></app-results-mobile-summary>

@@ -16,12 +16,7 @@ export class MainComponent {
   }
 
   filteredProjects: Proposal[] = [];
-  resultsVisible = false;
   projectsFilter = '';
-
-  setResultsInViewport({ visible }: { visible: boolean }) {
-    this.resultsVisible = visible;
-  }
 
   showResults() {
     this.dialog.open(ResultsDialogComponent, {
