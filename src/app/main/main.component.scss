@@ -24,3 +24,9 @@ app-results-mobile-summary {
 .proposals, .results {
   margin-bottom: 60px;
 }
+
+.results {
+  position: sticky;
+  top: 12px;
+  align-self: flex-start;
+}

@@ -19,6 +19,13 @@ export class ResultsComponent {
   reGapTargetGwh = Results.reGapTargetGwh;
   eeGapTargetGwh = Results.eeGapTargetGwh;
 
+  expandedAll = true;
+  expandedGhg = true;
+  expandedEe = true;
+  expandedRe = true;
+
+  @Input() dialog = false;
+
   constructor(service: ProposalService, private snackBar: MatSnackBar, public enums: EnumsService) {
     this.results$ = service.results$;
   }
@@ -31,5 +38,21 @@ export class ResultsComponent {
     if (impactAmount === 0) return '+-';
     const sign = impactAmount < 0 ? '+' : '- ';
     return sign.repeat(Math.abs(impactAmount));
+  }
+
+  toggleAllResults() {
+    this.expandedAll = !this.expandedAll;
+  }
+
+  toggleGhgResult() {
+    this.expandedGhg = !this.expandedGhg;
+  }
+
+  toggleEeResult() {
+    this.expandedEe = !this.expandedEe;
+  }
+
+  toggleReResult() {
+    this.expandedRe = !this.expandedRe;
   }
 }

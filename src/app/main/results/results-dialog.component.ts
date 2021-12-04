@@ -11,7 +11,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   </button>
 </h1>
 <div mat-dialog-content>
-  <app-results class="dialog-results"></app-results>
+  <app-results class="dialog-results" [dialog]="true"></app-results>
 </div>
 `,
   styles: [

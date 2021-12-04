@@ -71,6 +71,10 @@ a {
   text-decoration: none;
 }
 
+a.unstyled-link {
+  color: inherit;
+}
+
 label {
   font-weight: 500;
 }
