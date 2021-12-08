@@ -18,27 +18,27 @@
       </a>
     </h2>
     <div class="numerical">
-      <span class="amount-selected" [class]="'color-' + results.ghgReductionColor">{{ results.ghgReducedKt | number }}</span>
+      <span class="amount-selected" [class]="'color-' + results.ghgTarget.color">{{ results.ghgTarget.total | number }}</span>
       /
-      <span class="amount-required">{{ ghgGapCumulativeKt | number }}</span> kt <app-help-widget tooltipKey="helpCo2targetKt" dialogMdSrc="help-co2-target-kt"></app-help-widget>
+      <span class="amount-required">{{ results.ghgTarget.target | number }}</span> kt <app-help-widget tooltipKey="helpCo2targetKt" dialogMdSrc="help-co2-target-kt"></app-help-widget>
     </div>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.ghgReductionColor"
-      [value]="results.ghgReductionPercentage">
+      [color]="results.ghgTarget.color"
+      [value]="results.ghgTarget.percentage">
     </mat-progress-bar>
 
-    <div *ngIf="results.ghgReductionPercentage < 100">
+    <div *ngIf="results.ghgTarget.percentage < 100">
       {{ 'Reduction target not met. Carbon tax:' }}
-      <span class="color-warn">€&nbsp;{{ results.ghgTax | number }}</span>
+      <span class="color-warn">€&nbsp;{{ results.ghgTarget.tax | number }}</span>
       <app-help-widget tooltipKey="helpCarbonTax" dialogKey="helpDialogCarbonTax"></app-help-widget>
     </div>
 
-    <div *ngIf="results.ghgReductionPercentage >= 100">
+    <div *ngIf="results.ghgTarget.percentage >= 100">
       {{ 'Good job! Reduction target met.' }}
-      <span *ngIf="results.ghgReductionPercentage >= 100">
+      <span *ngIf="results.ghgTarget.percentage >= 100">
         {{ 'Excess emissions sold for:' }}
-        <span class="color-accent">€&nbsp;{{ results.ghgIncome | number }}</span>
+        <span class="color-accent">€&nbsp;{{ results.ghgTarget.income | number }}</span>
         <app-help-widget tooltipKey="helpCarbonIncome" dialogKey="helpDialogCarbonIncome"></app-help-widget>
       </span>
     </div>
@@ -54,21 +54,21 @@
       </a>
     </h2>
     <div class="numerical">
-      <span class="amount-selected" [class]="'color-' + results.energySavedColor">{{ results.energySavedGwh | number }}</span>
+      <span class="amount-selected" [class]="'color-' + results.eeTarget.color">{{ results.eeTarget.total | number }}</span>
       /
-      <span class="amount-required">{{ eeGapTargetGwh | number }}</span> GWh
+      <span class="amount-required">{{ results.eeTarget.target | number }}</span> GWh
     </div>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.energySavedColor"
-      [value]="results.energySavedPercentage">
+      [color]="results.eeTarget.color"
+      [value]="results.eeTarget.percentage">
     </mat-progress-bar>
 
-    <div *ngIf="results.energySavedPercentage < 100">
+    <div *ngIf="results.eeTarget.percentage < 100">
       {{ 'Efficiency target not met.' }}
     </div>
 
-    <div *ngIf="results.energySavedPercentage >= 100">
+    <div *ngIf="results.eeTarget.percentage >= 100">
       {{ 'Good job! Efficiency target met.' }}
     </div>
   </mat-card>
@@ -83,21 +83,21 @@
       </a>
     </h2>
     <div class="numerical">
-      <span class="amount-selected" [class]="'color-' + results.renewableEnergyAddedColor">{{ results.reAddedGwh | number }}</span>
+      <span class="amount-selected" [class]="'color-' + results.reTarget.color">{{ results.reTarget.total | number }}</span>
       /
-      <span class="amount-required">{{ reGapTargetGwh | number }}</span> GWh
+      <span class="amount-required">{{ results.reTarget.target | number }}</span> GWh
     </div>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.renewableEnergyAddedColor"
-      [value]="results.reAddedPercentage">
+      [color]="results.reTarget.color"
+      [value]="results.reTarget.percentage">
     </mat-progress-bar>
 
-    <div *ngIf="results.reAddedPercentage < 100">
+    <div *ngIf="results.reTarget.percentage < 100">
       {{ 'Renewable energy target not met.' }}
     </div>
 
-    <div *ngIf="results.reAddedPercentage >= 100">
+    <div *ngIf="results.reTarget.percentage >= 100">
       {{ 'Good job! Renewable energy target met.' }}
     </div>
   </mat-card>
@@ -107,7 +107,7 @@
     <div class="numerical">
       <div class="amount-selected">{{ 'Total measures cost' }}: €&nbsp;{{ results.totalCost | number }}</div>
       <div class="amount-selected">{{ 'Including emission trading' }}:
-        <span [class.color-accent]="results.totalCost + results.ghgTax < 0"> €&nbsp;{{ results.totalCost + results.ghgTax | number }}</span></div>
+        <span [class.color-accent]="results.totalCost + results.ghgTarget.tax < 0"> €&nbsp;{{ results.totalCost + results.ghgTarget.tax | number }}</span></div>
     </div>
   </mat-card>
 

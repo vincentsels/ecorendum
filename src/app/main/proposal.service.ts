@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { PROPOSALS } from './dummyProposals';
 import { Impact, ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, TargetType, Variant } from './proposal';
-import { Results, TotalImpact } from './results/results';
+import { Results, TargetResult, TotalImpact } from './results/results';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 
@@ -44,12 +44,24 @@ export class ProposalService {
     const ghgReductionPercentage = ghgReducedKt / Results.ghgGapCumulativeKt * 100;
     const ghgTax = (Results.ghgGapCumulativeKt - ghgReducedKt) * Results.pricePerKtGhg;
     const ghgIncome = (Results.ghgGapCumulativeKt - ghgReducedKt) * -Results.pricePerKtGhg;
+    const ghgReductionColor = ghgReductionPercentage >= 100 ? 'accent' : 'warn';
+
+    const ghgTarget = new TargetResult(Results.ghgGapCumulativeKt, 'Kt', Results.pricePerKtGhg, ghgReducedKt,
+      ghgReductionColor, ghgReductionPercentage, ghgTax, ghgIncome);
 
     const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency);
     const energySavedPercentage = energySavedGwh / Results.eeGapTargetGwh * 100;
+    const energySavedColor = energySavedPercentage >= 100 ? 'accent' : 'warn';
+
+    const eeTarget = new TargetResult(Results.eeGapTargetGwh, 'GWh', 0, energySavedGwh,
+      energySavedColor, energySavedPercentage);
 
     const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy);
     const reAddedPercentage = reAddedGwh / Results.reGapTargetGwh * 100;
+    const renewableEnergyAddedColor = reAddedPercentage >= 100 ? 'accent' : 'warn';
+
+    const reTarget = new TargetResult(Results.reGapTargetGwh, 'GWh', 0, reAddedGwh,
+      renewableEnergyAddedColor, reAddedPercentage);
 
     const totalCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
 
@@ -80,17 +92,9 @@ export class ProposalService {
 
     this.results$.next(
       new Results({
-        ghgReducedKt,
-        ghgReductionPercentage,
-        ghgReductionColor: ghgReductionPercentage >= 100 ? 'accent' : 'warn',
-        ghgTax,
-        ghgIncome,
-        energySavedColor: energySavedPercentage >= 100 ? 'accent' : 'warn',
-        energySavedGwh,
-        energySavedPercentage,
-        reAddedGwh,
-        reAddedPercentage,
-        renewableEnergyAddedColor: reAddedPercentage >= 100 ? 'accent' : 'warn',
+        ghgTarget,
+        eeTarget,
+        reTarget,
         totalCost,
         totalImpact,
       })

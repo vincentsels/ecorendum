@@ -5,8 +5,8 @@
     </span>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.ghgReductionColor"
-      [value]="results.ghgReductionPercentage">
+      [color]="results.ghgTarget.color"
+      [value]="results.ghgTarget.percentage">
     </mat-progress-bar>
   </div>
 
@@ -16,8 +16,8 @@
     </span>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.energySavedColor"
-      [value]="results.energySavedPercentage">
+      [color]="results.eeTarget.color"
+      [value]="results.eeTarget.percentage">
     </mat-progress-bar>
   </div>
 
@@ -27,8 +27,8 @@
     </span>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.renewableEnergyAddedColor"
-      [value]="results.reAddedPercentage">
+      [color]="results.reTarget.color"
+      [value]="results.reTarget.percentage">
     </mat-progress-bar>
   </div>
 
@@ -38,7 +38,7 @@
     </span>
 
     <div class="numerical">
-      <span [class.color-accent]="results.totalCost + results.ghgTax < 0"> {{ results.totalCost + results.ghgTax | cost }}</span>
+      <span [class.color-accent]="results.totalCost + results.ghgTarget.tax < 0"> {{ results.totalCost + results.ghgTarget.tax | cost }}</span>
     </div>
   </div>
 

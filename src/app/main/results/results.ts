@@ -1,11 +1,3 @@
-// TODO: find out real numbers...
-// export class Results {
-//   ktGhg2005 = 78637;
-//   ktGhgCommittedWem = 52662;
-//   ktGhgReductionNeededWam = 41668;
-//   ktGhgGapToFill = 10994;
-// }
-
 import { Impact, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap } from '../proposal';
 
 export class Results {
@@ -19,24 +11,18 @@ export class Results {
 
   static pricePerKtGhg = 100000;
 
-  ghgReducedKt = 0;
-  energySavedGwh = 0;
-  reAddedGwh = 0;
+  ghgTarget = new TargetResult(Results.ghgGapCumulativeKt, 'Kt', Results.pricePerKtGhg);
+  eeTarget = new TargetResult(Results.eeGapTargetGwh, 'Gwh');
+  reTarget = new TargetResult(Results.reGapTargetGwh, 'Gwh');
 
-  ghgReductionColor = 'warn';
-  energySavedColor = 'warn';
-  renewableEnergyAddedColor = 'warn';
-
-  ghgReductionPercentage = 0;
-  energySavedPercentage = 0;
-  reAddedPercentage = 0;
-
-  ghgTax = 0;
-  ghgIncome = 0;
-
-  totalCost = 0;
-
+  totalCost: number = 0;
   totalImpact: TotalImpact[] = [];
+}
+
+export class TargetResult {
+  constructor(public target: number = 0, public unit: string = 'Gwh', public pricePerUnit: number = 0, public total: number = 0,
+    public color: string = 'warn', public percentage: number = 0, public tax: number = 0,
+    public income: number = 0) {}
 }
 
 export class TotalImpact {
@@ -46,6 +32,17 @@ export class TotalImpact {
 
   getImpactDomainIcon = () => ImpactDomainMap[this.domain];
 }
+
+// TODO: find out real numbers...
+
+/*
+export class Results {
+  ktGhg2005 = 78637;
+  ktGhgCommittedWem = 52662;
+  ktGhgReductionNeededWam = 41668;
+  ktGhgGapToFill = 10994;
+}
+*/
 
 /*
 Calculation ghgGapKt
