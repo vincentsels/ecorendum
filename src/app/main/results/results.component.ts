@@ -19,9 +19,9 @@ export class ResultsComponent {
   eeGapTargetGwh = Results.eeGapTargetGwh;
 
   expandedAll = false;
-  expandedGhg = true;
-  expandedEe = true;
-  expandedRe = true;
+  expandedGhg = false;
+  expandedEe = false;
+  expandedRe = false;
   expandedTotalCost = false;
   expandedTotalImpact = false;
 

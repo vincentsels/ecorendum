@@ -90,6 +90,8 @@ export class ProposalService {
       else impact.class = ImpactAmountMap[ImpactAmount.neutral];
     }
 
+    totalImpact.sort((a, b) => b.amount - a.amount);
+
     this.results$.next(
       new Results({
         ghgTarget,
