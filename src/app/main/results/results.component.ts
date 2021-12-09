@@ -11,7 +11,7 @@ import { Results } from './results';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss']
 })
-export class ResultsComponent {
+export class ResultsComponent implements OnInit {
   results$: Observable<Results>;
 
   ghgGapCumulativeKt = Results.ghgGapCumulativeKt;
@@ -29,6 +29,17 @@ export class ResultsComponent {
 
   constructor(service: ProposalService, private snackBar: MatSnackBar, public enums: EnumsService) {
     this.results$ = service.results$;
+  }
+
+  ngOnInit(): void {
+    if (this.dialog) {
+      this.expandedAll = true;
+      this.expandedGhg = true;
+      this.expandedEe = true;
+      this.expandedRe = true;
+      this.expandedTotalCost = true;
+      this.expandedTotalImpact = true;
+    }
   }
 
   submit() {

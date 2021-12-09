@@ -64,6 +64,10 @@ export class ProposalService {
       renewableEnergyAddedColor, reAddedPercentage);
 
     const totalCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
+    const totalProfit = totalCost < 0 ? totalCost * -1 : 0;
+
+    const totalCostIncludingTax = totalCost + ghgTax;
+    const totalProfitIncludingIncome = totalProfit + ghgIncome;
 
     const totalImpact: TotalImpact[] = [];
 
@@ -98,7 +102,10 @@ export class ProposalService {
         eeTarget,
         reTarget,
         totalCost,
+        totalProfit,
         totalImpact,
+        totalCostIncludingTax,
+        totalProfitIncludingIncome,
       })
     )
   }

@@ -20,7 +20,7 @@
       {{ 'No proposals found with this filter.' }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
     </p>
   </div>
-  <div fxFlex="40%" fxFlex.lt-md="100%" class="results">
+  <div fxFlex="40%" fxFlex.lt-md="100%" ngClass.gt-sm="results">
     <app-results></app-results>
   </div>
 </div>

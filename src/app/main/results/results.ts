@@ -16,6 +16,9 @@ export class Results {
   reTarget = new TargetResult(Results.reGapTargetGwh, 'Gwh');
 
   totalCost: number = 0;
+  totalProfit: number = 0;
+  totalCostIncludingTax: number = 0;
+  totalProfitIncludingIncome: number = 0;
   totalImpact: TotalImpact[] = [];
 }
 
