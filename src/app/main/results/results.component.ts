@@ -1,9 +1,8 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
-import { EnumsService } from '../../common/enums.service';
 
-import { Proposal } from '../proposal';
+import { EnumsService } from '../../common/enums.service';
 import { ProposalService } from '../proposal.service';
 import { Results } from './results';
 
@@ -19,10 +18,12 @@ export class ResultsComponent {
   reGapTargetGwh = Results.reGapTargetGwh;
   eeGapTargetGwh = Results.eeGapTargetGwh;
 
-  expandedAll = true;
+  expandedAll = false;
   expandedGhg = true;
   expandedEe = true;
   expandedRe = true;
+  expandedTotalCost = false;
+  expandedTotalImpact = false;
 
   @Input() dialog = false;
 
@@ -42,6 +43,12 @@ export class ResultsComponent {
 
   toggleAllResults() {
     this.expandedAll = !this.expandedAll;
+
+    this.expandedGhg = this.expandedAll;
+    this.expandedEe = this.expandedAll;
+    this.expandedRe = this.expandedAll;
+    this.expandedTotalCost = this.expandedAll;
+    this.expandedTotalImpact = this.expandedAll;
   }
 
   toggleGhgResult() {
@@ -54,5 +61,13 @@ export class ResultsComponent {
 
   toggleReResult() {
     this.expandedRe = !this.expandedRe;
+  }
+
+  toggleTotalCost() {
+    this.expandedTotalCost = !this.expandedTotalCost;
+  }
+
+  toggleTotalImpact() {
+    this.expandedTotalImpact = !this.expandedTotalImpact;
   }
 }
