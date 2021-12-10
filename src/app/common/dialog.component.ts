@@ -10,25 +10,44 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
   <h1 mat-dialog-title *ngIf="data.title">
     {{ data.title }}
   </h1>
-  <div mat-dialog-content>
+  <div mat-dialog-content style="min-width: 250px">
     <div [class]="data.contentClass" *ngIf="data.content">{{ data.content }}</div>
-    <markdown *ngIf="data.contentMdSrc" [src]="data.contentMdSrc"></markdown>
     <markdown *ngIf="data.contentMdData" [data]="data.contentMdData">{{ data.content }}</markdown>
+    <markdown *ngIf="data.contentMdSrc" [src]="data.contentMdSrc" (load)="onLoad()" (error)="onError($event)"></markdown>
+    <div *ngIf="data.contentMdSrc && !contentMdSrcLoaded && !contentMdSrcError">
+      {{ 'Loading' | translate }}...
+    </div>
+    <div *ngIf="data.contentMdSrc && !contentMdSrcLoaded && contentMdSrcError">
+      {{ contentMdSrcError }}
+    </div>
   </div>
   <div mat-dialog-actions>
     <button mat-button mat-dialog-close>{{ data.buttonText || ('Ok' | translate) }}</button>
   </div>`,
   styles: [
-    `.close-button { float: right; }`
+    `.close-button { float: right; }`,
   ]
 })
 export class CommonDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<CommonDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+  }
+
+  contentMdSrcLoaded = false;
+  contentMdSrcError = null;
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  onLoad() {
+    this.contentMdSrcLoaded = true;
+  }
+
+  onError(evt: any) {
+    this.contentMdSrcLoaded = true;
+    this.contentMdSrcError = evt;
   }
 }
 
