@@ -402,6 +402,12 @@ button.icon-button {
   margin-right: $margin-small;
 }
 
+.mat-checkbox.wrap {
+  .mat-checkbox-layout {
+    white-space: normal !important;
+  }
+}
+
 div[fxlayout] > mat-form-field+mat-checkbox {
   margin-top: 20px;
 }

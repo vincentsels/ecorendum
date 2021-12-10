@@ -21,7 +21,7 @@
 </div>
 <mat-divider class="vertical-spaced"></mat-divider>
 <div *ngIf="!allTargetsMet">
-  <mat-checkbox [(ngModel)]="agree">{{ 'agreeWithNotAllTargetsMet' | translate }}</mat-checkbox>
+  <mat-checkbox [(ngModel)]="agree" class="wrap">{{ 'agreeWithNotAllTargetsMet' | translate }}</mat-checkbox>
 </div>
 <div>
   <button mat-raised-button color="primary" (click)="ok()" [disabled]="!allTargetsMet && !agree">{{ 'Submit' | translate }}</button>
