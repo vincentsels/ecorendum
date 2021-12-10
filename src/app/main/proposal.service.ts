@@ -19,6 +19,7 @@ export class ProposalService {
     for (let selectedVariantNumber of selectedVariantNumbers) {
       const selectedProposal = this.proposals.find(p => p.id === selectedVariantNumber.id);
       if (selectedProposal) {
+        selectedProposal.selectedAmbitionLevel = selectedVariantNumber.selectedVariant;
         const selectedVariant = selectedProposal.variants.find(v => v.ambitionLevel === selectedVariantNumber.selectedVariant);
         if (selectedVariant) {
           selectedProposal.selected = true;
@@ -114,5 +115,16 @@ export class ProposalService {
     return selectedVariants
       .flatMap(v => v.targets.filter(t => t.type === targetType).map(t => t.amount))
       .reduce((a, b) => a + b, 0);
+  }
+
+  clearSelection() {
+    this.proposals.forEach((proposal) => {
+      proposal.selected = false;
+      proposal.selectedAmbitionLevel = 0;
+      proposal.variants.forEach((variant) => {
+        variant.selected = false;
+      });
+    });
+    this.updateResults();
   }
 }

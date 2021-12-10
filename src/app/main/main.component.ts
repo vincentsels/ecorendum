@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 import { Proposal } from './proposal';
 
 import { ProposalService } from './proposal.service';
@@ -11,7 +12,7 @@ import { ResultsDialogComponent } from './results/results-dialog.component';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  constructor(public proposalService: ProposalService, private dialog: MatDialog) {
+  constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService) {
     this.filteredProjects = proposalService.proposals;
   }
 
@@ -38,5 +39,11 @@ export class MainComponent {
   clearFilter() {
     this.projectsFilter = '';
     this.filterChanged();
+  }
+
+  clearSelection() {
+    if (confirm(this.translate.instant('Are you sure you want to erase your selection of measures?'))) {
+      this.proposalService.clearSelection();
+    }
   }
 }

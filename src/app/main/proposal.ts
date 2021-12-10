@@ -15,6 +15,7 @@ export class Proposal {
   pictureThumb?: string;
 
   selected: boolean = false;
+  selectedAmbitionLevel: number = 0;
 
   getSectorIcon = () => SectorMap[this.sector || Sector.other];
   getSelectedVariant = () => (this.variants || []).find(v => v.selected);

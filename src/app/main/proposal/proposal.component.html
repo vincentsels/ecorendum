@@ -24,7 +24,7 @@
   </div>
 
   <div style="clear: both">
-    <mat-button-toggle-group class="variants" name="variant" [(ngModel)]="selectedAmbitionLevel">
+    <mat-button-toggle-group class="variants" name="variant" [(ngModel)]="proposal.selectedAmbitionLevel">
       <mat-button-toggle [value]="0" (click)="clearVariant()">
         <div class="ambition-level" fxHide.lt-sm>
           <div class="ambition-level-title">X</div>
@@ -53,7 +53,7 @@
     </mat-button-toggle-group>
 
     <div class="variant-body">
-      <div *ngIf="selectedVariant">
+      <div *ngIf="proposal.selectedAmbitionLevel && selectedVariant">
         <div fxLayout fxLayoutGap="12px">
           <div fxFlex="30%">
             <h3>{{ 'Cost' | translate }}</h3>
@@ -85,7 +85,7 @@
 
       </div>
 
-      <div *ngIf="!selectedVariant">
+      <div *ngIf="!proposal.selectedAmbitionLevel">
         {{ 'This proposal is not selected' | translate }}
       </div>
     </div>

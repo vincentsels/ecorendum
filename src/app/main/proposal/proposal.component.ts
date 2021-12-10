@@ -14,7 +14,6 @@ export class ProposalComponent implements OnChanges {
 
   @Input() proposal?: Proposal;
 
-  selectedAmbitionLevel = 0;
   selectedVariant?: Variant;
 
   ngOnChanges(changes: SimpleChanges) {
@@ -22,7 +21,6 @@ export class ProposalComponent implements OnChanges {
     if (proposal && proposal.currentValue) {
       const currentProposal = (proposal.currentValue as Proposal);
       this.selectedVariant = currentProposal.getSelectedVariant();
-      if (this.selectedVariant) this.selectedAmbitionLevel = this.selectedVariant.ambitionLevel;
     }
   }
 
