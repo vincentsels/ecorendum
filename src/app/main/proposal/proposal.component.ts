@@ -10,11 +10,11 @@ import { ProposalService } from '../proposal.service';
   styleUrls: ['./proposal.component.scss']
 })
 export class ProposalComponent implements OnChanges {
-  constructor(public enums: EnumsService, public service: ProposalService) {}
-
   @Input() proposal?: Proposal;
 
   selectedVariant?: Variant;
+
+  constructor(public enums: EnumsService, public service: ProposalService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     const proposal = changes.proposal;

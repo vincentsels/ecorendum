@@ -195,9 +195,12 @@
         <div class="amount-selected">{{ results.totalProfit > 0 ? 'Total measures profit' : 'Total measures cost' }}: €&nbsp;{{ results.totalCost | number }}</div>
         <div class="amount-selected">
           {{ 'Including emission trading' }}:
-          <span [class.color-accent]="results.totalProfitIncludingIncome"> €&nbsp;{{ (results.totalProfitIncludingIncome > 0 ? results.totalProfitIncludingIncome : results.totalCostIncludingTax) | number }}</span>
+          <span [class.color-accent]="results.totalProfitIncludingIncome > 0"> €&nbsp;{{ (results.totalProfitIncludingIncome > 0 ? results.totalProfitIncludingIncome : results.totalCostIncludingTax) | number }}</span>
         </div>
       </div>
+      <p *ngIf="results.totalCostIncludingTax > 0" style="margin-top: 12px">
+        <a [href]="" (click)="showCostComparisonDialog()">{{ 'Find out what you can do with this budget instead' | translate }}</a>
+      </p>
     </div>
   </mat-card>
 

@@ -31,6 +31,7 @@ import { InViewportModule } from 'ng-in-viewport';
 import { MarkdownModule } from 'ngx-markdown';
 import { ResultsDialogComponent } from './main/results/results-dialog.component';
 import { CostPipe } from './common/cost.pipe';
+import { SubmitDialogComponent } from './main/submit-dialog/submit-dialog.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -54,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonDialogComponent,
     ResultsMobileSummaryComponent,
     ResultsDialogComponent,
+    SubmitDialogComponent,
   ],
   imports: [
     BrowserModule,

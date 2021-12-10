@@ -1,9 +1,13 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
+import { CommonDialogService } from '../../common/dialog.component';
 
 import { EnumsService } from '../../common/enums.service';
 import { ProposalService } from '../proposal.service';
+import { SubmitDialogComponent } from '../submit-dialog/submit-dialog.component';
 import { Results } from './results';
 
 @Component({
@@ -27,7 +31,8 @@ export class ResultsComponent implements OnInit {
 
   @Input() dialog = false;
 
-  constructor(service: ProposalService, private snackBar: MatSnackBar, public enums: EnumsService) {
+  constructor(service: ProposalService, public enums: EnumsService, private matDialog: MatDialog,
+    private commonDialog: CommonDialogService, private translate: TranslateService) {
     this.results$ = service.results$;
   }
 
@@ -43,7 +48,7 @@ export class ResultsComponent implements OnInit {
   }
 
   submit() {
-    this.snackBar.open('This would submit your preferred measures so the government gets an idea of the support for each of them.', 'OK');
+    this.matDialog.open(SubmitDialogComponent);
   }
 
   displayImpact(impactAmount: number) {
@@ -80,5 +85,12 @@ export class ResultsComponent implements OnInit {
 
   toggleTotalImpact() {
     this.expandedTotalImpact = !this.expandedTotalImpact;
+  }
+
+  showCostComparisonDialog() {
+    this.commonDialog.show(
+      this.translate.instant('Cost comparison'),
+      this.translate.instant('costComparisonExplanation'),
+    )
   }
 }

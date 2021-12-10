@@ -1,4 +1,4 @@
-import { Impact, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap } from '../proposal';
+import { ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap } from '../proposal';
 
 export class Results {
   constructor(props: Partial<Results> = {}) {
@@ -16,6 +16,7 @@ export class Results {
   reTarget = new TargetResult(Results.reGapTargetGwh, 'Gwh');
 
   totalCost: number = 0;
+  totalTax: number = 0;
   totalProfit: number = 0;
   totalCostIncludingTax: number = 0;
   totalProfitIncludingIncome: number = 0;

@@ -12,12 +12,13 @@ import { ResultsDialogComponent } from './results/results-dialog.component';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService) {
-    this.filteredProjects = proposalService.proposals;
-  }
-
   filteredProjects: Proposal[] = [];
   projectsFilter = '';
+
+  constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService) {
+    this.filteredProjects = proposalService.proposals;
+    this.proposalService.updateResults();
+  }
 
   showResults() {
     this.dialog.open(ResultsDialogComponent, {

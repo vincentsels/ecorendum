@@ -6,7 +6,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   template: `
 <h1 mat-dialog-title>
   {{ 'Results' | translate }}
-  <button mat-button class="close-button" [mat-dialog-close]="true">
+  <button mat-icon-button class="close-button" [mat-dialog-close]="true">
     <mat-icon>close</mat-icon>
   </button>
 </h1>

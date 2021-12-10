@@ -69,6 +69,7 @@ $margin-inline: 4px;
 a {
   color: mat.get-color-from-palette($ecorendum-primary, 200);
   text-decoration: none;
+  cursor: pointer;
 }
 
 a.unstyled-link {
