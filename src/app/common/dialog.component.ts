@@ -4,11 +4,11 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 @Component({
   selector: 'common-dialog',
   template: `
+  <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon>close</mat-icon>
+  </button>
   <h1 mat-dialog-title *ngIf="data.title">
     {{ data.title }}
-    <button mat-button class="close-button" [mat-dialog-close]="true">
-      <mat-icon>close</mat-icon>
-    </button>
   </h1>
   <div mat-dialog-content>
     <div [class]="data.contentClass" *ngIf="data.content">{{ data.content }}</div>
