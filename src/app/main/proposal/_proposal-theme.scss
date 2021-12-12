@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin theme($theme) {
+  $is-dark-theme: map.get($theme, is-dark);
+  $nav-background-opacity: if($is-dark-theme, 0.2, 0.03);
+
+  .proposal-card.selectable {
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(0, 0, 0, $nav-background-opacity);
+    }
+  }
+}
