@@ -1,6 +1,6 @@
 <div *ngIf="proposal" class="proposal" matRipple [matRippleDisabled]="proposal.selected">
   <mat-card class="proposal-card" [class.selectable]="!proposal.selected">
-    <div>
+    <div (click)="selectProposal()">
       <img [src]="proposal.pictureThumb" [alt]="proposal.title" class="proposal-thumb" ngClass.lt-sm="proposal-thumb-xs" />
       <div>
         <h2>
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div style="clear: both">
+    <div style="clear: both" *ngIf="proposal.selected">
       <mat-button-toggle-group class="variants" name="variant" [(ngModel)]="proposal.selectedAmbitionLevel">
         <mat-button-toggle [value]="0" (click)="clearVariant()">
           <div class="ambition-level" fxHide.lt-sm>
