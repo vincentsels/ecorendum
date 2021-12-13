@@ -15,8 +15,10 @@ export class CostPipe implements PipeTransform {
       // Larger than: 500.000: show as million
       const val = Math.round(value / 1000000 * 100) / 100;
       return ret + val + '\u00A0' + 'M';
+    } else {
+      // Else: show as k
+      const val = Math.round(value / 1000 * 100) / 100;
+      return ret + val + '\u00A0' + 'k';
     }
-
-    return ret + value;
   }
 }

@@ -39,6 +39,7 @@ export class ProposalComponent implements OnChanges {
 
   selectProposal() {
     if (!this.proposal) return;
+    if (this.proposal.selected) return;
     this.proposal.selectedAmbitionLevel = 1;
     this.updateSelected(this.proposal.variants[0]);
   }
