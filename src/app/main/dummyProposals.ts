@@ -16,7 +16,7 @@ export const PROPOSALS: Proposal[] = [
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.transport,
-    pictureThumb: 'https://i.ibb.co/ZcGmQV2/transportation-2-640.jpg',
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/transportation-2-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,
@@ -101,7 +101,7 @@ export const PROPOSALS: Proposal[] = [
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.industry,
-    pictureThumb: 'https://i.ibb.co/F7nH8Wq/eco-shopping-640.jpg',
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/eco-shopping-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,
@@ -184,7 +184,7 @@ export const PROPOSALS: Proposal[] = [
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.agriculture,
-    pictureThumb: 'https://i.ibb.co/j3YSRyQ/agriculture-640.jpg',
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/agriculture-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,
@@ -254,7 +254,7 @@ export const PROPOSALS: Proposal[] = [
     ],
     policyLevel: PolicyLevel.flemish,
     sector: Sector.buildings,
-    pictureThumb: 'https://i.ibb.co/1Mp0cN3/construction-640.jpg',
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/construction-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,
