@@ -13,6 +13,7 @@ export const PROPOSALS: Proposal[] = [
     ],
     slug: [
       new TranslatedText('nl', 'uitfasering-aankoop-fossiele-verbrandingsmotoren'),
+      new TranslatedText('en', 'phase-out-purchase-of-internal-combustion-engines'),
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.transport,
@@ -180,7 +181,7 @@ export const PROPOSALS: Proposal[] = [
       new TranslatedText('en', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'),
     ],
     slug: [
-      new TranslatedText('en', 'other-proposal'),
+      new TranslatedText('en', 'some-other-proposal'),
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.agriculture,

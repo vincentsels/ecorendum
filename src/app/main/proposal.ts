@@ -7,7 +7,6 @@ export class Proposal {
   title: TranslatedText[] = [];
   slug: TranslatedText[] = [];
   summary: TranslatedText[] = [];
-  description: TranslatedText[] = [];
   policyLevel?: PolicyLevel;
   variants: Variant[] = [];
   sector?: Sector;

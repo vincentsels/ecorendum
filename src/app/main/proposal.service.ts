@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { PROPOSALS } from './dummyProposals';
+import { PROPOSALS } from './dummy-proposals';
 import { Impact, ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, TargetType, Variant } from './proposal';
 import { Results, TargetResult, TotalImpact } from './results/results';
 
