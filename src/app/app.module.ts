@@ -33,6 +33,8 @@ import { ResultsDialogComponent } from './main/results/results-dialog.component'
 import { CostPipe } from './common/cost.pipe';
 import { SubmitDialogComponent } from './main/submit-dialog/submit-dialog.component';
 import { CostEstPipe } from './common/cost-est.pipe';
+import { ProposalHeaderComponent } from './main/proposal-header/proposal-header.component';
+import { ProposalDetailComponent } from './main/proposal-detail/proposal-detail.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -49,6 +51,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CostPipe,
     MainComponent,
     ProposalComponent,
+    ProposalHeaderComponent,
+    ProposalDetailComponent,
     TranslateTextPipe,
     TranslateTextAsyncPipe,
     ResultsComponent,
