@@ -1,4 +1,41 @@
 <div *ngIf="proposal" [class.page-container]="!dialog">
   <app-proposal-header [proposal]="proposal" (closeDialog)="closeDialog()"></app-proposal-header>
 
+  <h2 class="clear">{{ 'Variants' | translate }}</h2>
+
+  <div class="variant-list">
+    <mat-card class="variant" *ngFor="let variant of proposal.variants">
+      <h3>{{ variant.ambitionLevel }} - {{ variant.description | translateTextAsync | async }}</h3>
+
+      <div class="variant-body">
+        <div class="variant-body-numbers" fxLayout fxLayoutGap="12px">
+          <div>
+            <h3>{{ 'Cost' | translate }}</h3>
+            <div>{{ 'Initial' | translate }}: €&nbsp;{{ variant.costInitial | number }}</div>
+            <div *ngIf="variant.costPerYearFixed">{{ 'Yearly' | translate }}: €&nbsp;{{ variant.costPerYearFixed | number }}</div>
+            <div><label>{{ 'Total' | translate }}: €&nbsp;{{ variant.getTotalCost() | number }}</label></div>
+          </div>
+
+          <div>
+            <h3>{{ 'Targets' | translate }}</h3>
+            <div *ngIf="variant.getTargetAmount(enums.TargetType.ghgReduction); let amount;">
+              <mat-icon class="inline">cloud_download</mat-icon> {{ amount | number }} kt
+            </div>
+            <div *ngIf="variant.getTargetAmount(enums.TargetType.energyEfficiency); let amount;">
+              <mat-icon class="inline">savings</mat-icon> {{ amount | number }} GWh
+            </div>
+            <div *ngIf="variant.getTargetAmount(enums.TargetType.renewableEnergy); let amount;">
+              <mat-icon class="inline">wb_sunny</mat-icon> {{ amount | number }} GWh
+            </div>
+          </div>
+          <div *ngIf="variant.impacts && variant.impacts.length > 1">
+            <h3>{{ 'Impact' | translate }}</h3>
+            <div *ngFor="let impact of variant.impacts" ngClass.xs="impact-xs">
+              <mat-icon class="inline icon-list-item" [class]="impact.getImpactAmountClass()" matTooltip="{{ enums.ImpactDomain[impact.domain] | translate }}">{{ impact.getImpactDomainIcon() }}</mat-icon><span fxHide.lt-md> {{ enums.ImpactAmount[impact.amount] | translate }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
 </div>
