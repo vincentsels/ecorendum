@@ -19,6 +19,14 @@ export class Proposal {
   getSectorIcon = () => SectorMap[this.sector || Sector.other];
   getSelectedVariant = () => (this.variants || []).find(v => v.selected);
   getAverageCost = () => this.variants.map(v => v.getTotalCost()).reduce((total, curr) => total + curr, 0) / this.variants.length;
+
+  getSlugTextInLanguage(lang: LanguageType): string {
+    let slug = this.slug.find(s => s.lang === lang);
+    if (!slug) slug = this.slug.find(s => s.lang === 'en');
+    if (!slug) slug = this.slug[0];
+
+    return slug.text;
+  }
 }
 
 export enum PolicyLevel {

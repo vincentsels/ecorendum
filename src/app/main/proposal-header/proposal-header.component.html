@@ -7,7 +7,7 @@
       </a>
       <ng-container *ngIf="!card">
         {{ proposal.title | translateTextAsync | async }}
-        <a [routerLink]="'/proposal/' + proposal.id" class="link-button" (click)="closeDialog()"><mat-icon class="inline">link</mat-icon></a>
+        <a [routerLink]="'/proposal/' + proposal.getSlugTextInLanguage(languageService.language.value)" class="link-button" (click)="closeDialog()"><mat-icon class="inline">link</mat-icon></a>
       </ng-container>
       <div ngClass.gt-xs="pull-right gt-xs-proposal-extra-info">
         <div class="proposal-icons">

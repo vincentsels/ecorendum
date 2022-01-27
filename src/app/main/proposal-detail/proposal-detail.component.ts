@@ -23,8 +23,10 @@ export class ProposalDetailComponent implements OnChanges, OnInit {
   ngOnInit() {
     if (!this.dialog) {
       this.route.paramMap.subscribe((paramMap) => {
-        const id = Number(paramMap.get('id'));
-        this.proposal = this.service.proposals.find(p => p.id === id);
+        const idOrSlug = paramMap.get('idorslug');
+        this.proposal = this.service.proposals.find(p =>
+          (!isNaN(Number(idOrSlug)) && p.id === Number(idOrSlug)) ||
+          p.slug.some(s => s.text === idOrSlug));
       });
     }
   }

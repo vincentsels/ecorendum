@@ -5,7 +5,7 @@ import { ProposalDetailComponent } from './main/proposal-detail/proposal-detail.
 
 const routes: Routes = [
   { path: '', component: MainComponent },
-  { path: 'proposal/:id', component: ProposalDetailComponent },
+  { path: 'proposal/:idorslug', component: ProposalDetailComponent },
 ];
 
 @NgModule({
