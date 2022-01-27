@@ -1,11 +1,14 @@
 import { Proposal, TranslatedText } from './proposal';
 
 export class ProposalDetail extends Proposal {
+  constructor(init: Partial<Proposal | ProposalDetail>) {
+    super();
+    Object.assign(this, init);
+  }
+
   description: TranslatedText[] = [];
 
   partyOpinions: PartyOpinion[] = [];
-
-
 }
 
 export class PartyOpinion {

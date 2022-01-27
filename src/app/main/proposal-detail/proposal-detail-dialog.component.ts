@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Proposal } from '../proposal';
+import { ProposalDetail } from '../proposal-details';
 
 @Component({
   selector: 'proposal-detail-dialog',
@@ -33,5 +34,5 @@ export class ProposalDetailsDialogComponent {
 }
 
 export interface ProposalDetailDialogData {
-  proposal: Proposal;
+  proposal: ProposalDetail;
 }

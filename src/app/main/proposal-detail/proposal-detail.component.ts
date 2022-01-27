@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { EnumsService } from '../../common/enums.service';
 import { Proposal, Variant } from '../proposal';
+import { ProposalDetail } from '../proposal-details';
 import { ProposalService } from '../proposal.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ProposalService } from '../proposal.service';
   styleUrls: ['./proposal-detail.component.scss']
 })
 export class ProposalDetailComponent implements OnChanges, OnInit {
-  @Input() proposal?: Proposal;
+  @Input() proposal?: ProposalDetail;
   @Input() dialog: boolean = false;
 
   @Output('closeDialog') closeDialogEmitter = new EventEmitter();
@@ -24,9 +25,10 @@ export class ProposalDetailComponent implements OnChanges, OnInit {
     if (!this.dialog) {
       this.route.paramMap.subscribe((paramMap) => {
         const idOrSlug = paramMap.get('idorslug');
-        this.proposal = this.service.proposals.find(p =>
+        const foundProposal = this.service.proposals.find(p =>
           (!isNaN(Number(idOrSlug)) && p.id === Number(idOrSlug)) ||
           p.slug.some(s => s.text === idOrSlug));
+        if (foundProposal) this.proposal = new ProposalDetail(foundProposal);
       });
     }
   }

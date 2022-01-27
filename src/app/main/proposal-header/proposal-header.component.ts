@@ -5,6 +5,7 @@ import { EnumsService } from '../../common/enums.service';
 import { LanguageService } from '../../common/language.service';
 import { Proposal } from '../proposal';
 import { ProposalDetailsDialogComponent } from '../proposal-detail/proposal-detail-dialog.component';
+import { ProposalDetail } from '../proposal-details';
 
 @Component({
   selector: 'app-proposal-header',
@@ -20,8 +21,9 @@ export class ProposalHeaderComponent {
   constructor(public enums: EnumsService, public dialog: MatDialog, public languageService: LanguageService) {}
 
   openProposalDetailDialog() {
+    if (!this.proposal) return;
     this.dialog.open(ProposalDetailsDialogComponent, {
-      data: { proposal: this.proposal },
+      data: { proposal: new ProposalDetail(this.proposal) },
       autoFocus: false,
     });
   }
