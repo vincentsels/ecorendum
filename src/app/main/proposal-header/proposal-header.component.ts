@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 import { EnumsService } from '../../common/enums.service';
 import { Proposal } from '../proposal';
+import { ProposalDetailsDialogComponent } from '../proposal-detail/proposal-detail-dialog.component';
 
 @Component({
   selector: 'app-proposal-header',
@@ -12,5 +14,12 @@ export class ProposalHeaderComponent {
   @Input() proposal?: Proposal;
   @Input() card: boolean = false;
 
-  constructor(public enums: EnumsService) {}
+  constructor(public enums: EnumsService, public dialog: MatDialog) {}
+
+  openProposalDetailDialog() {
+    this.dialog.open(ProposalDetailsDialogComponent, {
+      data: { proposal: this.proposal },
+      autoFocus: false,
+    });
+  }
 }

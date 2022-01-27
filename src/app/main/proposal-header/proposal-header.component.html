@@ -2,7 +2,7 @@
   <img [src]="proposal.pictureThumb" [alt]="proposal.title" class="proposal-thumb" ngClass.lt-sm="proposal-thumb-xs" />
   <div>
     <h2>
-      <a class="title-link" *ngIf="card" [routerLink]="'/proposal/' + proposal.id" (click)="$event.stopPropagation()">
+      <a class="title-link" *ngIf="card" (click)="openProposalDetailDialog()" (click)="$event.stopPropagation()">
         {{ proposal.title | translateTextAsync | async }}
       </a>
       <ng-container *ngIf="!card">
