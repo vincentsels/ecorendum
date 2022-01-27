@@ -74,6 +74,12 @@ a {
   cursor: pointer;
 }
 
+h1, h2, h3, h4, h5 {
+  a {
+    color: inherit;
+  }
+}
+
 a.unstyled-link {
   color: inherit;
 }

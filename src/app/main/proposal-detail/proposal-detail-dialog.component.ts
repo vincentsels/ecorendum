@@ -10,7 +10,7 @@ import { Proposal } from '../proposal';
   <button mat-icon-button class="close-button" ngClass.gt-xs="gt-xs-close-button" [mat-dialog-close]="true">
     <mat-icon>close</mat-icon>
   </button>
-  <app-proposal-detail class="dialog-detail" [dialog]="true" [proposal]="data.proposal"></app-proposal-detail>
+  <app-proposal-detail class="dialog-detail" [dialog]="true" [proposal]="data.proposal" (closeDialog)="closeDialog()"></app-proposal-detail>
 </div>
 `,
   styles: [
@@ -28,6 +28,8 @@ export class ProposalDetailsDialogComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  closeDialog = () => this.dialogRef.close();
 }
 
 export interface ProposalDetailDialogData {

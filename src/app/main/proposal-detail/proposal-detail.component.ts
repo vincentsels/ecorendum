@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { EnumsService } from '../../common/enums.service';
@@ -13,6 +13,8 @@ import { ProposalService } from '../proposal.service';
 export class ProposalDetailComponent implements OnChanges, OnInit {
   @Input() proposal?: Proposal;
   @Input() dialog: boolean = false;
+
+  @Output('closeDialog') closeDialogEmitter = new EventEmitter();
 
   selectedVariant?: Variant;
 
@@ -69,4 +71,6 @@ export class ProposalDetailComponent implements OnChanges, OnInit {
 
     this.service.updateResults();
   }
+
+  closeDialog = () => this.closeDialogEmitter.emit();
 }

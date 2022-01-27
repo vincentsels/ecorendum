@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { EnumsService } from '../../common/enums.service';
@@ -14,6 +14,8 @@ export class ProposalHeaderComponent {
   @Input() proposal?: Proposal;
   @Input() card: boolean = false;
 
+  @Output('closeDialog') closeDialogEmitter = new EventEmitter();
+
   constructor(public enums: EnumsService, public dialog: MatDialog) {}
 
   openProposalDetailDialog() {
@@ -22,4 +24,6 @@ export class ProposalHeaderComponent {
       autoFocus: false,
     });
   }
+
+  closeDialog = () => this.closeDialogEmitter.emit();
 }
