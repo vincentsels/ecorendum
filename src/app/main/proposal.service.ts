@@ -9,23 +9,30 @@ const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 
 @Injectable()
 export class ProposalService {
-  proposals: Proposal[] = [];
+  proposals$ = new BehaviorSubject<Proposal[]>([]);
   results$ = new BehaviorSubject<Results>(new Results());
 
   constructor() {
-    this.proposals = PROPOSALS;
+    this.proposals$.next(PROPOSALS);
 
     const selectedVariantNumbers = JSON.parse(localStorage.getItem(LS_KEY_SELECTED_VARIANTS) || '[]');
-    for (let selectedVariantNumber of selectedVariantNumbers) {
-      const selectedProposal = this.proposals.find(p => p.id === selectedVariantNumber.id);
-      if (selectedProposal) {
-        selectedProposal.selectedAmbitionLevel = selectedVariantNumber.selectedVariant;
-        const selectedVariant = selectedProposal.variants.find(v => v.ambitionLevel === selectedVariantNumber.selectedVariant);
-        if (selectedVariant) {
-          selectedProposal.selected = true;
-          selectedVariant.selected = true;
+
+    if (selectedVariantNumbers.length > 0) {
+      const proposals = this.proposals$.value;
+
+      for (let selectedVariantNumber of selectedVariantNumbers) {
+        const selectedProposal = proposals.find(p => p.id === selectedVariantNumber.id);
+        if (selectedProposal) {
+          selectedProposal.selectedAmbitionLevel = selectedVariantNumber.selectedVariant;
+          const selectedVariant = selectedProposal.variants.find(v => v.ambitionLevel === selectedVariantNumber.selectedVariant);
+          if (selectedVariant) {
+            selectedProposal.selected = true;
+            selectedVariant.selected = true;
+          }
         }
       }
+
+      this.proposals$.next(proposals);
     }
 
     this.updateResults();
@@ -42,17 +49,27 @@ export class ProposalService {
 
     proposal.selected = proposal.variants.some(v => v.selected);
     proposal.selectedAmbitionLevel = variant.ambitionLevel;
+
+    const proposals = [
+      ...this.proposals$.value
+    ];
+
+    proposals[proposals.findIndex(p => p.id === proposal.id)] = proposal;
+
+    this.proposals$.next(proposals);
   }
 
   updateResults() {
-    if (!this.proposals || this.proposals.length === 0) return;
+    const proposals = this.proposals$.value;
 
-    const selectedVariantNumbers = this.proposals
+    if (!proposals || proposals.length === 0) return;
+
+    const selectedVariantNumbers = proposals
       .map(p => ({ id: p.id, selectedVariant: p.variants.find(v => v.selected)?.ambitionLevel }))
       .filter(s => s.selectedVariant);
     localStorage.setItem(LS_KEY_SELECTED_VARIANTS, JSON.stringify(selectedVariantNumbers));
 
-    const selectedVariants = this.proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
+    const selectedVariants = proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
 
     const ghgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction);
     const ghgReductionPercentage = ghgReducedKt / Results.ghgGapCumulativeKt * 100;
@@ -134,13 +151,19 @@ export class ProposalService {
   }
 
   clearSelection() {
-    this.proposals.forEach((proposal) => {
+    const proposals = [
+      ...this.proposals$.value,
+    ];
+
+    proposals.forEach((proposal) => {
       proposal.selected = false;
       proposal.selectedAmbitionLevel = 0;
       proposal.variants.forEach((variant) => {
         variant.selected = false;
       });
     });
+
+    this.proposals$.next(proposals);
     this.updateResults();
   }
 }

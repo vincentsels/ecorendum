@@ -2,15 +2,17 @@
   <mat-card class="proposal-card" [class.selectable]="!proposal.selected" (click)="selectProposal()">
     <app-proposal-header [proposal]="proposal" [card]="true"></app-proposal-header>
 
+    {{ proposal.selectedAmbitionLevel }} - {{ proposal | json }}
+
     <div style="clear: both" *ngIf="proposal.selected">
-      <mat-button-toggle-group class="variants" name="variant" [(ngModel)]="proposal.selectedAmbitionLevel">
-        <mat-button-toggle [value]="0" (click)="clearVariant(); $event.stopPropagation()">
+      <mat-button-toggle-group class="variants" name="variant">
+        <mat-button-toggle (click)="clearVariant(); $event.stopPropagation()" [checked]="!proposal.selected">
           <div class="ambition-level" fxHide.lt-sm>
             <div class="ambition-level-title">X</div>
           </div>
           <div fxHide.gt-xs>{{ 'None' | translate }}</div>
         </mat-button-toggle>
-        <mat-button-toggle *ngFor="let variant of proposal.variants" [value]="variant.ambitionLevel"
+        <mat-button-toggle *ngFor="let variant of proposal.variants" [checked]="variant.selected"
           (click)="updateSelected(variant); $event.stopPropagation()">
           <div fxHide.gt-xs>
             {{ variant.ambitionLevel }}

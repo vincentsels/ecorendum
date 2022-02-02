@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { Proposal } from './proposal';
+import { BehaviorSubject, Subject, Subscription } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
+import { Proposal } from './proposal';
 import { ProposalService } from './proposal.service';
 import { ResultsDialogComponent } from './results/results-dialog.component';
 
@@ -11,13 +13,39 @@ import { ResultsDialogComponent } from './results/results-dialog.component';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent {
-  filteredProjects: Proposal[] = [];
+export class MainComponent implements OnInit, OnDestroy {
+  allProjects$ = new BehaviorSubject<Proposal[]>([]);
+  filteredProjects$ = new BehaviorSubject<Proposal[]>([]);
   projectsFilter = '';
+  projectsFilter$ = new Subject<string>();
+
+  subscriptions = new Subscription();
 
   constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService) {
-    this.filteredProjects = proposalService.proposals;
+    this.allProjects$ = proposalService.proposals$;
+    this.filteredProjects$.next(this.allProjects$.value);
     this.proposalService.updateResults();
+  }
+
+  ngOnInit(): void {
+    this.subscriptions.add(
+      this.projectsFilter$
+        .pipe(
+          withLatestFrom(this.allProjects$),
+          map(([filter, proposals]) => {
+            if (!filter) return proposals;
+            return proposals.filter(
+              p => p.title.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())) ||
+                p.summary.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase()))
+            );
+          })
+        )
+        .subscribe((proposals) => this.filteredProjects$.next(proposals))
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   showResults() {
@@ -27,14 +55,7 @@ export class MainComponent {
   }
 
   filterChanged() {
-    if (this.projectsFilter) {
-      this.filteredProjects = this.proposalService.proposals.filter(
-        p => p.title.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())) ||
-          p.summary.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase()))
-      );
-    } else {
-      this.filteredProjects = this.proposalService.proposals;
-    }
+    this.projectsFilter$.next(this.projectsFilter);
   }
 
   clearFilter() {

@@ -10,15 +10,17 @@
       </div>
     </h1>
 
-    <app-proposal *ngFor="let proposal of filteredProjects" [proposal]="proposal"></app-proposal>
+    <div *ngIf="filteredProjects$ | async; let filteredProjects">
+      <app-proposal *ngFor="let proposal of filteredProjects" [proposal]="proposal"></app-proposal>
 
-    <p *ngIf="filteredProjects.length > 0 && filteredProjects.length < proposalService.proposals.length">
-      {{ 'Cannot find the proposal you are looking for? There is a filter applied.' | translate }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
-    </p>
+      <p *ngIf="filteredProjects.length > 0 && filteredProjects.length < proposalService.proposals$.value.length">
+        {{ 'Cannot find the proposal you are looking for? There is a filter applied.' | translate }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
+      </p>
 
-    <p *ngIf="filteredProjects.length === 0">
-      {{ 'No proposals found with this filter.' }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
-    </p>
+      <p *ngIf="filteredProjects.length === 0">
+        {{ 'No proposals found with this filter.' }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
+      </p>
+    </div>
 
     <button mat-raised-button (click)="clearSelection()" style="margin-top: 12px">{{ 'Clear selection' | translate }}</button>
   </div>
