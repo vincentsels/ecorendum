@@ -55,6 +55,7 @@ export class ProposalComponent implements OnChanges {
     }
 
     this.proposal.selected = this.proposal.variants.some(v => v.selected);
+    this.proposal.selectedAmbitionLevel = variant.ambitionLevel;
 
     this.service.updateResults();
   }

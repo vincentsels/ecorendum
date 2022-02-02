@@ -23,9 +23,12 @@ export const PROPOSALS: Proposal[] = [
         ambitionLevel: 1,
         costInitial: 100000,
         costPerYearFixed: 0,
-        description: [
+        title: [
           new TranslatedText('nl', 'Vanaf 2029'),
           new TranslatedText('en', 'Starting 2029'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this scenario, it will only be forbidden to sell vehicles with an internal combustion engine starting in 2029.'),
         ],
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
@@ -44,9 +47,12 @@ export const PROPOSALS: Proposal[] = [
         ambitionLevel: 2,
         costInitial: 100000,
         costPerYearFixed: 0,
-        description: [
+        title: [
           new TranslatedText('nl', 'Vanaf 2027'),
           new TranslatedText('en', 'Starting 2027'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this more ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2027.'),
         ],
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
@@ -64,9 +70,12 @@ export const PROPOSALS: Proposal[] = [
       new Variant({
         ambitionLevel: 3,
         costInitial: 200000,
-        description: [
+        title: [
           new TranslatedText('nl', 'Vanaf 2025'),
           new TranslatedText('en', 'Starting 2025'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2025.'),
         ],
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
@@ -108,10 +117,13 @@ export const PROPOSALS: Proposal[] = [
         ambitionLevel: 1,
         costInitial: 100000,
         costPerYearFixed: 0,
-        description: [
+        title: [
           new TranslatedText('en', 'Starting 2025, limited'),
           new TranslatedText('nl', 'Vanaf 2025, beperkt'),
           new TranslatedText('fr', 'À partir de 2025, limité'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this scenario, warehouses are only required to start applying the eco-score starting in 2025, the footprint is only limited to CO2-emissions, and only food and consumable products have to be labeled.'),
         ],
         impacts: [
           new Impact(ImpactDomain.redistributionLocal, ImpactAmount.somewhatPositive),
@@ -125,10 +137,13 @@ export const PROPOSALS: Proposal[] = [
         ambitionLevel: 2,
         costInitial: 100000,
         costPerYearFixed: 0,
-        description: [
+        title: [
           new TranslatedText('en', 'Starting 2024, limited, eco-score'),
           new TranslatedText('nl', 'Vanaf 2024, beperkt, eco-score'),
           new TranslatedText('fr', 'À partir de 2024, limité, eco-score'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this more ambitious scenario, warehouses are required to start applying the eco-score starting in 2024, the footprint not only limited to CO2-emissions but also a couple of other ecological impacts such as potential biodiversity loss. Only food and consumable products must be labeled.'),
         ],
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
@@ -149,10 +164,13 @@ export const PROPOSALS: Proposal[] = [
       new Variant({
         ambitionLevel: 3,
         costInitial: 200000,
-        description: [
+        title: [
           new TranslatedText('en', 'Starting 2024, complete, eco-score'),
           new TranslatedText('nl', 'Vanaf 2024, compleet, eco-score'),
           new TranslatedText('fr', 'À partir de 2024, complèt, eco-score'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this scenario, warehouses are required to start applying the eco-score starting in 2023, the footprint not only limited to CO2-emissions but also its exhaustive ecological and social impact. All products must be labeled (albeit with different starting dates as feasible for the sector).'),
         ],
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
@@ -191,8 +209,11 @@ export const PROPOSALS: Proposal[] = [
         ambitionLevel: 1,
         costInitial: 0,
         costPerYearVariable: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
-        description: [
+        title: [
           new TranslatedText('en', 'A basic target'),
+        ],
+        description: [
+          new TranslatedText('en', 'Quite the basic target, suspendisse vitae metus suscipit urna tempor tincidunt vel ut velit. Proin accumsan erat vestibulum erat consequat tempus. Suspendisse potenti. Maecenas ultricies rutrum nunc, non tempus dolor convallis sit amet. Suspendisse posuere ex a lectus eleifend facilisis a sed sem.'),
         ],
         impacts: [
           new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
@@ -208,8 +229,11 @@ export const PROPOSALS: Proposal[] = [
       new Variant({
         ambitionLevel: 2,
         costInitial: 15000000,
-        description: [
+        title: [
           new TranslatedText('en', 'A more ambitious target'),
+        ],
+        description: [
+          new TranslatedText('en', 'This is a more ambitious target. Maecenas lacinia enim dictum tortor tincidunt finibus. Pellentesque vitae lorem ac nibh convallis efficitur. Etiam sapien turpis, varius sit amet commodo ac, vulputate et ex. Curabitur consequat justo at justo gravida, ut lacinia arcu consectetur. Nunc suscipit nulla et tempor semper. Morbi faucibus elit congue, porta velit non, pulvinar mauris.'),
         ],
         impacts: [
           new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
@@ -226,8 +250,11 @@ export const PROPOSALS: Proposal[] = [
         ambitionLevel: 3,
         costInitial: 20000000,
         costPerYearVariable: { 2022: 3000000, 2023: 3000000, 2024: 800000 },
-        description: [
+        title: [
           new TranslatedText('en', 'A very ambitious target'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this very ambitious target, lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis, libero maximus mattis pulvinar, nisi lorem luctus metus, in pulvinar mauris odio at arcu. Proin faucibus quam id nunc gravida imperdiet. Morbi suscipit sagittis sapien a ornare. Donec accumsan pharetra pellentesque. Donec eleifend erat vel neque gravida sagittis. Aenean vestibulum tristique ex at congue. Integer quis ipsum in nunc condimentum dignissim sed quis nisl.'),
         ],
         impacts: [
           new Impact(ImpactDomain.aerosols, ImpactAmount.veryPositive),
@@ -261,7 +288,7 @@ export const PROPOSALS: Proposal[] = [
         ambitionLevel: 1,
         costInitial: 20000000,
         costPerYearVariable: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
-        description: [
+        title: [
           new TranslatedText('en', 'The only target'),
         ],
         impacts: [

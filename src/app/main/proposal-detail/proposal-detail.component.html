@@ -5,9 +5,11 @@
 
   <div class="variant-list">
     <mat-card class="variant" *ngFor="let variant of proposal.variants">
-      <h3>{{ variant.ambitionLevel }} - {{ variant.description | translateTextAsync | async }}</h3>
+      <h3 *ngIf="proposal.variants.length > 1">{{ variant.ambitionLevel }} - {{ variant.title | translateTextAsync | async }}</h3>
 
       <div class="variant-body">
+        <p *ngIf="proposal.variants.length > 1">{{ variant.description | translateTextAsync | async }}</p>
+
         <div class="variant-body-numbers" fxLayout fxLayoutGap="12px">
           <div>
             <h3>{{ 'Cost' | translate }}</h3>
@@ -35,6 +37,11 @@
             </div>
           </div>
         </div>
+
+        <mat-button-toggle [checked]="variant.selected" (change)="updateSelected(variant)">
+          <span *ngIf="variant.selected"><mat-icon class="inline" style="width: 16px;">checked</mat-icon> {{ 'Selected' | translate }}</span>
+          <span *ngIf="!variant.selected">{{ 'Select' | translate }}</span>
+        </mat-button-toggle>
       </div>
     </mat-card>
   </div>

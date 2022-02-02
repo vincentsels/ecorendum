@@ -18,7 +18,7 @@
           <div class="ambition-level" fxHide.lt-sm>
             <div class="ambition-level-title" fxHide.lt-sm>{{ variant.ambitionLevel }}</div>
             <div class="ambition-level-body">
-              <span class="ambition-level-body-text" fxHide.lt-lg>{{ variant.description | translateTextAsync | async }}</span>
+              <span class="ambition-level-body-text" fxHide.lt-lg>{{ variant.title | translateTextAsync | async }}</span>
               <span class="ambition-level-body-icons">
                 <span class="ambition-level-reduction">
                   <mat-icon class="inline">cloud_download</mat-icon> {{ variant.getTargetAmount(enums.TargetType.ghgReduction) | number }} kt
