@@ -31,6 +31,19 @@ export class ProposalService {
     this.updateResults();
   }
 
+  updateSelectedVariant(proposal: Proposal, variant: Variant) {
+    if (!proposal) return;
+
+    variant.selected = true;
+
+    for (let notClickedVariant of proposal.variants.filter(v => v.ambitionLevel !== variant.ambitionLevel)) {
+      notClickedVariant.selected = false;
+    }
+
+    proposal.selected = proposal.variants.some(v => v.selected);
+    proposal.selectedAmbitionLevel = variant.ambitionLevel;
+  }
+
   updateResults() {
     if (!this.proposals || this.proposals.length === 0) return;
 

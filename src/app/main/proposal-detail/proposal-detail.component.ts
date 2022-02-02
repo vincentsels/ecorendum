@@ -54,25 +54,9 @@ export class ProposalDetailComponent implements OnChanges, OnInit {
     this.service.updateResults();
   }
 
-  selectProposal() {
-    if (!this.proposal) return;
-    if (this.proposal.selected) return;
-    this.proposal.selectedAmbitionLevel = 1;
-    this.updateSelected(this.proposal.variants[0]);
-  }
-
   updateSelected(variant: Variant) {
     if (!this.proposal) return;
-
-    variant.selected = true;
-
-    this.selectedVariant = variant;
-    for (let notClickedVariant of this.proposal.variants.filter(v => v.ambitionLevel !== variant.ambitionLevel)) {
-      notClickedVariant.selected = false;
-    }
-
-    this.proposal.selected = this.proposal.variants.some(v => v.selected);
-
+    this.service.updateSelectedVariant(this.proposal, variant);
     this.service.updateResults();
   }
 
