@@ -2,8 +2,6 @@
   <mat-card class="proposal-card" [class.selectable]="!proposal.selected" (click)="selectProposal()">
     <app-proposal-header [proposal]="proposal" [card]="true"></app-proposal-header>
 
-    {{ proposal.selectedAmbitionLevel }} - {{ proposal | json }}
-
     <div style="clear: both" *ngIf="proposal.selected">
       <mat-button-toggle-group class="variants" name="variant">
         <mat-button-toggle (click)="clearVariant(); $event.stopPropagation()" [checked]="!proposal.selected">

@@ -33,8 +33,11 @@ export class ProposalDetailComponent implements OnInit {
 
   updateSelected(variant: Variant) {
     if (!this.proposal) return;
-    this.service.updateSelectedVariant(this.proposal, variant);
-    this.service.updateResults();
+    if (!variant.selected) {
+      this.service.selectVariant(this.proposal, variant);
+    } else {
+      this.service.clearVariant(this.proposal);
+    }
   }
 
   closeDialog = () => this.closeDialogEmitter.emit();

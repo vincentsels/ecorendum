@@ -14,26 +14,6 @@ export class ProposalComponent {
 
   constructor(public enums: EnumsService, public service: ProposalService) {}
 
-  clearVariant() {
-    if (!this.proposal) return;
-
-    this.proposal.selected = false;
-
-    for (let notClickedVariant of this.proposal.variants) {
-      notClickedVariant.selected = false;
-    }
-
-    this.service.updateResults();
-  }
-
-  selectProposal() {
-    if (!this.proposal) return;
-    if (this.proposal.selected) return;
-
-    this.proposal.selectedAmbitionLevel = 1;
-    this.updateSelected(this.proposal.variants[0]);
-  }
-
   getSelectedVariant() {
     if (!this.proposal) return;
     if (!this.proposal.selected) return;
@@ -41,10 +21,22 @@ export class ProposalComponent {
     return this.proposal.variants.find(v => v.selected);
   }
 
+  selectProposal() {
+    if (!this.proposal) return;
+    if (this.proposal.selected) return;
+
+    this.updateSelected(this.proposal.variants[0]);
+  }
+
   updateSelected(variant: Variant) {
     if (!this.proposal || !variant) return;
 
-    this.service.updateSelectedVariant(this.proposal, variant);
-    this.service.updateResults();
+    this.service.selectVariant(this.proposal, variant);
+  }
+
+  clearVariant() {
+    if (!this.proposal) return;
+
+    this.service.clearVariant(this.proposal);
   }
 }

@@ -38,7 +38,7 @@ export class ProposalService {
     this.updateResults();
   }
 
-  updateSelectedVariant(proposal: Proposal, variant: Variant) {
+  selectVariant(proposal: Proposal, variant: Variant) {
     if (!proposal) return;
 
     variant.selected = true;
@@ -47,16 +47,52 @@ export class ProposalService {
       notClickedVariant.selected = false;
     }
 
-    proposal.selected = proposal.variants.some(v => v.selected);
+    proposal.selected = true;
     proposal.selectedAmbitionLevel = variant.ambitionLevel;
 
     const proposals = [
       ...this.proposals$.value
     ];
 
-    proposals[proposals.findIndex(p => p.id === proposal.id)] = proposal;
+    proposals[proposals.findIndex(p => p.id === proposal.id)] = new Proposal(proposal);
 
     this.proposals$.next(proposals);
+    this.updateResults();
+  }
+
+  clearVariant(proposal: Proposal) {
+    proposal.selected = false;
+    proposal.selectedAmbitionLevel = 0;
+
+    for (let notClickedVariant of proposal.variants) {
+      notClickedVariant.selected = false;
+    }
+
+    const proposals = [
+      ...this.proposals$.value
+    ];
+
+    proposals[proposals.findIndex(p => p.id === proposal.id)] = new Proposal(proposal);
+
+    this.proposals$.next(proposals);
+    this.updateResults();
+  }
+
+  clearSelection() {
+    const proposals = [
+      ...this.proposals$.value,
+    ];
+
+    proposals.forEach((proposal) => {
+      proposal.selected = false;
+      proposal.selectedAmbitionLevel = 0;
+      proposal.variants.forEach((variant) => {
+        variant.selected = false;
+      });
+    });
+
+    this.proposals$.next(proposals);
+    this.updateResults();
   }
 
   updateResults() {
@@ -144,26 +180,9 @@ export class ProposalService {
     )
   }
 
-  getTotalAmount(selectedVariants: Variant[], targetType: TargetType) {
+  private getTotalAmount(selectedVariants: Variant[], targetType: TargetType) {
     return selectedVariants
       .flatMap(v => v.targets.filter(t => t.type === targetType).map(t => t.amount))
       .reduce((a, b) => a + b, 0);
-  }
-
-  clearSelection() {
-    const proposals = [
-      ...this.proposals$.value,
-    ];
-
-    proposals.forEach((proposal) => {
-      proposal.selected = false;
-      proposal.selectedAmbitionLevel = 0;
-      proposal.variants.forEach((variant) => {
-        variant.selected = false;
-      });
-    });
-
-    this.proposals$.next(proposals);
-    this.updateResults();
   }
 }
