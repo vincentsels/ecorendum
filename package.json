@@ -26,6 +26,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "document-register-element": "^1.7.2",
+    "lorem-ipsum": "^2.0.4",
     "ng-in-viewport": "^6.1.5",
     "ngx-markdown": "^13.0.0",
     "rxjs": "~6.6.0",

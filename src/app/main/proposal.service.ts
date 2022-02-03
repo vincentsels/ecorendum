@@ -1,24 +1,37 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { LoremIpsumService } from '../common/lorem-ipsum.service';
 
 import { PROPOSALS } from './dummy-proposals';
-import { Impact, ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, TargetType, Variant } from './proposal';
+import { Impact, ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, TargetType, TranslatedText, Variant } from './proposal';
+import { ProposalDetail } from './proposal-details';
 import { Results, TargetResult, TotalImpact } from './results/results';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 
 @Injectable()
 export class ProposalService {
-  proposals$ = new BehaviorSubject<Proposal[]>([]);
+  proposals$ = new BehaviorSubject<ProposalDetail[]>([]);
   results$ = new BehaviorSubject<Results>(new Results());
 
-  constructor() {
-    this.proposals$.next(PROPOSALS);
+  constructor(private loremIpsumService: LoremIpsumService) {
+    let proposals = PROPOSALS;
+
+    // Fill in lorem ipsum
+    for (let proposal of proposals) {
+      proposal.description = [
+        new TranslatedText('nl', loremIpsumService.generateParagraphs()),
+        new TranslatedText('fr', loremIpsumService.generateParagraphs()),
+        new TranslatedText('en', loremIpsumService.generateParagraphs()),
+      ]
+    }
+
+    this.proposals$.next(proposals);
 
     const selectedVariantNumbers = JSON.parse(localStorage.getItem(LS_KEY_SELECTED_VARIANTS) || '[]');
 
     if (selectedVariantNumbers.length > 0) {
-      const proposals = this.proposals$.value;
+      proposals = this.proposals$.value;
 
       for (let selectedVariantNumber of selectedVariantNumbers) {
         const selectedProposal = proposals.find(p => p.id === selectedVariantNumber.id);

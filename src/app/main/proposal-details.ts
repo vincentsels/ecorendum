@@ -6,9 +6,9 @@ export class ProposalDetail extends Proposal {
     Object.assign(this, init);
   }
 
-  description: TranslatedText[] = [];
+  description?: TranslatedText[] = [];
 
-  partyOpinions: PartyOpinion[] = [];
+  partyOpinions?: PartyOpinion[] = [];
 }
 
 export class PartyOpinion {

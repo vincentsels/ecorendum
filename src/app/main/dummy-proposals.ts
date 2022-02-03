@@ -1,7 +1,8 @@
 import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, Sector, Target, TargetType, TranslatedText, Variant } from './proposal';
+import { ProposalDetail } from './proposal-details';
 
-export const PROPOSALS: Proposal[] = [
-  new Proposal({
+export const PROPOSALS: ProposalDetail[] = [
+  new ProposalDetail({
     id: 1,
     title: [
       new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
@@ -92,7 +93,7 @@ export const PROPOSALS: Proposal[] = [
       })
     ]
   }),
-  new Proposal({
+  new ProposalDetail({
     id: 2,
     title: [
       new TranslatedText('nl', 'Verplicht weergeven koolstofvoetafdruk producten en diensten'),
@@ -190,7 +191,7 @@ export const PROPOSALS: Proposal[] = [
       })
     ]
   }),
-  new Proposal({
+  new ProposalDetail({
     id: 3,
     title: [
       new TranslatedText('en', 'Some other proposal'),
@@ -269,7 +270,7 @@ export const PROPOSALS: Proposal[] = [
       })
     ]
   }),
-  new Proposal({
+  new ProposalDetail({
     id: 4,
     title: [
       new TranslatedText('en', 'Single-variant proposal'),

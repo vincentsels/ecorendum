@@ -36,6 +36,7 @@ import { CostEstPipe } from './common/cost-est.pipe';
 import { ProposalHeaderComponent } from './main/proposal-header/proposal-header.component';
 import { ProposalDetailComponent } from './main/proposal-detail/proposal-detail.component';
 import { ProposalDetailsDialogComponent } from './main/proposal-detail/proposal-detail-dialog.component';
+import { LoremIpsumService } from './common/lorem-ipsum.service';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -93,6 +94,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProposalService,
     EnumsService,
     CommonDialogService,
+    LoremIpsumService,
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 10000 } },
     { provide: ErrorHandler, useClass: MatSnackbarErrorHandler, deps: [MatSnackBar, NgZone] },
   ],

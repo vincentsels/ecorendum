@@ -1,6 +1,12 @@
 <div *ngIf="proposal" [class.page-container]="!dialog">
   <app-proposal-header [proposal]="proposal" (closeDialog)="closeDialog()"></app-proposal-header>
 
+  <div *ngIf="proposal.description">
+    <h2 class="clear">{{ 'Description' | translate }}</h2>
+
+    <markdown [data]="proposal.description | translateText"></markdown>
+  </div>
+
   <h2 class="clear">{{ 'Variants' | translate }}</h2>
 
   <div class="variant-list">
