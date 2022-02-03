@@ -1,5 +1,5 @@
 <div *ngIf="proposal" [class.page-container]="!dialog">
-  <app-proposal-header [proposal]="proposal" (closeDialog)="closeDialog()"></app-proposal-header>
+  <app-proposal-header [proposal]="proposal" [dialog]="dialog" (closeDialog)="closeDialog()"></app-proposal-header>
 
   <div *ngIf="proposal.description">
     <h2 class="clear">{{ 'Description' | translate }}</h2>
@@ -11,10 +11,10 @@
 
   <div class="variant-list">
     <mat-card class="variant" *ngFor="let variant of proposal.variants">
-      <h3 *ngIf="proposal.variants.length > 1">{{ variant.ambitionLevel }} - {{ variant.title | translateTextAsync | async }}</h3>
+      <h3 *ngIf="proposal.variants.length > 1">{{ variant.ambitionLevel }} - {{ variant.title | translateText }}</h3>
 
       <div class="variant-body">
-        <p *ngIf="proposal.variants.length > 1">{{ variant.description | translateTextAsync | async }}</p>
+        <p *ngIf="proposal.variants.length > 1">{{ variant.description | translateText }}</p>
 
         <div class="variant-body-numbers" fxLayout fxLayoutGap="12px">
           <div>

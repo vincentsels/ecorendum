@@ -15,14 +15,15 @@ import { ProposalDetail } from '../proposal-details';
 export class ProposalHeaderComponent {
   @Input() proposal?: Proposal;
   @Input() card: boolean = false;
+  @Input() dialog: boolean = false;
 
   @Output('closeDialog') closeDialogEmitter = new EventEmitter();
 
-  constructor(public enums: EnumsService, public dialog: MatDialog, public languageService: LanguageService) {}
+  constructor(public enums: EnumsService, public dialogService: MatDialog, public languageService: LanguageService) {}
 
   openProposalDetailDialog() {
     if (!this.proposal) return;
-    this.dialog.open(ProposalDetailsDialogComponent, {
+    this.dialogService.open(ProposalDetailsDialogComponent, {
       data: { proposal: new ProposalDetail(this.proposal) },
       autoFocus: false,
     });

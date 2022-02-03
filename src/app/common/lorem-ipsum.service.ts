@@ -27,7 +27,6 @@ export class LoremIpsumService {
     this.lorem.suffix = '\n\n';
   }
 
-
   generateWords = (x?: number) => this.lorem.generateWords(x);
   generatSentences = (x?: number) => this.lorem.generateSentences(x);
   generateParagraphs = (x?: number) => this.lorem.generateParagraphs(x || this.randomIntFromInterval(MIN_PARAGRAPHS, MAX_PARAGRAPHS));

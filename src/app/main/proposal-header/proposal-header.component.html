@@ -2,12 +2,11 @@
   <img [src]="proposal.pictureThumb" [alt]="proposal.title" class="proposal-thumb" ngClass.lt-sm="proposal-thumb-xs" />
   <div>
     <h2>
-      <a class="title-link" *ngIf="card" (click)="openProposalDetailDialog()" (click)="$event.stopPropagation()">
-        {{ proposal.title | translateTextAsync | async }}
+      <a class="title-link" *ngIf="card && !dialog" (click)="openProposalDetailDialog()" (click)="$event.stopPropagation()">
+        {{ proposal.title | translateText }}
       </a>
-      <ng-container *ngIf="!card">
-        {{ proposal.title | translateTextAsync | async }}
-        <a [routerLink]="'/proposal/' + proposal.getSlugTextInLanguage(languageService.language.value)" class="link-button" (click)="closeDialog()"><mat-icon class="inline">link</mat-icon></a>
+      <ng-container *ngIf="!card && !dialog">
+        {{ proposal.title | translateText }}
       </ng-container>
       <div ngClass.gt-xs="pull-right gt-xs-proposal-extra-info">
         <div class="proposal-icons">
