@@ -4,7 +4,7 @@
 
     <div style="clear: both" *ngIf="proposal.selected">
       <mat-button-toggle-group class="variants" name="variant">
-        <mat-button-toggle (click)="clearVariant(); $event.stopPropagation()" [checked]="!proposal.selected">
+        <mat-button-toggle (click)="clearVariant(); $event.stopPropagation()" [checked]="!proposal.selected" matTooltip="{{ 'Deselect' | translate }}">
           <div class="ambition-level" fxHide.lt-sm>
             <div class="ambition-level-title">X</div>
           </div>
