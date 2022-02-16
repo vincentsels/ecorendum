@@ -3,7 +3,7 @@ export class Proposal {
     Object.assign(this, props);
   }
 
-  id?: number;
+  id: number = 0;
   title: TranslatedText[] = [];
   slug: TranslatedText[] = [];
   summary: TranslatedText[] = [];

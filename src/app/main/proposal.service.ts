@@ -6,7 +6,7 @@ import { rnd, toss } from '../common/math-helper';
 import { PROPOSALS } from './dummy-proposals';
 import { PARTY_IDS } from './party';
 import { ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, TargetType, TranslatedText, Variant } from './proposal';
-import { PartyOpinion, ProposalDetail } from './proposal-details';
+import { Faq, Link, PartyOpinion, ProposalDetail } from './proposal-details';
 import { Results, TargetResult, TotalImpact } from './results/results';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
@@ -16,7 +16,7 @@ export class ProposalService {
   proposals$ = new BehaviorSubject<ProposalDetail[]>([]);
   results$ = new BehaviorSubject<Results>(new Results());
 
-  constructor(loremIpsumService: LoremIpsumService) {
+  constructor(private loremIpsumService: LoremIpsumService) {
     let proposals = PROPOSALS;
 
     for (let proposal of proposals) {
@@ -31,7 +31,7 @@ export class ProposalService {
       for (let partyId of PARTY_IDS) {
         if (toss()) {
           proposal.partyOpinions?.push(
-            new PartyOpinion(partyId, [
+            new PartyOpinion(partyId, proposal.id, [
               new TranslatedText('nl', loremIpsumService.generateParagraphs(1)),
               new TranslatedText('fr', loremIpsumService.generateParagraphs(1)),
               new TranslatedText('en', loremIpsumService.generateParagraphs(1)),
@@ -39,13 +39,40 @@ export class ProposalService {
           );
         } else {
           proposal.partyOpinions?.push(
-            new PartyOpinion(partyId, [
+            new PartyOpinion(partyId, proposal.id, [
               new TranslatedText('nl', loremIpsumService.generateParagraphs(1)),
               new TranslatedText('fr', loremIpsumService.generateParagraphs(1)),
               new TranslatedText('en', loremIpsumService.generateParagraphs(1)),
             ], false)
           );
         }
+      }
+
+      // Random links
+      for (let i = 0; i < rnd(0, 3); i++) proposal.linksToDebates?.push(this.generateRandomLink(proposal.id));
+      for (let i = 0; i < rnd(0, 2); i++) proposal.linksToExamplesAbroad?.push(this.generateRandomLink(proposal.id));
+      for (let i = 0; i < rnd(0, 5); i++) proposal.linksToMediaArticles?.push(this.generateRandomLink(proposal.id));
+      for (let i = 0; i < rnd(0, 5); i++) proposal.linksToPapers?.push(this.generateRandomLink(proposal.id));
+      for (let i = 0; i < rnd(0, 2); i++) proposal.linksToVideoExplainers?.push(this.generateRandomLink(proposal.id));
+
+      // Random faqs
+      for (let i = 0; i < rnd(0, 8); i++) {
+        proposal.faqs?.push(new Faq(proposal.id + '-' + i, proposal.id, [
+          new TranslatedText('nl', this.loremIpsumService.generateWords(rnd(4, 12))),
+          new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(4, 12))),
+          new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)))], [
+          new TranslatedText('nl', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-')),
+          new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-')),
+          new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-'))], [
+          new TranslatedText('nl', this.loremIpsumService.generateParagraphs(1)),
+          new TranslatedText('fr', this.loremIpsumService.generateWords(1)),
+          new TranslatedText('en', this.loremIpsumService.generateWords(1))],
+          toss() ? [] : [
+            new TranslatedText('nl', this.loremIpsumService.generateParagraphs(rnd(1, 3))),
+            new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(1, 3))),
+            new TranslatedText('en', this.loremIpsumService.generateWords(rnd(1, 3)))]
+          )
+        );
       }
     }
 
@@ -73,6 +100,9 @@ export class ProposalService {
 
     this.updateResults();
   }
+
+  generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
+    this.loremIpsumService.generateWords(rnd(2, 8)), toss() ? 'nl' : toss() ? 'fr' : 'en');
 
   selectVariant(proposal: Proposal, variant: Variant) {
     if (!proposal) return;
