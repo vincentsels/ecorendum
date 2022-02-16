@@ -8,7 +8,7 @@
       <ng-container *ngIf="!card && !dialog">
         {{ proposal.title | translateText }}
       </ng-container>
-      <div ngClass.gt-xs="pull-right gt-xs-proposal-extra-info">
+      <div ngClass.gt-xs="pull-right gt-xs-proposal-extra-info" fxHide.lt-sm>
         <div class="proposal-icons">
           <mat-icon *ngIf="proposal.sector" matTooltip="{{ enums.Sector[proposal.sector] | translate }}">
             {{ proposal.getSectorIcon() }}
