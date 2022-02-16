@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { LoremIpsumService } from '../common/lorem-ipsum.service';
+import { rnd, toss } from '../common/math-helper';
 
 import { PROPOSALS } from './dummy-proposals';
 import { Impact, ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, TargetType, TranslatedText, Variant } from './proposal';
-import { ProposalDetail } from './proposal-details';
+import { PARTY_IDS, PartyId, PartyOpinion, ProposalDetail } from './proposal-details';
 import { Results, TargetResult, TotalImpact } from './results/results';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
@@ -17,13 +18,34 @@ export class ProposalService {
   constructor(private loremIpsumService: LoremIpsumService) {
     let proposals = PROPOSALS;
 
-    // Fill in lorem ipsum
     for (let proposal of proposals) {
+      // Random descriptions
       proposal.description = [
         new TranslatedText('nl', loremIpsumService.generateParagraphs()),
         new TranslatedText('fr', loremIpsumService.generateParagraphs()),
         new TranslatedText('en', loremIpsumService.generateParagraphs()),
-      ]
+      ];
+
+      // Random party opinions
+      for (let partyId of PARTY_IDS) {
+        if (toss()) {
+          proposal.partyOpinions?.push(
+            new PartyOpinion(partyId, [
+              new TranslatedText('nl', loremIpsumService.generateParagraphs(1)),
+              new TranslatedText('fr', loremIpsumService.generateParagraphs(1)),
+              new TranslatedText('en', loremIpsumService.generateParagraphs(1)),
+            ], true, rnd(1, proposal.variants.length))
+          );
+        } else {
+          proposal.partyOpinions?.push(
+            new PartyOpinion(partyId, [
+              new TranslatedText('nl', loremIpsumService.generateParagraphs(1)),
+              new TranslatedText('fr', loremIpsumService.generateParagraphs(1)),
+              new TranslatedText('en', loremIpsumService.generateParagraphs(1)),
+            ], false)
+          );
+        }
+      }
     }
 
     this.proposals$.next(proposals);

@@ -40,5 +40,7 @@ export class ProposalDetailComponent implements OnInit {
     }
   }
 
+  getVariant = (variantId: number) => this.proposal?.variants.find(v => v.ambitionLevel === variantId);
+
   closeDialog = () => this.closeDialogEmitter.emit();
 }

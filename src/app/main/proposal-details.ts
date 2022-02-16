@@ -14,7 +14,7 @@ export class ProposalDetail extends Proposal {
 export class PartyOpinion {
   constructor(
     public partyId: PartyId,
-    public description: TranslatedText[] = [],
+    public opinion: TranslatedText[] = [],
     public selected: boolean,
     public variant?: number,
   ) {}
@@ -41,9 +41,7 @@ export enum Parliament {
   european = 7,
 }
 
-export type PartyId = MajorPartyId | MinorPartyId;
-
-export enum MajorPartyId {
+export enum PartyId {
   nva = 1,
   ps = 2,
   vb = 3,
@@ -57,9 +55,7 @@ export enum MajorPartyId {
   cdh = 11,
   defi = 12,
   vivant = 13,
-}
-
-export enum MinorPartyId {
+  agora = 14,
   bub = 101,
   beOne = 102,
   cpbPc = 103,
@@ -73,3 +69,9 @@ export enum MinorPartyId {
   uf = 111,
   volt = 112,
 }
+
+export const PARTY_IDS = Object.keys(PartyId)
+  .filter((item) => {
+    return !isNaN(Number(item));
+  })
+  .map(id => Number(id));

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LoremIpsum } from 'lorem-ipsum';
+import { rnd } from './math-helper';
 
 const MIN_SENTENCES_PER_PARAGRAPH = 4;
 const MAX_SENTENCES_PER_PARAGRAPH = 8;
@@ -29,9 +30,5 @@ export class LoremIpsumService {
 
   generateWords = (x?: number) => this.lorem.generateWords(x);
   generatSentences = (x?: number) => this.lorem.generateSentences(x);
-  generateParagraphs = (x?: number) => this.lorem.generateParagraphs(x || this.randomIntFromInterval(MIN_PARAGRAPHS, MAX_PARAGRAPHS));
-
-  randomIntFromInterval(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-  }
+  generateParagraphs = (x?: number) => this.lorem.generateParagraphs(x || rnd(MIN_PARAGRAPHS, MAX_PARAGRAPHS));
 }

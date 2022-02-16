@@ -52,4 +52,17 @@
       </div>
     </mat-card>
   </div>
+
+  <h2>{{ 'Political party stances' | translate }}</h2>
+
+  <div *ngFor="let opinion of proposal.partyOpinions">
+    <h3>{{ enums.PartyId[opinion.partyId] | translate }}</h3>
+
+    <p>{{ opinion.selected }}
+      <span *ngIf="opinion.selected && getVariant(opinion.variant || 0); let variant">- {{ variant.title | translateText }}</span>
+    </p>
+
+    <p>{{ opinion.opinion | translateText }}</p>
+  </div>
+
 </div>
