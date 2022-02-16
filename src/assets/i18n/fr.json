@@ -3,5 +3,32 @@
 
   "en": "English",
   "fr": "Français",
-  "nl": "Nederlands"
+  "nl": "Nederlands",
+
+  "nva": "N-VA",
+  "ps": "PS",
+  "vb": "VB",
+  "mr": "MR",
+  "pvdaPtb": "PTB",
+  "ecolo": "Ecolo",
+  "cdv": "CD&V",
+  "openvld": "Open Vld",
+  "vooruit": "Vooruit",
+  "groen": "Groen",
+  "cdh": "CDH",
+  "defi": "Défi",
+  "vivant": "Vivant",
+  "agora": "Agora",
+  "bub": "B.U.B.",
+  "beOne": "Be.One",
+  "cpbPc": "PC",
+  "democratieNationale": "DN",
+  "dierAnimal": "DierAnimal",
+  "lspPsl": "PSL",
+  "pp": "PP",
+  "rwfRbf": "RBF",
+  "referendumPartij": "RP",
+  "sapGa": "GA",
+  "uf": "UF",
+  "volt": "Volt"
 }

@@ -63,6 +63,11 @@ $margin-inline: 4px;
   background-color: #303030;
 }
 
+.success { color: #46f8cf }
+.neutral { color: #ffffff }
+.warning { color: #f8837b }
+.danger { color: #fa4c40 }
+
 .impact-extremely-positive { color: #00ffc3 }
 .impact-very-positive { color: #46f8cf }
 .impact-moderately-positive { color: #86fadf }
@@ -124,49 +129,37 @@ body:not(:-moz-handler-blocked) fieldset {
 }
 
 .alert-code {
-  background-color: #e6e6e6;
+  background-color: #fcc3bf;
 }
 
 .success-bg {
-  background-color: #d4edda;
-}
-
-.success {
-  color: #155724;
+  background-color: #d2f8ef;
 }
 
 .snackbar-success {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: #d2f8ef;
+  color: #00ffc3;
 
   .mat-simple-snackbar-action {
-    color: #155724;
+    color: #00ffc3;
   }
 }
 
 .snackbar-warning {
-  background-color: #fff3cd;
-  color: #856404;
+  background-color: #fcc3bf;
+  color: #fa4c40;
 
   .mat-simple-snackbar-action {
-    color: #856404;
+    color: #fa4c40;
   }
 }
 
 .warn-bg {
-  background-color: #fff3cd;
-}
-
-.warn {
-  color: #856404;
-}
-
-.danger {
-  color: #721c24;
+  background-color: #fcc3bf;
 }
 
 .danger-bg {
-  background-color: #f8d7da;
+  background-color: #fcc3bf;
 }
 
 .error {

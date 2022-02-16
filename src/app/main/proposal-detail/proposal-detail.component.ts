@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { ActivatedRoute } from '@angular/router';
 
 import { EnumsService } from '../../common/enums.service';
+import { PARTIES_WITH_LOGOS } from '../party';
 import { Proposal, Variant } from '../proposal';
 import { ProposalDetail } from '../proposal-details';
 import { ProposalService } from '../proposal.service';
@@ -16,6 +17,8 @@ export class ProposalDetailComponent implements OnInit {
   @Input() dialog: boolean = false;
 
   @Output('closeDialog') closeDialogEmitter = new EventEmitter();
+
+  allParties: boolean = false;
 
   constructor(public enums: EnumsService, public service: ProposalService, private route: ActivatedRoute) {}
 
@@ -43,4 +46,8 @@ export class ProposalDetailComponent implements OnInit {
   getVariant = (variantId: number) => this.proposal?.variants.find(v => v.ambitionLevel === variantId);
 
   closeDialog = () => this.closeDialogEmitter.emit();
+
+  getOpinions = () => this.allParties
+    ? this.proposal?.partyOpinions
+    : this.proposal?.partyOpinions?.filter(p => PARTIES_WITH_LOGOS.includes(p.partyId))
 }

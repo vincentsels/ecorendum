@@ -11,3 +11,34 @@
 .variant-body {
   max-width: 400px;
 }
+
+.all-parties-checkbox {
+  margin-left: 12px;
+}
+
+.party-opinions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.party-opinion {
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.party-opinion-panel {
+  max-width: 240px;
+}
+
+.party-opinion-title {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.party-logo {
+  max-width: 48px;
+  max-height: 24px;
+}

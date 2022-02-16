@@ -53,16 +53,36 @@
     </mat-card>
   </div>
 
-  <h2>{{ 'Political party stances' | translate }}</h2>
+  <h2>
+    {{ 'Political party stances' | translate }}
+    <small class="all-parties-checkbox">
+      <mat-checkbox [(ngModel)]="allParties">{{ 'Show all parties' | translate }}</mat-checkbox>
+    </small>
+  </h2>
 
-  <div *ngFor="let opinion of proposal.partyOpinions">
-    <h3>{{ enums.PartyId[opinion.partyId] | translate }}</h3>
+  <div class="party-opinions">
+    <div *ngFor="let opinion of getOpinions()" class="party-opinion">
 
-    <p>{{ opinion.selected }}
-      <span *ngIf="opinion.selected && getVariant(opinion.variant || 0); let variant">- {{ variant.title | translateText }}</span>
-    </p>
+      <mat-expansion-panel class="party-opinion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span class="party-opinion-title">
+              <app-party-logo-or-name [partyId]="opinion.partyId"></app-party-logo-or-name>
 
-    <p>{{ opinion.opinion | translateText }}</p>
+              <span class="pull-right">
+                <mat-icon *ngIf="opinion.selected" class="success">check_circle</mat-icon>
+                <mat-icon *ngIf="!opinion.selected" class="danger">cancel</mat-icon>
+              </span>
+            </span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p *ngIf="opinion.selected && getVariant(opinion.variant || 0); let variant">{{ variant.title | translateText }}</p>
+
+        <p>{{ opinion.opinion | translateText }}</p>
+
+      </mat-expansion-panel>
+    </div>
   </div>
 
 </div>

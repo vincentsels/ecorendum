@@ -4,8 +4,9 @@ import { LoremIpsumService } from '../common/lorem-ipsum.service';
 import { rnd, toss } from '../common/math-helper';
 
 import { PROPOSALS } from './dummy-proposals';
-import { Impact, ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, TargetType, TranslatedText, Variant } from './proposal';
-import { PARTY_IDS, PartyId, PartyOpinion, ProposalDetail } from './proposal-details';
+import { PARTY_IDS } from './party';
+import { ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, TargetType, TranslatedText, Variant } from './proposal';
+import { PartyOpinion, ProposalDetail } from './proposal-details';
 import { Results, TargetResult, TotalImpact } from './results/results';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
@@ -15,7 +16,7 @@ export class ProposalService {
   proposals$ = new BehaviorSubject<ProposalDetail[]>([]);
   results$ = new BehaviorSubject<Results>(new Results());
 
-  constructor(private loremIpsumService: LoremIpsumService) {
+  constructor(loremIpsumService: LoremIpsumService) {
     let proposals = PROPOSALS;
 
     for (let proposal of proposals) {

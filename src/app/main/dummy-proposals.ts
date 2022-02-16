@@ -1,5 +1,5 @@
 import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, Sector, Target, TargetType, TranslatedText, Variant } from './proposal';
-import { PartyId, PartyOpinion, ProposalDetail } from './proposal-details';
+import { ProposalDetail } from './proposal-details';
 
 export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
