@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { EnumsService } from '../../common/enums.service';
 import { Proposal, Variant } from '../proposal';
+import { ProposalDetail } from '../proposal-details';
 import { ProposalService } from '../proposal.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ProposalService } from '../proposal.service';
   styleUrls: ['./proposal.component.scss']
 })
 export class ProposalComponent {
-  @Input() proposal?: Proposal;
+  @Input() proposal?: ProposalDetail;
 
   constructor(public enums: EnumsService, public service: ProposalService) {}
 

@@ -24,10 +24,12 @@
 .party-opinion {
   margin-right: 12px;
   margin-bottom: 12px;
+  width: 240px;
 }
 
-.party-opinion-panel {
-  max-width: 240px;
+.party-opinion-xs {
+  margin-right: 0px;
+  width: 100%;
 }
 
 .party-opinion-title {
@@ -38,7 +40,24 @@
   justify-content: space-between;
 }
 
-.party-logo {
-  max-width: 48px;
-  max-height: 24px;
+.link-types {
+  display: flex;
+  flex: 0 0 240px;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+.link-type {
+  width: 240px;
+}
+
+.link-type-xs {
+  margin-right: 0px;
+  width: 100%;
 }

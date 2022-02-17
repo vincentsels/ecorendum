@@ -11,13 +11,13 @@ export class ProposalDetail extends Proposal {
 
   partyOpinions?: PartyOpinion[] = [];
 
-  linksToMediaArticles?: Link[] = [];
-  linksToPapers?: Link[] = [];
-  linksToVideoExplainers?: Link[] = [];
-  linksToDebates?: Link[] = [];
-  linksToExamplesAbroad?: Link[] = [];
+  linksToMediaArticles: Link[] = [];
+  linksToPapers: Link[] = [];
+  linksToExplainers: Link[] = [];
+  linksToDebates: Link[] = [];
+  linksToExamplesAbroad: Link[] = [];
 
-  faqs?: Faq[] = [];
+  faqs: Faq[] = [];
 }
 
 export class PartyOpinion {

@@ -82,6 +82,10 @@ a {
   color: mat.get-color-from-palette($ecorendum-primary, 200);
   text-decoration: none;
   cursor: pointer;
+
+  &:hover {
+    color: mat.get-color-from-palette($ecorendum-primary, 300);
+  }
 }
 
 h1, h2, h3, h4, h5 {
@@ -190,10 +194,12 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .info {
   opacity: 0.8;
+  font-style: italic;
 }
 
 .page-container {
   margin: $margin-default;
+  padding-bottom: 24px;
 }
 
 .horizontal-form > *:not(:last-child) {

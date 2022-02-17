@@ -61,7 +61,7 @@
   </h2>
 
   <div class="party-opinions">
-    <div *ngFor="let opinion of getOpinions()" class="party-opinion">
+    <div *ngFor="let opinion of getOpinions()" class="party-opinion" ngClass.xs="party-opinion-xs">
 
       <mat-expansion-panel class="party-opinion-panel">
         <mat-expansion-panel-header>
@@ -82,6 +82,85 @@
         <p>{{ opinion.opinion | translateText }}</p>
 
       </mat-expansion-panel>
+    </div>
+  </div>
+
+  <h2>{{ 'Links' | translate }}</h2>
+
+  <div class="link-types">
+    <div class="link-type" ngClass.xs="link-type-xs">
+      <h3>{{ 'Explainers' | translate }}</h3>
+      <ul *ngIf="proposal.linksToExplainers.length > 0">
+        <li *ngFor="let link of proposal.linksToExplainers">
+          <a [href]="link.url">
+            <mat-icon class="inline">open_in_new</mat-icon>
+            {{ link.title }}
+          </a>
+        </li>
+      </ul>
+      <p class="info" *ngIf="proposal.linksToExplainers.length === 0">
+        {{ 'There are not yet any links of this type for this proposal.' | translate }}
+      </p>
+    </div>
+
+    <div class="link-type">
+      <h3>{{ 'Debates' | translate }}</h3>
+      <ul *ngIf="proposal.linksToDebates.length > 0">
+        <li *ngFor="let link of proposal.linksToDebates">
+          <a [href]="link.url">
+            <mat-icon class="inline">open_in_new</mat-icon>
+            {{ link.title }}
+          </a>
+        </li>
+      </ul>
+      <p class="info" *ngIf="proposal.linksToDebates.length === 0">
+        {{ 'There are not yet any links of this type for this proposal.' | translate }}
+      </p>
+    </div>
+
+    <div class="link-type">
+      <h3>{{ 'Media articles' | translate }}</h3>
+      <ul *ngIf="proposal.linksToMediaArticles.length > 0">
+        <li *ngFor="let link of proposal.linksToMediaArticles">
+          <a [href]="link.url">
+            <mat-icon class="inline">open_in_new</mat-icon>
+            {{ link.title }}
+          </a>
+        </li>
+      </ul>
+      <p class="info" *ngIf="proposal.linksToMediaArticles.length === 0">
+        {{ 'There are not yet any links of this type for this proposal.' | translate }}
+      </p>
+    </div>
+
+    <div class="link-type">
+      <h3>{{ 'Scientific papers' | translate }}</h3>
+      <ul *ngIf="proposal.linksToPapers.length > 0">
+        <li *ngFor="let link of proposal.linksToPapers">
+          <a [href]="link.url">
+            <mat-icon class="inline">open_in_new</mat-icon>
+            {{ link.title }}
+          </a>
+      </li>
+      </ul>
+      <p class="info" *ngIf="proposal.linksToPapers.length === 0">
+        {{ 'There are not yet any links of this type for this proposal.' | translate }}
+      </p>
+    </div>
+
+    <div class="link-type">
+      <h3>{{ 'Examples abroad' | translate }}</h3>
+      <ul *ngIf="proposal.linksToExamplesAbroad.length > 0">
+        <li *ngFor="let link of proposal.linksToExamplesAbroad">
+          <a [href]="link.url">
+            <mat-icon class="inline">open_in_new</mat-icon>
+            {{ link.title }}
+          </a>
+      </li>
+      </ul>
+      <p class="info" *ngIf="proposal.linksToExamplesAbroad.length === 0">
+        {{ 'There are not yet any links of this type for this proposal.' | translate }}
+      </p>
     </div>
   </div>
 

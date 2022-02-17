@@ -5,6 +5,7 @@ import { BehaviorSubject, combineLatest, Observable, Subject, Subscription } fro
 import { map, withLatestFrom } from 'rxjs/operators';
 
 import { Proposal } from './proposal';
+import { ProposalDetail } from './proposal-details';
 import { ProposalService } from './proposal.service';
 import { ResultsDialogComponent } from './results/results-dialog.component';
 
@@ -14,7 +15,7 @@ import { ResultsDialogComponent } from './results/results-dialog.component';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  filteredProjects$?: Observable<Proposal[]>;
+  filteredProjects$?: Observable<ProposalDetail[]>;
   projectsFilter = '';
   projectsFilter$ = new BehaviorSubject<string>('');
 

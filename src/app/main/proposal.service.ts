@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { LoremIpsumService } from '../common/lorem-ipsum.service';
-import { rnd, toss } from '../common/math-helper';
+import { initCase, rnd, toss } from '../common/helper';
 
 import { PROPOSALS } from './dummy-proposals';
 import { PARTY_IDS } from './party';
@@ -49,11 +49,11 @@ export class ProposalService {
       }
 
       // Random links
-      for (let i = 0; i < rnd(0, 3); i++) proposal.linksToDebates?.push(this.generateRandomLink(proposal.id));
+      for (let i = 0; i < rnd(1, 3); i++) proposal.linksToDebates?.push(this.generateRandomLink(proposal.id));
       for (let i = 0; i < rnd(0, 2); i++) proposal.linksToExamplesAbroad?.push(this.generateRandomLink(proposal.id));
-      for (let i = 0; i < rnd(0, 5); i++) proposal.linksToMediaArticles?.push(this.generateRandomLink(proposal.id));
-      for (let i = 0; i < rnd(0, 5); i++) proposal.linksToPapers?.push(this.generateRandomLink(proposal.id));
-      for (let i = 0; i < rnd(0, 2); i++) proposal.linksToVideoExplainers?.push(this.generateRandomLink(proposal.id));
+      for (let i = 0; i < rnd(1, 6); i++) proposal.linksToMediaArticles?.push(this.generateRandomLink(proposal.id));
+      for (let i = 0; i < rnd(1, 5); i++) proposal.linksToPapers?.push(this.generateRandomLink(proposal.id));
+      for (let i = 0; i < rnd(0, 3); i++) proposal.linksToExplainers?.push(this.generateRandomLink(proposal.id));
 
       // Random faqs
       for (let i = 0; i < rnd(0, 8); i++) {
@@ -104,7 +104,7 @@ export class ProposalService {
   generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
     this.loremIpsumService.generateWords(rnd(2, 8)), toss() ? 'nl' : toss() ? 'fr' : 'en');
 
-  selectVariant(proposal: Proposal, variant: Variant) {
+  selectVariant(proposal: ProposalDetail, variant: Variant) {
     if (!proposal) return;
 
     variant.selected = true;
@@ -120,13 +120,13 @@ export class ProposalService {
       ...this.proposals$.value
     ];
 
-    proposals[proposals.findIndex(p => p.id === proposal.id)] = new Proposal(proposal);
+    proposals[proposals.findIndex(p => p.id === proposal.id)] = new ProposalDetail(proposal);
 
     this.proposals$.next(proposals);
     this.updateResults();
   }
 
-  clearVariant(proposal: Proposal) {
+  clearVariant(proposal: ProposalDetail) {
     proposal.selected = false;
     proposal.selectedAmbitionLevel = 0;
 
@@ -138,7 +138,7 @@ export class ProposalService {
       ...this.proposals$.value
     ];
 
-    proposals[proposals.findIndex(p => p.id === proposal.id)] = new Proposal(proposal);
+    proposals[proposals.findIndex(p => p.id === proposal.id)] = new ProposalDetail(proposal);
 
     this.proposals$.next(proposals);
     this.updateResults();
