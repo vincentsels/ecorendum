@@ -58,19 +58,19 @@ export class ProposalService {
       // Random faqs
       for (let i = 0; i < rnd(0, 8); i++) {
         proposal.faqs?.push(new Faq(proposal.id + '-' + i, proposal.id, [
-          new TranslatedText('nl', this.loremIpsumService.generateWords(rnd(4, 12))),
-          new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(4, 12))),
-          new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)))], [
+          new TranslatedText('nl', this.loremIpsumService.generateWords(rnd(4, 12)) + '?'),
+          new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(4, 12)) + ' ?'),
+          new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)) + '?')], [
           new TranslatedText('nl', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-')),
           new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-')),
           new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-'))], [
           new TranslatedText('nl', this.loremIpsumService.generateParagraphs(1)),
-          new TranslatedText('fr', this.loremIpsumService.generateWords(1)),
-          new TranslatedText('en', this.loremIpsumService.generateWords(1))],
+          new TranslatedText('fr', this.loremIpsumService.generateParagraphs(1)),
+          new TranslatedText('en', this.loremIpsumService.generateParagraphs(1))],
           toss() ? [] : [
             new TranslatedText('nl', this.loremIpsumService.generateParagraphs(rnd(1, 3))),
-            new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(1, 3))),
-            new TranslatedText('en', this.loremIpsumService.generateWords(rnd(1, 3)))]
+            new TranslatedText('fr', this.loremIpsumService.generateParagraphs(rnd(1, 3))),
+            new TranslatedText('en', this.loremIpsumService.generateParagraphs(rnd(1, 3)))]
           )
         );
       }
