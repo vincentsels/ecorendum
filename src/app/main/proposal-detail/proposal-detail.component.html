@@ -2,12 +2,12 @@
   <app-proposal-header [proposal]="proposal" [dialog]="dialog" (closeDialog)="closeDialog()"></app-proposal-header>
 
   <div *ngIf="proposal.description">
-    <h2 class="clear">{{ 'Description' | translate }}</h2>
+    <h2 class="clear detail-section-header">{{ 'Description' | translate }}</h2>
 
     <markdown [data]="proposal.description | translateText"></markdown>
   </div>
 
-  <h2 class="clear">{{ 'Variants' | translate }}</h2>
+  <h2 class="clear detail-section-header">{{ 'Variants' | translate }}</h2>
 
   <div class="variant-list">
     <mat-card class="variant" *ngFor="let variant of proposal.variants">
@@ -53,7 +53,7 @@
     </mat-card>
   </div>
 
-  <h2>
+  <h2 class="detail-section-header">
     {{ 'Political party stances' | translate }}
     <small class="all-parties-checkbox">
       <mat-checkbox [(ngModel)]="allParties">{{ 'Show all parties' | translate }}</mat-checkbox>
@@ -85,7 +85,7 @@
     </div>
   </div>
 
-  <h2>{{ 'Links' | translate }}</h2>
+  <h2 class="detail-section-header">{{ 'Links' | translate }}</h2>
 
   <div class="link-types">
     <div class="link-type" ngClass.xs="link-type-xs">
@@ -164,7 +164,7 @@
     </div>
   </div>
 
-  <h2>{{ 'Frequently Asked Questions' | translate }}</h2>
+  <h2 class="detail-section-header">{{ 'Frequently Asked Questions' | translate }}</h2>
 
   <p class="info" *ngIf="proposal.faqs.length === 0">
     {{ 'There are no Frequently Asked Questions yet for this proposal.' }}
@@ -186,7 +186,7 @@
     </mat-accordion>
   </div>
 
-  <h2>{{ 'Contribute' | translate }}</h2>
+  <h2 class="detail-section-header">{{ 'Contribute' | translate }}</h2>
 
   <p>{{ 'contributeText' | translate }}</p>
 
