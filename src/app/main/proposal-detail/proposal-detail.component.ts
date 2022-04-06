@@ -48,7 +48,7 @@ export class ProposalDetailComponent implements OnInit {
 
   contribute() {
     this.snackBar.open(this.translate.instant(
-      'This would direct to a separate website, where any registered Belgian citizen can contribute and, with a sufficiently high reputation or credentials, contribute.'), 'OK');
+      'This would direct to a separate website, where any registered Belgian citizen can contribute and, with a sufficiently high reputation or credentials, moderate.'), 'OK');
   }
 
   getVariant = (variantId: number) => this.proposal?.variants.find(v => v.ambitionLevel === variantId);
