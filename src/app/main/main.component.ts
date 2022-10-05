@@ -1,12 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, combineLatest, Observable, Subject, Subscription } from 'rxjs';
-import { map, withLatestFrom } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-import { Proposal } from './proposal';
+import { Proposal, ProposalSetType } from './proposal';
 import { ProposalDetail } from './proposal-details';
-import { ProposalService } from './proposal.service';
+import { LS_KEY_SELECTED_VARIANTS, ProposalService } from './proposal.service';
 import { ResultsDialogComponent } from './results/results-dialog.component';
 
 @Component({
@@ -15,12 +15,15 @@ import { ResultsDialogComponent } from './results/results-dialog.component';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  filteredProjects$?: Observable<ProposalDetail[]>;
+  filteredProposals$?: Observable<ProposalDetail[]>;
   projectsFilter = '';
-  projectsFilter$ = new BehaviorSubject<string>('');
+  proposalsFilter$ = new BehaviorSubject<string>('');
+
+  selectedProposalType: ProposalSetType = 'ecorendum';
+  proposalSet: ProposalDetail[] = [];
 
   constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService) {
-    this.filteredProjects$ = combineLatest([this.projectsFilter$, this.proposalService.proposals$])
+    this.filteredProposals$ = combineLatest([this.proposalsFilter$, this.proposalService.proposals$])
       .pipe(
         map(([filter, proposals]) => {
           if (!filter) return proposals;
@@ -32,6 +35,25 @@ export class MainComponent {
       );
 
     this.proposalService.updateResults();
+
+    if (localStorage.getItem(LS_KEY_SELECTED_VARIANTS)) {
+      this.selectedProposalType = 'own';
+    }
+
+    this.proposalSetSelectionChanged();
+  }
+
+  proposalSetSelectionChanged() {
+    if (this.selectedProposalType !== 'own') {
+      this.proposalService.clearSelection(false);
+      this.proposalSet = this.proposalService.getSet(this.selectedProposalType);
+      for (let proposal of this.proposalSet) {
+        this.proposalService.selectVariant(proposal, proposal.variants[proposal.variants.length -1], false);
+      }
+    } else {
+      this.proposalSet = [];
+      this.proposalService.loadProposals();
+    }
   }
 
   showResults() {
@@ -41,7 +63,7 @@ export class MainComponent {
   }
 
   filterChanged() {
-    this.projectsFilter$.next(this.projectsFilter);
+    this.proposalsFilter$.next(this.projectsFilter);
   }
 
   clearFilter() {

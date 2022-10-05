@@ -5,11 +5,11 @@ import { initCase, rnd, toss } from '../common/helper';
 
 import { PROPOSALS } from './dummy-proposals';
 import { PARTY_IDS } from './party';
-import { ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, TargetType, TranslatedText, Variant } from './proposal';
+import { ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, ProposalSetType, TargetType, TranslatedText, Variant } from './proposal';
 import { Faq, Link, PartyOpinion, ProposalDetail } from './proposal-details';
 import { Results, TargetResult, TotalImpact } from './results/results';
 
-const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
+export const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 
 @Injectable()
 export class ProposalService {
@@ -17,14 +17,18 @@ export class ProposalService {
   results$ = new BehaviorSubject<Results>(new Results());
 
   constructor(private loremIpsumService: LoremIpsumService) {
+    this.loadProposals();
+  }
+
+  public loadProposals() {
     let proposals = PROPOSALS;
 
     for (let proposal of proposals) {
       // Random descriptions
       proposal.description = [
-        new TranslatedText('nl', loremIpsumService.generateParagraphs()),
-        new TranslatedText('fr', loremIpsumService.generateParagraphs()),
-        new TranslatedText('en', loremIpsumService.generateParagraphs()),
+        new TranslatedText('nl', this.loremIpsumService.generateParagraphs()),
+        new TranslatedText('fr', this.loremIpsumService.generateParagraphs()),
+        new TranslatedText('en', this.loremIpsumService.generateParagraphs()),
       ];
 
       // Random party opinions
@@ -32,17 +36,17 @@ export class ProposalService {
         if (toss()) {
           proposal.partyOpinions?.push(
             new PartyOpinion(partyId, proposal.id, [
-              new TranslatedText('nl', loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('fr', loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('en', loremIpsumService.generateParagraphs(1)),
+              new TranslatedText('nl', this.loremIpsumService.generateParagraphs(1)),
+              new TranslatedText('fr', this.loremIpsumService.generateParagraphs(1)),
+              new TranslatedText('en', this.loremIpsumService.generateParagraphs(1)),
             ], true, rnd(1, proposal.variants.length))
           );
         } else {
           proposal.partyOpinions?.push(
             new PartyOpinion(partyId, proposal.id, [
-              new TranslatedText('nl', loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('fr', loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('en', loremIpsumService.generateParagraphs(1)),
+              new TranslatedText('nl', this.loremIpsumService.generateParagraphs(1)),
+              new TranslatedText('fr', this.loremIpsumService.generateParagraphs(1)),
+              new TranslatedText('en', this.loremIpsumService.generateParagraphs(1)),
             ], false)
           );
         }
@@ -83,6 +87,15 @@ export class ProposalService {
     if (selectedVariantNumbers.length > 0) {
       proposals = this.proposals$.value;
 
+      // Clear all
+      proposals.forEach(p => {
+        p.selected = false;
+        p.selectedAmbitionLevel = 0;
+        p.variants.forEach(v => {
+          v.selected = false;
+        })
+      });
+
       for (let selectedVariantNumber of selectedVariantNumbers) {
         const selectedProposal = proposals.find(p => p.id === selectedVariantNumber.id);
         if (selectedProposal) {
@@ -101,10 +114,10 @@ export class ProposalService {
     this.updateResults();
   }
 
-  generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
+  generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://switchoffputin.org',
     this.loremIpsumService.generateWords(rnd(2, 8)), toss() ? 'nl' : toss() ? 'fr' : 'en');
 
-  selectVariant(proposal: ProposalDetail, variant: Variant) {
+  selectVariant(proposal: ProposalDetail, variant: Variant, saveSelection: boolean = true) {
     if (!proposal) return;
 
     variant.selected = true;
@@ -123,10 +136,10 @@ export class ProposalService {
     proposals[proposals.findIndex(p => p.id === proposal.id)] = new ProposalDetail(proposal);
 
     this.proposals$.next(proposals);
-    this.updateResults();
+    this.updateResults(saveSelection);
   }
 
-  clearVariant(proposal: ProposalDetail) {
+  clearVariant(proposal: ProposalDetail, saveSelection: boolean = true) {
     proposal.selected = false;
     proposal.selectedAmbitionLevel = 0;
 
@@ -141,10 +154,10 @@ export class ProposalService {
     proposals[proposals.findIndex(p => p.id === proposal.id)] = new ProposalDetail(proposal);
 
     this.proposals$.next(proposals);
-    this.updateResults();
+    this.updateResults(saveSelection);
   }
 
-  clearSelection() {
+  clearSelection(saveSelection: boolean = true) {
     const proposals = [
       ...this.proposals$.value,
     ];
@@ -158,10 +171,15 @@ export class ProposalService {
     });
 
     this.proposals$.next(proposals);
-    this.updateResults();
+
+    if (saveSelection) {
+      localStorage.removeItem(LS_KEY_SELECTED_VARIANTS);
+    }
+
+    this.updateResults(saveSelection);
   }
 
-  updateResults() {
+  updateResults(saveSelection: boolean = true) {
     const proposals = this.proposals$.value;
 
     if (!proposals || proposals.length === 0) return;
@@ -169,31 +187,60 @@ export class ProposalService {
     const selectedVariantNumbers = proposals
       .map(p => ({ id: p.id, selectedVariant: p.variants.find(v => v.selected)?.ambitionLevel }))
       .filter(s => s.selectedVariant);
-    localStorage.setItem(LS_KEY_SELECTED_VARIANTS, JSON.stringify(selectedVariantNumbers));
+
+    if (saveSelection && selectedVariantNumbers.length > 0) {
+      localStorage.setItem(LS_KEY_SELECTED_VARIANTS, JSON.stringify(selectedVariantNumbers));
+    }
 
     const selectedVariants = proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
 
-    const ghgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction);
-    const ghgReductionPercentage = ghgReducedKt / Results.ghgGapCumulativeKt * 100;
-    const ghgTax = (Results.ghgGapCumulativeKt - ghgReducedKt) * Results.pricePerKtGhg;
-    const ghgIncome = (Results.ghgGapCumulativeKt - ghgReducedKt) * -Results.pricePerKtGhg;
+    const russianGasSavedGwh = this.getTotalAmount(selectedVariants, TargetType.savedRussianGas);
+    const russianGasSavedPercentage = 100 - russianGasSavedGwh / Results.gasGapBcm * 100;
+    const russianGasSavedColor = russianGasSavedPercentage > 0 ? 'warn' : 'accent';
+
+    const rgTarget = new TargetResult(Results.gasGapBcm, 'bcm', 0, russianGasSavedGwh,
+      russianGasSavedColor, russianGasSavedPercentage);
+
+    const russianOilSavedGwh = this.getTotalAmount(selectedVariants, TargetType.savedRussianOil);
+    const russianOilSavedPercentage = 100 - russianOilSavedGwh / Results.oilGapMb * 100;
+    const russianOilSavedColor = russianOilSavedPercentage > 0 ? 'warn' : 'accent';
+
+    const roTarget = new TargetResult(Results.oilGapMb, 'mb', 0, russianOilSavedGwh,
+      russianOilSavedColor, russianOilSavedPercentage);
+
+    const totalMoneyToRussia =
+      (Results.gasGapBcm - this.getTotalAmount(selectedVariants, TargetType.savedRussianGas)) * Results.pricePerBcm +
+      (Results.oilGapMb - this.getTotalAmount(selectedVariants, TargetType.savedRussianOil)) * Results.priceDifferencePerMb;
+
+    let image = '';
+    for (let threshold of Results.moneyImageMap) {
+      if (totalMoneyToRussia <= threshold.threshold) {
+        image = threshold.image;
+        break;
+      }
+    }
+
+    const ghgReducedKt = this.getTotalAmount(selectedVariants, TargetType.reducedCo2emissions);
+    const ghgReductionPercentage = ghgReducedKt / Results.co2GapCumulativeMt * 100;
+    const ghgTax = (Results.co2GapCumulativeMt - ghgReducedKt) * Results.pricePerMtCo2;
+    const ghgIncome = (Results.co2GapCumulativeMt - ghgReducedKt) * -Results.pricePerMtCo2;
     const ghgReductionColor = ghgReductionPercentage >= 100 ? 'accent' : 'warn';
 
-    const ghgTarget = new TargetResult(Results.ghgGapCumulativeKt, 'Kt', Results.pricePerKtGhg, ghgReducedKt,
+    const ghgTarget = new TargetResult(Results.co2GapCumulativeMt, 'Kt', Results.pricePerMtCo2, ghgReducedKt,
       ghgReductionColor, ghgReductionPercentage, ghgTax, ghgIncome);
 
-    const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency);
-    const energySavedPercentage = energySavedGwh / Results.eeGapTargetGwh * 100;
+    const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.savedEnergy);
+    const energySavedPercentage = energySavedGwh / Results.eeGapTargetTwh * 100;
     const energySavedColor = energySavedPercentage >= 100 ? 'accent' : 'warn';
 
-    const eeTarget = new TargetResult(Results.eeGapTargetGwh, 'GWh', 0, energySavedGwh,
+    const eeTarget = new TargetResult(Results.eeGapTargetTwh, 'GWh', 0, energySavedGwh,
       energySavedColor, energySavedPercentage);
 
-    const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy);
-    const reAddedPercentage = reAddedGwh / Results.reGapTargetGwh * 100;
+    const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.addedRenewableEnergy);
+    const reAddedPercentage = reAddedGwh / Results.reGapTargetTwh * 100;
     const renewableEnergyAddedColor = reAddedPercentage >= 100 ? 'accent' : 'warn';
 
-    const reTarget = new TargetResult(Results.reGapTargetGwh, 'GWh', 0, reAddedGwh,
+    const reTarget = new TargetResult(Results.reGapTargetTwh, 'GWh', 0, reAddedGwh,
       renewableEnergyAddedColor, reAddedPercentage);
 
     const totalCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
@@ -233,9 +280,13 @@ export class ProposalService {
 
     this.results$.next(
       new Results({
+        rgTarget,
+        roTarget,
         ghgTarget,
         eeTarget,
         reTarget,
+        image,
+        totalMoneyToRussia,
         totalCost,
         totalTax,
         totalProfit,
@@ -244,6 +295,12 @@ export class ProposalService {
         totalProfitIncludingIncome,
       })
     )
+  }
+
+  public getSet(setType: ProposalSetType) {
+    // TODO
+    if (setType === 'ecorendum') return PROPOSALS;
+    else return PROPOSALS.filter(p => Math.random() > 0.3);
   }
 
   private getTotalAmount(selectedVariants: Variant[], targetType: TargetType) {

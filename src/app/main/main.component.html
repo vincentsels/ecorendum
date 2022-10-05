@@ -2,27 +2,38 @@
   <div fxFlex="60%" fxFlex.lt-md="100%" class="proposals">
     <h1 class="results-header">
       <app-help-widget tooltipKey="helpProposals" textKey="Proposals" dialogKey="helpProposals" [withoutSpace]="true"></app-help-widget>
-      <div class="project-filters" ngClass.xs="project-filters-xs">
+      <!-- <div class="project-filters" ngClass.xs="project-filters-xs">
         <mat-form-field>
           <mat-label>{{ 'Filter proposals' | translate }}</mat-label>
-          <input matInput type="text" [(ngModel)]="projectsFilter" (input)="filterChanged()">
+          <input matInput type="text" [(ngModel)]="proposalsFilter" (input)="filterChanged()">
         </mat-form-field>
-      </div>
+      </div> -->
     </h1>
 
-    <div *ngIf="filteredProjects$ | async; let filteredProjects">
-      <app-proposal *ngFor="let proposal of filteredProjects" [proposal]="proposal"></app-proposal>
+    <div class="proposal-types">
+      <mat-radio-group [(ngModel)]="selectedProposalType" (change)="proposalSetSelectionChanged()">
+        <mat-radio-button value="ecorendum" class="proposal-type">{{ 'Proposal Ecorendum' | translate }}</mat-radio-button>
+        <mat-radio-button value="iea" class="proposal-type">{{ 'Proposal IEA' | translate }}</mat-radio-button>
+        <mat-radio-button value="eu" class="proposal-type">{{ 'Proposal EU' | translate }}</mat-radio-button>
+        <mat-radio-button value="own" class="proposal-type">{{ 'Create your own' | translate }}</mat-radio-button>
+      </mat-radio-group>
+    </div>
 
-      <p *ngIf="filteredProjects.length > 0 && filteredProjects.length < proposalService.proposals$.value.length">
+    <app-proposal-set *ngIf="selectedProposalType !== 'own'" [proposalSet]="proposalSet"></app-proposal-set>
+
+    <div *ngIf="selectedProposalType === 'own' && (filteredProposals$ | async); let filteredProposals">
+      <app-proposal *ngFor="let proposal of filteredProposals" [proposal]="proposal"></app-proposal>
+
+      <p *ngIf="filteredProposals.length > 0 && filteredProposals.length < proposalService.proposals$.value.length">
         {{ 'Cannot find the proposal you are looking for? There is a filter applied.' | translate }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
       </p>
 
-      <p *ngIf="filteredProjects.length === 0">
+      <p *ngIf="filteredProposals.length === 0">
         {{ 'No proposals found with this filter.' }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
       </p>
-    </div>
 
-    <button mat-raised-button (click)="clearSelection()" style="margin-top: 12px">{{ 'Clear selection' | translate }}</button>
+      <button mat-raised-button (click)="clearSelection()" style="margin-top: 12px">{{ 'Clear selection' | translate }}</button>
+    </div>
   </div>
   <div fxFlex="40%" fxFlex.lt-md="100%" ngClass.gt-sm="results">
     <app-results></app-results>

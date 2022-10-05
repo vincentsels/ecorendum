@@ -20,7 +20,7 @@ export class AppComponent {
     translate.setDefaultLang('en');
     languageService.setLanguage(lang);
     languageService.language.subscribe({
-      next: lang => titleService.setTitle('Ecorendum - ' + translate.instant('create your own climate policy'))
+      next: lang => titleService.setTitle('Ecorendum - Choose your own policy')
     });
 
     matIconRegistry.addSvgIcon('flanders', domSanitizer.bypassSecurityTrustResourceUrl("../assets/icon_flanders.svg"));

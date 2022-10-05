@@ -7,11 +7,10 @@ export class Proposal {
   title: TranslatedText[] = [];
   slug: TranslatedText[] = [];
   summary: TranslatedText[] = [];
-  policyLevel?: PolicyLevel;
   variants: Variant[] = [];
   sector?: Sector;
 
-  pictureThumb?: string;
+  icon?: string;
 
   selected: boolean = false;
   selectedAmbitionLevel: number = 0;
@@ -19,6 +18,28 @@ export class Proposal {
   getSectorIcon = () => SectorMap[this.sector || Sector.other];
   getSelectedVariant = () => (this.variants || []).find(v => v.selected);
   getAverageCost = () => this.variants.map(v => v.getTotalCost()).reduce((total, curr) => total + curr, 0) / this.variants.length;
+
+  getSingleOrMinCost(fromSelected: boolean) {
+    if (fromSelected) return this.getSelectedVariant()?.getTotalCost();
+    return this.variants[0].getTotalCost();
+  }
+
+  getMaxCost(ignore: boolean) {
+    if (ignore) return 0;
+    if (this.variants.length === 1) return 0;
+    return this.variants[this.variants.length - 1].getTotalCost();
+  }
+
+  getSingleOrMinTargetAmount(targetType: TargetType, fromSelected: boolean) {
+    if (fromSelected) return this.getSelectedVariant()?.getTargetAmount(targetType);
+    return this.variants[0].getTargetAmount(targetType);
+  }
+
+  getMaxTargetAmount(targetType: TargetType, ignore: boolean) {
+    if (ignore) return 0;
+    if (this.variants.length === 1) return 0;
+    return this.variants[this.variants.length - 1].getTargetAmount(targetType);
+  }
 
   getSlugTextInLanguage(lang: LanguageType): string {
     let slug = this.slug.find(s => s.lang === lang);
@@ -29,16 +50,6 @@ export class Proposal {
   }
 }
 
-export enum PolicyLevel {
-  unknown = 0,
-  local = 1,
-  provincial = 2,
-  flemish = 3,
-  wallonian = 4,
-  brussels = 5,
-  federal = 6,
-}
-
 export enum Sector {
   unknown = 0,
   transport = 1,
@@ -46,8 +57,9 @@ export enum Sector {
   agriculture = 3,
   industry = 4,
   wasteManagement = 5,
-  general = 6,
-  other = 7,
+  energy = 6,
+  general = 7,
+  other = 8,
 }
 
 export const SectorMap = {
@@ -57,6 +69,7 @@ export const SectorMap = {
   [Sector.agriculture]: 'agriculture',
   [Sector.industry]: 'factory',
   [Sector.wasteManagement]: 'delete',
+  [Sector.energy]: 'bolt',
   [Sector.general]: 'open_with',
   [Sector.other]: 'open_with',
 }
@@ -78,7 +91,7 @@ export class Variant {
   selected: boolean = false;
 
   getTargetAmount = (type: TargetType) => this.targets.find(t => t.type === type)?.amount;
-  getTotalCost = () => this.costInitial + (this.costPerYearFixed * 9) +
+  getTotalCost = () => this.costInitial + (this.costPerYearFixed * 3) +
     (Object.values(this.costPerYearVariable || {}).reduce((a, b) => a + b, 0) || 0);
 }
 
@@ -94,18 +107,11 @@ export class Target {
 
 export enum TargetType {
   none = 0,
-  /**
-   * CO2e-reduction in kilotons by target date.
-   */
-  ghgReduction = 1,
-  /**
-   * Reduction of energy consumption in GWh by target date.
-   */
-  energyEfficiency = 2,
-  /**
-   * Increase in production of renewable energy in GWh by target date.
-   */
-  renewableEnergy = 3,
+  savedRussianGas = 1,
+  savedRussianOil = 2,
+  reducedCo2emissions = 3,
+  savedEnergy = 4,
+  addedRenewableEnergy = 5,
 }
 
 export class Impact {
@@ -181,3 +187,5 @@ export class TranslatedText {
 }
 
 export type LanguageType = 'en' | 'nl' | 'fr';
+
+export type ProposalSetType = 'ecorendum' | 'iea' | 'eu' | 'own';
