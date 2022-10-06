@@ -4,41 +4,46 @@
 
 <div *ngIf="results$ | async; let results">
   <mat-card class="result-section">
+    <h2>{{ 'Russian economy impact' | translate }}</h2>
 
-    <img class="putin-image" [src]="results.image" />
+    <div class="result-section-with-image" ngClass.lt-sm="result-section-with-image-lt-md">
+      <img class="result-section-image" [src]="results.image" />
 
-    <h3 class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">request_quote</mat-icon>
-        {{ 'Yearly transfer' | translate }}
-      </span>
+      <div class="result-section-targets">
+        <h3 class="result-section-collapsed">
+          <span class="collapsed-header">
+            <mat-icon class="inline">request_quote</mat-icon>
+            {{ 'Yearly transfer' | translate }}
+          </span>
 
-      <span class="collapsed-header-summary" [class.color-accent]="results.totalMoneyToRussia === 0"> €&nbsp;{{ results.totalMoneyToRussia | number }}</span>
-    </h3>
+          <span class="collapsed-header-summary" [class.color-accent]="results.totalMoneyToRussia === 0"> €&nbsp;{{ results.totalMoneyToRussia | number }}</span>
+        </h3>
 
-    <h3 class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">propane</mat-icon>
-        {{ 'Gas imported' | translate }}
-      </span>
+        <h3 class="result-section-collapsed">
+          <span class="collapsed-header">
+            <mat-icon class="inline">propane</mat-icon>
+            {{ 'Gas imported' | translate }}
+          </span>
 
-      <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.rgTarget.color"
-        [value]="results.rgTarget.percentage">
-      </mat-progress-bar>
-    </h3>
+          <mat-progress-bar class="progress" mode="determinate"
+            [color]="results.rgTarget.color"
+            [value]="results.rgTarget.percentage">
+          </mat-progress-bar>
+        </h3>
 
-    <h3 class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">oil_barrel</mat-icon>
-        {{ 'Oil imported' | translate }}
-      </span>
+        <h3 class="result-section-collapsed">
+          <span class="collapsed-header">
+            <mat-icon class="inline">oil_barrel</mat-icon>
+            {{ 'Oil imported' | translate }}
+          </span>
 
-      <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.roTarget.color"
-        [value]="results.roTarget.percentage">
-      </mat-progress-bar>
-    </h3>
+          <mat-progress-bar class="progress" mode="determinate"
+            [color]="results.roTarget.color"
+            [value]="results.roTarget.percentage">
+          </mat-progress-bar>
+        </h3>
+      </div>
+    </div>
   </mat-card>
 
   <mat-card class="result-section">

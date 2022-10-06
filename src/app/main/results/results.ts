@@ -5,6 +5,8 @@ export class Results {
     Object.assign(this, props);
   }
 
+  // TODO: adapt to Belgian targets
+
   static moneyImageMap = [
     { threshold: 17000000000, image: './assets/img/putin/7_putin_crying.jpg' },
     { threshold: 20000000000, image: './assets/img/putin/6_putin_sad.jpg' },
