@@ -7,7 +7,7 @@
     <h2>{{ 'Russian economy impact' | translate }}</h2>
 
     <div class="result-section-with-image" ngClass.lt-sm="result-section-with-image-lt-md">
-      <img class="result-section-image" [src]="results.image" />
+      <img class="result-section-image" [src]="results.russiaImage" />
 
       <div class="result-section-targets">
         <h3 class="result-section-collapsed">
@@ -48,41 +48,48 @@
 
   <mat-card class="result-section">
     <h2>{{ 'European targets' | translate }}</h2>
-    <h3 class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">cloud_download</mat-icon>
-        <app-help-widget tooltipKey="helpCo2reductionTarget" textKey="GHG reduction" dialogKey="helpCo2reductionTarget"></app-help-widget>
-      </span>
 
-      <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.ghgTarget.color"
-        [value]="results.ghgTarget.percentage">
-      </mat-progress-bar>
-    </h3>
+    <div class="result-section-with-image" ngClass.lt-sm="result-section-with-image-lt-md">
+      <img class="result-section-image" [src]="results.euImage" />
 
-    <h3 class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">savings</mat-icon>
-        {{ 'Energy efficiency' | translate }}
-      </span>
+      <div class="result-section-targets">
+        <h3 class="result-section-collapsed">
+          <span class="collapsed-header">
+            <mat-icon class="inline">cloud_download</mat-icon>
+            <app-help-widget tooltipKey="helpCo2reductionTarget" textKey="GHG reduction" dialogKey="helpCo2reductionTarget"></app-help-widget>
+          </span>
 
-      <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.eeTarget.color"
-        [value]="results.eeTarget.percentage">
-      </mat-progress-bar>
-    </h3>
+          <mat-progress-bar class="progress" mode="determinate"
+            [color]="results.ghgTarget.color"
+            [value]="results.ghgTarget.percentage">
+          </mat-progress-bar>
+        </h3>
 
-    <h3 class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">wb_sunny</mat-icon>
-        {{ 'Renewable energy' | translate }}
-      </span>
+        <h3 class="result-section-collapsed">
+          <span class="collapsed-header">
+            <mat-icon class="inline">savings</mat-icon>
+            {{ 'Energy efficiency' | translate }}
+          </span>
 
-      <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.reTarget.color"
-        [value]="results.reTarget.percentage">
-      </mat-progress-bar>
-    </h3>
+          <mat-progress-bar class="progress" mode="determinate"
+            [color]="results.eeTarget.color"
+            [value]="results.eeTarget.percentage">
+          </mat-progress-bar>
+        </h3>
+
+        <h3 class="result-section-collapsed">
+          <span class="collapsed-header">
+            <mat-icon class="inline">wb_sunny</mat-icon>
+            {{ 'Renewable energy' | translate }}
+          </span>
+
+          <mat-progress-bar class="progress" mode="determinate"
+            [color]="results.reTarget.color"
+            [value]="results.reTarget.percentage">
+          </mat-progress-bar>
+        </h3>
+      </div>
+    </div>
   </mat-card>
 
   <mat-card class="result-section">

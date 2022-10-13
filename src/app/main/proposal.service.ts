@@ -212,10 +212,10 @@ export class ProposalService {
       (Results.gasGapBcm - this.getTotalAmount(selectedVariants, TargetType.savedRussianGas)) * Results.pricePerBcm +
       (Results.oilGapMb - this.getTotalAmount(selectedVariants, TargetType.savedRussianOil)) * Results.priceDifferencePerMb;
 
-    let image = '';
-    for (let threshold of Results.moneyImageMap) {
+    let russiaImage = '';
+    for (let threshold of Results.russiaMoneyImageMap) {
       if (totalMoneyToRussia <= threshold.threshold) {
-        image = threshold.image;
+        russiaImage = threshold.image;
         break;
       }
     }
@@ -242,6 +242,8 @@ export class ProposalService {
 
     const reTarget = new TargetResult(Results.reGapTargetTwh, 'GWh', 0, reAddedGwh,
       renewableEnergyAddedColor, reAddedPercentage);
+
+    const euImage = Results.euTotalScoreImageMap[0].image;
 
     const totalCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
     const totalProfit = totalCost < 0 ? totalCost * -1 : 0;
@@ -282,10 +284,11 @@ export class ProposalService {
       new Results({
         rgTarget,
         roTarget,
+        russiaImage,
         ghgTarget,
         eeTarget,
         reTarget,
-        image,
+        euImage,
         totalMoneyToRussia,
         totalCost,
         totalTax,

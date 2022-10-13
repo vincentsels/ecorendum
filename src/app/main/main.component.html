@@ -12,9 +12,8 @@
 
     <div class="proposal-types">
       <mat-radio-group [(ngModel)]="selectedProposalType" (change)="proposalSetSelectionChanged()">
-        <mat-radio-button value="ecorendum" class="proposal-type">{{ 'Proposal Ecorendum' | translate }}</mat-radio-button>
-        <mat-radio-button value="iea" class="proposal-type">{{ 'Proposal IEA' | translate }}</mat-radio-button>
-        <mat-radio-button value="eu" class="proposal-type">{{ 'Proposal EU' | translate }}</mat-radio-button>
+        <mat-radio-button value="ecorendum" class="proposal-type">{{ 'Our proposal' | translate }}</mat-radio-button>
+        <mat-radio-button value="other" class="proposal-type">{{ 'Other party\'s proposals' | translate }}</mat-radio-button>
         <mat-radio-button value="own" class="proposal-type">{{ 'Create your own' | translate }}</mat-radio-button>
       </mat-radio-group>
     </div>
