@@ -5,15 +5,17 @@ export class Results {
     Object.assign(this, props);
   }
 
-  static ghgGapCumulativeKt = 50000; // See below
-  static eeGapTargetGwh = 20000; // Still to be calculated
-  static reGapTargetGwh = 10000; // Still to be calculated
+  static legalTargetGapGhgKt = 34300;
+  static euTargetGapGhgKt = 27400;
+  static euTargetGapEeGwh = 10000; // Estimation
+  static euTargetGapReGwh = 5000; // Estimation
 
   static pricePerKtGhg = 100000;
 
-  ghgTarget = new TargetResult(Results.ghgGapCumulativeKt, 'Kt', Results.pricePerKtGhg);
-  eeTarget = new TargetResult(Results.eeGapTargetGwh, 'Gwh');
-  reTarget = new TargetResult(Results.reGapTargetGwh, 'Gwh');
+  legalGhgTarget = new TargetResult(Results.legalTargetGapGhgKt, 'Kt', Results.pricePerKtGhg);
+  euGhgTarget = new TargetResult(Results.euTargetGapGhgKt, 'Kt', Results.pricePerKtGhg);
+  euEeTarget = new TargetResult(Results.euTargetGapEeGwh, 'Gwh');
+  euReTarget = new TargetResult(Results.euTargetGapReGwh, 'Gwh');
 
   totalCost: number = 0;
   totalTax: number = 0;
@@ -36,30 +38,3 @@ export class TotalImpact {
 
   getImpactDomainIcon = () => ImpactDomainMap[this.domain];
 }
-
-// TODO: find out real numbers...
-
-/*
-export class Results {
-  ktGhg2005 = 78637;
-  ktGhgCommittedWem = 52662;
-  ktGhgReductionNeededWam = 41668;
-  ktGhgGapToFill = 10994;
-}
-*/
-
-/*
-Calculation ghgGapKt
-
-11000	- 1375
-9625
-8250
-6875
-5500
-4125
-2750
-1375
-0
--------
-= 49500
-*/

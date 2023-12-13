@@ -174,26 +174,26 @@ export class ProposalService {
     const selectedVariants = proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
 
     const ghgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction);
-    const ghgReductionPercentage = ghgReducedKt / Results.ghgGapCumulativeKt * 100;
-    const ghgTax = (Results.ghgGapCumulativeKt - ghgReducedKt) * Results.pricePerKtGhg;
-    const ghgIncome = (Results.ghgGapCumulativeKt - ghgReducedKt) * -Results.pricePerKtGhg;
+    const ghgReductionPercentage = ghgReducedKt / Results.euTargetGapGhgKt * 100;
+    const ghgTax = (Results.euTargetGapGhgKt - ghgReducedKt) * Results.pricePerKtGhg;
+    const ghgIncome = (Results.euTargetGapGhgKt - ghgReducedKt) * -Results.pricePerKtGhg;
     const ghgReductionColor = ghgReductionPercentage >= 100 ? 'accent' : 'warn';
 
-    const ghgTarget = new TargetResult(Results.ghgGapCumulativeKt, 'Kt', Results.pricePerKtGhg, ghgReducedKt,
+    const ghgTarget = new TargetResult(Results.euTargetGapGhgKt, 'Kt', Results.pricePerKtGhg, ghgReducedKt,
       ghgReductionColor, ghgReductionPercentage, ghgTax, ghgIncome);
 
     const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency);
-    const energySavedPercentage = energySavedGwh / Results.eeGapTargetGwh * 100;
+    const energySavedPercentage = energySavedGwh / Results.euTargetGapEeGwh * 100;
     const energySavedColor = energySavedPercentage >= 100 ? 'accent' : 'warn';
 
-    const eeTarget = new TargetResult(Results.eeGapTargetGwh, 'GWh', 0, energySavedGwh,
+    const eeTarget = new TargetResult(Results.euTargetGapEeGwh, 'GWh', 0, energySavedGwh,
       energySavedColor, energySavedPercentage);
 
     const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy);
-    const reAddedPercentage = reAddedGwh / Results.reGapTargetGwh * 100;
+    const reAddedPercentage = reAddedGwh / Results.euTargetGapReGwh * 100;
     const renewableEnergyAddedColor = reAddedPercentage >= 100 ? 'accent' : 'warn';
 
-    const reTarget = new TargetResult(Results.reGapTargetGwh, 'GWh', 0, reAddedGwh,
+    const reTarget = new TargetResult(Results.euTargetGapReGwh, 'GWh', 0, reAddedGwh,
       renewableEnergyAddedColor, reAddedPercentage);
 
     const totalCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
@@ -233,9 +233,9 @@ export class ProposalService {
 
     this.results$.next(
       new Results({
-        ghgTarget,
-        eeTarget,
-        reTarget,
+        euGhgTarget: ghgTarget,
+        euEeTarget: eeTarget,
+        euReTarget: reTarget,
         totalCost,
         totalTax,
         totalProfit,

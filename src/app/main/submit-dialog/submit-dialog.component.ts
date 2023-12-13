@@ -23,9 +23,9 @@ export class SubmitDialogComponent {
   constructor(public dialogRef: MatDialogRef<SubmitDialogComponent>, proposalService: ProposalService,
     private snackBar: MatSnackBar, private translate: TranslateService, private commonDialog: CommonDialogService) {
     this.result = proposalService.results$.getValue();
-    this.ghgTargetMet = this.result.ghgTarget.percentage >= 100;
-    this.eeTargetMet = this.result.eeTarget.percentage >= 100;
-    this.reTargetMet = this.result.reTarget.percentage >= 100;
+    this.ghgTargetMet = this.result.euGhgTarget.percentage >= 100;
+    this.eeTargetMet = this.result.euEeTarget.percentage >= 100;
+    this.reTargetMet = this.result.euReTarget.percentage >= 100;
     this.allTargetsMet = this.ghgTargetMet && this.eeTargetMet && this.reTargetMet;
   }
 
