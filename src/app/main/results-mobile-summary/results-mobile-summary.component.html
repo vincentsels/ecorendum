@@ -5,8 +5,8 @@
     </span>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.ghgTarget.color"
-      [value]="results.ghgTarget.percentage">
+      [color]="results.euGhgTarget.color"
+      [value]="results.euGhgTarget.percentage">
     </mat-progress-bar>
   </div>
 
@@ -16,8 +16,8 @@
     </span>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.eeTarget.color"
-      [value]="results.eeTarget.percentage">
+      [color]="results.euEeTarget.color"
+      [value]="results.euEeTarget.percentage">
     </mat-progress-bar>
   </div>
 
@@ -27,8 +27,8 @@
     </span>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.reTarget.color"
-      [value]="results.reTarget.percentage">
+      [color]="results.euReTarget.color"
+      [value]="results.euReTarget.percentage">
     </mat-progress-bar>
   </div>
 
@@ -38,7 +38,7 @@
     </span>
 
     <div class="numerical">
-      <span [class.color-accent]="results.totalCost + results.ghgTarget.tax < 0"> {{ results.totalCost + results.ghgTarget.tax | cost }}</span>
+      <span [class.color-accent]="results.totalCost + results.euGhgTarget.tax < 0"> {{ results.totalCost + results.euGhgTarget.tax | cost }}</span>
     </div>
   </div>
 

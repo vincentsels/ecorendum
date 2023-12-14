@@ -25,8 +25,8 @@
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.ghgTarget.color"
-        [value]="results.ghgTarget.percentage">
+        [color]="results.euGhgTarget.color"
+        [value]="results.euGhgTarget.percentage">
       </mat-progress-bar>
 
       <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleGhgResult()" *ngIf="!this.dialog">
@@ -38,27 +38,27 @@
 
     <div *ngIf="expandedGhg">
       <div class="numerical">
-        <span class="amount-selected" [class]="'color-' + results.ghgTarget.color">{{ results.ghgTarget.total | number }}</span>
+        <span class="amount-selected" [class]="'color-' + results.euGhgTarget.color">{{ results.euGhgTarget.total | number }}</span>
         /
-        <span class="amount-required">{{ results.ghgTarget.target | number }}</span> kt <app-help-widget tooltipKey="helpCo2targetKt" dialogMdSrc="help-co2-target-kt"></app-help-widget>
+        <span class="amount-required">{{ results.euGhgTarget.target | number }}</span> kt <app-help-widget tooltipKey="helpCo2targetKt" dialogMdSrc="help-co2-target-kt"></app-help-widget>
       </div>
 
       <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.ghgTarget.color"
-        [value]="results.ghgTarget.percentage">
+        [color]="results.euGhgTarget.color"
+        [value]="results.euGhgTarget.percentage">
       </mat-progress-bar>
 
-      <div *ngIf="results.ghgTarget.percentage < 100">
+      <div *ngIf="results.euGhgTarget.percentage < 100">
         {{ 'Reduction target not met. Carbon tax:' }}
-        <span class="color-warn">€&nbsp;{{ results.ghgTarget.tax | number }}</span>
+        <span class="color-warn">€&nbsp;{{ results.euGhgTarget.tax | number }}</span>
         <app-help-widget tooltipKey="helpCarbonTax" dialogKey="helpDialogCarbonTax"></app-help-widget>
       </div>
 
-      <div *ngIf="results.ghgTarget.percentage >= 100">
+      <div *ngIf="results.euGhgTarget.percentage >= 100">
         {{ 'Good job! Reduction target met.' }}
-        <span *ngIf="results.ghgTarget.percentage >= 100">
+        <span *ngIf="results.euGhgTarget.percentage >= 100">
           {{ 'Excess emissions sold for:' }}
-          <span class="color-accent">€&nbsp;{{ results.ghgTarget.income | number }}</span>
+          <span class="color-accent">€&nbsp;{{ results.euGhgTarget.income | number }}</span>
           <app-help-widget tooltipKey="helpCarbonIncome" dialogKey="helpDialogCarbonIncome"></app-help-widget>
         </span>
       </div>
@@ -82,8 +82,8 @@
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.eeTarget.color"
-        [value]="results.eeTarget.percentage">
+        [color]="results.euEeTarget.color"
+        [value]="results.euEeTarget.percentage">
       </mat-progress-bar>
 
       <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleEeResult()" *ngIf="!this.dialog">
@@ -95,21 +95,21 @@
 
     <div *ngIf="expandedEe">
       <div class="numerical">
-        <span class="amount-selected" [class]="'color-' + results.eeTarget.color">{{ results.eeTarget.total | number }}</span>
+        <span class="amount-selected" [class]="'color-' + results.euEeTarget.color">{{ results.euEeTarget.total | number }}</span>
         /
-        <span class="amount-required">{{ results.eeTarget.target | number }}</span> GWh
+        <span class="amount-required">{{ results.euEeTarget.target | number }}</span> GWh
       </div>
 
       <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.eeTarget.color"
-        [value]="results.eeTarget.percentage">
+        [color]="results.euEeTarget.color"
+        [value]="results.euEeTarget.percentage">
       </mat-progress-bar>
 
-      <div *ngIf="results.eeTarget.percentage < 100">
+      <div *ngIf="results.euEeTarget.percentage < 100">
         {{ 'Efficiency target not met.' }}
       </div>
 
-      <div *ngIf="results.eeTarget.percentage >= 100">
+      <div *ngIf="results.euEeTarget.percentage >= 100">
         {{ 'Good job! Efficiency target met.' }}
       </div>
     </div>
@@ -132,8 +132,8 @@
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.reTarget.color"
-        [value]="results.reTarget.percentage">
+        [color]="results.euReTarget.color"
+        [value]="results.euReTarget.percentage">
       </mat-progress-bar>
 
       <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleReResult()" *ngIf="!this.dialog">
@@ -145,21 +145,21 @@
 
     <div *ngIf="expandedRe">
       <div class="numerical">
-        <span class="amount-selected" [class]="'color-' + results.reTarget.color">{{ results.reTarget.total | number }}</span>
+        <span class="amount-selected" [class]="'color-' + results.euReTarget.color">{{ results.euReTarget.total | number }}</span>
         /
-        <span class="amount-required">{{ results.reTarget.target | number }}</span> GWh
+        <span class="amount-required">{{ results.euReTarget.target | number }}</span> GWh
       </div>
 
       <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.reTarget.color"
-        [value]="results.reTarget.percentage">
+        [color]="results.euReTarget.color"
+        [value]="results.euReTarget.percentage">
       </mat-progress-bar>
 
-      <div *ngIf="results.reTarget.percentage < 100">
+      <div *ngIf="results.euReTarget.percentage < 100">
         {{ 'Renewable energy target not met.' }}
       </div>
 
-      <div *ngIf="results.reTarget.percentage >= 100">
+      <div *ngIf="results.euReTarget.percentage >= 100">
         {{ 'Good job! Renewable energy target met.' }}
       </div>
     </div>

@@ -6,6 +6,7 @@ export class Results {
   }
 
   static legalTargetGapGhgKt = 34300;
+
   static euTargetGapGhgKt = 27400;
   static euTargetGapEeGwh = 10000; // Estimation
   static euTargetGapReGwh = 5000; // Estimation
@@ -13,6 +14,7 @@ export class Results {
   static pricePerKtGhg = 100000;
 
   legalGhgTarget = new TargetResult(Results.legalTargetGapGhgKt, 'Kt', Results.pricePerKtGhg);
+
   euGhgTarget = new TargetResult(Results.euTargetGapGhgKt, 'Kt', Results.pricePerKtGhg);
   euEeTarget = new TargetResult(Results.euTargetGapEeGwh, 'Gwh');
   euReTarget = new TargetResult(Results.euTargetGapReGwh, 'Gwh');
@@ -22,6 +24,7 @@ export class Results {
   totalProfit: number = 0;
   totalCostIncludingTax: number = 0;
   totalProfitIncludingIncome: number = 0;
+
   totalImpact: TotalImpact[] = [];
 }
 
