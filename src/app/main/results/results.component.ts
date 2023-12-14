@@ -18,14 +18,18 @@ import { Results } from './results';
 export class ResultsComponent implements OnInit {
   results$: Observable<Results>;
 
-  ghgGapCumulativeKt = Results.euTargetGapGhgKt;
-  reGapTargetGwh = Results.euTargetGapReGwh;
-  eeGapTargetGwh = Results.euTargetGapEeGwh;
+  euTargetGapGhgKt = Results.euTargetGapGhgKt;
+  euTargetGapReGwh = Results.euTargetGapReGwh;
+  euTargetGapEeGwh = Results.euTargetGapEeGwh;
 
   expandedAll = false;
-  expandedGhg = false;
-  expandedEe = false;
-  expandedRe = false;
+
+  expandedLegalGhg = false;
+
+  expandedEuGhg = false;
+  expandedEuEe = false;
+  expandedEuRe = false;
+
   expandedTotalCost = false;
   expandedTotalImpact = false;
 
@@ -39,9 +43,9 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
     if (this.dialog) {
       this.expandedAll = true;
-      this.expandedGhg = true;
-      this.expandedEe = true;
-      this.expandedRe = true;
+      this.expandedEuGhg = true;
+      this.expandedEuEe = true;
+      this.expandedEuRe = true;
       this.expandedTotalCost = true;
       this.expandedTotalImpact = true;
     }
@@ -60,23 +64,27 @@ export class ResultsComponent implements OnInit {
   toggleAllResults() {
     this.expandedAll = !this.expandedAll;
 
-    this.expandedGhg = this.expandedAll;
-    this.expandedEe = this.expandedAll;
-    this.expandedRe = this.expandedAll;
+    this.expandedEuGhg = this.expandedAll;
+    this.expandedEuEe = this.expandedAll;
+    this.expandedEuRe = this.expandedAll;
     this.expandedTotalCost = this.expandedAll;
     this.expandedTotalImpact = this.expandedAll;
   }
 
-  toggleGhgResult() {
-    this.expandedGhg = !this.expandedGhg;
+  toggleLegalGhgResult() {
+    this.expandedLegalGhg = !this.expandedLegalGhg;
   }
 
-  toggleEeResult() {
-    this.expandedEe = !this.expandedEe;
+  toggleEuGhgResult() {
+    this.expandedEuGhg = !this.expandedEuGhg;
   }
 
-  toggleReResult() {
-    this.expandedRe = !this.expandedRe;
+  toggleEuEeResult() {
+    this.expandedEuEe = !this.expandedEuEe;
+  }
+
+  toggleEuReResult() {
+    this.expandedEuRe = !this.expandedEuRe;
   }
 
   toggleTotalCost() {
