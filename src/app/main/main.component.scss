@@ -30,3 +30,14 @@ app-results-mobile-summary {
   top: 12px;
   align-self: flex-start;
 }
+
+.proposals-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0px;
+}
+
+.proposals-header-xs {
+  flex-wrap: wrap;
+}
