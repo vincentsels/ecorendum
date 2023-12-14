@@ -63,15 +63,6 @@ $margin-inline: 4px;
   color: mat.get-color-from-palette($ecorendum-warn) !important;
 }
 
-.dark-dialog .mat-mdc-dialog-container,
-.dark-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
-  background-color: #303030;
-}
-
-.dark-dialog .mat-mdc-dialog-container .mdc-dialog__content {
-  color: inherit;
-}
-
 .success { color: #46f8cf }
 .neutral { color: #ffffff }
 .warning { color: #f8837b }
@@ -511,4 +502,13 @@ mat-card > :last-child:not(mat-card-footer) {
   border-right: none!important;
   border-top: none!important;
   border-radius: 0!important;
+}
+
+.dark-dialog .mat-mdc-dialog-container,
+.dark-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: #303030;
+}
+
+.dark-dialog .mat-mdc-dialog-container .mdc-dialog__content {
+  color: inherit;
 }
