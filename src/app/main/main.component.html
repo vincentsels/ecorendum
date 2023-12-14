@@ -3,7 +3,7 @@
     <h1 class="results-header">
       <app-help-widget tooltipKey="helpProposals" textKey="Proposals" dialogKey="helpProposals" [withoutSpace]="true"></app-help-widget>
       <div class="project-filters" ngClass.xs="project-filters-xs">
-        <mat-form-field>
+        <mat-form-field appearance="outline" >
           <mat-label>{{ 'Filter proposals' | translate }}</mat-label>
           <input matInput type="text" [(ngModel)]="projectsFilter" (input)="filterChanged()">
         </mat-form-field>

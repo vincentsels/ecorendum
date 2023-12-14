@@ -1,7 +1,7 @@
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '~@angular/material' as mat;
+@use '@angular/material' as mat;
 // Plus imports for other components in your app.
 @use './app/main/proposal/proposal-theme' as proposal;
 
@@ -30,10 +30,14 @@ $ecorendum-theme: mat.define-dark-theme((
   )
 ));
 
+$typography: mat.define-legacy-typography-config();
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($ecorendum-theme);
+@include mat.all-component-typographies($typography);
+
 @include proposal.theme($ecorendum-theme);
 
 /* You can add global styles to this file, and also import other style files */
@@ -558,4 +562,21 @@ markdown {
       margin-bottom: 0px;
     }
   }
+}
+
+/* Fixes introduced by mdc components */
+
+mat-card {
+  padding: 16px;
+}
+
+mat-card > :last-child:not(mat-card-footer) {
+  margin-bottom: 0;
+}
+
+.mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+  border-left: none!important;
+  border-right: none!important;
+  border-top: none!important;
+  border-radius: 0!important;
 }
