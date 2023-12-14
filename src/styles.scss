@@ -63,8 +63,13 @@ $margin-inline: 4px;
   color: mat.get-color-from-palette($ecorendum-warn) !important;
 }
 
-.dark-dialog .mat-dialog-container {
+.dark-dialog .mat-mdc-dialog-container,
+.dark-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
   background-color: #303030;
+}
+
+.dark-dialog .mat-mdc-dialog-container .mdc-dialog__content {
+  color: inherit;
 }
 
 .success { color: #46f8cf }
@@ -148,7 +153,7 @@ body:not(:-moz-handler-blocked) fieldset {
   background-color: #d2f8ef;
   color: #00ffc3;
 
-  .mat-simple-snackbar-action {
+  .mat-mdc-simple-snackbar-action {
     color: #00ffc3;
   }
 }
@@ -157,7 +162,7 @@ body:not(:-moz-handler-blocked) fieldset {
   background-color: #fcc3bf;
   color: #fa4c40;
 
-  .mat-simple-snackbar-action {
+  .mat-mdc-simple-snackbar-action {
     color: #fa4c40;
   }
 }
@@ -204,79 +209,6 @@ body:not(:-moz-handler-blocked) fieldset {
 .page-container {
   margin: $margin-default;
   padding-bottom: 24px;
-}
-
-.horizontal-form > *:not(:last-child) {
-  margin-right: 12px;
-}
-
-.vertical-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.vertical-form > mat-form-field, .vertical-form > .vertical-form-row {
-  width: 100%;
-}
-
-mat-form-field:last-child {
-  margin-right: 0;
-}
-
-// Not sure why these are here. This is needed to fix layout issue on create edit inspection
-.mat-tab-body-content {
-  height: inherit !important;
-  overflow: inherit !important;
-}
-
-// Not sure why these are here. This is needed to fix layout issue on create edit inspection
-.mat-tab-body.mat-tab-body-active {
-  overflow-y: inherit !important;
-}
-
-.mat-tab-label:not(:focus) {
-  opacity: 0.8 !important; // Overwrite for readability
-}
-
-.actions > button+button {
-  margin-left: $margin-inline !important;
-}
-
-.mat-progress-spinner {
-  display: inline-block !important;
-  margin-right: $margin-small;
-}
-
-.mat-button.no-padding {
-  min-width: unset !important;
-  padding: unset !important;
-}
-
-.mat-badge-medium.mat-badge-above .mat-badge-content {
-  top: -5px !important;
-}
-
-.radio-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.radio-button {
-  margin: 2px;
-}
-
-.mat-radio-group {
-  margin-bottom: $margin-default;
-}
-
-.mat-radio-group.horizontal {
-  flex-direction: row;
-  margin-bottom: 10px; // Together with a label on top of it, it is then just as high as form-fields
-
-  .mat-radio-button {
-    margin-right: $margin-default;
-    margin-bottom: $margin-small;
-  }
 }
 
 .width50 {
