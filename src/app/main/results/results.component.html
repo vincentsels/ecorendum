@@ -10,7 +10,7 @@
 <div *ngIf="results$ | async; let results">
   <mat-card class="result-section">
     <h2 *ngIf="expandedLegalGhg">
-      <mat-icon class="inline">cloud_download</mat-icon><app-help-widget tooltipKey="helpCo2reductionTarget" textKey="Legal reduction by 2030" dialogKey="helpCo2reductionTarget"></app-help-widget>
+      <mat-icon class="inline">gavel</mat-icon><app-help-widget tooltipKey="helpCo2reductionTarget" textKey="Legal reduction by 2030" dialogKey="helpCo2reductionTarget"></app-help-widget>
       <a [routerLink]="" class="unstyled-link pull-right" (click)="toggleLegalGhgResult()" *ngIf="!this.dialog">
         <mat-icon class="inline">
           {{ expandedLegalGhg ? 'expand_more' : 'chevron_left' }}
@@ -20,7 +20,7 @@
 
     <h2 *ngIf="!expandedLegalGhg" class="result-section-collapsed">
       <span class="collapsed-header">
-        <mat-icon class="inline">cloud_download</mat-icon>
+        <mat-icon class="inline">gavel</mat-icon>
         <app-help-widget tooltipKey="helpCo2reductionTarget" textKey="Legal reduction" dialogKey="helpCo2reductionTarget"></app-help-widget>
       </span>
 
@@ -93,7 +93,7 @@
       </a>
     </h2>
 
-    <div *ngIf="expandedEuGhg">
+    <div *ngIf="expandedEuGhg" class="condensed-section">
       <div class="numerical">
         <span class="amount-selected" [class]="'color-' + results.euGhgTarget.color">{{ results.euGhgTarget.total | number }}</span>
         /
@@ -120,9 +120,7 @@
         </span>
       </div>
     </div>
-  </mat-card>
 
-  <mat-card class="result-section">
     <h2 *ngIf="expandedEuEe">
       <mat-icon class="inline">savings</mat-icon> {{ 'Improved energy efficiency by 2030' | translate }}
       <a [routerLink]="" class="unstyled-link pull-right" (click)="toggleEuEeResult()" *ngIf="!this.dialog">
@@ -150,7 +148,7 @@
       </a>
     </h2>
 
-    <div *ngIf="expandedEuEe">
+    <div *ngIf="expandedEuEe" class="condensed-section">
       <div class="numerical">
         <span class="amount-selected" [class]="'color-' + results.euEeTarget.color">{{ results.euEeTarget.total | number }}</span>
         /
@@ -170,9 +168,7 @@
         {{ 'Good job! Efficiency target met.' }}
       </div>
     </div>
-  </mat-card>
 
-  <mat-card class="result-section">
     <h2 *ngIf="expandedEuRe">
       <mat-icon class="inline">wb_sunny</mat-icon> {{ 'Renewable energy added by 2030' | translate }}
       <a [routerLink]="" class="unstyled-link pull-right" (click)="toggleEuReResult()" *ngIf="!this.dialog">

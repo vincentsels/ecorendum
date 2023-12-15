@@ -43,6 +43,7 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
     if (this.dialog) {
       this.expandedAll = true;
+      this.expandedLegalGhg = true;
       this.expandedEuGhg = true;
       this.expandedEuEe = true;
       this.expandedEuRe = true;
@@ -64,6 +65,7 @@ export class ResultsComponent implements OnInit {
   toggleAllResults() {
     this.expandedAll = !this.expandedAll;
 
+    this.expandedLegalGhg = this.expandedAll;
     this.expandedEuGhg = this.expandedAll;
     this.expandedEuEe = this.expandedAll;
     this.expandedEuRe = this.expandedAll;
