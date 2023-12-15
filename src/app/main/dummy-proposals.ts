@@ -4,6 +4,130 @@ import { ProposalDetail } from './proposal-details';
 export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 1,
+    fixed: true,
+    title: [
+      new TranslatedText('en', 'VEKP additional measures'),
+    ],
+    summary: [
+      new TranslatedText('en', 'The additional measures as currently already included in the Flemish Energy & Climate plan (VEKP). Also called the \'With additional measures\' (WAM) scenario.'),
+    ],
+    slug: [
+      new TranslatedText('en', 'vekp-additional-measures')
+    ],
+    policyLevel: PolicyLevel.flemish,
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/construction-640.jpg',
+    variants: [
+      new Variant({
+        ambitionLevel: 1,
+        costInitial: 20000000,
+        costPerYearVariable: { 2024: 2000000, 2025: 2000000, 2026: 2000000, 2027: 2000000, 2028: 2000000 },
+        title: [
+          new TranslatedText('en', 'The only target'),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 12800 }),
+          new Target({ type: TargetType.renewableEnergy, amount: 5000 }),
+        ]
+      }),
+    ]
+  }),
+  new ProposalDetail({
+    id: 2,
+    title: [
+      new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
+      new TranslatedText('en', 'Phase-out purchase of internal combustion engines'),
+    ],
+    summary: [
+      new TranslatedText('nl', 'De federale overheid verbiedt de verkoop van personen- en bestelwagens met een verbrandingsmotor. Op de tweedehandsmarkt kunnen deze wagens wel nog verkocht worden.'),
+      new TranslatedText('en', 'The federal government forbids the sale of personal or small transport vehicles with internal combustion engines. These can still be bought and sold on the second hand market.')
+    ],
+    slug: [
+      new TranslatedText('nl', 'uitfasering-aankoop-fossiele-verbrandingsmotoren'),
+      new TranslatedText('en', 'phase-out-purchase-of-internal-combustion-engines'),
+    ],
+    policyLevel: PolicyLevel.federal,
+    sector: Sector.transport,
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/transportation-2-640.jpg',
+    variants: [
+      new Variant({
+        ambitionLevel: 1,
+        costInitial: 100000,
+        costPerYearFixed: 0,
+        title: [
+          new TranslatedText('nl', 'Vanaf 2029'),
+          new TranslatedText('en', 'Starting 2029'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this scenario, it will only be forbidden to sell vehicles with an internal combustion engine starting in 2029.'),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
+          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 4000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -1000 }),
+        ]
+      }),
+      new Variant({
+        ambitionLevel: 2,
+        costInitial: 100000,
+        costPerYearFixed: 0,
+        title: [
+          new TranslatedText('nl', 'Vanaf 2027'),
+          new TranslatedText('en', 'Starting 2027'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this more ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2027.'),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
+          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 12000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -3000 }),
+        ]
+      }),
+      new Variant({
+        ambitionLevel: 3,
+        costInitial: 200000,
+        title: [
+          new TranslatedText('nl', 'Vanaf 2025'),
+          new TranslatedText('en', 'Starting 2025'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2025.'),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
+          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 20000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -5000 }),
+        ]
+      })
+    ]
+  }),
+  new ProposalDetail({
+    id: 1,
     title: [
       new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
       new TranslatedText('en', 'Phase-out purchase of internal combustion engines'),

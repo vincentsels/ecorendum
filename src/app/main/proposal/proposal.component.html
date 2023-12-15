@@ -51,7 +51,7 @@
                 <mat-icon class="inline">savings</mat-icon> {{ amount | number }} GWh
               </div>
               <div *ngIf="selectedVariant.getTargetAmount(enums.TargetType.renewableEnergy); let amount;">
-                <mat-icon class="inline">wb_sunny</mat-icon> {{ amount | number }} GWh
+                <mat-icon class="inline">solar_power</mat-icon> {{ amount | number }} GWh
               </div>
             </div>
             <div fxFlex="40%" *ngIf="selectedVariant.impacts && selectedVariant.impacts.length > 1">

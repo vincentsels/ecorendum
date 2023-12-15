@@ -10,6 +10,7 @@ export class Proposal {
   policyLevel?: PolicyLevel;
   variants: Variant[] = [];
   sector?: Sector;
+  fixed: boolean = false;
 
   pictureThumb?: string;
 
@@ -46,8 +47,9 @@ export enum Sector {
   agriculture = 3,
   industry = 4,
   wasteManagement = 5,
-  general = 6,
-  other = 7,
+  electricityProduction = 6,
+  general = 10,
+  other = 20,
 }
 
 export const SectorMap = {
@@ -57,6 +59,7 @@ export const SectorMap = {
   [Sector.agriculture]: 'agriculture',
   [Sector.industry]: 'factory',
   [Sector.wasteManagement]: 'delete',
+  [Sector.electricityProduction]: 'bolt',
   [Sector.general]: 'open_with',
   [Sector.other]: 'open_with',
 }
