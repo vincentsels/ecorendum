@@ -15,7 +15,7 @@ export const PROPOSALS: ProposalDetail[] = [
       new TranslatedText('en', 'vekp-additional-measures')
     ],
     policyLevel: PolicyLevel.flemish,
-    pictureThumb: 'https://vincentsels.be/ext/ecorendum/construction-640.jpg',
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/nature-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,
