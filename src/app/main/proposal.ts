@@ -10,7 +10,7 @@ export class Proposal {
   policyLevel?: PolicyLevel;
   variants: Variant[] = [];
   sector?: Sector;
-  fixed: boolean = false;
+  committed: boolean = false;
 
   pictureThumb?: string;
 

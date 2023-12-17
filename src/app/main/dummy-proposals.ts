@@ -4,7 +4,7 @@ import { ProposalDetail } from './proposal-details';
 export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 1,
-    fixed: true,
+    committed: true,
     title: [
       new TranslatedText('en', 'VEKP additional measures'),
     ],
@@ -37,32 +37,33 @@ export const PROPOSALS: ProposalDetail[] = [
   }),
   new ProposalDetail({
     id: 2,
+    committed: true,
     title: [
-      new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
-      new TranslatedText('en', 'Phase-out purchase of internal combustion engines'),
+      new TranslatedText('nl', 'DRI installatie Arcelor'),
+      new TranslatedText('en', 'DRI installation Arcelor'),
     ],
     summary: [
-      new TranslatedText('nl', 'De federale overheid verbiedt de verkoop van personen- en bestelwagens met een verbrandingsmotor. Op de tweedehandsmarkt kunnen deze wagens wel nog verkocht worden.'),
-      new TranslatedText('en', 'The federal government forbids the sale of personal or small transport vehicles with internal combustion engines. These can still be bought and sold on the second hand market.')
+      new TranslatedText('nl', 'ArcelorMittal Belgium zal de CO2-uitstoot tegen 2030 met ongeveer 3,9 miljoen ton per jaar verminderen door de bouw van een installatie voor direct gereduceerd ijzer (DRI) met een capaciteit van 2,5 miljoen ton en twee elektrische ovens in de vestiging in Gent. Deze zullen parallel met de state-of-the-arthoogoven werken die klaar is om afvalhout en plastics te gebruiken als alternatief voor fossiele koolstof.'),
+      new TranslatedText('en', 'ArcelorMittal Belgium will reduce CO2 emissions by 3.9 million tonnes per year by 2030, by building a 2.5 million-tonne direct reduced iron (DRI) plant and two electric furnaces at its Gent site, to operate alongside its state-of-the-art blast furnace that is ready to take waste wood and plastics as a substitute for fossil carbon. ')
     ],
     slug: [
-      new TranslatedText('nl', 'uitfasering-aankoop-fossiele-verbrandingsmotoren'),
-      new TranslatedText('en', 'phase-out-purchase-of-internal-combustion-engines'),
+      new TranslatedText('nl', 'dri-installatie-arcelor'),
+      new TranslatedText('en', 'dri-installation-arcelor'),
     ],
-    policyLevel: PolicyLevel.federal,
-    sector: Sector.transport,
-    pictureThumb: 'https://vincentsels.be/ext/ecorendum/transportation-2-640.jpg',
+    policyLevel: PolicyLevel.flemish,
+    sector: Sector.industry,
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/dri-arcelor-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 100000,
+        costInitial: 1100000,
         costPerYearFixed: 0,
         title: [
-          new TranslatedText('nl', 'Vanaf 2029'),
-          new TranslatedText('en', 'Starting 2029'),
+          new TranslatedText('nl', 'DRI installatie Arcelor'),
+          new TranslatedText('en', 'DRI installation Arcelor'),
         ],
         description: [
-          new TranslatedText('en', 'In this scenario, it will only be forbidden to sell vehicles with an internal combustion engine starting in 2029.'),
+          new TranslatedText('en', ''),
         ],
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
@@ -73,55 +74,8 @@ export const PROPOSALS: ProposalDetail[] = [
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 4000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 3900 }),
           new Target({ type: TargetType.energyEfficiency, amount: -1000 }),
-        ]
-      }),
-      new Variant({
-        ambitionLevel: 2,
-        costInitial: 100000,
-        costPerYearFixed: 0,
-        title: [
-          new TranslatedText('nl', 'Vanaf 2027'),
-          new TranslatedText('en', 'Starting 2027'),
-        ],
-        description: [
-          new TranslatedText('en', 'In this more ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2027.'),
-        ],
-        impacts: [
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
-        ],
-        targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 12000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: -3000 }),
-        ]
-      }),
-      new Variant({
-        ambitionLevel: 3,
-        costInitial: 200000,
-        title: [
-          new TranslatedText('nl', 'Vanaf 2025'),
-          new TranslatedText('en', 'Starting 2025'),
-        ],
-        description: [
-          new TranslatedText('en', 'In this ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2025.'),
-        ],
-        impacts: [
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
-        ],
-        targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 20000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: -5000 }),
         ]
       })
     ]
