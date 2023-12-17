@@ -18,15 +18,17 @@ export class MainComponent {
   filteredProjects$?: Observable<ProposalDetail[]>;
   projectsFilter = '';
   projectsFilter$ = new BehaviorSubject<string>('');
+  includeCommitted = true;
 
   constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService) {
     this.filteredProjects$ = combineLatest([this.projectsFilter$, this.proposalService.proposals$])
       .pipe(
         map(([filter, proposals]) => {
-          if (!filter) return proposals;
           return proposals.filter(
-            p => p.title.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())) ||
-              p.summary.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase()))
+            p =>
+              (this.includeCommitted || !p.committed) &&
+              (p.title.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())) ||
+              p.summary.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())))
           );
         })
       );

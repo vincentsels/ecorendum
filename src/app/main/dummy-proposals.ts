@@ -33,7 +33,8 @@ export const PROPOSALS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 12800 }),
-          new Target({ type: TargetType.renewableEnergy, amount: 5000 }),
+          new Target({ type: TargetType.renewableEnergy, amount: 2000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 2000 }),
         ]
       }),
     ]
