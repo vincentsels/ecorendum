@@ -208,10 +208,10 @@ export class ProposalService {
     const totalCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
     const totalProfit = totalCost < 0 ? totalCost * -1 : 0;
 
-    const totalTax = euGhgTax;
+    const totalTax = legalGhgTax;
 
     const totalCostIncludingTax = totalCost + totalTax;
-    const totalProfitIncludingIncome = totalProfit + euGhgIncome;
+    const totalProfitIncludingIncome = totalProfit + legalGhgIncome;
 
     const totalImpact: TotalImpact[] = [];
 
