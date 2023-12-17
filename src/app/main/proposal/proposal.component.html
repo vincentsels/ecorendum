@@ -1,8 +1,9 @@
 <div *ngIf="proposal" class="proposal" matRipple [matRippleDisabled]="proposal.selected">
-  <mat-card class="proposal-card" [class.selectable]="!proposal.selected" (click)="selectProposal()">
+  <mat-card class="proposal-card" [class.selectable]="!proposal.selected && !proposal.committed"
+    (click)="selectProposal()" [class.committed]="proposal.committed">
     <app-proposal-header [proposal]="proposal" [card]="true"></app-proposal-header>
 
-    <div style="clear: both" *ngIf="proposal.selected">
+    <div style="clear: both" *ngIf="proposal.selected && !proposal.committed">
       <mat-button-toggle-group class="variants" name="variant">
         <mat-button-toggle (click)="clearVariant(); $event.stopPropagation()" [checked]="!proposal.selected" matTooltip="{{ 'Deselect' | translate }}">
           <div class="ambition-level" fxHide.lt-sm>

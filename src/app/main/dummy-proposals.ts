@@ -5,6 +5,8 @@ export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 1,
     committed: true,
+    selected: true,
+    selectedAmbitionLevel: 1,
     title: [
       new TranslatedText('en', 'VEKP additional measures'),
     ],
@@ -19,6 +21,7 @@ export const PROPOSALS: ProposalDetail[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
+        selected: true,
         costInitial: 20000000,
         costPerYearVariable: { 2024: 2000000, 2025: 2000000, 2026: 2000000, 2027: 2000000, 2028: 2000000 },
         title: [
@@ -38,6 +41,8 @@ export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 2,
     committed: true,
+    selected: true,
+    selectedAmbitionLevel: 1,
     title: [
       new TranslatedText('nl', 'DRI installatie Arcelor'),
       new TranslatedText('en', 'DRI installation Arcelor'),
@@ -56,6 +61,7 @@ export const PROPOSALS: ProposalDetail[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
+        selected: true,
         costInitial: 1100000,
         costPerYearFixed: 0,
         title: [
@@ -81,7 +87,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 1,
+    id: 3,
     title: [
       new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
       new TranslatedText('en', 'Phase-out purchase of internal combustion engines'),
@@ -172,7 +178,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 2,
+    id: 4,
     title: [
       new TranslatedText('nl', 'Verplicht weergeven koolstofvoetafdruk producten en diensten'),
       new TranslatedText('fr', 'Obligation d\'affichage de l\'impact carbone des produits et services'),
@@ -270,7 +276,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 3,
+    id: 5,
     title: [
       new TranslatedText('en', 'Some other proposal'),
     ],
@@ -349,7 +355,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 4,
+    id: 6,
     title: [
       new TranslatedText('en', 'Single-variant proposal'),
     ],
