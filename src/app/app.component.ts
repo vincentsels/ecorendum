@@ -26,7 +26,7 @@ export class AppComponent {
     matIconRegistry.addSvgIcon('flanders', domSanitizer.bypassSecurityTrustResourceUrl("../assets/icon_flanders.svg"));
     matIconRegistry.addSvgIcon('belgium', domSanitizer.bypassSecurityTrustResourceUrl("../assets/icon_belgium.svg"));
 
-        const HelpWidgetElement = createCustomElement(HelpWidgetComponent, { injector });
-        customElements.define('help-widget', HelpWidgetElement);
+    const HelpWidgetElement = createCustomElement(HelpWidgetComponent, { injector });
+    customElements.define('help-widget', HelpWidgetElement);
   }
 }

@@ -10,7 +10,7 @@
 <div *ngIf="results$ | async; let results">
   <mat-card class="result-section">
     <h2 *ngIf="expandedLegalGhg">
-      <mat-icon class="inline">gavel</mat-icon><app-help-widget tooltipKey="helpCo2reductionTarget" textKey="Legal GHG reduction by 2030" dialogKey="helpCo2reductionTarget"></app-help-widget>
+      <mat-icon class="inline">gavel</mat-icon><app-help-widget tooltipKey="helpCo2reductionTarget" textKey="{{ 'Legal GHG reduction by 2030' | translate }}" dialogKey="helpCo2reductionTarget"></app-help-widget>
       <a [routerLink]="" class="unstyled-link pull-right" (click)="toggleLegalGhgResult()" *ngIf="!this.dialog">
         <mat-icon class="inline">
           {{ expandedLegalGhg ? 'expand_more' : 'chevron_left' }}
@@ -21,7 +21,7 @@
     <h2 *ngIf="!expandedLegalGhg" class="result-section-collapsed">
       <span class="collapsed-header">
         <mat-icon class="inline">gavel</mat-icon>
-        <app-help-widget tooltipKey="helpCo2reductionTarget" textKey="Legal reduction" dialogKey="helpCo2reductionTarget"></app-help-widget>
+        <app-help-widget tooltipKey="helpCo2reductionTarget" textKey="{{ 'Legal reduction' | translate }}" dialogKey="helpCo2reductionTarget"></app-help-widget>
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
@@ -50,7 +50,7 @@
       </mat-progress-bar>
 
       <div *ngIf="results.legalGhgTarget.percentage < 100">
-        {{ 'Reduction target not met. Carbon tax:' }}
+        {{ 'Reduction target not met. Carbon tax:' | translate }}
         <span class="color-warn">€&nbsp;{{ results.legalGhgTarget.tax | number }}</span>
         <app-help-widget tooltipKey="helpCarbonTax" dialogKey="helpDialogCarbonTax"></app-help-widget>
       </div>
@@ -68,7 +68,8 @@
 
   <mat-card class="result-section">
     <h2 *ngIf="expandedEuGhg">
-      <mat-icon class="inline">cloud_download</mat-icon><app-help-widget tooltipKey="helpCo2reductionTarget" textKey="GHG reduction by 2030" dialogKey="helpCo2reductionTarget"></app-help-widget>
+      <mat-icon class="inline">cloud_download</mat-icon><app-help-widget tooltipKey="helpCo2reductionTarget"
+        textKey="{{ 'GHG reduction by 2030' | translate }}" dialogKey="helpCo2reductionTarget"></app-help-widget>
       <a [routerLink]="" class="unstyled-link pull-right" (click)="toggleEuGhgResult()" *ngIf="!this.dialog">
         <mat-icon class="inline">
           {{ expandedEuGhg ? 'expand_more' : 'chevron_left' }}
@@ -79,7 +80,7 @@
     <h2 *ngIf="!expandedEuGhg" class="result-section-collapsed">
       <span class="collapsed-header">
         <mat-icon class="inline">cloud_download</mat-icon>
-        <app-help-widget tooltipKey="helpCo2reductionTarget" textKey="GHG reduction" dialogKey="helpCo2reductionTarget"></app-help-widget>
+        <app-help-widget tooltipKey="helpCo2reductionTarget" textKey="{{ 'GHG reduction' | translate }}" dialogKey="helpCo2reductionTarget"></app-help-widget>
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
@@ -108,15 +109,15 @@
       </mat-progress-bar>
 
       <div *ngIf="results.euGhgTarget.percentage < 100">
-        {{ 'Reduction target not met. Carbon tax:' }}
+        {{ 'Reduction target not met. Carbon tax:' | translate }}
         <span class="color-warn">€&nbsp;{{ results.euGhgTarget.tax | number }}</span>
         <app-help-widget tooltipKey="helpCarbonTax" dialogKey="helpDialogCarbonTax"></app-help-widget>
       </div>
 
       <div *ngIf="results.euGhgTarget.percentage >= 100">
-        {{ 'Good job! Reduction target met.' }}
+        {{ 'Good job! Reduction target met.' | translate }}
         <span *ngIf="results.euGhgTarget.percentage >= 100">
-          {{ 'Excess emissions sold for:' }}
+          {{ 'Excess emissions sold for:' | translate }}
           <span class="color-accent">€&nbsp;{{ results.euGhgTarget.income | number }}</span>
           <app-help-widget tooltipKey="helpCarbonIncome" dialogKey="helpDialogCarbonIncome"></app-help-widget>
         </span>
@@ -164,11 +165,11 @@
       </mat-progress-bar>
 
       <div *ngIf="results.euEeTarget.percentage < 100">
-        {{ 'Efficiency target not met.' }}
+        {{ 'Efficiency target not met.' | translate }}
       </div>
 
       <div *ngIf="results.euEeTarget.percentage >= 100">
-        {{ 'Good job! Efficiency target met.' }}
+        {{ 'Good job! Efficiency target met.' | translate }}
       </div>
     </div>
 
@@ -213,11 +214,11 @@
       </mat-progress-bar>
 
       <div *ngIf="results.euReTarget.percentage < 100">
-        {{ 'Renewable energy target not met.' }}
+        {{ 'Renewable energy target not met.' | translate }}
       </div>
 
       <div *ngIf="results.euReTarget.percentage >= 100">
-        {{ 'Good job! Renewable energy target met.' }}
+        {{ 'Good job! Renewable energy target met.' | translate }}
       </div>
     </div>
   </mat-card>
@@ -249,9 +250,9 @@
 
     <div *ngIf="expandedTotalCost">
       <div class="numerical">
-        <div class="amount-selected">{{ results.totalProfit > 0 ? 'Total measures profit' : 'Total measures cost' }}: €&nbsp;{{ results.totalCost | number }}</div>
+        <div class="amount-selected">{{ (results.totalProfit > 0 ? 'Total measures profit' : 'Total measures cost') | translate }}: €&nbsp;{{ results.totalCost | number }}</div>
         <div class="amount-selected">
-          {{ 'Including emission trading' }}:
+          {{ 'Including emission trading' | translate }}:
           <span [class.color-accent]="results.totalProfitIncludingIncome > 0"> €&nbsp;{{ (results.totalProfitIncludingIncome > 0 ? results.totalProfitIncludingIncome : results.totalCostIncludingTax) | number }}</span>
         </div>
       </div>
