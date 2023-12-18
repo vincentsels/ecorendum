@@ -45,6 +45,7 @@ export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 2,
     committed: true,
+    ets: true,
     selected: true,
     selectedAmbitionLevel: 1,
     title: [
@@ -340,6 +341,7 @@ export const PROPOSALS: ProposalDetail[] = [
   }),
   new ProposalDetail({
     id: 10,
+    ets: true,
     title: [
       new TranslatedText('nl', 'Verplicht weergeven koolstofvoetafdruk producten en diensten'),
       new TranslatedText('fr', 'Obligation d\'affichage de l\'impact carbone des produits et services'),
@@ -376,7 +378,7 @@ export const PROPOSALS: ProposalDetail[] = [
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 1000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 500 }),
         ]
       }),
       new Variant({
@@ -404,7 +406,7 @@ export const PROPOSALS: ProposalDetail[] = [
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 2000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 1000 }),
         ]
       }),
       new Variant({
@@ -431,7 +433,7 @@ export const PROPOSALS: ProposalDetail[] = [
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 3000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 1500 }),
         ]
       })
     ]

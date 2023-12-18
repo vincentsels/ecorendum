@@ -11,6 +11,7 @@ export class Proposal {
   variants: Variant[] = [];
   sector?: Sector;
   committed: boolean = false;
+  ets: boolean = false;
 
   pictureThumb?: string;
 
@@ -79,6 +80,8 @@ export class Variant {
   impacts: Impact[] = [];
 
   selected: boolean = false;
+
+  proposal?: Proposal;
 
   getTargetAmount = (type: TargetType) => this.targets.find(t => t.type === type)?.amount;
   getTotalCost = () => this.costInitial + (this.costPerYearFixed * 9) +

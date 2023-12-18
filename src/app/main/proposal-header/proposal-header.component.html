@@ -10,6 +10,7 @@
       </ng-container>
       <div ngClass.gt-xs="pull-right gt-xs-proposal-extra-info" fxHide.lt-sm>
         <div class="proposal-icons">
+          <span *ngIf="proposal.ets" class="ets-icon" matTooltip="{{ 'eu-ets' | translate }}">ETS</span>
           <mat-icon *ngIf="proposal.sector" matTooltip="{{ enums.Sector[proposal.sector] | translate }}">
             {{ proposal.getSectorIcon() }}
           </mat-icon>

@@ -76,6 +76,12 @@ export class ProposalService {
       }
     }
 
+    for (let proposal of proposals) {
+      for (let variant of proposal.variants) {
+        variant.proposal = proposal;
+      }
+    }
+
     this.proposals$.next(proposals);
 
     const selectedVariantNumbers = JSON.parse(localStorage.getItem(LS_KEY_SELECTED_VARIANTS) || '[]');
@@ -150,6 +156,7 @@ export class ProposalService {
     ];
 
     proposals.forEach((proposal) => {
+      if (proposal.committed) return;
       proposal.selected = false;
       proposal.selectedAmbitionLevel = 0;
       proposal.variants.forEach((variant) => {
@@ -173,32 +180,34 @@ export class ProposalService {
 
     const selectedVariants = proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
 
-    const ghgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction);
+    const legalGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, true);
 
-    const legalGhgReductionPercentage = ghgReducedKt / Results.legalTargetGapGhgKt * 100;
-    const legalGhgTax = (Results.legalTargetGapGhgKt - ghgReducedKt) * Results.pricePerKtGhg;
-    const legalGhgIncome = (Results.legalTargetGapGhgKt - ghgReducedKt) * -Results.pricePerKtGhg;
+    const legalGhgReductionPercentage = legalGhgReducedKt / Results.legalTargetGapGhgKt * 100;
+    const legalGhgTax = (Results.legalTargetGapGhgKt - legalGhgReducedKt) * Results.pricePerKtGhg;
+    const legalGhgIncome = (Results.legalTargetGapGhgKt - legalGhgReducedKt) * -Results.pricePerKtGhg;
     const legalGhgReductionColor = legalGhgReductionPercentage >= 100 ? 'accent' : 'warn';
 
-    const legalGhgTarget = new TargetResult(Results.legalTargetGapGhgKt, 'Kt', Results.pricePerKtGhg, ghgReducedKt,
+    const legalGhgTarget = new TargetResult(Results.legalTargetGapGhgKt, 'Kt', Results.pricePerKtGhg, legalGhgReducedKt,
       legalGhgReductionColor, legalGhgReductionPercentage, legalGhgTax, legalGhgIncome);
 
-    const euGhgReductionPercentage = ghgReducedKt / Results.euTargetGapGhgKt * 100;
-    const euGhgTax = (Results.euTargetGapGhgKt - ghgReducedKt) * Results.pricePerKtGhg;
-    const euGhgIncome = (Results.euTargetGapGhgKt - ghgReducedKt) * -Results.pricePerKtGhg;
+    const euGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, false);
+
+    const euGhgReductionPercentage = euGhgReducedKt / Results.euTargetGapGhgKt * 100;
+    const euGhgTax = (Results.euTargetGapGhgKt - euGhgReducedKt) * Results.pricePerKtGhg;
+    const euGhgIncome = (Results.euTargetGapGhgKt - euGhgReducedKt) * -Results.pricePerKtGhg;
     const euGhgReductionColor = euGhgReductionPercentage >= 100 ? 'accent' : 'warn';
 
-    const euGhgTarget = new TargetResult(Results.euTargetGapGhgKt, 'Kt', Results.pricePerKtGhg, ghgReducedKt,
+    const euGhgTarget = new TargetResult(Results.euTargetGapGhgKt, 'Kt', Results.pricePerKtGhg, euGhgReducedKt,
       euGhgReductionColor, euGhgReductionPercentage, euGhgTax, euGhgIncome);
 
-    const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency);
+    const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency, false);
     const energySavedPercentage = energySavedGwh / Results.euTargetGapEeGwh * 100;
     const energySavedColor = energySavedPercentage >= 100 ? 'accent' : 'warn';
 
     const euEeTarget = new TargetResult(Results.euTargetGapEeGwh, 'GWh', 0, energySavedGwh,
       energySavedColor, energySavedPercentage);
 
-    const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy);
+    const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy, false);
     const reAddedPercentage = reAddedGwh / Results.euTargetGapReGwh * 100;
     const renewableEnergyAddedColor = reAddedPercentage >= 100 ? 'accent' : 'warn';
 
@@ -256,8 +265,9 @@ export class ProposalService {
     )
   }
 
-  private getTotalAmount(selectedVariants: Variant[], targetType: TargetType) {
+  private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean) {
     return selectedVariants
+      .filter(v => includeEts || v.proposal?.ets === false)
       .flatMap(v => v.targets.filter(t => t.type === targetType).map(t => t.amount))
       .reduce((a, b) => a + b, 0);
   }
