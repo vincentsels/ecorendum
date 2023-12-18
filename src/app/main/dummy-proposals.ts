@@ -98,12 +98,12 @@ export const PROPOSALS: ProposalDetail[] = [
       new TranslatedText('en', 'The federal government forbids the sale of personal and transport transport vehicles with internal combustion engines. These can still be bought and sold on the second hand market.')
     ],
     slug: [
-      new TranslatedText('nl', 'uitfasering-aankoop-fossiele-verbrandingsmotoren'),
-      new TranslatedText('en', 'phase-out-purchase-of-internal-combustion-engines'),
+      new TranslatedText('nl', 'uitfasering-fossiele-verbrandingsmotoren'),
+      new TranslatedText('en', 'phase-out-internal-combustion-engines'),
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.transport,
-    pictureThumb: 'https://vincentsels.be/ext/ecorendum/transportation-2-640.jpg',
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/charge-electric-vehicle-640.jpg',
     variants: [
       new Variant({
         ambitionLevel: 1,
@@ -176,6 +176,91 @@ export const PROPOSALS: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: -3000 }),
         ]
       })
+    ]
+  }),
+  new ProposalDetail({
+    id: 4,
+    title: [
+      new TranslatedText('nl', 'Uitfasering aankoop gas- en stookolieketels'),
+      new TranslatedText('en', 'Phase-out purchase of gas and fuel oil boilers'),
+    ],
+    summary: [
+      new TranslatedText('nl', 'De federale overheid verbiedt de verkoop en installatie van gas- en stookolieketels voor nieuwe gebouwen en renovaties.'),
+      new TranslatedText('en', 'The federal government forbids the sale and installation of gas and fuel oil boilers.')
+    ],
+    slug: [
+      new TranslatedText('nl', 'uitfasering-gas-stookolie-ketels'),
+      new TranslatedText('en', 'phase-out-gas-fuel-oil-boilers'),
+    ],
+    policyLevel: PolicyLevel.federal,
+    sector: Sector.buildings,
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/heat-pump-640.jpg',
+    variants: [
+      new Variant({
+        ambitionLevel: 1,
+        costInitial: 100000,
+        costPerYearFixed: 0,
+        title: [
+          new TranslatedText('nl', 'Vanaf 2028'),
+          new TranslatedText('en', 'Starting 2028'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this scenario, it will only be forbidden to sell vehicles with an gas and fuel oil boilers starting in 2028.'),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.somewhatPositive),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 1000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -500 }),
+        ]
+      }),
+      new Variant({
+        ambitionLevel: 2,
+        costInitial: 100000,
+        costPerYearFixed: 0,
+        title: [
+          new TranslatedText('nl', 'Vanaf 2026'),
+          new TranslatedText('en', 'Starting 2026'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this more ambitious scenario, it will be forbidden to sell vehicles with an gas and fuel oil boilers starting in 2026.'),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 2000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -1000 }),
+        ]
+      }),
+      new Variant({
+        ambitionLevel: 3,
+        costInitial: 200000,
+        title: [
+          new TranslatedText('nl', 'Vanaf 2024'),
+          new TranslatedText('en', 'Starting 2024'),
+        ],
+        description: [
+          new TranslatedText('en', 'In this scenario, it will be forbidden to sell vehicles with an gas and fuel oil boilers starting in 2024.'),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 3000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -1500 }),
+        ]
+      }),
     ]
   }),
   new ProposalDetail({
