@@ -13,6 +13,8 @@ import { ProposalService } from '../proposal.service';
 export class ProposalComponent {
   @Input() proposal?: ProposalDetail;
 
+  showVariantDetails = false;
+
   constructor(public enums: EnumsService, public service: ProposalService) {}
 
   getSelectedVariant() {

@@ -33,7 +33,13 @@
         </mat-button-toggle>
       </mat-button-toggle-group>
 
-      <div class="variant-body" *ngIf="null">
+      <span class="more-variant-info" (click)="showVariantDetails = !showVariantDetails">
+        <mat-icon>
+          {{ showVariantDetails ? 'expand_more' : 'chevron_left' }}
+        </mat-icon>
+      </span>
+
+      <div class="variant-body" *ngIf="showVariantDetails">
         <div *ngIf="proposal.selectedAmbitionLevel && getSelectedVariant(); let selectedVariant">
           <div fxLayout fxLayoutGap="12px">
             <div fxFlex="30%">
