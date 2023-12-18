@@ -33,7 +33,7 @@
         </mat-button-toggle>
       </mat-button-toggle-group>
 
-      <div class="variant-body">
+      <div class="variant-body" *ngIf="null">
         <div *ngIf="proposal.selectedAmbitionLevel && getSelectedVariant(); let selectedVariant">
           <div fxLayout fxLayoutGap="12px">
             <div fxFlex="30%">
