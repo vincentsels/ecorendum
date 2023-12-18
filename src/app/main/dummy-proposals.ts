@@ -45,7 +45,6 @@ export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 2,
     committed: true,
-    ets: true,
     selected: true,
     selectedAmbitionLevel: 1,
     title: [
@@ -62,6 +61,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ],
     policyLevel: PolicyLevel.flemish,
     sector: Sector.industry,
+    ets: true,
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/dri-arcelor-640.jpg',
     variants: [
       new Variant({
@@ -93,6 +93,50 @@ export const PROPOSALS: ProposalDetail[] = [
   }),
   new ProposalDetail({
     id: 3,
+    committed: true,
+    selected: true,
+    selectedAmbitionLevel: 1,
+    title: [
+      new TranslatedText('nl', 'CSS projecten'),
+      new TranslatedText('en', 'CSS projects'),
+    ],
+    summary: [
+      new TranslatedText('nl', 'Koolstofopvang- en opslag (in het Engels Carbon Capture & Storage of afgekort CCS) projecten bij o.a. BASF en Air Liquide, met verdere uitbreiding naar andere bedrijven.'),
+      new TranslatedText('en', 'Carbon capture & storage projects at BASF, Air Liquide, and in the future other companies')
+    ],
+    slug: [
+      new TranslatedText('nl', 'ccs-projecten'),
+      new TranslatedText('en', 'ccs-projects'),
+    ],
+    policyLevel: PolicyLevel.flemish,
+    sector: Sector.industry,
+    ets: true,
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/ccs-640.jpg',
+    variants: [
+      new Variant({
+        ambitionLevel: 1,
+        selected: true,
+        costInitial: 1100000,
+        costPerYearFixed: 0,
+        title: [
+          new TranslatedText('nl', 'CSS projecten'),
+          new TranslatedText('en', 'CSS projects'),
+        ],
+        description: [
+          new TranslatedText('en', ''),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 2000 }),
+        ]
+      })
+    ]
+  }),
+  new ProposalDetail({
+    id: 4,
     title: [
       new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
       new TranslatedText('en', 'Phase-out purchase of internal combustion engines'),
@@ -183,7 +227,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 4,
+    id: 5,
     title: [
       new TranslatedText('nl', 'Uitfasering aankoop gas- en stookolieketels'),
       new TranslatedText('en', 'Phase-out purchase of gas and fuel oil boilers'),
@@ -268,7 +312,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 5,
+    id: 6,
     title: [
       new TranslatedText('nl', 'Afbouw rundvee- en varkensstapel'),
       new TranslatedText('en', 'Reduction of cattle and pig herds'),
@@ -335,6 +379,105 @@ export const PROPOSALS: ProposalDetail[] = [
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 2000 }),
           new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
+        ]
+      }),
+    ]
+  }),
+  new ProposalDetail({
+    id: 7,
+    title: [
+      new TranslatedText('nl', 'Afbouw koolstofintensieve industrie'),
+      new TranslatedText('en', 'Phase-out carbon-intensive industry'),
+    ],
+    summary: [
+      new TranslatedText('nl', 'Afbouw activiteit van energie- en koolstofintensieve industrie, o.a. in de Antwerpse haven, door niet langer verstrekken vergunningen en fiscale ontmoediging.'),
+      new TranslatedText('en', 'Phase-out of carbon-intensive industry, e.g. in the port of Antwerp though revoking permissions or fiscal discouragement.')
+    ],
+    slug: [
+      new TranslatedText('nl', 'afbouw-carbon-intensive-industry'),
+      new TranslatedText('en', 'phase-out-carbon-intensive-industry'),
+    ],
+    policyLevel: PolicyLevel.flemish,
+    sector: Sector.industry,
+    ets: true,
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/petrochemie-640.jpg',
+    variants: [
+      new Variant({
+        ambitionLevel: 1,
+        costInitial: 500000000,
+        costPerYearFixed: 0,
+        title: [
+          new TranslatedText('nl', '10% afbouw'),
+          new TranslatedText('en', '10% reduction'),
+        ],
+        description: [
+          new TranslatedText('en', ''),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.luLuCf, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.phosphorusPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 2500 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
+        ]
+      }),
+      new Variant({
+        ambitionLevel: 2,
+        costInitial: 1000000000,
+        costPerYearFixed: 0,
+        title: [
+          new TranslatedText('nl', '20% afbouw'),
+          new TranslatedText('en', '20% reduction'),
+        ],
+        description: [
+          new TranslatedText('en', ''),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.luLuCf, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.phosphorusPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.waterConsumption, ImpactAmount.moderatelyPositive),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 5000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 2000 }),
+        ]
+      }),
+      new Variant({
+        ambitionLevel: 3,
+        costInitial: 1500000000,
+        costPerYearFixed: 0,
+        title: [
+          new TranslatedText('nl', '30% afbouw'),
+          new TranslatedText('en', '30% reduction'),
+        ],
+        description: [
+          new TranslatedText('en', ''),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.veryPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.veryPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.luLuCf, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.phosphorusPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.waterConsumption, ImpactAmount.moderatelyPositive),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 7500 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 3000 }),
         ]
       }),
     ]
