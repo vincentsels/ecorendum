@@ -376,7 +376,7 @@ export const PROPOSALS: ProposalDetail[] = [
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 4000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 1000 }),
         ]
       }),
       new Variant({
@@ -404,7 +404,7 @@ export const PROPOSALS: ProposalDetail[] = [
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 5000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 2000 }),
         ]
       }),
       new Variant({
@@ -431,7 +431,7 @@ export const PROPOSALS: ProposalDetail[] = [
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 7000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 3000 }),
         ]
       })
     ]
