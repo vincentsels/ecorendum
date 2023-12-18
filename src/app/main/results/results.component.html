@@ -25,6 +25,7 @@
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
+        matTooltip="{{ results.legalGhgTarget.total | number }} / {{ results.legalGhgTarget.target | number }} kt"
         [color]="results.legalGhgTarget.color"
         [value]="results.legalGhgTarget.percentage">
       </mat-progress-bar>
@@ -82,6 +83,7 @@
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
+        matTooltip="{{ results.euGhgTarget.total | number }} / {{ results.euGhgTarget.target | number }} kt"
         [color]="results.euGhgTarget.color"
         [value]="results.euGhgTarget.percentage">
       </mat-progress-bar>
@@ -137,6 +139,7 @@
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
+        matTooltip="{{ results.euEeTarget.total | number }} / {{ results.euEeTarget.target | number }} GWh"
         [color]="results.euEeTarget.color"
         [value]="results.euEeTarget.percentage">
       </mat-progress-bar>
@@ -185,6 +188,7 @@
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
+        matTooltip="{{ results.euReTarget.total | number }} / {{ results.euReTarget.target | number }} GWh"
         [color]="results.euReTarget.color"
         [value]="results.euReTarget.percentage">
       </mat-progress-bar>
