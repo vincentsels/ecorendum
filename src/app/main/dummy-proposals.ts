@@ -94,8 +94,8 @@ export const PROPOSALS: ProposalDetail[] = [
       new TranslatedText('en', 'Phase-out purchase of internal combustion engines'),
     ],
     summary: [
-      new TranslatedText('nl', 'De federale overheid verbiedt de verkoop van personen- en bestelwagens met een verbrandingsmotor. Op de tweedehandsmarkt kunnen deze wagens wel nog verkocht worden.'),
-      new TranslatedText('en', 'The federal government forbids the sale of personal or small transport vehicles with internal combustion engines. These can still be bought and sold on the second hand market.')
+      new TranslatedText('nl', 'De federale overheid verbiedt de verkoop van personen- en bestel- en vrachtwagens met een verbrandingsmotor. Op de tweedehandsmarkt kunnen deze wagens wel nog verkocht worden.'),
+      new TranslatedText('en', 'The federal government forbids the sale of personal and transport transport vehicles with internal combustion engines. These can still be bought and sold on the second hand market.')
     ],
     slug: [
       new TranslatedText('nl', 'uitfasering-aankoop-fossiele-verbrandingsmotoren'),
@@ -110,11 +110,11 @@ export const PROPOSALS: ProposalDetail[] = [
         costInitial: 100000,
         costPerYearFixed: 0,
         title: [
-          new TranslatedText('nl', 'Vanaf 2029'),
-          new TranslatedText('en', 'Starting 2029'),
+          new TranslatedText('nl', 'Vanaf 2028'),
+          new TranslatedText('en', 'Starting 2028'),
         ],
         description: [
-          new TranslatedText('en', 'In this scenario, it will only be forbidden to sell vehicles with an internal combustion engine starting in 2029.'),
+          new TranslatedText('en', 'In this scenario, it will only be forbidden to sell vehicles with an internal combustion engine starting in 2028.'),
         ],
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
@@ -125,7 +125,7 @@ export const PROPOSALS: ProposalDetail[] = [
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 4000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 1500 }),
           new Target({ type: TargetType.energyEfficiency, amount: -1000 }),
         ]
       }),
@@ -134,11 +134,11 @@ export const PROPOSALS: ProposalDetail[] = [
         costInitial: 100000,
         costPerYearFixed: 0,
         title: [
-          new TranslatedText('nl', 'Vanaf 2027'),
-          new TranslatedText('en', 'Starting 2027'),
+          new TranslatedText('nl', 'Vanaf 2026'),
+          new TranslatedText('en', 'Starting 2026'),
         ],
         description: [
-          new TranslatedText('en', 'In this more ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2027.'),
+          new TranslatedText('en', 'In this more ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2026.'),
         ],
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
@@ -149,19 +149,19 @@ export const PROPOSALS: ProposalDetail[] = [
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 12000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: -3000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 3000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -2000 }),
         ]
       }),
       new Variant({
         ambitionLevel: 3,
         costInitial: 200000,
         title: [
-          new TranslatedText('nl', 'Vanaf 2025'),
-          new TranslatedText('en', 'Starting 2025'),
+          new TranslatedText('nl', 'Vanaf 2024'),
+          new TranslatedText('en', 'Starting 2024'),
         ],
         description: [
-          new TranslatedText('en', 'In this ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2025.'),
+          new TranslatedText('en', 'In this ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2024.'),
         ],
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
@@ -172,14 +172,14 @@ export const PROPOSALS: ProposalDetail[] = [
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 20000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: -5000 }),
+          new Target({ type: TargetType.ghgReduction, amount: 4500 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -3000 }),
         ]
       })
     ]
   }),
   new ProposalDetail({
-    id: 4,
+    id: 10,
     title: [
       new TranslatedText('nl', 'Verplicht weergeven koolstofvoetafdruk producten en diensten'),
       new TranslatedText('fr', 'Obligation d\'affichage de l\'impact carbone des produits et services'),
@@ -276,116 +276,4 @@ export const PROPOSALS: ProposalDetail[] = [
       })
     ]
   }),
-  new ProposalDetail({
-    id: 5,
-    title: [
-      new TranslatedText('en', 'Some other proposal'),
-    ],
-    summary: [
-      new TranslatedText('en', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'),
-    ],
-    slug: [
-      new TranslatedText('en', 'some-other-proposal'),
-    ],
-    policyLevel: PolicyLevel.federal,
-    sector: Sector.agriculture,
-    pictureThumb: 'https://vincentsels.be/ext/ecorendum/agriculture-640.jpg',
-    variants: [
-      new Variant({
-        ambitionLevel: 1,
-        costInitial: 0,
-        costPerYearVariable: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
-        title: [
-          new TranslatedText('en', 'A basic target'),
-        ],
-        description: [
-          new TranslatedText('en', 'Quite the basic target, suspendisse vitae metus suscipit urna tempor tincidunt vel ut velit. Proin accumsan erat vestibulum erat consequat tempus. Suspendisse potenti. Maecenas ultricies rutrum nunc, non tempus dolor convallis sit amet. Suspendisse posuere ex a lectus eleifend facilisis a sed sem.'),
-        ],
-        impacts: [
-          new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.luLuCf, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
-        ],
-        targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 15000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 5000 }),
-          new Target({ type: TargetType.renewableEnergy, amount: 5000 }),
-        ]
-      }),
-      new Variant({
-        ambitionLevel: 2,
-        costInitial: 15000000,
-        title: [
-          new TranslatedText('en', 'A more ambitious target'),
-        ],
-        description: [
-          new TranslatedText('en', 'This is a more ambitious target. Maecenas lacinia enim dictum tortor tincidunt finibus. Pellentesque vitae lorem ac nibh convallis efficitur. Etiam sapien turpis, varius sit amet commodo ac, vulputate et ex. Curabitur consequat justo at justo gravida, ut lacinia arcu consectetur. Nunc suscipit nulla et tempor semper. Morbi faucibus elit congue, porta velit non, pulvinar mauris.'),
-        ],
-        impacts: [
-          new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.luLuCf, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.waterConsumption, ImpactAmount.moderatelyPositive),
-        ],
-        targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 25000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 10000 }),
-          new Target({ type: TargetType.renewableEnergy, amount: 10000 }),
-        ]
-      }),
-      new Variant({
-        ambitionLevel: 3,
-        costInitial: 20000000,
-        costPerYearVariable: { 2022: 3000000, 2023: 3000000, 2024: 800000 },
-        title: [
-          new TranslatedText('en', 'A very ambitious target'),
-        ],
-        description: [
-          new TranslatedText('en', 'In this very ambitious target, lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis, libero maximus mattis pulvinar, nisi lorem luctus metus, in pulvinar mauris odio at arcu. Proin faucibus quam id nunc gravida imperdiet. Morbi suscipit sagittis sapien a ornare. Donec accumsan pharetra pellentesque. Donec eleifend erat vel neque gravida sagittis. Aenean vestibulum tristique ex at congue. Integer quis ipsum in nunc condimentum dignissim sed quis nisl.'),
-        ],
-        impacts: [
-          new Impact(ImpactDomain.aerosols, ImpactAmount.veryPositive),
-          new Impact(ImpactDomain.luLuCf, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.waterConsumption, ImpactAmount.moderatelyPositive),
-        ],
-        targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 30000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 15000 }),
-          new Target({ type: TargetType.renewableEnergy, amount: 15000 }),
-        ]
-      })
-    ]
-  }),
-  new ProposalDetail({
-    id: 6,
-    title: [
-      new TranslatedText('en', 'Single-variant proposal'),
-    ],
-    summary: [
-      new TranslatedText('en', 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-    ],
-    slug: [
-      new TranslatedText('en', 'single-variant-proposal')
-    ],
-    policyLevel: PolicyLevel.flemish,
-    sector: Sector.buildings,
-    pictureThumb: 'https://vincentsels.be/ext/ecorendum/construction-640.jpg',
-    variants: [
-      new Variant({
-        ambitionLevel: 1,
-        costInitial: 20000000,
-        costPerYearVariable: { 2022: 2000000, 2023: 2000000, 2024: 2000000, 2025: 2000000, 2026: 2000000 },
-        title: [
-          new TranslatedText('en', 'The only target'),
-        ],
-        impacts: [
-          new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
-        ],
-        targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 10000 }),
-          new Target({ type: TargetType.renewableEnergy, amount: 5000 }),
-        ]
-      }),
-    ]
-  })
 ]
