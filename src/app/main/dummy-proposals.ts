@@ -9,12 +9,15 @@ export const PROPOSALS: ProposalDetail[] = [
     selectedAmbitionLevel: 1,
     title: [
       new TranslatedText('en', 'VEKP additional measures'),
+      new TranslatedText('nl', 'VEKP extra maatregelen'),
     ],
     summary: [
       new TranslatedText('en', 'The additional measures as currently already included in the Flemish Energy & Climate plan (VEKP). Also called the \'With additional measures\' (WAM) scenario.'),
+      new TranslatedText('nl', 'De extra maatregelen reeds opgenomen in het Vlaams Energie- en Klimaatplan (VEKP). Dit wordt ook het \'With additional measures\' (WAM) scenario genoemd.'),
     ],
     slug: [
-      new TranslatedText('en', 'vekp-additional-measures')
+      new TranslatedText('en', 'vekp-additional-measures'),
+      new TranslatedText('nl', 'vekp-extra-maatregelen')
     ],
     policyLevel: PolicyLevel.flemish,
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/nature-640.jpg',
@@ -259,6 +262,78 @@ export const PROPOSALS: ProposalDetail[] = [
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 3000 }),
           new Target({ type: TargetType.energyEfficiency, amount: -1500 }),
+        ]
+      }),
+    ]
+  }),
+  new ProposalDetail({
+    id: 5,
+    title: [
+      new TranslatedText('nl', 'Afbouw rundvee- en varkensstapel'),
+      new TranslatedText('en', 'Reduction of cattle and pig herds'),
+    ],
+    summary: [
+      new TranslatedText('nl', 'Afbouw van de rundvee- en de varkensstapel tegen 2030 vergeleken met 2021. Voor de varkensstapel zou het huidige reductietempo licht moeten versnellen, voor vleesvee zou het tempo moeten verdriedubbelen, en voor melkvee zou de stijgende trend volledig moeten worden omgekeerd. Vlaanderen zou tegen 2030 ca. 400.000 minder runderen hebben. Ingrijpen in de pluimveestapel heeft nauwelijks effect.'),
+      new TranslatedText('en', 'Reduction in cattle and pig herds by 2030 compared to 2021. For the pig herd, the current rate of reduction should accelerate slightly, for beef cattle the rate should triple, and for dairy cattle the upward trend should be completely reversed. Flanders would have about 400,000 fewer cattle by 2030. Intervention in the poultry population has little effect.')
+    ],
+    slug: [
+      new TranslatedText('nl', 'afbouw-rundvee-varkensstapel'),
+      new TranslatedText('en', 'reduction-cattle-pig-herds'),
+    ],
+    policyLevel: PolicyLevel.flemish,
+    sector: Sector.agriculture,
+    pictureThumb: 'https://vincentsels.be/ext/ecorendum/agriculture-cows-640.jpg',
+    variants: [
+      new Variant({
+        ambitionLevel: 1,
+        costInitial: 500000000,
+        costPerYearFixed: 0,
+        title: [
+          new TranslatedText('nl', '30% afbouw'),
+          new TranslatedText('en', '30% reduction'),
+        ],
+        description: [
+          new TranslatedText('en', ''),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.luLuCf, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.phosphorusPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 1000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 500 }),
+        ]
+      }),
+      new Variant({
+        ambitionLevel: 2,
+        costInitial: 1000000000,
+        costPerYearFixed: 0,
+        title: [
+          new TranslatedText('nl', '60% afbouw'),
+          new TranslatedText('en', '60% reduction'),
+        ],
+        description: [
+          new TranslatedText('nl', ''),
+        ],
+        impacts: [
+          new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.oceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.luLuCf, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.phosphorusPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.waterConsumption, ImpactAmount.moderatelyPositive),
+        ],
+        targets: [
+          new Target({ type: TargetType.ghgReduction, amount: 2000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
         ]
       }),
     ]
