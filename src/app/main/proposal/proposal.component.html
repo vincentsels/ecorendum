@@ -33,7 +33,16 @@
         </mat-button-toggle>
       </mat-button-toggle-group>
 
-      <span class="more-variant-info" (click)="showVariantDetails = !showVariantDetails">
+      <div fxHide.gt-md class="more-variant-info" (click)="showVariantDetails = !showVariantDetails">
+        <h3 class="variant-header-sm" *ngIf="proposal.selectedAmbitionLevel && getSelectedVariant(); let selectedVariant">
+          {{ selectedVariant.title | translateTextAsync | async }}
+          <mat-icon class="inline">
+            {{ showVariantDetails ? 'expand_more' : 'chevron_left' }}
+          </mat-icon>
+        </h3>
+      </div>
+
+      <span fxHide.lt-lg class="more-variant-info" (click)="showVariantDetails = !showVariantDetails">
         <mat-icon>
           {{ showVariantDetails ? 'expand_more' : 'chevron_left' }}
         </mat-icon>

@@ -248,6 +248,14 @@
       </a>
     </h2>
 
+    <!--
+    <p>totalCost: {{ results.totalCost }}</p>
+    <p>totalProfit: {{ results.totalProfit }}</p>
+    <p>totalTax: {{ results.totalTax }}</p>
+    <p>totalCostIncludingTax: {{ results.totalCostIncludingTax }}</p>
+    <p>totalProfitIncludingIncome: {{ results.totalProfitIncludingIncome }}</p>
+    -->
+
     <div *ngIf="expandedTotalCost">
       <div class="numerical">
         <div class="amount-selected">{{ (results.totalProfit > 0 ? 'Total measures profit' : 'Total measures cost') | translate }}: €&nbsp;{{ results.totalCost | number }}</div>

@@ -220,7 +220,7 @@ export class ProposalService {
     const totalTax = legalGhgTax;
 
     const totalCostIncludingTax = totalCost + totalTax;
-    const totalProfitIncludingIncome = totalProfit + legalGhgIncome;
+    const totalProfitIncludingIncome = (totalCost * -1) + legalGhgIncome;
 
     const totalImpact: TotalImpact[] = [];
 
