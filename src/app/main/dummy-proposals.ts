@@ -9,7 +9,7 @@ export const PROPOSALS: ProposalDetail[] = [
     selectedAmbitionLevel: 1,
     title: [
       new TranslatedText('en', 'VEKP additional measures'),
-      new TranslatedText('nl', 'VEKP extra maatregelen'),
+      new TranslatedText('nl', 'Extra maatregelen VEKP'),
     ],
     summary: [
       new TranslatedText('en', 'The additional measures as currently already included in the Flemish Energy & Climate plan (VEKP). Also called the \'With additional measures\' (WAM) scenario.'),
@@ -17,7 +17,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ],
     slug: [
       new TranslatedText('en', 'vekp-additional-measures'),
-      new TranslatedText('nl', 'vekp-extra-maatregelen')
+      new TranslatedText('nl', 'extra-maatregelen-vekp')
     ],
     policyLevel: PolicyLevel.flemish,
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/nature-640.jpg',
