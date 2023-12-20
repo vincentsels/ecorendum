@@ -1,65 +1,71 @@
-<mat-card *ngIf="results$ | async; let results" fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="center center">
-  <div class="result-section-mobile" fxFlex="25%" fxLayoutAlign="center center">
-    <span class="result-section-mobile-title-icon">
-      <mat-icon class="inline">gavel</mat-icon>
-    </span>
+<mat-card *ngIf="results$ | async; let results" style="display: flex; flex-direction: row; flex-wrap: wrap">
+    <div class="result-section-group-mobile" fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="center center" fxFlex.xs="100%" fxFlex.sm="40%">
+      <div class="result-section-mobile" fxFlex="50%" fxLayoutAlign="center center">
+        <span class="result-section-mobile-title-icon">
+          <mat-icon class="inline">gavel</mat-icon>
+        </span>
 
-    <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.legalGhgTarget.color"
-      [value]="results.legalGhgTarget.percentage">
-    </mat-progress-bar>
-  </div>
+        <mat-progress-bar class="progress" mode="determinate"
+          [color]="results.legalGhgTarget.color"
+          [value]="results.legalGhgTarget.percentage">
+        </mat-progress-bar>
+      </div>
 
-  <div class="result-section-mobile" fxFlex="25%" fxLayoutAlign="center center">
-    <span class="result-section-mobile-title-icon">
-      <mat-icon class="inline">cloud_download</mat-icon>
-    </span>
+      <div class="result-section-mobile" fxFlex="50%" fxLayoutAlign="center center">
+        <span class="result-section-mobile-title-icon">
+          <mat-icon class="inline">cloud_download</mat-icon>
+        </span>
 
-    <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.euGhgTarget.color"
-      [value]="results.euGhgTarget.percentage">
-    </mat-progress-bar>
-  </div>
-
-  <div class="result-section-mobile" fxFlex="25%" fxLayoutAlign="center center">
-    <span class="result-section-mobile-title-icon">
-      <mat-icon class="inline">savings</mat-icon>
-    </span>
-
-    <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.euEeTarget.color"
-      [value]="results.euEeTarget.percentage">
-    </mat-progress-bar>
-  </div>
-
-  <div class="result-section-mobile" fxFlex="25%" fxLayoutAlign="center center">
-    <span class="result-section-mobile-title-icon">
-      <mat-icon class="inline">solar_power</mat-icon>
-    </span>
-
-    <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.euReTarget.color"
-      [value]="results.euReTarget.percentage">
-    </mat-progress-bar>
-  </div>
-
-  <div class="result-section-mobile" fxFlex="25%" fxLayoutAlign="center center">
-    <span class="result-section-mobile-title-icon">
-      <mat-icon class="inline">sell</mat-icon>
-    </span>
-
-    <div class="numerical">
-      <span [class.color-accent]="results.totalCost + results.euGhgTarget.tax < 0"> {{ results.totalCost + results.euGhgTarget.tax | cost }}</span>
+        <mat-progress-bar class="progress" mode="determinate"
+          [color]="results.euGhgTarget.color"
+          [value]="results.euGhgTarget.percentage">
+        </mat-progress-bar>
+      </div>
     </div>
-  </div>
 
-  <!-- <mat-card class="result-section-mobile">
-    <span><mat-icon class="inline">public</mat-icon> {{ 'Total impact' | translate }}</span>
-    <div *ngFor="let impactItem of results.totalImpact">
-      <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ enums.ImpactDomain[impactItem.domain] | translate }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
-      {{ enums.ImpactDomain[impactItem.domain] | translate }}: {{ impactItem.amount }}
+    <div class="result-section-group-mobile" fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="center center" fxFlex.xs="100%" fxFlex.sm="40%">
+      <div class="result-section-mobile" fxFlex="50%" fxLayoutAlign="center center">
+        <span class="result-section-mobile-title-icon">
+          <mat-icon class="inline">savings</mat-icon>
+        </span>
+
+        <mat-progress-bar class="progress" mode="determinate"
+          [color]="results.euEeTarget.color"
+          [value]="results.euEeTarget.percentage">
+        </mat-progress-bar>
+      </div>
+
+      <div class="result-section-mobile" fxFlex="50%" fxLayoutAlign="center center">
+        <span class="result-section-mobile-title-icon">
+          <mat-icon class="inline">solar_power</mat-icon>
+        </span>
+
+        <mat-progress-bar class="progress" mode="determinate"
+          [color]="results.euReTarget.color"
+          [value]="results.euReTarget.percentage">
+        </mat-progress-bar>
+      </div>
     </div>
-  </mat-card> -->
+
+    <div class="result-section-group-mobile" fxLayout="row" fxLayoutGap="12px" style="height: 28px; align-items: center;" fxFlex.xs="100%" fxFlex.sm="20%">
+      <div class="result-section-mobile" fxFlex="50%">
+        <span class="result-section-mobile-title-icon">
+          <mat-icon class="inline">sell</mat-icon>
+        </span>
+
+        <div class="numerical">
+          <span [class.color-accent]="results.totalCost + results.euGhgTarget.tax < 0"> {{ results.totalCost + results.euGhgTarget.tax | cost }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- <mat-card class="result-section-mobile">
+      <span><mat-icon class="inline">public</mat-icon> {{ 'Total impact' | translate }}</span>
+      <div *ngFor="let impactItem of results.totalImpact">
+        <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ enums.ImpactDomain[impactItem.domain] | translate }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
+        {{ enums.ImpactDomain[impactItem.domain] | translate }}: {{ impactItem.amount }}
+      </div>
+    </mat-card> -->
 </mat-card>
 
 <!-- <button mat-raised-button color="primary" (click)="submit()">{{ 'I am happy with these results, publish!' | translate }}</button> -->
