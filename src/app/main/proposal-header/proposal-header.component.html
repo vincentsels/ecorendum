@@ -19,9 +19,9 @@
         <span *ngIf="proposal.getMaxCost(set); let maxCost"> - <span [class]="getCostClass(cost)">{{ maxCost | cost }}</span></span>
       </span>
       <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinTargetAmount(enums.TargetType.ghgReduction, set); let amt;">
-        <mat-icon class="inline">propane</mat-icon>
-        <span [class]="getGasClass(amt)">{{ amt | number }} bcm</span>
-        <span *ngIf="proposal.getMaxTargetAmount(enums.TargetType.ghgReduction, set); let maxAmt"> - <span [class]="getGasClass(amt)">{{ maxAmt | number }} bcm</span></span>
+        <mat-icon class="inline">cloud_download</mat-icon>
+        <span [class]="getCo2Class(amt)">{{ amt | number }} kt</span>
+        <span *ngIf="proposal.getMaxTargetAmount(enums.TargetType.ghgReduction, set); let maxAmt"> - <span [class]="getGasClass(amt)">{{ maxAmt | number }} kt</span></span>
       </span>
     </div>
   </div>
