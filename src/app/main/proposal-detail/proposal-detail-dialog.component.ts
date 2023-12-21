@@ -8,6 +8,7 @@ import { ProposalDetail } from '../proposal-details';
   selector: 'proposal-detail-dialog',
   template: `
 <h2 mat-dialog-title>
+  <mat-icon class="inline header-icon" fontSet="material-symbols-outlined">{{ data.proposal.icon || 'eco' }}</mat-icon>
   {{ data.proposal.title | translateText }}
   <a [routerLink]="'/proposal/' + (data.proposal.slug | translateText)" class="link-button" (click)="closeDialog()"><mat-icon class="inline">link</mat-icon></a>
   <button mat-icon-button class="close-button" [mat-dialog-close]="true">

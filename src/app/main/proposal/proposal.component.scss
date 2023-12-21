@@ -31,11 +31,11 @@
 }
 
 .proposal-checkbox {
-  margin-right: 16px;
-  transform: scale(1.4);
+  margin-right: 6px;
+  transform: scale(1.2);
   top: -6px;
   align-self: baseline;
-  margin-top: 6px;
+  margin-top: 2px;
 }
 
 .proposal-header {
@@ -46,37 +46,11 @@
   text-align: right;
 }
 
-.proposal-icons {
-  mat-icon+mat-icon {
-    margin-left: 12px;
-  }
-
-  white-space: nowrap;
-}
-
-.proposal-target-summary {
-  opacity: 0.6;
-  margin-top: -16px;
-  margin-bottom: 12px;
-}
-
-.proposal-target-summary-cost {
-  &::after {
-    opacity: 0.6;
-    content: '•';
-    margin-right: 6px;
-    margin-left: 6px;
-  }
-}
-
-.proposal-target-impact-summary {
-  font-size: smaller;
-}
-
 .variants {
   height: unset;
   flex-wrap: wrap;
   margin: unset;
+  margin-top: 12px;
 }
 
 .ambition-level {
