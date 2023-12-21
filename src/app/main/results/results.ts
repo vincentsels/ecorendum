@@ -12,6 +12,7 @@ export class Results {
   static euTargetGapReGwh = 5000; // Estimation
 
   static pricePerKtGhg = 100000;
+
   static moneyImageMap = [
     { threshold: 17000000000, image: './assets/img/putin/7_putin_crying.jpg' },
     { threshold: 20000000000, image: './assets/img/putin/6_putin_sad.jpg' },
@@ -35,6 +36,8 @@ export class Results {
   totalProfitIncludingIncome: number = 0;
 
   totalImpact: TotalImpact[] = [];
+
+  image: string = '';
 }
 
 export class TargetResult {

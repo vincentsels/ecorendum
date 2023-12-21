@@ -300,7 +300,6 @@ export class ProposalService {
     else return PROPOSALS.filter(p => Math.random() > 0.3);
   }
 
-  private getTotalAmount(selectedVariants: Variant[], targetType: TargetType) {
   private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean) {
     return selectedVariants
       .filter(v => includeEts || v.proposal?.ets === false)

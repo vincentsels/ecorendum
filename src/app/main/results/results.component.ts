@@ -17,12 +17,12 @@ import { Results } from './results';
 export class ResultsComponent implements OnInit {
   results$: Observable<Results>;
 
-  gasGapBcm = Results.gasGapBcm;
-  oilGapMb = Results.oilGapMb;
+  // gasGapBcm = Results.gasGapBcm;
+  // oilGapMb = Results.oilGapMb;
 
-  co2GapCumulativeMt = Results.co2GapCumulativeMt;
-  reGapTargetTwh = Results.reGapTargetTwh;
-  eeGapTargetTwh = Results.eeGapTargetTwh;
+  // co2GapCumulativeMt = Results.co2GapCumulativeMt;
+  // reGapTargetTwh = Results.reGapTargetTwh;
+  // eeGapTargetTwh = Results.eeGapTargetTwh;
 
   expandedTotalCost = false;
   expandedTotalImpact = false;

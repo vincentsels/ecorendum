@@ -20,6 +20,7 @@ export const PROPOSALS: ProposalDetail[] = [
       new TranslatedText('nl', 'extra-maatregelen-vekp')
     ],
     policyLevel: PolicyLevel.flemish,
+    icon: 'propane',
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/nature-640.jpg',
     variants: [
       new Variant({
@@ -62,6 +63,7 @@ export const PROPOSALS: ProposalDetail[] = [
     policyLevel: PolicyLevel.flemish,
     sector: Sector.industry,
     ets: true,
+    icon: 'propane',
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/dri-arcelor-640.jpg',
     variants: [
       new Variant({
@@ -111,6 +113,7 @@ export const PROPOSALS: ProposalDetail[] = [
     policyLevel: PolicyLevel.flemish,
     sector: Sector.industry,
     ets: true,
+    icon: 'propane',
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/ccs-640.jpg',
     variants: [
       new Variant({
@@ -151,6 +154,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.transport,
+    icon: 'propane',
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/charge-electric-vehicle-640.jpg',
     variants: [
       new Variant({
@@ -242,6 +246,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.buildings,
+    icon: 'propane',
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/heat-pump-640.jpg',
     variants: [
       new Variant({
@@ -327,6 +332,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ],
     policyLevel: PolicyLevel.flemish,
     sector: Sector.agriculture,
+    icon: 'propane',
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/agriculture-cows-640.jpg',
     variants: [
       new Variant({
@@ -400,6 +406,7 @@ export const PROPOSALS: ProposalDetail[] = [
     policyLevel: PolicyLevel.flemish,
     sector: Sector.industry,
     ets: true,
+    icon: 'propane',
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/petrochemie-640.jpg',
     variants: [
       new Variant({
@@ -502,6 +509,7 @@ export const PROPOSALS: ProposalDetail[] = [
     ],
     policyLevel: PolicyLevel.federal,
     sector: Sector.industry,
+    icon: 'propane',
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/eco-shopping-640.jpg',
     variants: [
       new Variant({

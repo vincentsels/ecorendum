@@ -39,20 +39,10 @@
           <span [class]="getCostClass(cost)">{{ cost | cost }}</span>
           <span *ngIf="proposal.getMaxCost(set); let maxCost"> - <span [class]="getCostClass(cost)">{{ maxCost | cost }}</span></span>
         </span>
-        <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinTargetAmount(enums.TargetType.savedRussianGas, set); let amt;">
+        <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinTargetAmount(enums.TargetType.ghgReduction, set); let amt;">
           <mat-icon class="inline">propane</mat-icon>
           <span [class]="getGasClass(amt)">{{ amt | number }} bcm</span>
-          <span *ngIf="proposal.getMaxTargetAmount(enums.TargetType.savedRussianGas, set); let maxAmt"> - <span [class]="getGasClass(amt)">{{ maxAmt | number }} bcm</span></span>
-        </span>
-        <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinTargetAmount(enums.TargetType.savedRussianOil, set); let amt;">
-          <mat-icon class="inline">oil_barrel</mat-icon>
-          <span [class]="getOilClass(amt)">{{ amt | number }} mb</span>
-          <span *ngIf="proposal.getMaxTargetAmount(enums.TargetType.savedRussianOil, set); let maxAmt"> - <span [class]="getOilClass(amt)">{{ maxAmt | number }} mb</span></span>
-        </span>
-        <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinTargetAmount(enums.TargetType.reducedCo2emissions, set); let amt;">
-          <mat-icon class="inline">cloud_download</mat-icon>
-          <span [class]="getCo2Class(amt)">{{ amt | number }} mt</span>
-          <span *ngIf="proposal.getMaxTargetAmount(enums.TargetType.reducedCo2emissions, set); let maxAmt"> - <span [class]="getCo2Class(amt)">{{ maxAmt | number }} mt</span></span>
+          <span *ngIf="proposal.getMaxTargetAmount(enums.TargetType.ghgReduction, set); let maxAmt"> - <span [class]="getGasClass(amt)">{{ maxAmt | number }} bcm</span></span>
         </span>
       </div>
     <!-- <p>{{ proposal.summary | translateTextAsync | async }}</p> -->

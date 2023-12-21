@@ -3,7 +3,7 @@
 </h1>
 
 <div *ngIf="results$ | async; let results">
-  <mat-card class="result-section">
+  <!-- <mat-card class="result-section">
     <h2>{{ 'Russian economy impact' | translate }}</h2>
 
     <div class="result-section-with-image" ngClass.lt-sm="result-section-with-image-lt-md">
@@ -44,6 +44,20 @@
         </h3>
       </div>
     </div>
+  </mat-card> -->
+
+  <mat-card class="result-section">
+    <h3 class="result-section-collapsed">
+      <span class="collapsed-header">
+        <mat-icon class="inline">gavel</mat-icon>
+        <app-help-widget tooltipKey="helpLegalGhgTarget" textKey="Legal reduction" dialogKey="helpLegalGhgTarget"></app-help-widget>
+      </span>
+
+      <mat-progress-bar class="progress" mode="determinate"
+        [color]="results.legalGhgTarget.color"
+        [value]="results.legalGhgTarget.percentage">
+      </mat-progress-bar>
+    </h3>
   </mat-card>
 
   <mat-card class="result-section">
@@ -55,8 +69,8 @@
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.ghgTarget.color"
-        [value]="results.ghgTarget.percentage">
+        [color]="results.euGhgTarget.color"
+        [value]="results.euGhgTarget.percentage">
       </mat-progress-bar>
     </h3>
 
@@ -67,20 +81,20 @@
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.eeTarget.color"
-        [value]="results.eeTarget.percentage">
+        [color]="results.euEeTarget.color"
+        [value]="results.euEeTarget.percentage">
       </mat-progress-bar>
     </h3>
 
     <h3 class="result-section-collapsed">
       <span class="collapsed-header">
-        <mat-icon class="inline">wb_sunny</mat-icon>
+        <mat-icon class="inline">solar_power</mat-icon>
         {{ 'Renewable energy' | translate }}
       </span>
 
       <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.reTarget.color"
-        [value]="results.reTarget.percentage">
+        [color]="results.euReTarget.color"
+        [value]="results.euReTarget.percentage">
       </mat-progress-bar>
     </h3>
   </mat-card>
