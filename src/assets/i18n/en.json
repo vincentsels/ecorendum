@@ -123,5 +123,10 @@
   "referendumPartij": "RP",
   "sapGa": "SAP/GA",
   "uf": "UF",
-  "volt": "Volt"
+  "volt": "Volt",
+
+  "ecorendum": "Ecorendum",
+  "iea": "IEA",
+  "eu": "EU",
+  "own": "Own"
 }

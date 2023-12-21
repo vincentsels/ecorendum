@@ -375,6 +375,11 @@ mat-divider.vertical-spaced {
   margin-bottom: $margin-default;
 }
 
+::ng-deep .mat-checkbox .mat-checkbox-inner-container {
+  width: 18px;
+  height: 18px;
+}
+
 .mat-table.condensed {
   .mat-header-row, .mat-footer-row, .mat-row {
     min-height: 36px;

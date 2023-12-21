@@ -1,6 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { CommonDialogService } from '../../common/dialog.component';
@@ -18,17 +17,12 @@ import { Results } from './results';
 export class ResultsComponent implements OnInit {
   results$: Observable<Results>;
 
-  euTargetGapGhgKt = Results.euTargetGapGhgKt;
-  euTargetGapReGwh = Results.euTargetGapReGwh;
-  euTargetGapEeGwh = Results.euTargetGapEeGwh;
+  gasGapBcm = Results.gasGapBcm;
+  oilGapMb = Results.oilGapMb;
 
-  expandedAll = false;
-
-  expandedLegalGhg = false;
-
-  expandedEuGhg = false;
-  expandedEuEe = false;
-  expandedEuRe = false;
+  co2GapCumulativeMt = Results.co2GapCumulativeMt;
+  reGapTargetTwh = Results.reGapTargetTwh;
+  eeGapTargetTwh = Results.eeGapTargetTwh;
 
   expandedTotalCost = false;
   expandedTotalImpact = false;
@@ -42,11 +36,6 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.dialog) {
-      this.expandedAll = true;
-      this.expandedLegalGhg = true;
-      this.expandedEuGhg = true;
-      this.expandedEuEe = true;
-      this.expandedEuRe = true;
       this.expandedTotalCost = true;
       this.expandedTotalImpact = true;
     }
@@ -60,33 +49,6 @@ export class ResultsComponent implements OnInit {
     if (impactAmount === 0) return '+-';
     const sign = impactAmount < 0 ? '+' : '- ';
     return sign.repeat(Math.abs(impactAmount));
-  }
-
-  toggleAllResults() {
-    this.expandedAll = !this.expandedAll;
-
-    this.expandedLegalGhg = this.expandedAll;
-    this.expandedEuGhg = this.expandedAll;
-    this.expandedEuEe = this.expandedAll;
-    this.expandedEuRe = this.expandedAll;
-    this.expandedTotalCost = this.expandedAll;
-    this.expandedTotalImpact = this.expandedAll;
-  }
-
-  toggleLegalGhgResult() {
-    this.expandedLegalGhg = !this.expandedLegalGhg;
-  }
-
-  toggleEuGhgResult() {
-    this.expandedEuGhg = !this.expandedEuGhg;
-  }
-
-  toggleEuEeResult() {
-    this.expandedEuEe = !this.expandedEuEe;
-  }
-
-  toggleEuReResult() {
-    this.expandedEuRe = !this.expandedEuRe;
   }
 
   toggleTotalCost() {

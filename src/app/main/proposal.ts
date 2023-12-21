@@ -14,6 +14,7 @@ export class Proposal {
   ets: boolean = false;
 
   pictureThumb?: string;
+  icon?: string;
 
   selected: boolean = false;
   selectedAmbitionLevel: number = 0;
@@ -21,6 +22,28 @@ export class Proposal {
   getSectorIcon = () => SectorMap[this.sector || Sector.other];
   getSelectedVariant = () => (this.variants || []).find(v => v.selected);
   getAverageCost = () => this.variants.map(v => v.getTotalCost()).reduce((total, curr) => total + curr, 0) / this.variants.length;
+
+  getSingleOrMinCost(fromSelected: boolean) {
+    if (fromSelected) return this.getSelectedVariant()?.getTotalCost();
+    return this.variants[0].getTotalCost();
+  }
+
+  getMaxCost(ignore: boolean) {
+    if (ignore) return 0;
+    if (this.variants.length === 1) return 0;
+    return this.variants[this.variants.length - 1].getTotalCost();
+  }
+
+  getSingleOrMinTargetAmount(targetType: TargetType, fromSelected: boolean) {
+    if (fromSelected) return this.getSelectedVariant()?.getTargetAmount(targetType);
+    return this.variants[0].getTargetAmount(targetType);
+  }
+
+  getMaxTargetAmount(targetType: TargetType, ignore: boolean) {
+    if (ignore) return 0;
+    if (this.variants.length === 1) return 0;
+    return this.variants[this.variants.length - 1].getTargetAmount(targetType);
+  }
 
   getSlugTextInLanguage(lang: LanguageType): string {
     let slug = this.slug.find(s => s.lang === lang);
@@ -84,7 +107,7 @@ export class Variant {
   proposal?: Proposal;
 
   getTargetAmount = (type: TargetType) => this.targets.find(t => t.type === type)?.amount;
-  getTotalCost = () => this.costInitial + (this.costPerYearFixed * 9) +
+  getTotalCost = () => this.costInitial + (this.costPerYearFixed * 7) +
     (Object.values(this.costPerYearVariable || {}).reduce((a, b) => a + b, 0) || 0);
 }
 
@@ -187,3 +210,5 @@ export class TranslatedText {
 }
 
 export type LanguageType = 'en' | 'nl' | 'fr';
+
+export type ProposalSetType = 'ecorendum' | 'iea' | 'eu' | 'own';
