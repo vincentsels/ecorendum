@@ -2,7 +2,7 @@
   <mat-card class="proposal-card">
     <div class="checkbox-and-header">
       <mat-checkbox class="proposal-checkbox" [checked]="proposal.selected" (change)="selectProposal($event)"></mat-checkbox>
-      <div>
+      <div class="proposal-header">
         <app-proposal-header [proposal]="proposal" [card]="true"></app-proposal-header>
 
         <div style="clear: both" *ngIf="proposal.selected && proposal.variants.length > 1">
@@ -10,7 +10,7 @@
             <mat-button-toggle *ngFor="let variant of proposal.variants" [checked]="variant.selected"
               (click)="updateSelected(variant); $event.stopPropagation()">
               <div>
-                <strong>{{ variant.ambitionLevel }}</strong> {{ variant.title | translateTextAsync | async }}
+                <!-- <strong>{{ variant.ambitionLevel }}</strong> --> {{ variant.title | translateTextAsync | async }}
               </div>
             </mat-button-toggle>
           </mat-button-toggle-group>

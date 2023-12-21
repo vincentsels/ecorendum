@@ -57,8 +57,13 @@
 .ets-icon {
   font-weight: 10;
   font-family: system-ui;
+  font-size: 130%;
   position: relative;
-  top: -2px;
+  top: -3px;
   margin-right: 16px;
   cursor: default;
+}
+
+.header-icon {
+  margin-right: 8px;
 }

@@ -5,7 +5,7 @@
     </span>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.legalGhgTarget"
+      [color]="results.legalGhgTarget.color"
       [value]="results.legalGhgTarget.percentage">
     </mat-progress-bar>
   </div>
@@ -16,7 +16,7 @@
     </span>
 
     <mat-progress-bar class="progress" mode="determinate"
-      [color]="results.euGhgTarget"
+      [color]="results.euGhgTarget.color"
       [value]="results.euGhgTarget.percentage">
     </mat-progress-bar>
   </div>
