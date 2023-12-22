@@ -15,7 +15,7 @@ import { ProposalDetail } from '../proposal-details';
     <mat-icon>close</mat-icon>
   </button>
 </h2>
-<div mat-dialog-content>
+<div mat-dialog-content class="dialog-content" [style]="getBackgroundImage()">
   <app-proposal-detail class="dialog-detail" [dialog]="true" [proposal]="data.proposal" (closeDialog)="closeDialog()"></app-proposal-detail>
 </div>
 `,
@@ -33,6 +33,12 @@ import { ProposalDetail } from '../proposal-details';
     opacity: 1;
   }
 }
+
+.dialog-content {
+  background-size: cover;
+  background-position: left, right;
+  background-repeat: no-repeat, no-repeat;
+}
 `
   ]
 })
@@ -45,6 +51,10 @@ export class ProposalDetailsDialogComponent {
   }
 
   closeDialog = () => this.dialogRef.close();
+
+  getBackgroundImage() {
+    return 'background-image: linear-gradient(145deg, rgba(48, 48, 48, 1) 40%, rgba(48, 48, 48, 0.9) 60%, rgba(48, 48, 48, 0.1) 100%), url(' + this.data.proposal.pictureThumb + ')'
+  }
 }
 
 export interface ProposalDetailDialogData {

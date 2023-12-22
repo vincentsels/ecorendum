@@ -1,5 +1,5 @@
 <h1 *ngIf="!dialog">
-  <app-help-widget tooltipKey="helpResults" textKey="{{ 'Results' | translate }}" dialogKey="helpResults" [withoutSpace]="true"></app-help-widget>
+  <app-help-widget tooltipKey="helpResults" textKey="Results" dialogKey="helpResults" [withoutSpace]="true"></app-help-widget>
 </h1>
 
 <div *ngIf="results$ | async; let results">

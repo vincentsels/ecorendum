@@ -4,9 +4,7 @@ import { CommonDialogService } from './dialog.component';
 
 @Component({
   selector: 'app-help-widget',
-  template:
-`<span *ngIf="!withoutSpace && (textKey || text)">&nbsp;</span><span [class.dialog]="dialogKey || dialogMdSrc || dialogMdData" [matTooltip]="tooltipText || (tooltipKey | translate)" (click)="openDialog()">{{ text || (textKey && (textKey | translate)) }}<mat-icon>contact_support</mat-icon></span>
-`,
+  template: `<span *ngIf="!withoutSpace && (textKey || text)">&nbsp;</span><span [class.dialog]="dialogKey || dialogMdSrc || dialogMdData" [matTooltip]="tooltipText || (tooltipKey | translate)" (click)="openDialog()">{{ text || (textKey && (textKey | translate)) }}<mat-icon>contact_support</mat-icon></span>`,
   styles: [
 `mat-icon {
   opacity: 0.3;

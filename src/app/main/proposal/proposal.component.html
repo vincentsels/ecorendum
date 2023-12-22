@@ -1,6 +1,5 @@
 <div *ngIf="proposal" class="proposal" [class.committed]="proposal.committed">
-  <mat-card class="proposal-card" [class.committed]="proposal.committed"
-    [style]="getBackgroundImage(proposal)">
+  <mat-card class="proposal-card" [class.committed]="proposal.committed" [style]="getBackgroundImage(proposal)">
     <div class="checkbox-and-header">
       <mat-checkbox class="proposal-checkbox" [checked]="proposal.selected"
         [disabled]="proposal.committed" (change)="selectProposal($event)"></mat-checkbox>
