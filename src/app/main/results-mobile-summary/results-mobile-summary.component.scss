@@ -9,10 +9,14 @@
   display: inline-block;
 }
 
-.result-section-mobile-title-icon {
+.result-section-mobile-title-icon, .result-section-mobile-title-text {
   display: inline-block;
   font-size: 120%;
   margin-left: 6px;
   margin-right: 6px;
 }
 
+.result-section-mobile-title-text {
+  margin-right: 12px;
+  cursor: pointer;
+}

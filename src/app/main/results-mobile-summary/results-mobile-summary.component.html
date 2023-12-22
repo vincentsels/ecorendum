@@ -1,7 +1,7 @@
 <mat-card *ngIf="results$ | async; let results" fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="center center">
-  <div class="result-section-mobile" fxFlex="33%" fxLayoutAlign="center center">
+  <div class="result-section-mobile" fxFlex="33%" fxLayoutAlign="center center" matTooltip="{{ 'Legal reduction' | translate }}">
     <span class="result-section-mobile-title-icon">
-      <mat-icon class="inline">propane</mat-icon>
+      <mat-icon class="inline">gavel</mat-icon>
     </span>
 
     <mat-progress-bar class="progress" mode="determinate"
@@ -10,9 +10,9 @@
     </mat-progress-bar>
   </div>
 
-  <div class="result-section-mobile" fxFlex="33%" fxLayoutAlign="center center">
-    <span class="result-section-mobile-title-icon">
-      <mat-icon class="inline">oil_barrel</mat-icon>
+  <div class="result-section-mobile" fxFlex="33%" fxLayoutAlign="center center" matTooltip="{{ 'GHG reduction' | translate }}">
+    <span class="result-section-mobile-title-text">
+      EU
     </span>
 
     <mat-progress-bar class="progress" mode="determinate"
@@ -21,7 +21,7 @@
     </mat-progress-bar>
   </div>
 
-  <div class="result-section-mobile" fxFlex="33%" fxLayoutAlign="center center">
+  <div class="result-section-mobile" fxFlex="33%" fxLayoutAlign="center center" matTooltip="{{ 'Total cost' | translate }}">
     <span class="result-section-mobile-title-icon">
       <mat-icon class="inline">sell</mat-icon>
     </span>

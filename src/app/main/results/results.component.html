@@ -1,5 +1,5 @@
 <h1 *ngIf="!dialog">
-  <app-help-widget tooltipKey="helpResults" textKey="Results" dialogKey="helpResults" [withoutSpace]="true"></app-help-widget>
+  <app-help-widget tooltipKey="helpResults" textKey="{{ 'Results' | translate }}" dialogKey="helpResults" [withoutSpace]="true"></app-help-widget>
 </h1>
 
 <div *ngIf="results$ | async; let results">
@@ -178,4 +178,4 @@
 
 <button fxHide.lt-md mat-raised-button color="primary" (click)="submit()" class="submit-button-lg">{{ 'Publish results' | translate }}</button>
 
-<button fxHide.gt-sm mat-raised-button color="primary" (click)="submit()" style="margin-bottom: 24px;">{{ 'Publish results' | translate }}</button>
+<button fxHide.gt-sm mat-raised-button color="primary" (click)="submit()" style="margin-bottom: 56px;">{{ 'Publish results' | translate }}</button>
