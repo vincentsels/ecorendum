@@ -1,14 +1,4 @@
 <mat-toolbar class="navbar-header mat-elevation-z6" color="primary" style="z-index: 3; position: relative;">
-  <span fxHide fxShow.xs="true">
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <!-- <button mat-menu-item routerLink="configuration" *ngIf="userService.isAdmin()">{{ 'Configuration' | translate }}</button> -->
-      <!-- <button mat-menu-item routerLink="new-suggestion">{{ 'New suggestion' | translate }}</button> -->
-    </mat-menu>
-  </span>
-
   <a mat-button class="button" routerLink="/">
     <h1>
       <!-- <span style="font-size: 75px; letter-spacing: -5px; vertical-align: middle; margin-right: 20px;">//</span> -->
