@@ -3,18 +3,20 @@
   width: 100%;
 }
 
+.proposal.committed {
+  border-width: 2px;
+  border-style: dashed;
+  border-color: var(--mdc-elevated-card-container-color);
+}
+
 .proposal-card {
   overflow: auto;
-
   background-size: cover;
   background-position: left, right;
   background-repeat: no-repeat, no-repeat;
 }
 
 .proposal-card.committed {
-  border-width: 2px;
-  border-style: dashed;
-  border-color: var(--mdc-elevated-card-container-color);
   background-color: inherit;
   box-shadow: none;
 }

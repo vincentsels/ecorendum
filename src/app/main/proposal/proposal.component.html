@@ -1,6 +1,6 @@
-<div *ngIf="proposal" class="proposal">
+<div *ngIf="proposal" class="proposal" [class.committed]="proposal.committed">
   <mat-card class="proposal-card" [class.committed]="proposal.committed"
-    style="background-image: linear-gradient(145deg, rgba(66, 66, 66, 1) 40%, rgba(66, 66, 66, 0.9) 60%, rgba(66, 66, 66, 0.1) 100%), url({{proposal.pictureThumb}})">
+    [style]="getBackgroundImage(proposal)">
     <div class="checkbox-and-header">
       <mat-checkbox class="proposal-checkbox" [checked]="proposal.selected"
         [disabled]="proposal.committed" (change)="selectProposal($event)"></mat-checkbox>
