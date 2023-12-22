@@ -68,6 +68,10 @@
   "European targets": "European targets",
   "Examples VEKA": "Examples VEKA",
   "Create your own": "Create your own",
+  "Clear selection": "Clear selection",
+  "Submit result": "Submit result",
+  "Publish results": "Publish results",
+  "Warning: not all targets met": "Warning: not all targets met",
 
   "allTargetsMet": "Congratulations! The measures you selected allows Belgium to meet all the targets set by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated €{{ profit }}",
