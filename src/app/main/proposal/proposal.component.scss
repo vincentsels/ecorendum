@@ -7,12 +7,12 @@
   overflow: auto;
 }
 
-
 .proposal-card.committed {
   border-width: 2px;
   border-style: dashed;
   border-color: var(--mdc-elevated-card-container-color);
   background-color: inherit;
+  box-shadow: none;
 }
 
 .proposal-thumb {

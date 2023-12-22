@@ -86,22 +86,13 @@ export class ProposalService {
       }
     }
 
-    this.proposals$.next(proposals);
+    // Load selected variants
+
+    this.clearSelection(false);
 
     const selectedVariantNumbers = JSON.parse(localStorage.getItem(LS_KEY_SELECTED_VARIANTS) || '[]');
 
     if (selectedVariantNumbers.length > 0) {
-      proposals = this.proposals$.value;
-
-      // Clear all
-      proposals.forEach(p => {
-        p.selected = false;
-        p.selectedAmbitionLevel = 0;
-        p.variants.forEach(v => {
-          v.selected = false;
-        })
-      });
-
       for (let selectedVariantNumber of selectedVariantNumbers) {
         const selectedProposal = proposals.find(p => p.id === selectedVariantNumber.id);
         if (selectedProposal) {
@@ -113,11 +104,10 @@ export class ProposalService {
           }
         }
       }
-
-      this.proposals$.next(proposals);
     }
 
-    this.updateResults();
+    this.proposals$.next(proposals);
+    this.updateResults(false);
   }
 
   generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
@@ -192,6 +182,7 @@ export class ProposalService {
     if (!proposals || proposals.length === 0) return;
 
     const selectedVariantNumbers = proposals
+      .filter(p => !p.committed)
       .map(p => ({ id: p.id, selectedVariant: p.variants.find(v => v.selected)?.ambitionLevel }))
       .filter(s => s.selectedVariant);
 
@@ -297,7 +288,7 @@ export class ProposalService {
   public getSet(setType: ProposalSetType) {
     // TODO
     if (setType === 'ecorendum') return PROPOSALS;
-    else return PROPOSALS.filter(p => Math.random() > 0.3);
+    else return PROPOSALS.filter(p => p.committed).concat(PROPOSALS.filter(p => !p.committed && Math.random() > 0.3));
   }
 
   private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean) {

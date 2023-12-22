@@ -1,7 +1,8 @@
 <div *ngIf="proposal" class="proposal">
-  <mat-card class="proposal-card">
+  <mat-card class="proposal-card" [class.committed]="proposal.committed">
     <div class="checkbox-and-header">
-      <mat-checkbox class="proposal-checkbox" [checked]="proposal.selected" (change)="selectProposal($event)"></mat-checkbox>
+      <mat-checkbox class="proposal-checkbox" [checked]="proposal.selected"
+        [disabled]="proposal.committed" (change)="selectProposal($event)"></mat-checkbox>
       <div class="proposal-header">
         <app-proposal-header [proposal]="proposal" [card]="true"></app-proposal-header>
 
