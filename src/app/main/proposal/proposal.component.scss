@@ -5,6 +5,10 @@
 
 .proposal-card {
   overflow: auto;
+
+  background-size: cover;
+  background-position: left, right;
+  background-repeat: no-repeat, no-repeat;
 }
 
 .proposal-card.committed {
