@@ -1,10 +1,11 @@
-import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, Sector, Target, TargetType, TranslatedText, Variant } from './proposal';
+import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, ProposalOrigin, Sector, Target, TargetType, TranslatedText, Variant } from './proposal';
 import { ProposalDetail } from './proposal-details';
 
 export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 1,
     committed: true,
+    origin: ProposalOrigin.flemishGovernment,
     selected: true,
     selectedAmbitionLevel: 1,
     title: [
@@ -46,6 +47,7 @@ export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 2,
     committed: true,
+    origin: ProposalOrigin.flemishGovernment,
     selected: true,
     selectedAmbitionLevel: 1,
     title: [
@@ -96,6 +98,7 @@ export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 3,
     committed: true,
+    origin: ProposalOrigin.flemishGovernment,
     selected: true,
     selectedAmbitionLevel: 1,
     title: [
@@ -140,6 +143,7 @@ export const PROPOSALS: ProposalDetail[] = [
   }),
   new ProposalDetail({
     id: 4,
+    origin: ProposalOrigin.veka,
     title: [
       new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
       new TranslatedText('en', 'Phase-out purchase of internal combustion engines'),
@@ -232,6 +236,7 @@ export const PROPOSALS: ProposalDetail[] = [
   }),
   new ProposalDetail({
     id: 5,
+    origin: ProposalOrigin.veka,
     title: [
       new TranslatedText('nl', 'Uitfasering aankoop gas- en stookolieketels'),
       new TranslatedText('en', 'Phase-out purchase of gas and fuel oil boilers'),
@@ -318,6 +323,7 @@ export const PROPOSALS: ProposalDetail[] = [
   }),
   new ProposalDetail({
     id: 6,
+    origin: ProposalOrigin.veka,
     title: [
       new TranslatedText('nl', 'Afbouw rundvee- en varkensstapel'),
       new TranslatedText('en', 'Reduction of cattle and pig herds'),
@@ -391,6 +397,7 @@ export const PROPOSALS: ProposalDetail[] = [
   }),
   new ProposalDetail({
     id: 7,
+    origin: ProposalOrigin.veka,
     title: [
       new TranslatedText('nl', 'Afbouw koolstofintensieve industrie'),
       new TranslatedText('en', 'Phase-out carbon-intensive industry'),
@@ -491,6 +498,7 @@ export const PROPOSALS: ProposalDetail[] = [
   }),
   new ProposalDetail({
     id: 10,
+    origin: ProposalOrigin.unknown,
     ets: true,
     title: [
       new TranslatedText('nl', 'Verplicht weergeven koolstofvoetafdruk producten en diensten'),

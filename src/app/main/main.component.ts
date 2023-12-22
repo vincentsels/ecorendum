@@ -20,7 +20,7 @@ export class MainComponent {
   proposalsFilter$ = new BehaviorSubject<string>('');
   includeCommitted = true;
 
-  selectedProposalType: ProposalSetType = 'ecorendum';
+  selectedProposalType: ProposalSetType = 'veka';
   proposalSet: ProposalDetail[] = [];
 
   constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService) {
@@ -54,7 +54,7 @@ export class MainComponent {
       }
     } else {
       this.proposalSet = [];
-      this.proposalService.loadProposals();
+      this.proposalService.clearSelection(false);
     }
   }
 

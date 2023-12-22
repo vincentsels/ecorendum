@@ -5,7 +5,7 @@ import { initCase, rnd, toss } from '../common/helper';
 
 import { PROPOSALS } from './dummy-proposals';
 import { PARTY_IDS } from './party';
-import { ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, ProposalSetType, TargetType, TranslatedText, Variant } from './proposal';
+import { ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, ProposalOrigin, ProposalSetType, TargetType, TranslatedText, Variant } from './proposal';
 import { Faq, Link, PartyOpinion, ProposalDetail } from './proposal-details';
 import { Results, TargetResult, TotalImpact } from './results/results';
 
@@ -287,7 +287,7 @@ export class ProposalService {
 
   public getSet(setType: ProposalSetType) {
     // TODO
-    if (setType === 'ecorendum') return PROPOSALS;
+    if (setType === 'veka') return PROPOSALS.filter(p => p.committed).concat(PROPOSALS.filter(p => p.origin === ProposalOrigin.veka));
     else return PROPOSALS.filter(p => p.committed).concat(PROPOSALS.filter(p => !p.committed && Math.random() > 0.3));
   }
 

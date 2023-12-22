@@ -77,6 +77,8 @@
   "Filter proposals": "Filter proposals",
   "Proposals": "Proposals",
   "European targets": "European targets",
+  "Examples VEKA": "Examples VEKA",
+  "Create your own": "Create your own",
 
   "allTargetsMet": "Congratulations! The measures you selected allows Belgium to meet all the targets set by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated €{{ profit }}",
@@ -126,8 +128,6 @@
   "uf": "UF",
   "volt": "Volt",
 
-  "ecorendum": "Ecorendum",
-  "iea": "IEA",
-  "eu": "EU",
+  "ecorendum": "Examples VEKA",
   "own": "Own"
 }

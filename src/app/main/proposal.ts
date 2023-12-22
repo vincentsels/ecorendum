@@ -12,6 +12,7 @@ export class Proposal {
   sector?: Sector;
   committed: boolean = false;
   ets: boolean = false;
+  origin: ProposalOrigin = ProposalOrigin.unknown;
 
   pictureThumb?: string;
   icon?: string;
@@ -52,6 +53,14 @@ export class Proposal {
 
     return slug.text;
   }
+}
+
+export enum ProposalOrigin {
+  general = 0,
+  flemishGovernment = 1,
+  federalGovernment = 2,
+  veka = 3,
+  unknown = 99,
 }
 
 export enum PolicyLevel {
@@ -211,4 +220,4 @@ export class TranslatedText {
 
 export type LanguageType = 'en' | 'nl' | 'fr';
 
-export type ProposalSetType = 'ecorendum' | 'iea' | 'eu' | 'own';
+export type ProposalSetType = 'veka' | 'own';
