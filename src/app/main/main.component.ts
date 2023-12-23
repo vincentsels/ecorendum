@@ -8,6 +8,7 @@ import { Proposal, ProposalSetType } from './proposal';
 import { ProposalDetail } from './proposal-details';
 import { LS_KEY_SELECTED_VARIANTS, ProposalService } from './proposal.service';
 import { ResultsDialogComponent } from './results/results-dialog.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -23,7 +24,8 @@ export class MainComponent {
   selectedProposalType: ProposalSetType = 'veka';
   proposalSet: ProposalDetail[] = [];
 
-  constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService) {
+  constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService,
+    private route: ActivatedRoute) {
     this.filteredProposals$ = combineLatest([this.proposalsFilter$, this.proposalService.proposals$])
       .pipe(
         map(([filter, proposals]) => {
@@ -43,6 +45,14 @@ export class MainComponent {
     }
 
     this.proposalSetSelectionChanged();
+
+    this.route.params.subscribe(p => {
+      const key = p['key'];
+      if (key) {
+        this.selectedProposalType = 'own';
+        this.proposalService.setFromKey(key);
+      }
+    });
   }
 
   proposalSetSelectionChanged() {
@@ -55,6 +65,7 @@ export class MainComponent {
     } else {
       this.proposalSet = [];
       this.proposalService.clearSelection(false);
+      this.proposalService.loadProposals();
     }
   }
 

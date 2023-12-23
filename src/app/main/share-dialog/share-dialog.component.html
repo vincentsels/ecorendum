@@ -1,0 +1,14 @@
+<div mat-dialog-content>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'Your proposals url' | translate }} </mat-label>
+      <input [value]="url" matInput readonly onfocus="this.select()" cdkFocusInitial>
+      <button mat-icon-button matSuffix
+        [cdkCopyToClipboard]="url"
+        (cdkCopyToClipboardCopied)="onClipboardCopy($event)">
+        <mat-icon>content_copy</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-icon [style.visibility]="success ? 'visible' : 'hidden'" class="success-icon success">check_circle</mat-icon>
+  </div>
+</div>

@@ -8,6 +8,7 @@ import { EnumsService } from '../../common/enums.service';
 import { ProposalService } from '../proposal.service';
 import { SubmitDialogComponent } from '../submit-dialog/submit-dialog.component';
 import { Results } from './results';
+import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
 
 @Component({
   selector: 'app-results',
@@ -64,5 +65,9 @@ export class ResultsComponent implements OnInit {
       this.translate.instant('Cost comparison'),
       this.translate.instant('costComparisonExplanation'),
     )
+  }
+
+  openCopyDialog() {
+    this.matDialog.open(ShareDialogComponent);
   }
 }

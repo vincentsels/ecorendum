@@ -5,6 +5,7 @@ import { ProposalDetailComponent } from './main/proposal-detail/proposal-detail.
 
 const routes: Routes = [
   { path: '', component: MainComponent },
+  { path: 'p/:key', component: MainComponent },
   { path: 'proposal/:idorslug', component: ProposalDetailComponent },
 ];
 

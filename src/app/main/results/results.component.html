@@ -1,5 +1,6 @@
-<h1 *ngIf="!dialog">
+<h1 *ngIf="!dialog" style="display: flex; justify-content: space-between;">
   <app-help-widget tooltipKey="helpResults" textKey="Results" dialogKey="helpResults" [withoutSpace]="true"></app-help-widget>
+  <mat-icon class="inline share-button" (click)="openCopyDialog()">share</mat-icon>
 </h1>
 
 <div *ngIf="results$ | async; let results">

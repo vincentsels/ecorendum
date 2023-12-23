@@ -13,15 +13,17 @@ export const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 
 @Injectable()
 export class ProposalService {
-  proposals$ = new BehaviorSubject<ProposalDetail[]>([]);
+  proposals$ = new BehaviorSubject<ProposalDetail[]>(PROPOSALS);
   results$ = new BehaviorSubject<Results>(new Results());
+
+  selectionKey = '';
 
   constructor(private loremIpsumService: LoremIpsumService) {
     this.loadProposals();
   }
 
   public loadProposals() {
-    let proposals = PROPOSALS;
+    let proposals = this.proposals$.value;
 
     for (let proposal of proposals) {
       // Random descriptions
@@ -92,6 +94,16 @@ export class ProposalService {
 
     const selectedVariantNumbers = JSON.parse(localStorage.getItem(LS_KEY_SELECTED_VARIANTS) || '[]');
 
+    this.selectVariants(selectedVariantNumbers, proposals);
+
+    this.proposals$.next(proposals);
+    this.updateResults(false);
+  }
+
+  generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
+    this.loremIpsumService.generateWords(rnd(2, 8)), toss() ? 'nl' : toss() ? 'fr' : 'en');
+
+  private selectVariants(selectedVariantNumbers: any, proposals: ProposalDetail[]) {
     if (selectedVariantNumbers.length > 0) {
       for (let selectedVariantNumber of selectedVariantNumbers) {
         const selectedProposal = proposals.find(p => p.id === selectedVariantNumber.id);
@@ -105,13 +117,7 @@ export class ProposalService {
         }
       }
     }
-
-    this.proposals$.next(proposals);
-    this.updateResults(false);
   }
-
-  generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
-    this.loremIpsumService.generateWords(rnd(2, 8)), toss() ? 'nl' : toss() ? 'fr' : 'en');
 
   selectVariant(proposal: ProposalDetail, variant: Variant, saveSelection: boolean = true) {
     if (!proposal) return;
@@ -185,6 +191,8 @@ export class ProposalService {
       .filter(p => !p.committed)
       .map(p => ({ id: p.id, selectedVariant: p.variants.find(v => v.selected)?.ambitionLevel }))
       .filter(s => s.selectedVariant);
+
+    this.selectionKey = this.getKey(selectedVariantNumbers);
 
     if (saveSelection && selectedVariantNumbers.length > 0) {
       localStorage.setItem(LS_KEY_SELECTED_VARIANTS, JSON.stringify(selectedVariantNumbers));
@@ -291,10 +299,63 @@ export class ProposalService {
     else return PROPOSALS.filter(p => p.committed).concat(PROPOSALS.filter(p => !p.committed && Math.random() > 0.3));
   }
 
+  public setFromKey(key: string) {
+    const variants = this.decodeVariantArray(key);
+
+    this.clearSelection();
+    let proposals = PROPOSALS;
+    this.selectVariants(variants, proposals);
+    this.proposals$.next(proposals);
+    this.updateResults(false);
+  }
+
   private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean) {
     return selectedVariants
       .filter(v => includeEts || v.proposal?.ets === false)
       .flatMap(v => v.targets.filter(t => t.type === targetType).map(t => t.amount))
       .reduce((a, b) => a + b, 0);
+  }
+
+  private getKey(selectedVariantNumbers: { id: number; selectedVariant: number | undefined; }[]): string {
+    return this.encodeVariantArray(selectedVariantNumbers);
+  }
+
+  private getSafeCharacter(index: number): string {
+    if (index < 26) return String.fromCharCode(65 + index); // A-Z
+    if (index < 52) return String.fromCharCode(97 + index - 26); // a-z
+    if (index < 62) return String.fromCharCode(48 + index - 52); // 0-9
+    return ['-', '_', '.', '~'][index - 62];
+  }
+
+  private encodeVariantArray(variants: { id: number; selectedVariant: number | undefined; }[]): string {
+    let encoded = '';
+    for (const variant of variants) {
+        const idChar = this.getSafeCharacter(variant.id);
+        const variantChar = variant.selectedVariant === undefined ? '.' : this.getSafeCharacter(variant.selectedVariant - 1);
+        encoded += idChar + variantChar;
+    }
+    return encoded;
+  }
+
+  private decodeVariantArray(encoded: string): { id: number; selectedVariant: number | undefined; }[] {
+    const variants = [];
+    for (let i = 0; i < encoded.length; i += 2) {
+        const idChar = encoded[i];
+        const variantChar = encoded[i + 1];
+
+        const id = idChar.charCodeAt(0) <= 90 ? idChar.charCodeAt(0) - 65
+                : idChar.charCodeAt(0) <= 122 ? idChar.charCodeAt(0) - 71
+                : idChar.charCodeAt(0) <= 57 ? idChar.charCodeAt(0) + 4
+                : ['-', '_', '.', '~'].indexOf(idChar);
+
+        const selectedVariant = variantChar === '.' ? undefined
+                              : variantChar.charCodeAt(0) <= 90 ? variantChar.charCodeAt(0) - 64
+                              : variantChar.charCodeAt(0) <= 122 ? variantChar.charCodeAt(0) - 70
+                              : variantChar.charCodeAt(0) <= 57 ? variantChar.charCodeAt(0) + 5
+                              : ['-', '_', '.', '~'].indexOf(variantChar) + 1;
+
+        variants.push({ id, selectedVariant });
+    }
+    return variants;
   }
 }
