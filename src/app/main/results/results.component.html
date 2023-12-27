@@ -1,5 +1,5 @@
 <h1 *ngIf="!dialog" style="display: flex; justify-content: space-between;">
-  <app-help-widget tooltipKey="helpResults" textKey="Results" dialogKey="helpResults" [withoutSpace]="true"></app-help-widget>
+  <app-help-widget tooltipKey="helpResults" textKey="Results" dialogKey="helpDialogResults" [withoutSpace]="true"></app-help-widget>
   <mat-icon class="inline share-button" (click)="openCopyDialog()">share</mat-icon>
 </h1>
 
@@ -51,7 +51,7 @@
     <h3 class="result-section-collapsed">
       <span class="collapsed-header">
         <mat-icon class="inline">gavel</mat-icon>
-        <app-help-widget tooltipKey="helpLegalReductionTarget" textKey="Legal reduction" dialogKey="helpLegalReductionTarget"></app-help-widget>
+        <app-help-widget tooltipKey="helpLegalReductionTarget" textKey="Legal reduction" dialogKey="helpDialogLegalReductionTarget"></app-help-widget>
       </span>
 
       <app-result-progress [target]="results.legalGhgTarget"></app-result-progress>
@@ -63,7 +63,7 @@
     <h3 class="result-section-collapsed">
       <span class="collapsed-header">
         <mat-icon class="inline">cloud_download</mat-icon>
-        <app-help-widget tooltipKey="helpCo2reductionTarget" textKey="GHG reduction" dialogKey="helpCo2reductionTarget"></app-help-widget>
+        <app-help-widget tooltipKey="helpCo2reductionTarget" textKey="GHG reduction" dialogKey="helpDialogCo2reductionTarget"></app-help-widget>
       </span>
 
       <app-result-progress [target]="results.euGhgTarget"></app-result-progress>
