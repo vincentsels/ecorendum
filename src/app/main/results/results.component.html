@@ -54,10 +54,7 @@
         <app-help-widget tooltipKey="helpLegalReductionTarget" textKey="Legal reduction" dialogKey="helpLegalReductionTarget"></app-help-widget>
       </span>
 
-      <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.legalGhgTarget.color"
-        [value]="results.legalGhgTarget.percentage">
-      </mat-progress-bar>
+      <app-result-progress [target]="results.legalGhgTarget"></app-result-progress>
     </h3>
   </mat-card>
 
@@ -69,10 +66,7 @@
         <app-help-widget tooltipKey="helpCo2reductionTarget" textKey="GHG reduction" dialogKey="helpCo2reductionTarget"></app-help-widget>
       </span>
 
-      <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.euGhgTarget.color"
-        [value]="results.euGhgTarget.percentage">
-      </mat-progress-bar>
+      <app-result-progress [target]="results.euGhgTarget"></app-result-progress>
     </h3>
 
     <h3 class="result-section-collapsed">
@@ -81,10 +75,7 @@
         {{ 'Energy efficiency' | translate }}
       </span>
 
-      <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.euEeTarget.color"
-        [value]="results.euEeTarget.percentage">
-      </mat-progress-bar>
+      <app-result-progress [target]="results.euEeTarget"></app-result-progress>
     </h3>
 
     <h3 class="result-section-collapsed">
@@ -93,10 +84,7 @@
         {{ 'Renewable energy' | translate }}
       </span>
 
-      <mat-progress-bar class="progress" mode="determinate"
-        [color]="results.euReTarget.color"
-        [value]="results.euReTarget.percentage">
-      </mat-progress-bar>
+      <app-result-progress [target]="results.euReTarget"></app-result-progress>
     </h3>
   </mat-card>
 

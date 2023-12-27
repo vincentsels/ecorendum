@@ -36,15 +36,16 @@
   font-size: 120%;
 }
 
-.progress {
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-
 .submit-button-lg {
   position: fixed;
   right: 24px;
   bottom: 24px;
+}
+
+app-result-progress {
+  width: 100%;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 .result-section-collapsed {
@@ -52,13 +53,6 @@
 
   .collapsed-header {
     white-space: nowrap;
-  }
-
-  .progress {
-    width: 100%;
-    margin: 12px;
-    margin-top: 14px;
-    display: inline-block;
   }
 
   .collapsed-expand {

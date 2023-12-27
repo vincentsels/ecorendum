@@ -44,6 +44,8 @@ export class TargetResult {
   constructor(public target: number = 0, public unit: string = 'Gwh', public pricePerUnit: number = 0, public total: number = 0,
     public color: string = 'warn', public percentage: number = 0, public tax: number = 0,
     public income: number = 0) {}
+
+  public toString = () => this.total + '/' + this.target + ' ' + this.unit + ' (' + this.percentage + '%)';
 }
 
 export class TotalImpact {
