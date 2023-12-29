@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { LoremIpsumService } from '../common/lorem-ipsum.service';
-import { initCase, rnd, toss } from '../common/helper';
+import { rnd, toss } from '../common/helper';
 
 import { PROPOSALS } from './dummy-proposals';
 import { PARTY_IDS } from './party';
-import { ImpactAmount, ImpactAmountMap, ImpactDomain, Proposal, ProposalOrigin, ProposalSetType, TargetType, TranslatedText, Variant } from './proposal';
+import { ImpactAmount, ImpactAmountMap, ProposalOrigin, ProposalSetType, TargetType, TranslatedText, Variant } from './proposal';
 import { Faq, Link, PartyOpinion, ProposalDetail } from './proposal-details';
 import { Results, TargetResult, TotalImpact } from './results/results';
 
 export const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
+export const LS_KEY_SELECTED_CONTEXT = 'ecorendum.context';
+
+export type Context = 'flanders' | 'brussels' | 'wallonia';
 
 @Injectable()
 export class ProposalService {
+  context$ = new BehaviorSubject<Context>(localStorage.getItem('LS_KEY_SELECTED_CONTEXT') as Context || 'flanders');
   proposals$ = new BehaviorSubject<ProposalDetail[]>(PROPOSALS);
   results$ = new BehaviorSubject<Results>(new Results());
 
@@ -21,6 +25,10 @@ export class ProposalService {
   constructor(private loremIpsumService: LoremIpsumService) {
     this.loadProposals();
   }
+
+  isFlandersContext$ = this.context$.pipe(map(c => c === 'flanders'));
+  isBrusselsContext$ = this.context$.pipe(map(c => c === 'brussels'));
+  isWallonianContext$ = this.context$.pipe(map(c => c === 'wallonia'));
 
   public loadProposals() {
     let proposals = this.proposals$.value;
@@ -307,6 +315,11 @@ export class ProposalService {
     this.selectVariants(variants, proposals);
     this.proposals$.next(proposals);
     this.updateResults(false);
+  }
+
+  public setContext(context: Context) {
+    this.context$.next(context);
+    localStorage.setItem(LS_KEY_SELECTED_CONTEXT, context);
   }
 
   private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean) {

@@ -72,6 +72,12 @@
   "Submit result": "Submit result",
   "Publish results": "Publish results",
   "Warning: not all targets met": "Warning: not all targets met",
+  "Results": "Results",
+  "Context": "Context",
+  "Flanders": "Flanders",
+  "Wallonia": "Wallonia",
+  "Brussels": "Brussels",
+  "selectContextInfo": "Select the region in which you live. This will determine the targets and available proposals for your region. Your choice will be stored for later use.",
 
   "allTargetsMet": "Congratulations! The measures you selected allows Belgium to meet all the targets set by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated €{{ profit }}",
@@ -84,8 +90,6 @@
   "costComparisonExplanation": "This would give some examples of projects which in total add up to this amount.",
 
   "contributeText": "Do you have a question about this proposal which is not yet answered in the Frequently Asked Questions? Would you like to add a link to an article, scientific paper or anything else? Do you work in the field and would you like to contribute your knowledge? Click the button below to go to the website with proposals, login or create an account, and start contributing!",
-
-  "Results": "Results",
 
   "helpProposals": "VEKA compiled a list of measures for Belgium to reduce greenhouse gas emissions by 55% by 2030. These are preliminary examples with rough estimates for emission reductions and arbitrary values for other impacts.",
   "helpLegalReductionTarget": "Belgium must reduce greenhouse gases by 2030 from 1990 levels, including CO2 and methane, without sector-specific distinctions or emission trading considerations.",

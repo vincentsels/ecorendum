@@ -41,6 +41,7 @@ import { PartyLogoOrNameComponent } from './common/party-logo-or-name.component'
 import { ProposalSetComponent } from './main/proposal-set/proposal-set.component';
 import { ShareDialogComponent } from './main/share-dialog/share-dialog.component';
 import { ResultProgressComponent } from './main/results/result-progress.component';
+import { SelectContextDialogComponent } from './navbar/select-context-dialog/select-context-dialog.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -73,6 +74,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProposalSetComponent,
     ShareDialogComponent,
     ResultProgressComponent,
+    SelectContextDialogComponent,
   ],
   imports: [
     BrowserModule,

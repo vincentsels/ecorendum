@@ -64,3 +64,24 @@
      opacity: 0.5;
   }
 }
+
+.context {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    .context-header {
+      opacity: 1;
+    }
+  }
+
+  .context-header {
+    opacity: 0.5;
+    margin-right: 4pt;
+  }
+
+  .context-icon {
+    height: 30px;
+    width: 30px;
+  }
+}

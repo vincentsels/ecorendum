@@ -72,6 +72,12 @@
   "Submit result": "Resultaten insturen",
   "Publish results": "Resultaten insturen",
   "Warning: not all targets met": "Waarschuwing: niet alle doelstellingen behaald",
+  "Results": "Resultaten",
+  "Context": "Context",
+  "Flanders": "Vlaanderen",
+  "Wallonia": "Wallonië",
+  "Brussels": "Brussel",
+  "selectContextInfo": "Selecteer het gewest waarin je woont. Dit bepaalt de doelen en beschikbare voorstellen voor jouw gewest. Je keuze wordt opgeslagen voor later gebruik.",
 
   "allTargetsMet": "Gefeliciteerd! Met de maatregelen die je hebt geselecteerd, kan België alle doelstellingen van Europa halen.",
   "profitMessage": "Hierdoor zal België naar schatting € {{ profit }} bijverdienen",
@@ -85,7 +91,6 @@
 
   "contributeText": "Heb je een vraag over dit voorstel die nog niet is beantwoord in de veelgestelde vragen? Wil je een link toevoegen naar een artikel, wetenschappelijk artikel of iets anders? Werk je in het veld en wil je graag je kennis bijdragen? Klik op de knop hieronder om naar de website met voorstellen te gaan, log in of maak een account aan, en begin met bijdragen!",
 
-  "Results": "Resultaten",
   "helpProposals": "VEKA stelde een lijst van maatregelen samen voor België om de uitstoot van broeikasgassen met 55% te verminderen tegen 2030. Dit zijn voorlopige voorbeelden met ruwe schattingen voor emissiereducties en willekeurige waarden voor andere impact.",
   "helpLegalReductionTarget": "België moet tegen 2030 de uitstoot van broeikasgassen verminderen ten opzichte van 1990, inclusief CO2 en methaan, zonder sector-specifieke onderscheidingen of emissiehandelsoverwegingen.",
   "helpCo2reductionTarget": "België moet de uitstoot van broeikasgassen, waaronder CO2 van fossiele brandstoffen en methaan, verminderen om aan Europese doelen te voldoen. Ongeveer 50.000 kiloton reductie is nodig, verdeeld onder de regio's, met verschillende maatregelen voor diverse sectoren.",
