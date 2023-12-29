@@ -6,11 +6,11 @@
       <span>{{ 'Flanders' | translate }}</span>
     </mat-button-toggle>
     <mat-button-toggle [checked]="proposalService.isBrusselsContext$ | async" (change)="selectBrussels()" style="margin-top: 12px">
-      <!-- <mat-icon class="context-icon" svgIcon="brussels" /> -->
+      <mat-icon class="context-icon" svgIcon="brussels" />
       <span>{{ 'Brussels' | translate }}</span>
     </mat-button-toggle>
     <mat-button-toggle [checked]="proposalService.isWallonianContext$ | async" (change)="selectWallonia()" style="margin-top: 12px">
-      <!-- <mat-icon class="context-icon" svgIcon="wallonia" /> -->
+      <mat-icon class="context-icon" svgIcon="wallonia" />
       <span>{{ 'Wallonia' | translate }}</span>
     </mat-button-toggle>
   </div>

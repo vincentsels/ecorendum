@@ -22,8 +22,8 @@
   <button mat-button class="context" (click)="changeContext()">
     <span fxHide.xs="true" class="context-header">{{ 'Context' | translate }}</span>
     <mat-icon class="context-icon" *ngIf="proposalService.isFlandersContext$ | async" svgIcon="flanders" />
-    <!-- <mat-icon class="context-icon" *ngIf="proposalService.isBrusselsContext$" svgIcon="brussels" />
-    <mat-icon class="context-icon" *ngIf="proposalService.isWallonianContext$" svgIcon="wallonia" /> -->
+    <mat-icon class="context-icon" *ngIf="proposalService.isBrusselsContext$ | async" svgIcon="brussels" />
+    <mat-icon class="context-icon" *ngIf="proposalService.isWallonianContext$ | async" svgIcon="wallonia" />
     <span *ngIf="proposalService.isFlandersContext$ | async">{{ 'Flanders' | translate }}</span>
     <span *ngIf="proposalService.isBrusselsContext$ | async">{{ 'Brussels' | translate }}</span>
     <span *ngIf="proposalService.isWallonianContext$ | async">{{ 'Wallonia' | translate }}</span>
