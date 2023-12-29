@@ -44,13 +44,17 @@
   }
 }
 
-.proposal-target-summary-item:not(:last-child) {
-  &::after {
+.proposal-target-summary-item:not(:first-child) {
+  &::before {
     opacity: 0.6;
     content: '•';
     margin-right: 6px;
     margin-left: 6px;
   }
+}
+
+.proposal-target-summary-item-secondary {
+  opacity: 0.4;
 }
 
 .proposal-target-impact-summary {

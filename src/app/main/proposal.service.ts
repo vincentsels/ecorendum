@@ -16,7 +16,7 @@ export type Context = 'flanders' | 'brussels' | 'wallonia';
 
 @Injectable()
 export class ProposalService {
-  context$ = new BehaviorSubject<Context>(localStorage.getItem('LS_KEY_SELECTED_CONTEXT') as Context || 'flanders');
+  context$ = new BehaviorSubject<Context>(localStorage.getItem(LS_KEY_SELECTED_CONTEXT) as Context || 'flanders');
   proposals$ = new BehaviorSubject<ProposalDetail[]>(PROPOSALS);
   results$ = new BehaviorSubject<Results>(new Results());
 
