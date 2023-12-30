@@ -1,27 +1,24 @@
-<button mat-icon-button style="float: right" [mat-dialog-close]="true">
-  <mat-icon>close</mat-icon>
-</button>
 <h1 mat-dialog-title>
   {{ (allTargetsMet ? 'Submit result' : 'Warning: not all targets met') | translate }}
 </h1>
 <div mat-dialog-content style="min-width: 250px">
   <p *ngIf="allTargetsMet" [innerHTML]="'allTargetsMet' | translate">
   </p>
-  <p *ngIf="!ghgTargetMet" [innerHTML]="'warningGhgNotMet' | translate:{tax: result.totalEuGhgTax}">
+  <p *ngIf="!ghgTargetMet" [innerHTML]="'warningGhgNotMet' | translate:{tax: result.totalEuGhgTax | number}">
   </p>
   <p *ngIf="!eeTargetMet" [innerHTML]="'warningEeTargetNotMet' | translate">
   </p>
   <p *ngIf="!reTargetMet" [innerHTML]="'warningReTargetNotMet' | translate">
   </p>
   <p *ngIf="result.totalEuGhgTax > 0">
-    <span [innerHTML]="'warningCost' | translate:{tax: result.totalEuGhgTax}"></span>&nbsp;<a [href]="" (click)="showCostComparisonDialog()">{{ 'Find out what could be done with this budget instead' | translate }}</a>.
+    <span [innerHTML]="'warningCost' | translate:{tax: result.totalEuGhgTax | number}"></span>&nbsp;<a [href]="" (click)="showCostComparisonDialog()">{{ 'Find out what could be done with this budget instead' | translate }}</a>.
   </p>
+  <mat-divider class="vertical-spaced"></mat-divider>
+  <div *ngIf="!allTargetsMet">
+    <mat-checkbox [(ngModel)]="agree" class="wrap">{{ 'agreeWithNotAllTargetsMet' | translate }}</mat-checkbox>
+  </div>
 </div>
-<mat-divider class="vertical-spaced"></mat-divider>
-<div *ngIf="!allTargetsMet">
-  <mat-checkbox [(ngModel)]="agree" class="wrap">{{ 'agreeWithNotAllTargetsMet' | translate }}</mat-checkbox>
-</div>
-<mat-dialog-actions>
+<div mat-dialog-actions>
   <button mat-raised-button color="primary" (click)="ok()" [disabled]="!allTargetsMet && !agree">{{ 'Submit' | translate }}</button>
   <button mat-raised-button [mat-dialog-close]="true">{{ 'Close' | translate }}</button>
-</mat-dialog-actions>
+</div>
