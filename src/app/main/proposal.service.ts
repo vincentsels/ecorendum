@@ -242,13 +242,9 @@ export class ProposalService {
     const euReTarget = new TargetResult(Results.euTargetGapReGwh, 'GWh', 0, reAddedGwh,
       renewableEnergyAddedColor, reAddedPercentage);
 
-    const totalCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
-    const totalProfit = totalCost < 0 ? totalCost * -1 : 0;
-
-    const totalTax = legalGhgTax;
-
-    const totalCostIncludingTax = totalCost + totalTax;
-    const totalProfitIncludingIncome = (totalCost * -1) + legalGhgIncome;
+    const totalMeasurementCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
+    const totalEuGhgTax = euGhgTax;
+    const totalCostIncludingTax = totalMeasurementCost + totalEuGhgTax;
 
     const totalImpact: TotalImpact[] = [];
 
@@ -291,12 +287,10 @@ export class ProposalService {
         euGhgTarget,
         euEeTarget,
         euReTarget,
-        totalCost,
-        totalTax,
-        totalProfit,
+        totalMeasurementCost,
+        totalEuGhgTax,
         totalImpact,
         totalCostIncludingTax,
-        totalProfitIncludingIncome,
       })
     )
   }

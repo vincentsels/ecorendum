@@ -7,16 +7,14 @@
 <div mat-dialog-content style="min-width: 250px">
   <p *ngIf="allTargetsMet" [innerHTML]="'allTargetsMet' | translate">
   </p>
-  <p *ngIf="result.totalProfit > 0" [innerHTML]="'profitMessage' | translate:{profit: result.totalProfit}">
-  </p>
-  <p *ngIf="!ghgTargetMet" [innerHTML]="'warningGhgNotMet' | translate:{tax: result.totalTax}">
+  <p *ngIf="!ghgTargetMet" [innerHTML]="'warningGhgNotMet' | translate:{tax: result.totalEuGhgTax}">
   </p>
   <p *ngIf="!eeTargetMet" [innerHTML]="'warningEeTargetNotMet' | translate">
   </p>
   <p *ngIf="!reTargetMet" [innerHTML]="'warningReTargetNotMet' | translate">
   </p>
-  <p *ngIf="result.totalTax > 0">
-    <span [innerHTML]="'warningCost' | translate:{tax: result.totalTax}"></span>&nbsp;<a [href]="" (click)="showCostComparisonDialog()">{{ 'Find out what could be done with this budget instead' | translate }}</a>.
+  <p *ngIf="result.totalEuGhgTax > 0">
+    <span [innerHTML]="'warningCost' | translate:{tax: result.totalEuGhgTax}"></span>&nbsp;<a [href]="" (click)="showCostComparisonDialog()">{{ 'Find out what could be done with this budget instead' | translate }}</a>.
   </p>
 </div>
 <mat-divider class="vertical-spaced"></mat-divider>

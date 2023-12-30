@@ -101,10 +101,12 @@
     <h3 *ngIf="!expandedTotalCost" class="result-section-collapsed">
       <span class="collapsed-header">
         <mat-icon class="inline">sell</mat-icon>
-        {{ (results.totalProfitIncludingIncome > 0 ? 'Total profit' : 'Total cost') | translate }}
+        {{ (results.totalCostIncludingTax < 0 ? 'Total profit' : 'Total cost') | translate }}
       </span>
 
-      <span class="collapsed-header-summary" [class.color-accent]="results.totalProfitIncludingIncome > 0"> €&nbsp;{{ (results.totalProfitIncludingIncome > 0 ? results.totalProfitIncludingIncome : results.totalCostIncludingTax) | number }}</span>
+      <span class="collapsed-header-summary" [class.color-accent]="results.totalCostIncludingTax < 0">
+        €&nbsp;{{ (results.totalCostIncludingTax < 0 ? -results.totalCostIncludingTax : results.totalCostIncludingTax) | number }}
+      </span>
 
       <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalCost()">
         <mat-icon class="inline">
@@ -114,11 +116,17 @@
     </h3>
 
     <div *ngIf="expandedTotalCost">
-      <div class="numerical">
-        <div class="amount-selected">{{ (results.totalProfit > 0 ? 'Total measures profit' : 'Total measures cost') | translate }}: €&nbsp;{{ results.totalCost | number }}</div>
-        <div class="amount-selected">
+      <div class="numerical inline-block">
+        <div>
+          {{ 'Total measures cost' | translate }}: €&nbsp;{{ results.totalMeasurementCost | number }}
+        </div>
+        <div class="bottom-line">
+          {{ (results.totalEuGhgTax > 0 ? 'Emissions trading cost' : 'Emissions trading profit') | translate }}:
+          <span [class.color-accent]="results.totalEuGhgTax < 0"> €&nbsp;{{ (results.totalEuGhgTax > 0 ? results.totalEuGhgTax : -results.totalEuGhgTax) | number }}</span>
+        </div>
+        <div>
           {{ 'Including emission trading' | translate }}:
-          <span [class.color-accent]="results.totalProfitIncludingIncome > 0"> €&nbsp;{{ (results.totalProfitIncludingIncome > 0 ? results.totalProfitIncludingIncome : results.totalCostIncludingTax) | number }}</span>
+          <span [class.color-accent]="results.totalCostIncludingTax < 0"> €&nbsp;{{ (results.totalCostIncludingTax < 0 ? -results.totalCostIncludingTax : results.totalCostIncludingTax) | number }}</span>
         </div>
       </div>
       <p *ngIf="results.totalCostIncludingTax > 0" style="margin-top: 12px">

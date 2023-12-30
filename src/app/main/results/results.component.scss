@@ -36,6 +36,16 @@
   font-size: 120%;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
+.bottom-line {
+  border-bottom: solid 1px;
+  margin-bottom: 2pt;
+  padding-bottom: 2pt;
+}
+
 .submit-button-lg {
   position: fixed;
   right: 24px;

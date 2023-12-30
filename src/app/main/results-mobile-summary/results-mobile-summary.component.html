@@ -26,8 +26,8 @@
       <mat-icon class="inline">sell</mat-icon>
     </span>
 
-    <div class="numerical">
-      {{ results.totalCostIncludingTax | cost }}
+    <div class="numerical" [class.color-accent]="results.totalCostIncludingTax < 0">
+      {{ (results.totalCostIncludingTax < 0 ? -results.totalCostIncludingTax : results.totalCostIncludingTax) | cost }}
       <!-- <span [class.color-accent]="results.totalCost + results.ghgTarget.tax < 0"> {{ results.totalCost + results.ghgTarget.tax | cost }}</span> -->
     </div>
   </div>

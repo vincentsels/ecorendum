@@ -29,11 +29,9 @@ export class Results {
   euEeTarget = new TargetResult(Results.euTargetGapEeGwh, 'Gwh');
   euReTarget = new TargetResult(Results.euTargetGapReGwh, 'Gwh');
 
-  totalCost: number = 0;
-  totalTax: number = 0;
-  totalProfit: number = 0;
+  totalMeasurementCost: number = 0;
+  totalEuGhgTax: number = 0;
   totalCostIncludingTax: number = 0;
-  totalProfitIncludingIncome: number = 0;
 
   totalImpact: TotalImpact[] = [];
 
