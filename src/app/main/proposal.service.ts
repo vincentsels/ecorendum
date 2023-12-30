@@ -22,6 +22,8 @@ export class ProposalService {
 
   selectionKey = '';
 
+  initialized = false;
+
   constructor(private loremIpsumService: LoremIpsumService) {
     this.loadProposals();
   }
@@ -32,6 +34,33 @@ export class ProposalService {
 
   public loadProposals() {
     let proposals = this.proposals$.value;
+
+    this.initializeDummyData(proposals);
+
+    for (let proposal of proposals) {
+      for (let variant of proposal.variants) {
+        variant.proposal = proposal;
+      }
+    }
+
+    // Load selected variants
+
+    this.clearSelection(false);
+
+    const selectedVariantNumbers = JSON.parse(localStorage.getItem(LS_KEY_SELECTED_VARIANTS) || '[]');
+
+    this.selectVariants(selectedVariantNumbers, proposals);
+
+    this.proposals$.next(proposals);
+    this.updateResults(false);
+  }
+
+  generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
+    this.loremIpsumService.generateWords(rnd(2, 8)), toss() ? 'nl' : toss() ? 'fr' : 'en');
+
+  private initializeDummyData(proposals: ProposalDetail[]) {
+    if (this.initialized) return;
+    this.initialized = true;
 
     for (let proposal of proposals) {
       // Random descriptions
@@ -74,42 +103,26 @@ export class ProposalService {
         proposal.faqs?.push(new Faq(proposal.id + '-' + i, proposal.id, [
           new TranslatedText('nl', this.loremIpsumService.generateWords(rnd(4, 12)) + '?'),
           new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(4, 12)) + ' ?'),
-          new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)) + '?')], [
+          new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)) + '?')
+        ], [
           new TranslatedText('nl', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-')),
           new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-')),
-          new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-'))], [
+          new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-'))
+        ], [
           new TranslatedText('nl', this.loremIpsumService.generateParagraphs(1)),
           new TranslatedText('fr', this.loremIpsumService.generateParagraphs(1)),
-          new TranslatedText('en', this.loremIpsumService.generateParagraphs(1))],
+          new TranslatedText('en', this.loremIpsumService.generateParagraphs(1))
+        ],
           toss() ? [] : [
             new TranslatedText('nl', this.loremIpsumService.generateParagraphs(rnd(1, 3))),
             new TranslatedText('fr', this.loremIpsumService.generateParagraphs(rnd(1, 3))),
-            new TranslatedText('en', this.loremIpsumService.generateParagraphs(rnd(1, 3)))]
-          )
+            new TranslatedText('en', this.loremIpsumService.generateParagraphs(rnd(1, 3)))
+          ]
+        )
         );
       }
     }
-
-    for (let proposal of proposals) {
-      for (let variant of proposal.variants) {
-        variant.proposal = proposal;
-      }
-    }
-
-    // Load selected variants
-
-    this.clearSelection(false);
-
-    const selectedVariantNumbers = JSON.parse(localStorage.getItem(LS_KEY_SELECTED_VARIANTS) || '[]');
-
-    this.selectVariants(selectedVariantNumbers, proposals);
-
-    this.proposals$.next(proposals);
-    this.updateResults(false);
   }
-
-  generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
-    this.loremIpsumService.generateWords(rnd(2, 8)), toss() ? 'nl' : toss() ? 'fr' : 'en');
 
   private selectVariants(selectedVariantNumbers: any, proposals: ProposalDetail[]) {
     if (selectedVariantNumbers.length > 0) {
