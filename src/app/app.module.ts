@@ -43,6 +43,7 @@ import { ShareDialogComponent } from './main/share-dialog/share-dialog.component
 import { ResultProgressComponent } from './main/results/result-progress.component';
 import { SelectContextDialogComponent } from './navbar/select-context-dialog/select-context-dialog.component';
 import { TranslateEnumPipe } from './common/translate-enum.pipe';
+import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -107,6 +108,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EnumsService,
     CommonDialogService,
     LoremIpsumService,
+    { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: { showDelay: 300 } },
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 10000 } },
     { provide: ErrorHandler, useClass: MatSnackbarErrorHandler, deps: [MatSnackBar, NgZone] },
   ],
