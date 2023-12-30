@@ -113,6 +113,36 @@ body:not(:-moz-handler-blocked) fieldset {
   display: table-cell;
 }
 
+.help-widget-tooltip {
+  .mdc-tooltip__surface {
+    padding: 8px;
+  }
+
+  :after {
+    display: block;
+    margin-top: 8px;
+    opacity: 0.6;
+  }
+}
+
+.help-widget-tooltip-en {
+  :after {
+    content: ' (click for more info)';
+  }
+}
+
+.help-widget-tooltip-nl {
+  :after {
+    content: ' (klik voor meer info)';
+  }
+}
+
+.help-widget-tooltip-fr {
+  :after {
+    content: ' (cliquez pour plus d''informations)';
+  }
+}
+
 .accent {
   color: mat.get-color-from-palette($ecorendum-accent, A200);
 }

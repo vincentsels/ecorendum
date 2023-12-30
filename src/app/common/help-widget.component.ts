@@ -40,39 +40,8 @@ span:hover {
     opacity: 0.8;
   }
 }
-
-.help-widget-tooltip {
-  .mdc-tooltip__surface {
-    padding: 8px;
-  }
-
-  :after {
-    display: block;
-    margin-top: 8px;
-    opacity: 0.6;
-  }
-}
-
-.help-widget-tooltip-en {
-  :after {
-    content: ' (click for more info)';
-  }
-}
-
-.help-widget-tooltip-nl {
-  :after {
-    content: ' (klik voor meer info)';
-  }
-}
-
-.help-widget-tooltip-fr {
-  :after {
-    content: ' (cliquez pour plus d''informations)';
-  }
-}
 `
   ],
-  encapsulation: ViewEncapsulation.None
 })
 export class HelpWidgetComponent {
   constructor(private dialogService: CommonDialogService, private translate: TranslateService, languageService: LanguageService) {
