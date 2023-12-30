@@ -20,6 +20,8 @@ export class Proposal {
   selected: boolean = false;
   selectedAmbitionLevel: number = 0;
 
+  hasKnownSector = () => this.sector && ![Sector.other, Sector.unknown, Sector.general].includes(this.sector);
+
   getSectorIcon = () => SectorMap[this.sector || Sector.other];
   getSelectedVariant = () => (this.variants || []).find(v => v.selected);
   getAverageCost = () => this.variants.map(v => v.getTotalCost()).reduce((total, curr) => total + curr, 0) / this.variants.length;
@@ -82,7 +84,7 @@ export enum Sector {
   wasteManagement = 5,
   electricityProduction = 6,
   general = 10,
-  other = 20,
+  other = 11,
 }
 
 export const SectorMap = {

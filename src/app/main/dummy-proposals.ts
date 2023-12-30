@@ -21,7 +21,7 @@ export const PROPOSALS: ProposalDetail[] = [
       new TranslatedText('nl', 'extra-maatregelen-vekp')
     ],
     policyLevel: PolicyLevel.flemish,
-    sector: Sector.other,
+    sector: Sector.general,
     icon: 'energy',
     pictureThumb: 'https://vincentsels.be/ext/ecorendum/nature-640.jpg',
     variants: [
