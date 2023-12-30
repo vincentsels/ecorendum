@@ -108,6 +108,9 @@
   "helpDialogCarbonTax": "When a European member state does not meet its CO2 reduction target, yearly, it must pay a tax equal to the amount of emissions it is below the target reduction requirement. The price of these missed reductions is determined by the ETS system; and cannot be determined beforehand. A realistic assumption is €100 per ton of CO2. \n\nThis would explain everythig in more detail, and link to estimations of the average emissions price.",
   "helpDialogCarbonIncome": "When a European member state emits less than its target, it can sell its excess emission rights to Europe. A realistic price assumption is €100 per ton of CO2.\n\nThis would explain everything in more detail, and link to estimations of the average emissions price.",
 
+  "ecorendum": "Examples VEKA",
+  "own": "Own",
+
   "nva": "N-VA",
   "ps": "PS",
   "vb": "VB",
@@ -133,8 +136,5 @@
   "referendumPartij": "RP",
   "sapGa": "SAP/GA",
   "uf": "UF",
-  "volt": "Volt",
-
-  "ecorendum": "Examples VEKA",
-  "own": "Own"
+  "volt": "Volt"
 }
