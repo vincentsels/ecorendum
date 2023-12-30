@@ -1,10 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CommonDialogService } from './dialog.component';
+import { LanguageService } from './language.service';
+import { Observable } from 'rxjs';
+import { LanguageType } from '../main/proposal';
 
 @Component({
   selector: 'app-help-widget',
-  template: `<span [class.dialog]="dialogKey || dialogMdSrc || dialogMdData" [matTooltip]="tooltipText || (tooltipKey | translate)" (click)="openDialog()">{{ text || (textKey && (textKey | translate)) }}<mat-icon>contact_support</mat-icon></span>`,
+  template: `<span [class.dialog]="dialogKey || dialogMdSrc || dialogMdData"
+    [matTooltip]="tooltipText || (tooltipKey | translate)"
+    [matTooltipClass]="{
+      'help-widget-tooltip': true,
+      'help-widget-tooltip-en': (lang | async) === 'en',
+      'help-widget-tooltip-nl': (lang | async) === 'nl',
+      'help-widget-tooltip-fr': (lang | async) === 'fr',
+      }"
+    (click)="openDialog()">{{ text || (textKey && (textKey | translate)) }}<mat-icon>contact_support</mat-icon></span>`,
   styles: [
 `mat-icon {
   opacity: 0.3;
@@ -29,11 +40,46 @@ span:hover {
     opacity: 0.8;
   }
 }
+
+.help-widget-tooltip {
+  .mdc-tooltip__surface {
+    padding: 8px;
+  }
+
+  :after {
+    display: block;
+    margin-top: 8px;
+    opacity: 0.6;
+  }
+}
+
+.help-widget-tooltip-en {
+  :after {
+    content: ' (click for more info)';
+  }
+}
+
+.help-widget-tooltip-nl {
+  :after {
+    content: ' (klik voor meer info)';
+  }
+}
+
+.help-widget-tooltip-fr {
+  :after {
+    content: ' (cliquez pour plus d''informations)';
+  }
+}
 `
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class HelpWidgetComponent {
-  constructor(private dialogService: CommonDialogService, private translate: TranslateService) {}
+  constructor(private dialogService: CommonDialogService, private translate: TranslateService, languageService: LanguageService) {
+    this.lang = languageService.language;
+  }
+
+  lang = new Observable<LanguageType>();
 
   @Input() text?: string;
   @Input() textKey?: string;
