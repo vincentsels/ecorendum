@@ -6,14 +6,14 @@ import { EnumsService } from './enums.service';
 
 @Component({
   selector: 'app-party-logo-or-name',
-  template:
-`<ng-container *ngIf="partyId">
+  template: `
+<ng-container *ngIf="partyId">
   <ng-container *ngIf="getLogo() as logoUrl; else partyName"><img class="party-logo" [src]="logoUrl" /></ng-container>
   <ng-template #partyName>{{ enums.PartyId[partyId] | translate }}</ng-template>
 </ng-container>
 `,
-  styles: [
-`.party-logo {
+  styles: [`
+.party-logo {
   max-width: 48px;
   max-height: 24px;
 }
@@ -26,5 +26,5 @@ export class PartyLogoOrNameComponent {
   @Input() partyId?: PartyId;
 
   getLogo = () => this.partyId && PARTIES_WITH_LOGOS.includes(this.partyId) &&
-    '/assets/img/partylogos/icon/' + this.enums.PartyId[this.partyId] + '.png';
+    '/assets/img/partylogos/icon/' + this.enums.PartyId[this.partyId].toLowerCase() + '.png';
 }
