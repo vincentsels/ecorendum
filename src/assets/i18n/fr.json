@@ -79,6 +79,7 @@
   "Wallonia": "Wallonie",
   "Brussels": "Bruxelles",
   "selectContextInfo": "Sélectionnez la région dans laquelle vous vivez. Cela déterminera les objectifs et les propositions disponibles pour votre région. Votre choix sera enregistré pour une utilisation ultérieure.",
+  "What is this": "De quoi s'agit-il ?",
 
   "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'Europe.",
   "profitMessage": "Cela permettra à la Belgique de recevoir une estimation de € {{ profit }}",

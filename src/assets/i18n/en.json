@@ -79,6 +79,7 @@
   "Wallonia": "Wallonia",
   "Brussels": "Brussels",
   "selectContextInfo": "Select the region in which you live. This will determine the targets and available proposals for your region. Your choice will be stored for later use.",
+  "What is this": "What is this?",
 
   "allTargetsMet": "Congratulations! The measures you selected allows Belgium to meet all the targets set by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated € {{ profit }}",

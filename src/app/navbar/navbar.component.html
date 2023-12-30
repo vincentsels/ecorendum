@@ -12,6 +12,10 @@
     </h1>
   </a>
 
+  <button mat-button class="info-button" routerLink="/info">
+    {{ 'What is this' | translate }}
+  </button>
+
   <span fxHide.xs="true">
     <!-- <a mat-button class="navbar-hide-small button" routerLink="configuration" *ngIf="userService.isAdmin()">{{ 'Configuration' | translate }}</a> -->
     <!-- <a mat-button class="navbar-hide-small button" routerLink="new-suggestion">{{ 'New suggestion' | translate }}</a> -->
@@ -19,11 +23,11 @@
 
   <div class="flex-spacer"></div>
 
-  <button mat-button class="context" (click)="changeContext()">
-    <span fxHide.xs="true" class="context-header">{{ 'Context' | translate }}</span>
-    <mat-icon class="context-icon" *ngIf="proposalService.isFlandersContext$ | async" svgIcon="flanders" />
-    <mat-icon class="context-icon" *ngIf="proposalService.isBrusselsContext$ | async" svgIcon="brussels" />
-    <mat-icon class="context-icon" *ngIf="proposalService.isWallonianContext$ | async" svgIcon="wallonia" />
+  <button mat-button class="context-button" (click)="changeContext()">
+    <span fxHide.xs="true" class="context-button-header">{{ 'Context' | translate }}</span>
+    <mat-icon class="context-button-icon" *ngIf="proposalService.isFlandersContext$ | async" svgIcon="flanders" />
+    <mat-icon class="context-button-icon" *ngIf="proposalService.isBrusselsContext$ | async" svgIcon="brussels" />
+    <mat-icon class="context-button-icon" *ngIf="proposalService.isWallonianContext$ | async" svgIcon="wallonia" />
     <span *ngIf="proposalService.isFlandersContext$ | async">{{ 'Flanders' | translate }}</span>
     <span *ngIf="proposalService.isBrusselsContext$ | async">{{ 'Brussels' | translate }}</span>
     <span *ngIf="proposalService.isWallonianContext$ | async">{{ 'Wallonia' | translate }}</span>

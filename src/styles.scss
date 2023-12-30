@@ -227,6 +227,52 @@ body:not(:-moz-handler-blocked) fieldset {
   font-style: italic;
 }
 
+/* Basic container styles */
+.responsive-page-container {
+  padding-right: $margin-default;
+  padding-left: $margin-default;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Responsive breakpoints */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .responsive-page-container {
+    max-width: 500px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .responsive-page-container {
+    max-width: 550px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .responsive-page-container {
+    max-width: 600px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .responsive-page-container {
+    max-width: 700px;
+  }
+}
+
+/* XXL devices (1400px and up) */
+@media (min-width: 1400px) {
+  .responsive-page-container {
+    max-width: 800px;
+  }
+}
+
 .page-container {
   margin: $margin-default;
   padding-bottom: 24px;

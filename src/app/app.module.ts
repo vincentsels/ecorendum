@@ -44,6 +44,7 @@ import { ResultProgressComponent } from './main/results/result-progress.componen
 import { SelectContextDialogComponent } from './navbar/select-context-dialog/select-context-dialog.component';
 import { TranslateEnumPipe } from './common/translate-enum.pipe';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
+import { InfoComponent } from './info/info.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -78,6 +79,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ShareDialogComponent,
     ResultProgressComponent,
     SelectContextDialogComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,

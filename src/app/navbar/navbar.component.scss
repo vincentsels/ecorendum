@@ -65,23 +65,31 @@
   }
 }
 
-.context {
+.context-button {
   display: flex;
   align-items: center;
 
   &:hover {
-    .context-header {
+    .context-button-header {
       opacity: 1;
     }
   }
 
-  .context-header {
+  .context-button-header {
     opacity: 0.5;
     margin-right: 4pt;
   }
 
-  .context-icon {
+  .context-button-icon {
     height: 30px;
     width: 30px;
+  }
+}
+
+.info-button {
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
   }
 }
