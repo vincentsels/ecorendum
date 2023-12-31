@@ -10,8 +10,8 @@ For a deep dive into the concept, you can read this [white paper](https://forum.
 
 The context for this demowebsite is Flanders, Belgium, and the ecological targets are:
 
-- The reduction of CO2-emissions imposed by a judge in a case called the '[Klimaatzaak](https://www.klimaatzaak.eu)' (climate case);
-- The emission reduction goals imposed to Belgium as a European Union member state in the '[Effort Sharing Regulation](https://ec.europa.eu/commission/presscorner/detail/en/qanda_21_3543)' framework;
+- The CO2-equivalent emission reduction imposed by a judge in a case called the '[Klimaatzaak](https://www.klimaatzaak.eu)' (climate case);
+- The CO2-equivalent emission reduction imposed to Belgium as a European Union member state in the '[Effort Sharing Regulation](https://ec.europa.eu/commission/presscorner/detail/en/qanda_21_3543)' framework;
 - [Energy efficiency](https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive_en) (a reduction of used energy) and the percentage of [renewable energy](https://energy.ec.europa.eu/topics/renewable-energy/renewable-energy-directive-targets-and-rules/renewable-energy-directive_en) in the energy production mix, two other targets imposed to all EU member states through European directives.
 
 Additionally, the total cost of these measures is displayed, taking into account the cost or profit of [emission trading](https://climate.ec.europa.eu/eu-action/eu-emissions-trading-system-eu-ets_en), a practice where countries can either sell emission rights in case they emit less than expected, or buy the rights to emit more than expected from other states, on a public market.
@@ -20,3 +20,14 @@ Finally, the website displays the broader estimated impact of the selected measu
 
 - The broad ecological impact, in the framework of the (remaining) [9 planetary boundaries](https://www.stockholmresilience.org/research/planetary-boundaries.html), scientific thresholds for Earth-system processes, beyond which humanity risks destabilizing the planet's capacity to support life;
 - The broad socio-economical impact, in the framework of the [Sustainable Development Goals](https://www.undp.org/sustainable-development-goals) (SDGs), 17 global goals set by the UN to achieve a sustainable, equitable, and prosperous world by 2030.
+
+### Used data
+
+The data used for this demowebsite, both targets and measures, is largely made up, yet semi-realistic. Although the website seems to allow to switch context to the other Belgian regions, Brussels and Wallonia, this currently does not change any of the data. Hence, all data is currently targeting Flanders.
+
+- The **legal 55% CO2-equivalent reduction target**, and its resulting 34 Mt absolute value, was calculated by VEKA and should be correct.
+- The **European CO2-equivalent reduction target** is based on the EU ESR target of 47% for Belgium. The federal government, Brussels and Wallonia all recognize this 47%. Flanders currently only targets 42%, leaving a large gap nationally. As long as the different regions haven't come to an agreement of how to divide the efforts, this tool assumes Flanders should also achieve a 47% reduction. As an absolute value, this translates into roughly 27 Mt of CO2-equivalent reductions. Note that in the European context, this only includees the ESR-sectors (road transport, buildings, agriculture, small industry, waste management), no ETS-sectors (electricity and heat generation, large industry, aviation and maritime transport).
+- The **energy efficiency target** is currently a very rough estimate of 10.000 GWh additional savings per year.
+- The **renewable energy target** is currently a very rough estimate of 5.000 GWh additional renewable energy per year.
+- All **measurement cost estimates** are largely made-up, intuitive guesses, where possible loosely based on similar measures in other countries. The tool supports both 
+- The **ecological and SDG impact** are also largely made-up, intuitive guesses.
