@@ -82,7 +82,7 @@ The real version of this tool should include at least the following:
 
 # Why is this website on the topic of ecology?
 
-A large problem with our democratic system is that it was never conceived to deal with issues which have **deadlines** and **thresholds** imposed by unsurmountable laws of nature and physics, simply because at the time of its conception in the 18th and 19th century, these were not yet known. This is a major flaw in the system which has never been corrected.
+A large problem with our democratic system is that it was never conceived to deal with issues which have **deadlines** and **thresholds** imposed by unsurmountable laws of nature and physics, simply because such limits and their effect on societies were not yet known at the time the system was conceived in the 18th century in America and France, or the 19th century in the case of the Belgian consitution. This is a major flaw in the system which has never been properly corrected.
 
 #### Elections
 
@@ -94,5 +94,88 @@ The rise of **political parties** and the resulting party-political system, whic
 
 Political parties play a **zero-sum game** in which the loss of one party equals the gain of another. This results in a negative atmosphere where parties work against each other rather than alongside each other; it results in polarization and dogmatism.
 
-#### Ecological targets
+### The difficulties of ecological policy
 
+> ***Note**: This paragraph was written with the help of ChatGPT.*
+
+Ecological challenges such as controlling climate change or preserving biodiversity, in order to maintain the earth in an ecological state which has allowed human (and other life) to flourish, are particularly difficult to solve in this system:
+
+- **Global Coordination and Cooperation**: Effective management of global ecological issues requires unprecedented levels of international cooperation, often hindered by differing political, economic, and cultural priorities.
+
+- **Economic and Social Trade-offs**: Policies aimed at ecological preservation often conflict with short-term economic growth and social welfare, leading to resistance from various stakeholders.
+
+- **Technological Limitations**: Current technological solutions may not be sufficient or scalable enough to address some of the major ecological challenges effectively.
+
+- **Temporal Mismatch**: The effects of ecological policies and actions are often delayed, making it difficult to establish a direct cause-effect relationship and maintain public and political support.
+
+### Europe's answer
+
+> ***Note**: This paragraph was written with the help of ChatGPT.*
+
+In response to these challenges, the European Union (EU) has adopted a strategy of setting **binding targets for its member states** in an effort to achieve collective ecological goals. These targets are part of a broader regulatory framework that includes the European Green Deal, aimed at making the EU's economy sustainable by turning climate and environmental challenges into opportunities.
+
+The imposition of targets, such as those for reducing greenhouse gas emissions, increasing renewable energy usage, and improving energy efficiency, provides a clear and measurable goal for member states. These targets are often accompanied by guidelines and support mechanisms to help states achieve them. By setting these targets, the EU attempts to transcend the limitations of short-term, national political cycles and address ecological issues with a long-term, pan-European approach.
+
+This approach also includes punitive measures for non-compliance, which serves as a deterrent against inaction.
+
+### Judiciary answer
+
+> ***Note**: This paragraph was written with the help of ChatGPT.*
+
+In addition to policy and collaborative efforts, Europe is increasingly witnessing the use of judicial action as a means to enforce ecological commitments, exemplified by the rise of 'climate cases'. These legal challenges are brought by citizens, NGOs, and other groups against governments, arguing that the state's inaction or insufficient action on climate change violates existing laws or constitutional rights.
+
+Such cases have seen notable successes, as in the Netherlands with the [Urgenda case](https://www.urgenda.nl/themas/klimaat-en-energie/klimaatzaak/), where the Dutch Supreme Court ruled that the government must take more aggressive action to reduce greenhouse gas emissions, setting a precedent for judicial enforcement of climate policy.
+
+Similarly, in Belgium, the above mentioned [Klimaatzaak](https://www.klimaatzaak.eu/) case resulted in the court ruling that Belgian authorities had breached their duty of care and human rights obligations by failing to take sufficient measures against climate change, and in appeal, the judge [ruled](https://prismic-io.s3.amazonaws.com/affaireclimat/aff2e124-f79d-4d5a-916a-e7919342f880_SP52019923113012320+en.pdf) that Belgium should have its emissions reduced by 55% compared to 1990 levels.
+
+### Limitations of judiciary rulings
+
+The problem with such 'climate cases' however is that a judge can only say *what* the country's governments should achieve, but not *how*. If political parties still do not dare to fill in the *how*, or do not take sufficient measures, out of a fear of electoral loss, the society is no step further.
+
+### Climate assemblies as answer
+
+> ***Note**: This paragraph was written with the help of ChatGPT.*
+
+[Climate assemblies](https://knoca.eu/what-is-a-climate-assembly/) on the other hand offer a new (or rather, [very old](https://en.wikipedia.org/wiki/Deliberative_democracy#History)) democratic tool, out of party politicians' hands, to come up with the *how* of meeting ecological targets.
+
+Comprising diverse, randomly selected citizens, these assemblies deliberate on climate issues, ensuring policies reflect a broad spectrum of public views. This approach enhances the legitimacy and effectiveness of climate strategies, aligning them with the long-term interests of society.
+
+The French [Convention Citoyenne pour le Climat](https://www.conventioncitoyennepourleclimat.fr/) (CCC) exemplifies this. It engaged 150 citizens in formulating proposals to reduce carbon emissions. Their [150 recommendations](https://propositions.conventioncitoyennepourleclimat.fr/), considered by the French government, highlight the impactful role of citizen assemblies in shaping national environmental policy, blending public involvement with substantive policy development.
+
+### Limitations of climate assemblies
+
+Climate assemblies have their limitations, however.
+
+- Although the participating citizens are well informed and typically acknowledge the need of stringent action, and although they *demographically* represent the broad polulation from which they were randomly selected, they do not have the legitimacy to speak for the entirety of the population, who are not involved, neither in the deliberative phase of compiling measures, nor in deciding on which policies will actually be enacted.
+
+- The only way to legitimately continue with the result of the climate assembly in thus to pass it on to the traditional party-political representative democratic system. The abovementioned problems again come into play: politicians will still be hesitant to impose stringent measures, out of a fear of electoral loss. This is what happened in France, where the government ultimately [53% of proposals was fully adopted](https://reporterre.net/Convention-pour-le-climat-seules-10-des-propositions-ont-ete-reprises-par-le-gouvernement).
+
+### The solution: preferenda
+
+Ideally, the set of measures is still sourced deliberatively, such as in climate assemblies, for the reasons mentioned above. However, the **entire civil society** should get a chance to **participate in the creation of the list of measures**. Think tanks, universities, NGO's, lobby groups, and interested or expert citizens should get a chance to participate.
+
+Doing that 'offline' is not possible without a system of representation/delegation; either through elections or sortition. However, **the internet** allows [the vast and ever increasing majority](https://statbel.fgov.be/en/themes/households/ict-usage-households) of citizens to participate. This must be done in a way that encourages qualitative, respectful contributions, and it should be thoroughly and justly moderated. Decades of experience (notably in the software development world) has taught us how this can be done, through crowd-sourcing.
+
+However, given the challenging deadline of 2030, there may not be enough time to deliberatively compose a list of measures. Luckily, in the context of Belgium, many **institutions have already given a lot of though** on how to reduce emissions. The tool could start from such lists of measures, as long as their impact is calculated. Next, multiple collections of measures, or '**sets**', can be compiled, which as a whole ideally achieve the required targets.
+
+Finally, the tool allows for **the entire population** to be involved in **choosing the set of measures**, or 'rating ranking' them. While being extremely democratic, it moves this difficult exercise entirely out of the hands of the party-political system, which does thus not have to fear electoral repercussions.
+
+Additionally, the stringent targets come from **outside of the party-political sphere** (namely, the already agreed upon frameworks by the UN and EU, and a judicial ruling). Political parties can still give their voters a set of measures that most aligns with what they believe will prefer ideologically, which can guide their electorate in their choice. At least, the set of selected measures of each of the political parties will, finally, **have to be sufficient** to meet the targets, or, if not, it will be very visible, and the negative repercussians made clear.
+
+# What are the next steps?
+
+This website initially serves as a campaigning tool, as an example to both the broad public, to possibly involved government agencies, and to political parties, of how we can achieve sufficient ecological measures in a democratic and just way.
+
+During this campaign, the quality of the tool can still be vastly improved, and its features expanded, to give an ever-broader idea of how it could function.
+
+Over time, at least the results and a baseline set of measurements should have accurate numbers for the targets, and a way to achieve them.
+
+#### Election campaign
+
+Ideally, this tool will force all traditional political parties during the Belgian electoral campaign of 2024 to come up with their own set of calculated measures to tackle these ecological results. Of course, they will happily be integrated in the tool by the authors.
+
+#### Official adoption
+
+Afterwards, once this concept gets officially adopted by the government, to launch an official preferendum to gauge the entire population's preferences, this implementation can serve as a starting point. The code is open source and can be reused, or it can just serve as inspiration.
+
+The public at large, and in particular this website's authors, will continue to evaluate the quality of the official tool, by comparing it with this demo tool.
