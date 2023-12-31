@@ -562,6 +562,23 @@ markdown {
   }
 }
 
+markdown {
+  blockquote {
+    opacity: 0.7;
+    padding: 4px 12px;
+    margin: 8px 0;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+
+    p:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  strong {
+    font-weight: 500;
+  }
+}
+
 /* Fixes introduced by mdc components */
 
 mat-card {
