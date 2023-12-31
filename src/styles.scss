@@ -435,12 +435,6 @@ div[fxlayout] > mat-form-field+mat-checkbox {
   }
 }
 
-mat-toolbar button {
-  height: fit-content;
-  margin-top: 4px;
-  margin-right: 8px;
-}
-
 mat-button-toggle-group.img-buttons > mat-button-toggle > button > div {
   padding: 0 8px !important;
   line-height: 36px !important;

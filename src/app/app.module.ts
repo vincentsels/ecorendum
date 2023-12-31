@@ -15,7 +15,6 @@ import { MatSnackbarErrorHandler } from './common/mat-snackbar-error-handler';
 import { MaterialModule } from './material.module';
 import { UserService } from './user/user.service';
 import { LimitLengthPipe } from './common/limit-length.pipe';
-import { NavBarProfileMenuComponent } from './navbar/navbar-profile-menu/navbar-profile-menu';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
 import { ProposalComponent } from './main/proposal/proposal.component';
@@ -56,7 +55,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     NavbarComponent,
-    NavBarProfileMenuComponent,
     LimitLengthPipe,
     CostPipe,
     MainComponent,

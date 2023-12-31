@@ -93,3 +93,23 @@
     opacity: 1;
   }
 }
+
+h1 {
+  text-align: center;
+}
+
+.menu-button {
+  padding-top: 3px;
+  margin-right: 0px;
+}
+
+@media (max-width: 576px) {
+  .menu-button, .title-button {
+    padding: 0px;
+    margin-right: 0px;
+  }
+
+  h1 {
+    font-size: var(--mdc-text-button-label-text-size) !important;
+  }
+}

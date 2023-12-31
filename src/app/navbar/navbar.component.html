@@ -1,8 +1,8 @@
 <mat-toolbar class="navbar-header mat-elevation-z6" color="primary" style="z-index: 3; position: relative;">
-  <a mat-button class="button" routerLink="/">
+  <a mat-button class="button title-button" routerLink="/">
     <h1>
       <!-- <span style="font-size: 75px; letter-spacing: -5px; vertical-align: middle; margin-right: 20px;">//</span> -->
-      <mat-icon style="vertical-align: text-top;">how_to_vote</mat-icon>
+      <mat-icon class="inline">how_to_vote</mat-icon>
       {{ 'Ecorendum' | translate }}
       <!-- <small *ngIf="env !== 'PRD'" class="accent">{{ env }}</small> -->
       <!-- <span class="env-info">
@@ -12,8 +12,11 @@
     </h1>
   </a>
 
-  <button mat-button class="info-button" routerLink="/info">
-    {{ 'What is this' | translate }}
+  <div fxHide.gt-xs class="flex-spacer"></div>
+
+  <button mat-button class="info-button menu-button" routerLink="/info">
+    <span fxHide.xs>{{ 'What is this' | translate }}</span>
+    <mat-icon fxHide.gt-xs>help</mat-icon>
   </button>
 
   <span fxHide.xs="true">
@@ -21,20 +24,29 @@
     <!-- <a mat-button class="navbar-hide-small button" routerLink="new-suggestion">{{ 'New suggestion' | translate }}</a> -->
   </span>
 
-  <div class="flex-spacer"></div>
+  <div fxHide.xs class="flex-spacer"></div>
 
-  <button mat-button class="context-button" (click)="changeContext()">
+  <button mat-button class="context-button menu-button" (click)="changeContext()">
     <span fxHide.xs="true" class="context-button-header">{{ 'Context' | translate }}</span>
     <mat-icon class="context-button-icon" *ngIf="proposalService.isFlandersContext$ | async" svgIcon="flanders" />
     <mat-icon class="context-button-icon" *ngIf="proposalService.isBrusselsContext$ | async" svgIcon="brussels" />
     <mat-icon class="context-button-icon" *ngIf="proposalService.isWallonianContext$ | async" svgIcon="wallonia" />
-    <span *ngIf="proposalService.isFlandersContext$ | async">{{ 'Flanders' | translate }}</span>
-    <span *ngIf="proposalService.isBrusselsContext$ | async">{{ 'Brussels' | translate }}</span>
-    <span *ngIf="proposalService.isWallonianContext$ | async">{{ 'Wallonia' | translate }}</span>
+    <span fxHide.xs *ngIf="proposalService.isFlandersContext$ | async">{{ 'Flanders' | translate }}</span>
+    <span fxHide.xs *ngIf="proposalService.isBrusselsContext$ | async">{{ 'Brussels' | translate }}</span>
+    <span fxHide.xs *ngIf="proposalService.isWallonianContext$ | async">{{ 'Wallonia' | translate }}</span>
   </button>
 
-  <div class="flex-spacer"></div>
+  <div fxHide.xs class="flex-spacer"></div>
 
-  <app-navbar-profile-menu></app-navbar-profile-menu>
+  <button mat-button class="menu-button" [matMenuTriggerFor]="langMenu">
+    {{ toUpper(language) }}
+  </button>
+  <mat-menu #langMenu="matMenu">
+    <div class="user-menu">
+      <button mat-menu-item (click)="languageChanged('nl')" *ngIf="language !== 'nl'">NL</button>
+      <button mat-menu-item (click)="languageChanged('fr')" *ngIf="language !== 'fr'">FR</button>
+      <button mat-menu-item (click)="languageChanged('en')" *ngIf="language !== 'en'">EN</button>
+    </div>
+  </mat-menu>
 
 </mat-toolbar>
