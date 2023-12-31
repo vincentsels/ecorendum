@@ -38,23 +38,40 @@
 .proposal-target-summary {
   opacity: 0.6;
   margin-top: -16px;
+}
+
+.proposal-target-summary-secondary {
+  display: inline-block;
+  opacity: 0.4;
 
   &.set {
     margin-bottom: 12px;
   }
 }
 
-.proposal-target-summary-item:not(:first-child) {
+@media (max-width: 576px) {
+  .proposal-target-summary-secondary {
+    display: block;
+  }
+
+  .proposal-target-summary-secondary {
+    &::before {
+      opacity: unset!important;
+      content: unset!important;
+      margin-right: unset!important;
+      margin-left: unset!important;
+    }
+  }
+}
+
+
+.proposal-target-summary-item:not(:first-child), .proposal-target-summary-secondary {
   &::before {
     opacity: 0.6;
     content: '•';
     margin-right: 6px;
     margin-left: 6px;
   }
-}
-
-.proposal-target-summary-item-secondary {
-  opacity: 0.4;
 }
 
 .proposal-target-impact-summary {

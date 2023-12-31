@@ -23,15 +23,11 @@
         <span [class]="getCo2Class(amt)">{{ amt | number }} kt</span>
         <span *ngIf="proposal.getMaxTargetAmount(enums.TargetType.ghgReduction, set); let maxAmt"> - <span [class]="getGasClass(amt)">{{ maxAmt | number }} kt</span></span>
       </span>
-      <span class="proposal-target-summary-item proposal-target-summary-item-secondary" *ngIf="set">
-        {{ enums.PolicyLevel[proposal.policyLevel || enums.PolicyLevel.unknown] | translate }}
-      </span>
-      <span class="proposal-target-summary-item proposal-target-summary-item-secondary" *ngIf="set">
-        {{ enums.Sector[proposal.sector || enums.Sector.unknown] | translate }}
-      </span>
-      <span class="proposal-target-summary-item proposal-target-summary-item-secondary" *ngIf="set && proposal.ets">
-        ETS
-      </span>
+      <div class="proposal-target-summary-secondary" [class.set]="set">
+        <span class="proposal-target-summary-item" *ngIf="set">{{ enums.PolicyLevel[proposal.policyLevel || enums.PolicyLevel.unknown] | translate }}</span>
+        <span class="proposal-target-summary-item" *ngIf="set">{{ enums.Sector[proposal.sector || enums.Sector.unknown] | translate }}</span>
+        <span class="proposal-target-summary-item" *ngIf="set && proposal.ets">ETS</span>
+      </div>
     </div>
   </div>
   <div *ngIf="!set" ngClass.gt-xs="gt-xs-proposal-extra-info" fxHide.lt-sm>
