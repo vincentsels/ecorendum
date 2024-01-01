@@ -3,14 +3,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Proposal } from '../proposal';
 import { ProposalDetail } from '../proposal-details';
+import { LanguageService } from '../../common/language.service';
 
 @Component({
   selector: 'proposal-detail-dialog',
   template: `
 <h2 mat-dialog-title>
   <mat-icon class="inline header-icon" fontSet="material-symbols-outlined">{{ data.proposal.icon || 'eco' }}</mat-icon>
-  {{ data.proposal.title | translateText }}
-  <a [routerLink]="'/proposal/' + (data.proposal.slug | translateText)" class="link-button" (click)="closeDialog()"><mat-icon class="inline">link</mat-icon></a>
+  {{ data.proposal | translateProp:'title' | async }}
+  <a [routerLink]="'/proposal/' + getSlugInSelectedLanguage()" class="link-button" (click)="closeDialog()"><mat-icon class="inline">link</mat-icon></a>
   <button mat-icon-button class="close-button" [mat-dialog-close]="true">
     <mat-icon>close</mat-icon>
   </button>
@@ -43,7 +44,8 @@ import { ProposalDetail } from '../proposal-details';
   ]
 })
 export class ProposalDetailsDialogComponent {
-  constructor(public dialogRef: MatDialogRef<ProposalDetailsDialogComponent>,
+  constructor(private languageService: LanguageService,
+    public dialogRef: MatDialogRef<ProposalDetailsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ProposalDetailDialogData) {}
 
   onNoClick(): void {
@@ -54,6 +56,13 @@ export class ProposalDetailsDialogComponent {
 
   getBackgroundImage() {
     return 'background-image: linear-gradient(145deg, rgba(48, 48, 48, 1) 40%, rgba(48, 48, 48, 0.9) 60%, rgba(48, 48, 48, 0.1) 100%), url(' + this.data.proposal.pictureThumb + ')'
+  }
+
+  getSlugInSelectedLanguage() {
+    const lang = this.languageService.language.value;
+    return lang === 'en' ? this.data.proposal.slugEn
+      : lang === 'fr' ? this.data.proposal.slugFr
+      : this.data.proposal.slugNl;
   }
 }
 

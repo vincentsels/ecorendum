@@ -80,6 +80,25 @@
   "Brussels": "Brussel",
   "selectContextInfo": "Selecteer het gewest waarin je woont. Dit bepaalt de doelen en beschikbare voorstellen voor jouw gewest. Je keuze wordt opgeslagen voor later gebruik.",
   "What is this": "Wat is dit?",
+  "Summary": "Samenvatting",
+  "Description": "Beschrijving",
+  "Variants": "Varianten",
+  "Cost": "Kosten",
+  "Initial": "Initieel",
+  "Yearly": "Jaarlijks",
+  "Targets": "Doelen",
+  "Impact": "Impact",
+  "Select": "Selecteer",
+  "Political party stances": "Standpunten van politieke partijen",
+  "Show all parties": "Toon alle partijen",
+  "Links": "Links",
+  "Media articles": "Media-artikelen",
+  "Debates": "Debatten",
+  "Scientific papers": "Wetenschappelijke publicaties",
+  "Examples abroad": "Voorbeelden in het buitenland",
+  "Explainers": "Uitleg",
+  "Frequently Asked Questions": "Veelgestelde Vragen",
+  "Ask a question or contribute": "Stel een vraag of neem deel",
 
   "allTargetsMet": "Gefeliciteerd! Met de maatregelen die je hebt geselecteerd, kan België alle doelstellingen van Europa halen.",
   "profitMessage": "Hierdoor zal België naar schatting € {{ profit }} bijverdienen",
@@ -137,5 +156,40 @@
   "referendumPartij": "RP",
   "sapGa": "SAP",
   "uf": "UF",
-  "volt": "Volt"
+  "volt": "Volt",
+
+  "proposals": {
+    "extra-measures-vekp": {
+      "title": "Extra maatregelen VEKP",
+      "summary": "De extra maatregelen reeds opgenomen in het Vlaams Energie- en Klimaatplan (VEKP). Dit wordt ook het 'With additional measures' (WAM) scenario genoemd."
+    },
+    "dri-installation-arcelor": {
+      "title": "DRI installatie Arcelor",
+      "summary": "ArcelorMittal Belgium zal de CO2-uitstoot tegen 2030 met ongeveer 3,9 miljoen ton per jaar verminderen door de bouw van een installatie voor direct gereduceerd ijzer (DRI) met een capaciteit van 2,5 miljoen ton en twee elektrische ovens in de vestiging in Gent. Deze zullen parallel met de state-of-the-arthoogoven werken die klaar is om afvalhout en plastics te gebruiken als alternatief voor fossiele koolstof."
+    },
+    "ccs-projects": {
+      "title": "CSS projecten",
+      "summary": "Koolstofopvang- en opslag (in het Engels Carbon Capture & Storage of afgekort CCS) projecten bij o.a. BASF en Air Liquide, met verdere uitbreiding naar andere bedrijven."
+    },
+    "phase-out-internal-combustion-engines": {
+      "title": "Uitfasering aankoop fossiele verbrandingsmotoren",
+      "summary": "De federale overheid verbiedt de verkoop van personen- en bestel- en vrachtwagens met een verbrandingsmotor. Op de tweedehandsmarkt kunnen deze wagens wel nog verkocht worden."
+    },
+    "phase-out-gas-fuel-oil-boilers": {
+      "title": "Uitfasering aankoop gas- en stookolieketels",
+      "summary": "De federale overheid verbiedt de verkoop en installatie van gas- en stookolieketels voor nieuwe gebouwen en renovaties."
+    },
+    "reduction-cattle-pig-herds": {
+      "title": "Afbouw rundvee- en varkensstapel",
+      "summary": "Afbouw van de rundvee- en de varkensstapel tegen 2030 vergeleken met 2021. Voor de varkensstapel zou het huidige reductietempo licht moeten versnellen, voor vleesvee zou het tempo moeten verdriedubbelen, en voor melkvee zou de stijgende trend volledig moeten worden omgekeerd. Vlaanderen zou tegen 2030 ca. 400.000 minder runderen hebben. Ingrijpen in de pluimveestapel heeft nauwelijks effect."
+    },
+    "phase-out-carbon-intensive-industry": {
+      "title": "Afbouw koolstofintensieve industrie",
+      "summary": "Afbouw activiteit van energie- en koolstofintensieve industrie, o.a. in de Antwerpse haven, door niet langer verstrekken vergunningen en fiscale ontmoediging."
+    },
+    "obligatory-display-of-carbon-footprint-on-products-and-services": {
+      "title": "Verplicht weergeven koolstofvoetafdruk producten en diensten",
+      "summary": "De federale overheid verplicht alle leveranciers van producten en diensten om weer te geven wat de koolstofvoetafdruk (en eventueel andere ecologische impact) is, zodat consumenten hier rekening mee kunnen houden."
+    }
+  }
 }

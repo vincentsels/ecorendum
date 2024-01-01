@@ -29,12 +29,13 @@ export class MainComponent {
     this.filteredProposals$ = combineLatest([this.proposalsFilter$, this.proposalService.proposals$])
       .pipe(
         map(([filter, proposals]) => {
-          return proposals.filter(
-            p =>
-              (this.includeCommitted || !p.committed) &&
-              (p.title.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())) ||
-              p.summary.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())))
-          );
+          return proposals;
+          // return proposals.filter(
+          //   p =>
+          //     (this.includeCommitted || !p.committed) &&
+          //     (p.title.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())) ||
+          //     p.summary.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())))
+          // );
         })
       );
 

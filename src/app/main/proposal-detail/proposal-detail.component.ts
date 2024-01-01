@@ -31,7 +31,7 @@ export class ProposalDetailComponent implements OnInit {
         const idOrSlug = paramMap.get('idorslug');
         const foundProposal = this.service.proposals$.value.find(p =>
           (!isNaN(Number(idOrSlug)) && p.id === Number(idOrSlug)) ||
-          p.slug.some(s => s.text === idOrSlug));
+          (p.slugNl === idOrSlug || p.slugFr === idOrSlug ||p.slugEn === idOrSlug));
         if (foundProposal) this.proposal = new ProposalDetail(foundProposal);
       });
     }

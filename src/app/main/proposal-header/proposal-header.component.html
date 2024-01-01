@@ -5,11 +5,11 @@
   <div style="flex-grow: 1;">
     <h2 [class.set-title]="set">
       <a class="title-link" *ngIf="card && !dialog" (click)="openProposalDetailDialog()" (click)="$event.stopPropagation()">
-        {{ proposal.title | translateText }}
+        {{ proposal | translateProp:'title' | async }}
         <span *ngIf="set && proposal.variants.length > 1"> - {{ proposal.getSelectedVariant()?.title | translateText }}</span>
       </a>
       <ng-container *ngIf="!card && !dialog">
-        {{ proposal.title | translateText }}
+        {{ proposal | translateProp:'title' | async }}
         <span *ngIf="set && proposal.variants.length > 1"> - {{ proposal.getSelectedVariant()?.title | translateText }}</span>
       </ng-container>
     </h2>

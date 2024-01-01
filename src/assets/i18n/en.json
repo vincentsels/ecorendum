@@ -80,6 +80,25 @@
   "Brussels": "Brussels",
   "selectContextInfo": "Select the region in which you live. This will determine the targets and available proposals for your region. Your choice will be stored for later use.",
   "What is this": "What is this?",
+  "Summary": "Summary",
+  "Description": "Description",
+  "Variants": "Variants",
+  "Cost": "Cost",
+  "Initial": "Initial",
+  "Yearly": "Yearly",
+  "Targets": "Targets",
+  "Impact": "Impact",
+  "Select": "Select",
+  "Political party stances": "Political party stances",
+  "Show all parties": "Show all parties",
+  "Links": "Links",
+  "Media articles": "Media articles",
+  "Debates": "Debates",
+  "Scientific papers": "Scientific papers",
+  "Examples abroad": "Examples abroad",
+  "Explainers": "Explainers",
+  "Frequently Asked Questions": "Frequently Asked Questions",
+  "Ask a question or contribute": "Ask a question or contribute",
 
   "allTargetsMet": "Congratulations! The measures you selected allows Belgium to meet all the targets set by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated € {{ profit }}",
@@ -137,5 +156,40 @@
   "referendumPartij": "RP",
   "sapGa": "SAP/GA",
   "uf": "UF",
-  "volt": "Volt"
+  "volt": "Volt",
+
+  "proposals": {
+    "extra-measures-vekp": {
+      "title": "Additional measures VEKP",
+      "summary": "The additional measures as currently already included in the Flemish Energy & Climate plan (VEKP). Also called the 'With additional measures' (WAM) scenario."
+    },
+    "dri-installation-arcelor": {
+      "title": "DRI installation Arcelor",
+      "summary": "ArcelorMittal Belgium will reduce CO2 emissions by 3.9 million tonnes per year by 2030, by building a 2.5 million-tonne direct reduced iron (DRI) plant and two electric furnaces at its Gent site, to operate alongside its state-of-the-art blast furnace that is ready to take waste wood and plastics as a substitute for fossil carbon."
+    },
+    "ccs-projects": {
+      "title": "CSS projects",
+      "summary": "Carbon capture & storage projects at BASF, Air Liquide, and in the future other companies."
+    },
+    "phase-out-internal-combustion-engines": {
+      "title": "Phase-out purchase of internal combustion engines",
+      "summary": "The federal government forbids the sale of personal and transport transport vehicles with internal combustion engines. These can still be bought and sold on the second hand market."
+    },
+    "phase-out-gas-fuel-oil-boilers": {
+      "title": "Phase-out purchase of gas and fuel oil boilers",
+      "summary": "The federal government forbids the sale and installation of gas and fuel oil boilers."
+    },
+    "reduction-cattle-pig-herds": {
+      "title": "Reduction of cattle and pig herds",
+      "summary": "Reduction in cattle and pig herds by 2030 compared to 2021. For the pig herd, the current rate of reduction should accelerate slightly, for beef cattle the rate should triple, and for dairy cattle the upward trend should be completely reversed. Flanders would have about 400,000 fewer cattle by 2030. Intervention in the poultry population has little effect."
+    },
+    "phase-out-carbon-intensive-industry": {
+      "title": "Phase-out carbon-intensive industry",
+      "summary": "Phase-out of carbon-intensive industry, e.g. in the port of Antwerp though revoking permissions or fiscal discouragement."
+    },
+    "obligatory-display-of-carbon-footprint-on-products-and-services": {
+      "title": "Obligatory display of carbon footprint on products and services",
+      "summary": "The federal government requires all suppliers of products and services to display the carbon footprint (and optionally wider ecological impact), so consumers can take that into account."
+    }
+  }
 }

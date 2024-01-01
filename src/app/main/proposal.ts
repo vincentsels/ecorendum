@@ -4,15 +4,15 @@ export class Proposal {
   }
 
   id: number = 0;
-  title: TranslatedText[] = [];
-  slug: TranslatedText[] = [];
-  summary: TranslatedText[] = [];
-  policyLevel?: PolicyLevel;
+  policyLevel: PolicyLevel = PolicyLevel.unknown;
   variants: Variant[] = [];
-  sector?: Sector;
+  sector: Sector = Sector.unknown;
   committed: boolean = false;
   ets: boolean = false;
   origin: ProposalOrigin = ProposalOrigin.unknown;
+  slugNl: string = '';
+  slugEn: string = '';
+  slugFr: string = '';
 
   pictureThumb?: string;
   icon?: string;
@@ -48,13 +48,13 @@ export class Proposal {
     return this.variants[this.variants.length - 1].getTargetAmount(targetType);
   }
 
-  getSlugTextInLanguage(lang: LanguageType): string {
-    let slug = this.slug.find(s => s.lang === lang);
-    if (!slug) slug = this.slug.find(s => s.lang === 'en');
-    if (!slug) slug = this.slug[0];
+  // getSlugTextInLanguage(lang: LanguageType): string {
+  //   let slug = this.slug.find(s => s.lang === lang);
+  //   if (!slug) slug = this.slug.find(s => s.lang === 'en');
+  //   if (!slug) slug = this.slug[0];
 
-    return slug.text;
-  }
+  //   return slug.text;
+  // }
 }
 
 export enum ProposalOrigin {

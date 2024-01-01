@@ -80,6 +80,25 @@
   "Brussels": "Bruxelles",
   "selectContextInfo": "Sélectionnez la région dans laquelle vous vivez. Cela déterminera les objectifs et les propositions disponibles pour votre région. Votre choix sera enregistré pour une utilisation ultérieure.",
   "What is this": "De quoi s'agit-il ?",
+  "Summary": "Résumé",
+  "Description": "Description",
+  "Variants": "Variantes",
+  "Cost": "Coût",
+  "Initial": "Initial",
+  "Yearly": "Annuel",
+  "Targets": "Cibles",
+  "Impact": "Impact",
+  "Select": "Sélectionner",
+  "Political party stances": "Positions des partis politiques",
+  "Show all parties": "Afficher tous les partis",
+  "Links": "Liens",
+  "Media articles": "Articles de presse",
+  "Debates": "Débats",
+  "Scientific papers": "Articles scientifiques",
+  "Examples abroad": "Exemples à l'étranger",
+  "Explainers": "Explications",
+  "Frequently Asked Questions": "Questions Fréquemment Posées",
+  "Ask a question or contribute": "Posez une question ou contribuez",
 
   "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'Europe.",
   "profitMessage": "Cela permettra à la Belgique de recevoir une estimation de € {{ profit }}",
@@ -137,5 +156,40 @@
   "referendumPartij": "RP",
   "sapGa": "GA",
   "uf": "UF",
-  "volt": "Volt"
+  "volt": "Volt",
+
+  "proposals": {
+    "extra-measures-vekp": {
+      "title": "Mesures supplémentaires VEKP",
+      "summary": "Les mesures supplémentaires telles que déjà incluses dans le plan flamand Énergie & Climat (VEKP). Également appelé scénario 'Avec mesures supplémentaires' (WAM)."
+    },
+    "dri-installation-arcelor": {
+      "title": "Installation DRI Arcelor",
+      "summary": "ArcelorMittal Belgique réduira les émissions de CO2 de 3,9 millions de tonnes par an d'ici 2030, en construisant une usine de fer réduit direct (DRI) de 2,5 millions de tonnes et deux fours électriques sur son site de Gand, pour fonctionner aux côtés de son haut fourneau de pointe prêt à accepter les déchets de bois et plastiques comme substitut au carbone fossile."
+    },
+    "ccs-projects": {
+      "title": "Projets CSS",
+      "summary": "Projets de capture et stockage du carbone chez BASF, Air Liquide, et à l'avenir dans d'autres entreprises."
+    },
+    "phase-out-internal-combustion-engines": {
+      "title": "Arrêt de l'achat de moteurs à combustion interne",
+      "summary": "Le gouvernement fédéral interdit la vente de véhicules de transport personnel et de transport avec des moteurs à combustion interne. Ces derniers peuvent encore être achetés et vendus sur le marché de l'occasion."
+    },
+    "phase-out-gas-fuel-oil-boilers": {
+      "title": "Arrêt de l'achat de chaudières à gaz et à mazout",
+      "summary": "Le gouvernement fédéral interdit la vente et l'installation de chaudières à gaz et à mazout."
+    },
+    "reduction-cattle-pig-herds": {
+      "title": "Réduction des troupeaux de bovins et de porcs",
+      "summary": "Réduction des troupeaux de bovins et de porcs d'ici 2030 par rapport à 2021. Pour le troupeau de porcs, le taux actuel de réduction devrait légèrement s'accélérer, pour les bovins de boucherie le taux devrait tripler, et pour les bovins laitiers la tendance à la hausse devrait être complètement inversée. La Flandre aurait environ 400 000 bovins de moins d'ici 2030. L'intervention dans la population de volailles a peu d'effet."
+    },
+    "phase-out-carbon-intensive-industry": {
+      "title": "Arrêt de l'industrie à forte intensité de carbone",
+      "summary": "Arrêt de l'industrie à forte intensité de carbone, par exemple dans le port d'Anvers en révoquant les autorisations ou par découragement fiscal."
+    },
+    "obligatory-display-of-carbon-footprint-on-products-and-services": {
+      "title": "Affichage obligatoire de l'empreinte carbone sur les produits et services",
+      "summary": "Le gouvernement fédéral exige que tous les fournisseurs de produits et services affichent l'empreinte carbone (et éventuellement l'impact écologique plus large), afin que les consommateurs puissent en tenir compte."
+    }
+  }
 }

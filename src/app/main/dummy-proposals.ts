@@ -8,18 +8,9 @@ export const PROPOSALS: ProposalDetail[] = [
     origin: ProposalOrigin.flemishGovernment,
     selected: true,
     selectedAmbitionLevel: 1,
-    title: [
-      new TranslatedText('en', 'VEKP additional measures'),
-      new TranslatedText('nl', 'Extra maatregelen VEKP'),
-    ],
-    summary: [
-      new TranslatedText('en', 'The additional measures as currently already included in the Flemish Energy & Climate plan (VEKP). Also called the \'With additional measures\' (WAM) scenario.'),
-      new TranslatedText('nl', 'De extra maatregelen reeds opgenomen in het Vlaams Energie- en Klimaatplan (VEKP). Dit wordt ook het \'With additional measures\' (WAM) scenario genoemd.'),
-    ],
-    slug: [
-      new TranslatedText('en', 'vekp-additional-measures'),
-      new TranslatedText('nl', 'extra-maatregelen-vekp')
-    ],
+    slugEn: 'extra-measures-vekp',
+    slugNl: 'extra-maatregelen-vekp',
+    slugFr: 'extra-mesures-vekp',
     policyLevel: PolicyLevel.flemish,
     sector: Sector.general,
     icon: 'energy',
@@ -51,18 +42,9 @@ export const PROPOSALS: ProposalDetail[] = [
     origin: ProposalOrigin.flemishGovernment,
     selected: true,
     selectedAmbitionLevel: 1,
-    title: [
-      new TranslatedText('nl', 'DRI installatie Arcelor'),
-      new TranslatedText('en', 'DRI installation Arcelor'),
-    ],
-    summary: [
-      new TranslatedText('nl', 'ArcelorMittal Belgium zal de CO2-uitstoot tegen 2030 met ongeveer 3,9 miljoen ton per jaar verminderen door de bouw van een installatie voor direct gereduceerd ijzer (DRI) met een capaciteit van 2,5 miljoen ton en twee elektrische ovens in de vestiging in Gent. Deze zullen parallel met de state-of-the-arthoogoven werken die klaar is om afvalhout en plastics te gebruiken als alternatief voor fossiele koolstof.'),
-      new TranslatedText('en', 'ArcelorMittal Belgium will reduce CO2 emissions by 3.9 million tonnes per year by 2030, by building a 2.5 million-tonne direct reduced iron (DRI) plant and two electric furnaces at its Gent site, to operate alongside its state-of-the-art blast furnace that is ready to take waste wood and plastics as a substitute for fossil carbon. ')
-    ],
-    slug: [
-      new TranslatedText('nl', 'dri-installatie-arcelor'),
-      new TranslatedText('en', 'dri-installation-arcelor'),
-    ],
+    slugEn: 'dri-installation-arcelor',
+    slugNl: 'dri-installatie-arcelor',
+    slugFr: 'installation-dri-arcelor',
     policyLevel: PolicyLevel.flemish,
     sector: Sector.industry,
     ets: true,
@@ -102,18 +84,9 @@ export const PROPOSALS: ProposalDetail[] = [
     origin: ProposalOrigin.flemishGovernment,
     selected: true,
     selectedAmbitionLevel: 1,
-    title: [
-      new TranslatedText('nl', 'CSS projecten'),
-      new TranslatedText('en', 'CSS projects'),
-    ],
-    summary: [
-      new TranslatedText('nl', 'Koolstofopvang- en opslag (in het Engels Carbon Capture & Storage of afgekort CCS) projecten bij o.a. BASF en Air Liquide, met verdere uitbreiding naar andere bedrijven.'),
-      new TranslatedText('en', 'Carbon capture & storage projects at BASF, Air Liquide, and in the future other companies')
-    ],
-    slug: [
-      new TranslatedText('nl', 'ccs-projecten'),
-      new TranslatedText('en', 'ccs-projects'),
-    ],
+    slugEn: 'ccs-projects',
+    slugNl: 'ccs-projecten',
+    slugFr: 'projets-ccs',
     policyLevel: PolicyLevel.flemish,
     sector: Sector.industry,
     ets: true,
@@ -145,18 +118,9 @@ export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 4,
     origin: ProposalOrigin.veka,
-    title: [
-      new TranslatedText('nl', 'Uitfasering aankoop fossiele verbrandingsmotoren'),
-      new TranslatedText('en', 'Phase-out purchase of internal combustion engines'),
-    ],
-    summary: [
-      new TranslatedText('nl', 'De federale overheid verbiedt de verkoop van personen- en bestel- en vrachtwagens met een verbrandingsmotor. Op de tweedehandsmarkt kunnen deze wagens wel nog verkocht worden.'),
-      new TranslatedText('en', 'The federal government forbids the sale of personal and transport transport vehicles with internal combustion engines. These can still be bought and sold on the second hand market.')
-    ],
-    slug: [
-      new TranslatedText('nl', 'uitfasering-fossiele-verbrandingsmotoren'),
-      new TranslatedText('en', 'phase-out-internal-combustion-engines'),
-    ],
+    slugEn: 'phase-out-internal-combustion-engines',
+    slugNl: 'uitfasering-fossiele-verbrandingsmotoren',
+    slugFr: 'arret-progressif-moteurs-a-combustion-interne',
     policyLevel: PolicyLevel.federal,
     sector: Sector.transport,
     icon: 'electric_car',
@@ -238,18 +202,9 @@ export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 5,
     origin: ProposalOrigin.veka,
-    title: [
-      new TranslatedText('nl', 'Uitfasering aankoop gas- en stookolieketels'),
-      new TranslatedText('en', 'Phase-out purchase of gas and fuel oil boilers'),
-    ],
-    summary: [
-      new TranslatedText('nl', 'De federale overheid verbiedt de verkoop en installatie van gas- en stookolieketels voor nieuwe gebouwen en renovaties.'),
-      new TranslatedText('en', 'The federal government forbids the sale and installation of gas and fuel oil boilers.')
-    ],
-    slug: [
-      new TranslatedText('nl', 'uitfasering-gas-stookolie-ketels'),
-      new TranslatedText('en', 'phase-out-gas-fuel-oil-boilers'),
-    ],
+    slugEn: 'phase-out-gas-fuel-oil-boilers',
+    slugNl: 'uitfasering-gas-stookolie-ketels',
+    slugFr: 'arret-progressif-chaudieres-a-gaz-et-fioul',
     policyLevel: PolicyLevel.federal,
     sector: Sector.buildings,
     icon: 'air_purifier',
@@ -325,18 +280,9 @@ export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 6,
     origin: ProposalOrigin.veka,
-    title: [
-      new TranslatedText('nl', 'Afbouw rundvee- en varkensstapel'),
-      new TranslatedText('en', 'Reduction of cattle and pig herds'),
-    ],
-    summary: [
-      new TranslatedText('nl', 'Afbouw van de rundvee- en de varkensstapel tegen 2030 vergeleken met 2021. Voor de varkensstapel zou het huidige reductietempo licht moeten versnellen, voor vleesvee zou het tempo moeten verdriedubbelen, en voor melkvee zou de stijgende trend volledig moeten worden omgekeerd. Vlaanderen zou tegen 2030 ca. 400.000 minder runderen hebben. Ingrijpen in de pluimveestapel heeft nauwelijks effect.'),
-      new TranslatedText('en', 'Reduction in cattle and pig herds by 2030 compared to 2021. For the pig herd, the current rate of reduction should accelerate slightly, for beef cattle the rate should triple, and for dairy cattle the upward trend should be completely reversed. Flanders would have about 400,000 fewer cattle by 2030. Intervention in the poultry population has little effect.')
-    ],
-    slug: [
-      new TranslatedText('nl', 'afbouw-rundvee-varkensstapel'),
-      new TranslatedText('en', 'reduction-cattle-pig-herds'),
-    ],
+    slugEn: 'reduction-cattle-pig-herds',
+    slugNl: 'afbouw-rundvee-varkensstapel',
+    slugFr: 'reduction-troupeaux-bovins-porcs',
     policyLevel: PolicyLevel.flemish,
     sector: Sector.agriculture,
     icon: 'agriculture',
@@ -399,18 +345,9 @@ export const PROPOSALS: ProposalDetail[] = [
   new ProposalDetail({
     id: 7,
     origin: ProposalOrigin.veka,
-    title: [
-      new TranslatedText('nl', 'Afbouw koolstofintensieve industrie'),
-      new TranslatedText('en', 'Phase-out carbon-intensive industry'),
-    ],
-    summary: [
-      new TranslatedText('nl', 'Afbouw activiteit van energie- en koolstofintensieve industrie, o.a. in de Antwerpse haven, door niet langer verstrekken vergunningen en fiscale ontmoediging.'),
-      new TranslatedText('en', 'Phase-out of carbon-intensive industry, e.g. in the port of Antwerp though revoking permissions or fiscal discouragement.')
-    ],
-    slug: [
-      new TranslatedText('nl', 'afbouw-carbon-intensive-industry'),
-      new TranslatedText('en', 'phase-out-carbon-intensive-industry'),
-    ],
+    slugEn: 'phase-out-carbon-intensive-industry',
+    slugNl: 'afbouw-carbon-intensive-industry',
+    slugFr: 'arret-progressif-industrie-intensive-carbone',
     policyLevel: PolicyLevel.flemish,
     sector: Sector.industry,
     ets: true,
@@ -501,21 +438,9 @@ export const PROPOSALS: ProposalDetail[] = [
     id: 10,
     origin: ProposalOrigin.unknown,
     ets: true,
-    title: [
-      new TranslatedText('nl', 'Verplicht weergeven koolstofvoetafdruk producten en diensten'),
-      new TranslatedText('fr', 'Obligation d\'affichage de l\'impact carbone des produits et services'),
-      new TranslatedText('en', 'Obligatory display of carbon footprint on products and services'),
-    ],
-    summary: [
-      new TranslatedText('nl', 'De federale overheid verplicht alle leveranciers van producten en diensten om weer te geven wat de koolstofvoetafdruk (en eventueel andere ecologische impact) is, zodat consumenten hier rekening mee kunnen houden.'),
-      new TranslatedText('en', 'The federal government requires all suppliers of products and services to display the carbon footprint (and optionally wider ecological impact), so consumers can take that into account.'),
-      new TranslatedText('fr', 'L’affichage de l’impact environnemental d’un produit nous paraît être un levier important de sensibilisation et d’information du consommateur. Ne souhaitant pas contraindre le consommateur dans ses choix, nous considérons qu’il est nécessaire de lui donner l’information appropriée à une prise de conscience de l’impact de ses choix afin de l’orienter vers des pratiques plus vertueuses.')
-    ],
-    slug: [
-      new TranslatedText('nl', 'obligatory-display-of-carbon-footprint-on-products-and-services'),
-      new TranslatedText('nl', 'verplicht-weergeven-koolstofvoetafdruk-producten-en-diensten'),
-      new TranslatedText('fr', 'obligation-d-affichage-de-l-impact-carbone-des-produits-et-services'),
-    ],
+    slugEn: 'obligatory-display-of-carbon-footprint-on-products-and-services',
+    slugNl: 'verplicht-weergeven-koolstofvoetafdruk-producten-en-diensten',
+    slugFr: 'obligation-d-affichage-de-l-impact-carbone-des-produits-et-services',
     policyLevel: PolicyLevel.federal,
     sector: Sector.industry,
     icon: 'nest_found_savings',

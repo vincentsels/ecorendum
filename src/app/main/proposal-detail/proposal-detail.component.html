@@ -1,6 +1,10 @@
 <div *ngIf="proposal" [class.page-container]="!dialog">
   <app-proposal-header [proposal]="proposal" [dialog]="dialog" (closeDialog)="closeDialog()"></app-proposal-header>
 
+  <h2 class="clear detail-section-header">{{ 'Summary' | translate }}</h2>
+
+  <p> {{ proposal | translateProp:'summary' | async }}</p>
+
   <div *ngIf="proposal.description">
     <h2 class="clear detail-section-header">{{ 'Description' | translate }}</h2>
 

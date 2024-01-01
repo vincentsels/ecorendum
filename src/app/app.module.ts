@@ -44,6 +44,7 @@ import { SelectContextDialogComponent } from './navbar/select-context-dialog/sel
 import { TranslateEnumPipe } from './common/translate-enum.pipe';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 import { InfoComponent } from './info/info.component';
+import { TranslateProposalProp } from './common/translate-proposal-prop';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -65,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateTextPipe,
     TranslateTextAsyncPipe,
     TranslateEnumPipe,
+    TranslateProposalProp,
     ResultsComponent,
     HelpWidgetComponent,
     CommonDialogComponent,

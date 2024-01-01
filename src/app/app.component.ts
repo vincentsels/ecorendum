@@ -17,7 +17,7 @@ export class AppComponent {
   constructor(languageService: LanguageService, titleService: Title, translate: TranslateService,
     matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer, injector: Injector) {
     const lang = <LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || 'nl';
-    translate.setDefaultLang('nl');
+    translate.setDefaultLang('en');
     languageService.setLanguage(lang);
     languageService.language.subscribe({
       next: lang => titleService.setTitle('Ecorendum - Choose your own policy')
