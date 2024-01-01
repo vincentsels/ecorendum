@@ -36,9 +36,7 @@ De gegevens die voor deze demowebsite worden gebruikt, zowel doelstellingen als 
 
 ### Doelstellingen
 
-- Het **wettelijke doel van 55% CO2-equivalente reductie**, en de resulterende absolute waarde van 
-
-34 Mt, werd berekend door VEKA en zou correct moeten zijn.
+- Het **wettelijke doel van 55% CO2-equivalente reductie**, en de resulterende absolute waarde van 34 Mt, werd berekend door VEKA en zou correct moeten zijn.
 
 - Het **Europese CO2-equivalente reductiedoel** is gebaseerd op het EU ESR-doel van 47% voor België. De federale overheid, Brussel en Wallonië erkennen allemaal deze 47%. Vlaanderen richt zich momenteel alleen op 42%, waardoor er nationaal een grote kloof overblijft. Zolang de verschillende regio's geen overeenstemming hebben bereikt over hoe ze de inspanningen moeten verdelen, gaat deze tool ervan uit dat Vlaanderen ook een reductie van 47% moet bereiken. In absolute waarde vertaalt dit zich in ongeveer 27 Mt aan CO2-equivalente reducties. Merk op dat dit in de Europese context alleen de ESR-sectoren omvat (wegvervoer, gebouwen, landbouw, kleine industrie, afvalbeheer), geen ETS-sectoren (elektriciteits- en warmteproductie, grote industrie, luchtvaart en maritiem transport).
 
@@ -94,9 +92,7 @@ Het probleem met een systeem waarin vertegenwoordigers worden **gekozen** die al
 
 #### Politieke partijen
 
-De opkomst van **politieke partijen** en het daaruit voortvloeiende partijpolitieke systeem, dat niet per se noodzakelijk is in een representatieve democratie (de Belgische grondwet vermeldt ze bijvoorbeeld helemaal niet) maar dat de facto bijna elke representatieve democratie heeft overgenomen, compliceert de zaken verder. Politieke partijen worden enorme soevereine entiteiten op zich, met slechts **één bestaansreden: herkozen worden**.
-
- Niet om met goed, verantwoord beleid te regeren; niet om burgers te beschermen of correct te informeren.
+De opkomst van **politieke partijen** en het daaruit voortvloeiende partijpolitieke systeem, dat niet per se noodzakelijk is in een representatieve democratie (de Belgische grondwet vermeldt ze bijvoorbeeld helemaal niet) maar dat de facto bijna elke representatieve democratie heeft overgenomen, compliceert de zaken verder. Politieke partijen worden enorme soevereine entiteiten op zich, met slechts **één bestaansreden: herkozen worden**. Niet om met goed, verantwoord beleid te regeren; niet om burgers te beschermen of correct te informeren.
 
 Politieke partijen spelen een **nulsomspel** waarin het verlies van de ene partij de winst van de andere betekent. Dit resulteert in een negatieve sfeer waarin partijen tegen elkaar werken in plaats van met elkaar; het resulteert in polarisatie en dogmatisme.
 
@@ -152,9 +148,7 @@ De Franse [Convention Citoyenne pour le Climat](https://www.conventioncitoyennep
 
 Klimaat burgerpanels hebben echter hun beperkingen.
 
-- Hoewel de deelnemende burgers goed geïnformeerd zijn en doorgaans de noodzaak van stringente actie erkennen, en
-
- hoewel zij *demografisch* de brede bevolking vertegenwoordigen waaruit zij willekeurig zijn geselecteerd, hebben zij niet de legitimiteit om te spreken namens de gehele bevolking, die niet betrokken is, noch in de deliberatieve fase van het samenstellen van maatregelen, noch in het beslissen over welk beleid daadwerkelijk wordt uitgevoerd.
+- Hoewel de deelnemende burgers goed geïnformeerd zijn en doorgaans de noodzaak van stringente actie erkennen, en hoewel zij *demografisch* de brede bevolking vertegenwoordigen waaruit zij willekeurig zijn geselecteerd, hebben zij niet de legitimiteit om te spreken namens de gehele bevolking, die niet betrokken is, noch in de deliberatieve fase van het samenstellen van maatregelen, noch in het beslissen over welk beleid daadwerkelijk wordt uitgevoerd.
 
 - De enige manier om legitiem verder te gaan met het resultaat van het klimaat burgerpanel is dus om het door te geven aan het traditionele partijpolitieke representatieve democratische systeem. De eerdergenoemde problemen spelen opnieuw een rol: politici zullen nog steeds aarzelen om stringente maatregelen op te leggen, uit angst voor electoraal verlies. Dit is wat er in Frankrijk gebeurde, waar de regering uiteindelijk [53% van de voorstellen volledig heeft overgenomen](https://reporterre.net/Convention-pour-le-climat-seules-10-des-propositions-ont-ete-reprises-par-le-gouvernement).
 

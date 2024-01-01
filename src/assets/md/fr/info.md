@@ -104,9 +104,7 @@ Les partis politiques jouent un **jeu à somme nulle** dans lequel la perte d'un
 
 Les défis écologiques tels que la maîtrise du changement climatique ou la préservation de la biodiversité, afin de maintenir la terre dans un état écologique qui a permis à l'homme (et à d'autres formes de vie) de prospérer, sont particulièrement difficiles à résoudre dans ce système :
 
-- **Coordination et coopération mondiales** : La gestion efficace des probl
-
-èmes écologiques mondiaux nécessite des niveaux de coopération internationale sans précédent, souvent entravés par des priorités politiques, économiques et culturelles différentes.
+- **Coordination et coopération mondiales** : La gestion efficace des problèmes écologiques mondiaux nécessite des niveaux de coopération internationale sans précédent, souvent entravés par des priorités politiques, économiques et culturelles différentes.
 
 - **Compromis économiques et sociaux** : Les politiques visant à préserver l'écologie entrent souvent en conflit avec la croissance économique à court terme et le bien-être social, entraînant la résistance de diverses parties prenantes.
 
@@ -160,9 +158,7 @@ Cependant, les assemblées climatiques ont leurs limites.
 
 Idéalement, l'ensemble des mesures doit toujours être source de manière délibérative, comme dans les assemblées climatiques, pour les raisons mentionnées ci-dessus. Cependant, **l'ensemble de la société civile** devrait avoir la chance de **participer à la création de la liste des mesures**. Les groupes de réflexion, les universités, les ONG, les groupes de pression et les citoyens intéressés ou experts devraient avoir la possibilité de participer.
 
-Le faire 'hors ligne' n'est pas possible sans un système de représentation/délégation ; soit par des élections, soit par tirage au sort. Cependant, **internet** permet à [la grande et toujours croissante majorité](https://statbel.fgov.be/en/themes/households/ict-usage-households) des citoyens de participer. Cela doit se faire d'une manière qui encourage des contributions qualitatives et respectueuses, et cela doit être modéré de manière approfondie et juste. Des décennies d'expérience (notamment dans le monde du développement logiciel) nous ont
-
- appris comment cela peut être fait, grâce au crowdsourcing.
+Le faire 'hors ligne' n'est pas possible sans un système de représentation/délégation ; soit par des élections, soit par tirage au sort. Cependant, **internet** permet à [la grande et toujours croissante majorité](https://statbel.fgov.be/en/themes/households/ict-usage-households) des citoyens de participer. Cela doit se faire d'une manière qui encourage des contributions qualitatives et respectueuses, et cela doit être modéré de manière approfondie et juste. Des décennies d'expérience (notamment dans le monde du développement logiciel) nous ont appris comment cela peut être fait, grâce au crowdsourcing.
 
 Cependant, étant donné l'échéance difficile de 2030, il se peut qu'il n'y ait pas assez de temps pour composer de manière délibérative une liste de mesures. Heureusement, dans le contexte de la Belgique, de nombreuses **institutions ont déjà beaucoup réfléchi** sur la manière de réduire les émissions. L'outil pourrait partir de telles listes de mesures, tant que leur impact est calculé. Ensuite, plusieurs collections de mesures, ou '**ensembles**', peuvent être compilées, qui idéalement, dans leur ensemble, atteignent les objectifs requis.
 
