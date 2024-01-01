@@ -2,7 +2,7 @@
 
 This website demonstrates a possible new way in which governments could poll their citizens about which policy measures they should adopt in order to meet multiple imposed ecological targets.
 
-This is *not yet* a real government initiative. The data is *not yet* completely accurate. It is currently in a state used to shocase the concept, in order to find partners to turn it into a reality.
+This is *not yet* a real government initiative. The data is *not yet* completely accurate. It is currently in a state used to showcase the concept, in order to find partners to turn it into a reality.
 
 This tool is currently just the 'front-end' of the website; it is not connected to a database; it is not possible to actually 'submit' your selection of measures.
 
@@ -156,9 +156,11 @@ Ideally, the set of measures is still sourced deliberatively, such as in climate
 
 Doing that 'offline' is not possible without a system of representation/delegation; either through elections or sortition. However, **the internet** allows [the vast and ever increasing majority](https://statbel.fgov.be/en/themes/households/ict-usage-households) of citizens to participate. This must be done in a way that encourages qualitative, respectful contributions, and it should be thoroughly and justly moderated. Decades of experience (notably in the software development world) has taught us how this can be done, through crowd-sourcing.
 
-However, given the challenging deadline of 2030, there may not be enough time to deliberatively compose a list of measures. Luckily, in the context of Belgium, many **institutions have already given a lot of though** on how to reduce emissions. The tool could start from such lists of measures, as long as their impact is calculated. Next, multiple collections of measures, or '**sets**', can be compiled, which as a whole ideally achieve the required targets.
+However, given the challenging deadline of 2030, there may not be enough time to deliberatively compose a list of measures. Luckily, in the context of Belgium, many **institutions have already given a lot of though** on how to reduce emissions. The tool could start from such lists of measures, as long as their impact is calculated. Next, multiple collections of measures, or '**sets**', can be compiled, which ideally, as a whole, achieve the required targets.
 
-Finally, the tool allows for **the entire population** to be involved in **choosing the set of measures**, or 'rating ranking' them. While being extremely democratic, it moves this difficult exercise entirely out of the hands of the party-political system, which does thus not have to fear electoral repercussions.
+Finally, the tool allows for **the entire population** to be involved in **choosing the set of measures**, or 'rating and ranking' them. Hence the name **preferendum**: a referendum which gauges the *preferences* of the population, rather than just asking one polarizing yes/no question.
+
+While remaining entirely democratic, it moves this difficult exercise entirely out of the hands of the party-political system, which does thus not have to fear electoral repercussions.
 
 Additionally, the stringent targets come from **outside of the party-political sphere** (namely, the already agreed upon frameworks by the UN and EU, and a judicial ruling). Political parties can still give their voters a set of measures that most aligns with what they believe will prefer ideologically, which can guide their electorate in their choice. At least, the set of selected measures of each of the political parties will, finally, **have to be sufficient** to meet the targets, or, if not, it will be very visible, and the negative repercussians made clear.
 

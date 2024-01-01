@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LanguageService } from '../common/language.service';
 
 @Component({
   selector: 'app-info',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './info.component.css'
 })
 export class InfoComponent {
-
+  constructor(public languageService: LanguageService) {}
 }
