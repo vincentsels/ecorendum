@@ -11,10 +11,23 @@ import { Proposal } from '../main/proposal';
 export class TranslateProposalProp implements PipeTransform {
   constructor(private translateService: TranslateService) {}
 
-  transform(proposal: Proposal | ProposalDetail, propertyName: TranslatableProperty): Observable<string> {
+  transform(proposal?: Proposal | ProposalDetail, propertyName?: TranslatableProperty, variantNumber?: number): Observable<string> {
     if (!proposal) return from('');
+    if (!propertyName) return from('');
 
-    const translationObservable = this.translateService.get('proposals.' + proposal.slugEn + '.' + propertyName);
+    let translationObservable = null;
+
+    if (propertyName === 'variant.summary' || propertyName === 'variant.title') {
+      if (!variantNumber) {
+        throw new Error('When specifying a variant property to translate, also specify its number');
+      }
+
+      const variantPropertyName = propertyName.split('.')[1];
+
+      translationObservable = this.translateService.get('proposals.' + proposal.slugEn + '.variants.' + variantNumber + '.' + variantPropertyName);
+    } else {
+      translationObservable = this.translateService.get('proposals.' + proposal.slugEn + '.' + propertyName);
+    }
 
     return combineLatest([
       translationObservable, this.translateService.onLangChange.pipe(startWith(null))])
@@ -24,4 +37,4 @@ export class TranslateProposalProp implements PipeTransform {
   }
 }
 
-export type TranslatableProperty = 'title' | 'summary' | 'description'
+export type TranslatableProperty = 'title' | 'summary' | 'description' | 'variant.title' | 'variant.summary'

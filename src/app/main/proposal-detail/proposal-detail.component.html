@@ -15,10 +15,10 @@
 
   <div class="variant-list">
     <mat-card class="variant" *ngFor="let variant of proposal.variants">
-      <h3 *ngIf="proposal.variants.length > 1">{{ variant.ambitionLevel }} - {{ variant.title | translateText }}</h3>
+      <h3 *ngIf="proposal.variants.length > 1">{{ variant.ambitionLevel }} - {{ proposal | translateProp:'variant.title':variant.ambitionLevel| async }}</h3>
 
       <div class="variant-body">
-        <p *ngIf="proposal.variants.length > 1">{{ variant.description | translateText }}</p>
+        <p *ngIf="proposal.variants.length > 1">{{ proposal | translateProp:'variant.summary':variant.ambitionLevel| async }}</p>
 
         <div class="variant-body-numbers" fxLayout fxLayoutGap="12px">
           <div>
@@ -81,7 +81,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <p *ngIf="opinion.selected && proposal.variants.length > 1 && getVariant(opinion.variant || 0); let variant">{{ variant.title | translateText }}</p>
+        <p *ngIf="opinion.selected && proposal.variants.length > 1 && getVariant(opinion.variant || 0); let variant">{{ proposal | translateProp:'variant.title':variant.ambitionLevel| async }}</p>
 
         <p>{{ opinion.opinion | translateText }}</p>
 

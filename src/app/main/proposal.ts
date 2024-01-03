@@ -105,8 +105,6 @@ export class Variant {
   }
 
   ambitionLevel: number = 1;
-  title: TranslatedText[] = [];
-  description: TranslatedText[] = [];
   targets: Target[] = [];
   costInitial: number = 0;
   costPerYearFixed: number = 0;

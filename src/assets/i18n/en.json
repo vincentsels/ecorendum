@@ -173,23 +173,84 @@
     },
     "phase-out-internal-combustion-engines": {
       "title": "Phase-out purchase of internal combustion engines",
-      "summary": "The federal government forbids the sale of personal and transport transport vehicles with internal combustion engines. These can still be bought and sold on the second hand market."
+      "summary": "The federal government forbids the sale of personal and transport transport vehicles with internal combustion engines. These can still be bought and sold on the second hand market.",
+      "variants": {
+        "1": {
+          "title": "Starting 2028",
+          "summary": "In this scenario, it will only be forbidden to sell vehicles with an internal combustion engine starting in 2028."
+        },
+        "2": {
+          "title": "Starting 2026",
+          "summary": "In this more ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2026."
+        },
+        "3": {
+          "title": "Starting 2024",
+          "summary": "In this ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2024."
+        }
+      }
     },
     "phase-out-gas-fuel-oil-boilers": {
       "title": "Phase-out purchase of gas and fuel oil boilers",
-      "summary": "The federal government forbids the sale and installation of gas and fuel oil boilers."
+      "summary": "The federal government forbids the sale and installation of gas and fuel oil boilers.",
+      "variants": {
+        "1": {
+          "title": "Starting 2028",
+          "summary": "In this scenario, it will only be forbidden to sell vehicles with an gas and fuel oil boilers starting in 2028."
+        },
+        "2": {
+          "title": "Starting 2026",
+          "summary": "In this more ambitious scenario, it will be forbidden to sell vehicles with an gas and fuel oil boilers starting in 2026."
+        },
+        "3": {
+          "title": "Starting 2024",
+          "summary": "In this scenario, it will be forbidden to sell vehicles with an gas and fuel oil boilers starting in 2024."
+        }
+      }
     },
     "reduction-cattle-pig-herds": {
       "title": "Reduction of cattle and pig herds",
-      "summary": "Reduction in cattle and pig herds by 2030 compared to 2021. For the pig herd, the current rate of reduction should accelerate slightly, for beef cattle the rate should triple, and for dairy cattle the upward trend should be completely reversed. Flanders would have about 400,000 fewer cattle by 2030. Intervention in the poultry population has little effect."
+      "summary": "Reduction in cattle and pig herds by 2030 compared to 2021. For the pig herd, the current rate of reduction should accelerate slightly, for beef cattle the rate should triple, and for dairy cattle the upward trend should be completely reversed. Flanders would have about 400,000 fewer cattle by 2030. Intervention in the poultry population has little effect.",
+      "variants": {
+        "1": {
+          "title": "30% reduction"
+        },
+        "2": {
+          "title": "60% reduction"
+        }
+      }
     },
     "phase-out-carbon-intensive-industry": {
       "title": "Phase-out carbon-intensive industry",
-      "summary": "Phase-out of carbon-intensive industry, e.g. in the port of Antwerp though revoking permissions or fiscal discouragement."
+      "summary": "Phase-out of carbon-intensive industry, e.g. in the port of Antwerp though revoking permissions or fiscal discouragement.",
+      "variants": {
+        "1": {
+          "title": "10% reduction"
+        },
+        "2": {
+          "title": "20% reduction"
+        },
+        "3": {
+          "title": "30% reduction"
+        }
+      }
     },
     "obligatory-display-of-carbon-footprint-on-products-and-services": {
       "title": "Obligatory display of carbon footprint on products and services",
-      "summary": "The federal government requires all suppliers of products and services to display the carbon footprint (and optionally wider ecological impact), so consumers can take that into account."
+      "summary": "The federal government requires all suppliers of products and services to display the carbon footprint (and optionally wider ecological impact), so consumers can take that into account.",
+      "variants": {
+        "1": {
+          "title": "Starting 2025, limited",
+          "summary": "In this scenario, warehouses are only required to start applying the eco-score starting in 2025, the footprint is only limited to CO2-emissions, and only food and consumable products have to be labeled."
+        },
+        "2": {
+          "title": "Starting 2024, limited, eco-score",
+          "summary": "In this more ambitious scenario, warehouses are required to start applying the eco-score starting in 2024, the footprint not only limited to CO2-emissions but also a couple of other ecological impacts such as potential biodiversity loss. Only food and consumable products must be labeled."
+        },
+        "3": {
+          "title": "Starting 2024, complete, eco-score",
+          "summary": "In this scenario, warehouses are required to start applying the eco-score starting in 2023, the footprint not only limited to CO2-emissions but also its exhaustive ecological and social impact. All products must be labeled (albeit with different starting dates as feasible for the sector)."
+        }
+      }
     }
   }
 }

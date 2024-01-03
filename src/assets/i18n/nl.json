@@ -160,36 +160,97 @@
 
   "proposals": {
     "extra-measures-vekp": {
-      "title": "Extra maatregelen VEKP",
-      "summary": "De extra maatregelen reeds opgenomen in het Vlaams Energie- en Klimaatplan (VEKP). Dit wordt ook het 'With additional measures' (WAM) scenario genoemd."
+      "title": "Aanvullende maatregelen VEKP",
+      "summary": "De aanvullende maatregelen zoals momenteel al opgenomen in het Vlaams Energie & Klimaatplan (VEKP). Ook wel het 'Met aanvullende maatregelen' (WAM) scenario genoemd."
     },
     "dri-installation-arcelor": {
-      "title": "DRI installatie Arcelor",
-      "summary": "ArcelorMittal Belgium zal de CO2-uitstoot tegen 2030 met ongeveer 3,9 miljoen ton per jaar verminderen door de bouw van een installatie voor direct gereduceerd ijzer (DRI) met een capaciteit van 2,5 miljoen ton en twee elektrische ovens in de vestiging in Gent. Deze zullen parallel met de state-of-the-arthoogoven werken die klaar is om afvalhout en plastics te gebruiken als alternatief voor fossiele koolstof."
+      "title": "DRI-installatie Arcelor",
+      "summary": "ArcelorMittal België zal de CO2-uitstoot met 3,9 miljoen ton per jaar verminderen tegen 2030, door de bouw van een 2,5 miljoen ton direct gereduceerde ijzer (DRI) installatie en twee elektrische ovens op haar site in Gent, om naast haar ultramoderne hoogoven te werken die klaar is om afvalhout en plastics als vervanging voor fossiele koolstof te gebruiken."
     },
     "ccs-projects": {
-      "title": "CSS projecten",
-      "summary": "Koolstofopvang- en opslag (in het Engels Carbon Capture & Storage of afgekort CCS) projecten bij o.a. BASF en Air Liquide, met verdere uitbreiding naar andere bedrijven."
+      "title": "CSS-projecten",
+      "summary": "Carbon capture & storage projecten bij BASF, Air Liquide, en in de toekomst andere bedrijven."
     },
     "phase-out-internal-combustion-engines": {
-      "title": "Uitfasering aankoop fossiele verbrandingsmotoren",
-      "summary": "De federale overheid verbiedt de verkoop van personen- en bestel- en vrachtwagens met een verbrandingsmotor. Op de tweedehandsmarkt kunnen deze wagens wel nog verkocht worden."
+      "title": "Uitfasering aankoop van verbrandingsmotoren",
+      "summary": "De federale overheid verbiedt de verkoop van persoonlijke en transportvoertuigen met verbrandingsmotoren. Deze kunnen nog steeds gekocht en verkocht worden op de tweedehandsmarkt.",
+      "variants": {
+        "1": {
+          "title": "Vanaf 2028",
+          "summary": "In dit scenario is het pas verboden om voertuigen met een verbrandingsmotor te verkopen vanaf 2028."
+        },
+        "2": {
+          "title": "Vanaf 2026",
+          "summary": "In dit ambitieuzere scenario is het verboden om voertuigen met een verbrandingsmotor te verkopen vanaf 2026."
+        },
+        "3": {
+          "title": "Vanaf 2024",
+          "summary": "In dit ambitieuze scenario is het verboden om voertuigen met een verbrandingsmotor te verkopen vanaf 2024."
+        }
+      }
     },
     "phase-out-gas-fuel-oil-boilers": {
-      "title": "Uitfasering aankoop gas- en stookolieketels",
-      "summary": "De federale overheid verbiedt de verkoop en installatie van gas- en stookolieketels voor nieuwe gebouwen en renovaties."
+      "title": "Uitfasering aankoop van gas- en stookolieketels",
+      "summary": "De federale overheid verbiedt de verkoop en installatie van gas- en stookolieketels.",
+      "variants": {
+        "1": {
+          "title": "Vanaf 2028",
+          "summary": "In dit scenario is het pas verboden om voertuigen met gas- en stookolieketels te verkopen vanaf 2028."
+        },
+        "2": {
+          "title": "Vanaf 2026",
+          "summary": "In dit ambitieuzere scenario is het verboden om voertuigen met gas- en stookolieketels te verkopen vanaf 2026."
+        },
+        "3": {
+          "title": "Vanaf 2024",
+          "summary": "In dit scenario is het verboden om voertuigen met gas- en stookolieketels te verkopen vanaf 2024."
+        }
+      }
     },
     "reduction-cattle-pig-herds": {
-      "title": "Afbouw rundvee- en varkensstapel",
-      "summary": "Afbouw van de rundvee- en de varkensstapel tegen 2030 vergeleken met 2021. Voor de varkensstapel zou het huidige reductietempo licht moeten versnellen, voor vleesvee zou het tempo moeten verdriedubbelen, en voor melkvee zou de stijgende trend volledig moeten worden omgekeerd. Vlaanderen zou tegen 2030 ca. 400.000 minder runderen hebben. Ingrijpen in de pluimveestapel heeft nauwelijks effect."
+      "title": "Vermindering van rund- en varkensstapels",
+      "summary": "Vermindering van de rund- en varkensstapels tegen 2030 in vergelijking met 2021. Voor de varkensstapel moet het huidige verminderingstempo licht versnellen, voor vleesrund moet het tempo verdrievoudigen, en voor melkvee moet de stijgende trend volledig omgekeerd worden. Vlaanderen zou tegen 2030 ongeveer 400.000 minder runderen hebben. Ingrijpen in de pluimveepopulatie heeft weinig effect.",
+      "variants": {
+        "1": {
+          "title": "30% afbouw"
+        },
+        "2": {
+          "title": "60% afbouw"
+        }
+      }
     },
     "phase-out-carbon-intensive-industry": {
-      "title": "Afbouw koolstofintensieve industrie",
-      "summary": "Afbouw activiteit van energie- en koolstofintensieve industrie, o.a. in de Antwerpse haven, door niet langer verstrekken vergunningen en fiscale ontmoediging."
+      "title": "Uitfasering koolstofintensieve industrie",
+      "summary": "Uitfasering van koolstofintensieve industrie, bijvoorbeeld in de haven van Antwerpen door het intrekken van vergunningen of fiscale ontmoediging.",
+      "variants": {
+        "1": {
+          "title": "10% afbouw"
+        },
+        "2": {
+          "title": "20% afbouw"
+        },
+        "3": {
+          "title": "30% afbouw"
+        }
+      }
     },
     "obligatory-display-of-carbon-footprint-on-products-and-services": {
-      "title": "Verplicht weergeven koolstofvoetafdruk producten en diensten",
-      "summary": "De federale overheid verplicht alle leveranciers van producten en diensten om weer te geven wat de koolstofvoetafdruk (en eventueel andere ecologische impact) is, zodat consumenten hier rekening mee kunnen houden."
+      "title": "Verplichte weergave van de koolstofvoetafdruk op producten en diensten",
+      "summary": "De federale overheid eist dat alle leveranciers van producten en diensten de koolstofvoetafdruk (en eventueel bredere ecologische impact) weergeven, zodat consumenten daar rekening mee kunnen houden.",
+      "variants": {
+        "1": {
+          "title": "Vanaf 2025, beperkt",
+          "summary": "In dit scenario zijn magazijnen pas verplicht om de eco-score vanaf 2025 toe te passen, de voetafdruk beperkt zich alleen tot CO2-uitstoot, en alleen voedsel- en verbruiksproducten moeten worden gelabeld."
+        },
+        "2": {
+          "title": "Vanaf 2024, beperkt, eco-score",
+          "summary": "In dit ambitieuzere scenario zijn magazijnen verplicht om de eco-score vanaf 2024 toe te passen, de voetafdruk is niet alleen beperkt tot CO2-uitstoot maar ook een aantal andere ecologische impacts zoals potentieel biodiversiteitsverlies. Alleen voedsel- en verbruiksproducten moeten worden gelabeld."
+        },
+        "3": {
+          "title": "Vanaf 2024, compleet, eco-score",
+          "summary": "In dit scenario zijn magazijnen verplicht om de eco-score vanaf 2023 toe te passen, de voetafdruk is niet alleen beperkt tot CO2-uitstoot maar ook de uitgebreide ecologische en sociale impact. Alle producten moeten worden gelabeld (hoewel met verschillende startdata haalbaar voor de sector)."
+        }
+      }
     }
   }
 }

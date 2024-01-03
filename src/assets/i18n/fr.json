@@ -161,35 +161,96 @@
   "proposals": {
     "extra-measures-vekp": {
       "title": "Mesures supplémentaires VEKP",
-      "summary": "Les mesures supplémentaires telles que déjà incluses dans le plan flamand Énergie & Climat (VEKP). Également appelé scénario 'Avec mesures supplémentaires' (WAM)."
+      "summary": "Les mesures supplémentaires telles qu'elles sont déjà incluses dans le plan Flamand de l'Énergie et du Climat (VEKP). Également appelé scénario 'Avec mesures supplémentaires' (WAM)."
     },
     "dri-installation-arcelor": {
       "title": "Installation DRI Arcelor",
-      "summary": "ArcelorMittal Belgique réduira les émissions de CO2 de 3,9 millions de tonnes par an d'ici 2030, en construisant une usine de fer réduit direct (DRI) de 2,5 millions de tonnes et deux fours électriques sur son site de Gand, pour fonctionner aux côtés de son haut fourneau de pointe prêt à accepter les déchets de bois et plastiques comme substitut au carbone fossile."
+      "summary": "ArcelorMittal Belgique réduira ses émissions de CO2 de 3,9 millions de tonnes par an d'ici 2030, en construisant une usine de fer réduit direct (DRI) de 2,5 millions de tonnes et deux fours électriques sur son site de Gand, pour fonctionner aux côtés de son haut-fourneau de pointe prêt à utiliser des déchets de bois et de plastiques comme substitut au carbone fossile."
     },
     "ccs-projects": {
       "title": "Projets CSS",
-      "summary": "Projets de capture et stockage du carbone chez BASF, Air Liquide, et à l'avenir dans d'autres entreprises."
+      "summary": "Projets de capture et de stockage du carbone chez BASF, Air Liquide, et à l'avenir d'autres entreprises."
     },
     "phase-out-internal-combustion-engines": {
       "title": "Arrêt de l'achat de moteurs à combustion interne",
-      "summary": "Le gouvernement fédéral interdit la vente de véhicules de transport personnel et de transport avec des moteurs à combustion interne. Ces derniers peuvent encore être achetés et vendus sur le marché de l'occasion."
+      "summary": "Le gouvernement fédéral interdit la vente de véhicules personnels et de transport avec des moteurs à combustion interne. Ces derniers peuvent encore être achetés et vendus sur le marché de l'occasion.",
+      "variants": {
+        "1": {
+          "title": "À partir de 2028",
+          "summary": "Dans ce scénario, il sera interdit de vendre des véhicules avec un moteur à combustion interne à partir de 2028."
+        },
+        "2": {
+          "title": "À partir de 2026",
+          "summary": "Dans ce scénario plus ambitieux, il sera interdit de vendre des véhicules avec un moteur à combustion interne à partir de 2026."
+        },
+        "3": {
+          "title": "À partir de 2024",
+          "summary": "Dans ce scénario ambitieux, il sera interdit de vendre des véhicules avec un moteur à combustion interne à partir de 2024."
+        }
+      }
     },
     "phase-out-gas-fuel-oil-boilers": {
       "title": "Arrêt de l'achat de chaudières à gaz et à mazout",
-      "summary": "Le gouvernement fédéral interdit la vente et l'installation de chaudières à gaz et à mazout."
+      "summary": "Le gouvernement fédéral interdit la vente et l'installation de chaudières à gaz et à mazout.",
+      "variants": {
+        "1": {
+          "title": "À partir de 2028",
+          "summary": "Dans ce scénario, il sera interdit de vendre des véhicules avec des chaudières à gaz et à mazout à partir de 2028."
+        },
+        "2": {
+          "title": "À partir de 2026",
+          "summary": "Dans ce scénario plus ambitieux, il sera interdit de vendre des véhicules avec des chaudières à gaz et à mazout à partir de 2026."
+        },
+        "3": {
+          "title": "À partir de 2024",
+          "summary": "Dans ce scénario, il sera interdit de vendre des véhicules avec des chaudières à gaz et à mazout à partir de 2024."
+        }
+      }
     },
     "reduction-cattle-pig-herds": {
       "title": "Réduction des troupeaux de bovins et de porcs",
-      "summary": "Réduction des troupeaux de bovins et de porcs d'ici 2030 par rapport à 2021. Pour le troupeau de porcs, le taux actuel de réduction devrait légèrement s'accélérer, pour les bovins de boucherie le taux devrait tripler, et pour les bovins laitiers la tendance à la hausse devrait être complètement inversée. La Flandre aurait environ 400 000 bovins de moins d'ici 2030. L'intervention dans la population de volailles a peu d'effet."
+      "summary": "Réduction des troupeaux de bovins et de porcs d'ici 2030 par rapport à 2021. Pour le troupeau de porcs, le taux actuel de réduction devrait légèrement s'accélérer, pour les bovins de boucherie, le taux devrait tripler, et pour les bovins laitiers, la tendance à la hausse devrait être complètement inversée. La Flandre aurait environ 400 000 bovins de moins d'ici 2030. L'intervention dans la population de volailles a peu d'effet.",
+      "variants": {
+        "1": {
+          "title": "Réduction de 30%"
+        },
+        "2": {
+          "title": "Réduction de 60%"
+        }
+      }
     },
     "phase-out-carbon-intensive-industry": {
       "title": "Arrêt de l'industrie à forte intensité de carbone",
-      "summary": "Arrêt de l'industrie à forte intensité de carbone, par exemple dans le port d'Anvers en révoquant les autorisations ou par découragement fiscal."
+      "summary": "Arrêt de l'industrie à forte intensité de carbone, par exemple dans le port d'Anvers en révoquant les autorisations ou en décourageant fiscalement.",
+      "variants": {
+        "1": {
+          "title": "Réduction de 10%"
+        },
+        "2": {
+          "title": "Réduction de 20%"
+        },
+        "3": {
+          "title": "Réduction de 30%"
+        }
+      }
     },
     "obligatory-display-of-carbon-footprint-on-products-and-services": {
       "title": "Affichage obligatoire de l'empreinte carbone sur les produits et services",
-      "summary": "Le gouvernement fédéral exige que tous les fournisseurs de produits et services affichent l'empreinte carbone (et éventuellement l'impact écologique plus large), afin que les consommateurs puissent en tenir compte."
+      "summary": "Le gouvernement fédéral exige que tous les fournisseurs de produits et services affichent l'empreinte carbone (et éventuellement l'impact écologique plus large), afin que les consommateurs puissent en tenir compte.",
+      "variants": {
+        "1": {
+          "title": "À partir de 2025, limité",
+          "summary": "Dans ce scénario, les entrepôts ne sont tenus de commencer à appliquer l'éco-score qu'à partir de 2025, l'empreinte se limitant uniquement aux émissions de CO2, et seuls les produits alimentaires et consommables doivent être étiquetés."
+        },
+        "2": {
+          "title": "À partir de 2024, limité, éco-score",
+          "summary": "Dans ce scénario plus ambitieux, les entrepôts sont tenus de commencer à appliquer l'éco-score à partir de 2024, l'empreinte ne se limitant pas uniquement aux émissions de CO2 mais aussi à quelques autres impacts écologiques tels que la perte potentielle de biodiversité. Seuls les produits alimentaires et consommables doivent être étiquetés."
+        },
+        "3": {
+          "title": "À partir de 2024, complet, éco-score",
+          "summary": "Dans ce scénario, les entrepôts sont tenus de commencer à appliquer l'éco-score à partir de 2023, l'empreinte ne se limitant pas uniquement aux émissions de CO2 mais aussi à son impact écologique et social exhaustif. Tous les produits doivent être étiquetés (bien que avec des dates de début différentes selon la faisabilité pour le secteur)."
+        }
+      }
     }
   }
 }
