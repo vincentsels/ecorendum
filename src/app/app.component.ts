@@ -8,6 +8,8 @@ import { HelpWidgetComponent } from './common/help-widget.component';
 import { LanguageService, LOCAL_STORAGE_KEY_LANGUAGE } from './common/language.service';
 import { LanguageType } from './main/proposal';
 
+const defaultLang: LanguageType = 'en';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,8 +18,8 @@ import { LanguageType } from './main/proposal';
 export class AppComponent {
   constructor(languageService: LanguageService, titleService: Title, translate: TranslateService,
     matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer, injector: Injector) {
-    const lang = <LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || 'nl';
-    translate.setDefaultLang('en');
+    const lang = <LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || defaultLang;
+    translate.setDefaultLang(defaultLang);
     languageService.setLanguage(lang);
     languageService.language.subscribe({
       next: lang => titleService.setTitle('Ecorendum - Choose your own policy')
