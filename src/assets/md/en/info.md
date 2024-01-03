@@ -94,9 +94,7 @@ The rise of **political parties** and the resulting party-political system, whic
 
 Political parties play a **zero-sum game** in which the loss of one party equals the gain of another. This results in a negative atmosphere where parties work against each other rather than alongside each other; it results in polarization and dogmatism.
 
-### The difficulties of ecological policy
-
-> ***Note**: This paragraph was written with the help of ChatGPT.*
+### The difficulties of ecological policy [1]
 
 Ecological challenges such as controlling climate change or preserving biodiversity, in order to maintain the earth in an ecological state which has allowed human (and other life) to flourish, are particularly difficult to solve in this system:
 
@@ -108,9 +106,7 @@ Ecological challenges such as controlling climate change or preserving biodivers
 
 - **Temporal Mismatch**: The effects of ecological policies and actions are often delayed, making it difficult to establish a direct cause-effect relationship and maintain public and political support.
 
-### Europe's answer
-
-> ***Note**: This paragraph was written with the help of ChatGPT.*
+### Europe's answer [1]
 
 In response to these challenges, the European Union (EU) has adopted a strategy of setting **binding targets for its member states** in an effort to achieve collective ecological goals. These targets are part of a broader regulatory framework that includes the European Green Deal, aimed at making the EU's economy sustainable by turning climate and environmental challenges into opportunities.
 
@@ -118,9 +114,7 @@ The imposition of targets, such as those for reducing greenhouse gas emissions, 
 
 This approach also includes punitive measures for non-compliance, which serves as a deterrent against inaction.
 
-### Judiciary answer
-
-> ***Note**: This paragraph was written with the help of ChatGPT.*
+### Judiciary answer [1]
 
 In addition to policy and collaborative efforts, Europe is increasingly witnessing the use of judicial action as a means to enforce ecological commitments, exemplified by the rise of 'climate cases'. These legal challenges are brought by citizens, NGOs, and other groups against governments, arguing that the state's inaction or insufficient action on climate change violates existing laws or constitutional rights.
 
@@ -132,9 +126,7 @@ Similarly, in Belgium, the above mentioned [Klimaatzaak](https://www.klimaatzaak
 
 The problem with such 'climate cases' however is that a judge can only say *what* the country's governments should achieve, but not *how*. If political parties still do not dare to fill in the *how*, or do not take sufficient measures, out of a fear of electoral loss, the society is no step further.
 
-### Climate assemblies as answer
-
-> ***Note**: This paragraph was written with the help of ChatGPT.*
+### Climate assemblies as answer [1]
 
 [Climate assemblies](https://knoca.eu/what-is-a-climate-assembly/) on the other hand offer a new (or rather, [very old](https://en.wikipedia.org/wiki/Deliberative_democracy#History)) democratic tool, out of party politicians' hands, to come up with the *how* of meeting ecological targets.
 
@@ -181,3 +173,5 @@ Ideally, this tool will force all traditional political parties during the Belgi
 Afterwards, once this concept gets officially adopted by the government, to launch an official preferendum to gauge the entire population's preferences, this implementation can serve as a starting point. The code is open source and can be reused, or it can just serve as inspiration.
 
 The public at large, and in particular this website's authors, will continue to evaluate the quality of the official tool, by comparing it with this demo tool.
+
+> *[1] These paragraphs were written with the help of ChatGPT*

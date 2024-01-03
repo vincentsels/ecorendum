@@ -98,9 +98,7 @@ L'émergence de **partis politiques** et du système parti-politique qui en rés
 
 Les partis politiques jouent un **jeu à somme nulle** dans lequel la perte d'un parti équivaut au gain d'un autre. Cela entraîne une atmosphère négative où les partis travaillent les uns contre les autres plutôt qu'ensemble ; cela résulte en polarisation et dogmatisme.
 
-### Les difficultés de la politique écologique
-
-> ***Note** : Ce paragraphe a été écrit avec l'aide de ChatGPT.*
+### Les difficultés de la politique écologique [1]
 
 Les défis écologiques tels que la maîtrise du changement climatique ou la préservation de la biodiversité, afin de maintenir la terre dans un état écologique qui a permis à l'homme (et à d'autres formes de vie) de prospérer, sont particulièrement difficiles à résoudre dans ce système :
 
@@ -112,9 +110,7 @@ Les défis écologiques tels que la maîtrise du changement climatique ou la pr�
 
 - **Inadéquation temporelle** : Les effets des politiques et actions écologiques sont souvent retardés, rendant difficile d'établir une relation de cause à effet directe et de maintenir le soutien public et politique.
 
-### La réponse de l'Europe
-
-> ***Note** : Ce paragraphe a été écrit avec l'aide de ChatGPT.*
+### La réponse de l'Europe [1]
 
 En réponse à ces défis, l'Union Européenne (UE) a adopté une stratégie consistant à fixer des **objectifs contraignants pour ses États membres** dans le but d'atteindre des objectifs écologiques collectifs. Ces objectifs font partie d'un cadre réglementaire plus large qui comprend le Pacte vert européen, visant à rendre l'économie de l'UE durable en transformant les défis climatiques et environnementaux en opportunités.
 
@@ -122,9 +118,7 @@ L'imposition d'objectifs, tels que ceux visant à réduire les émissions de gaz
 
 Cette approche comprend également des mesures punitives en cas de non-conformité, ce qui sert de dissuasion contre l'inaction.
 
-### Réponse judiciaire
-
-> ***Note** : Ce paragraphe a été écrit avec l'aide de ChatGPT.*
+### Réponse judiciaire [1]
 
 En plus des politiques et des efforts collaboratifs, l'Europe assiste de plus en plus à l'utilisation de l'action judiciaire comme moyen de faire respecter les engagements écologiques, illustrée par la montée des 'affaires climatiques'. Ces défis juridiques sont portés par des citoyens, des ONG et d'autres groupes contre les gouvernements, arguant que l'inaction de l'État ou son action insuffisante sur le changement climatique viole les lois ou droits constitutionnels existants.
 
@@ -136,9 +130,7 @@ De même, en Belgique, l'affaire [Klimaatzaak](https://www.klimaatzaak.eu/) ment
 
 Le problème avec de tels "cas climatiques", cependant, est qu'un juge ne peut que dire *quoi* les gouvernements du pays devraient atteindre, mais pas *comment*. Si les partis politiques n'osent toujours pas remplir le *comment*, ou ne prennent pas de mesures suffisantes, par peur de perdre des élections, la société ne progresse pas.
 
-### Les assemblées climatiques comme réponse
-
-> ***Note** : Ce paragraphe a été rédigé avec l'aide de ChatGPT.*
+### Les assemblées climatiques comme réponse [1]
 
 Les [assemblées climatiques](https://knoca.eu/what-is-a-climate-assembly/), en revanche, offrent un nouvel outil démocratique (ou plutôt, [très ancien](https://en.wikipedia.org/wiki/Deliberative_democracy#History)), hors des mains des politiciens de parti, pour trouver le *comment* de l'atteinte des objectifs écologiques.
 
@@ -185,3 +177,5 @@ Idéalement, cet outil forcera tous les partis politiques traditionnels pendant 
 Ensuite, une fois que ce concept est officiellement adopté par le gouvernement, pour lancer un préférendum officiel pour mesurer les préférences de toute la population, cette mise en œuvre peut servir de point de départ. Le code est open source et peut être réutilisé, ou il peut simplement servir d'inspiration.
 
 Le grand public, et en particulier les auteurs de ce site Web, continueront à évaluer la qualité de l'outil officiel, en le comparant avec cet outil de démonstration.
+
+> *[1] Ces paragraphes ont été rédigés avec l'aide de ChatGPT*

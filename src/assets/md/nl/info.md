@@ -96,9 +96,7 @@ De opkomst van **politieke partijen** en het daaruit voortvloeiende partijpoliti
 
 Politieke partijen spelen een **nulsomspel** waarin het verlies van de ene partij de winst van de andere betekent. Dit resulteert in een negatieve sfeer waarin partijen tegen elkaar werken in plaats van met elkaar; het resulteert in polarisatie en dogmatisme.
 
-### De moeilijkheden van ecologisch beleid
-
-> ***Opmerking**: Deze paragraaf is geschreven met de hulp van ChatGPT.*
+### De moeilijkheden van ecologisch beleid [1]
 
 Ecologische uitdagingen zoals het beheersen van klimaatverandering of het behouden van biodiversiteit, om de aarde in een ecologische staat te houden die menselijk (en ander) leven heeft toegestaan om te bloeien, zijn bijzonder moeilijk op te lossen in dit systeem:
 
@@ -110,9 +108,7 @@ Ecologische uitdagingen zoals het beheersen van klimaatverandering of het behoud
 
 - **Temporele Mismatch**: De effecten van ecologisch beleid en acties zijn vaak vertraagd, waardoor het moeilijk is om een directe oorzaak-gevolgrelatie te vestigen en publieke en politieke steun te behouden.
 
-### Het antwoord van Europa
-
-> ***Opmerking**: Deze paragraaf is geschreven met de hulp van ChatGPT.*
+### Het antwoord van Europa [1]
 
 Als reactie op deze uitdagingen heeft de Europese Unie (EU) een strategie aangenomen om **bindende doelstellingen voor haar lidstaten** vast te stellen in een poging collectieve ecologische doelen te bereiken. Deze doelstellingen maken deel uit van een breder regelgevend kader dat de Europese Green Deal omvat, gericht op het duurzaam maken van de EU-economie door klimaat- en milieu-uitdagingen om te zetten in kansen.
 
@@ -120,9 +116,7 @@ Het opleggen van doelstellingen, zoals die voor het verminderen van broeikasgase
 
 Deze aanpak omvat ook strafmaatregelen voor niet-naleving, wat dient als afschrikmiddel tegen inactiviteit.
 
-### Rechterlijk antwoord
-
-> ***Opmerking**: Dit paragraaf is geschreven met de hulp van ChatGPT.*
+### Rechterlijk antwoord [1]
 
 Naast beleid en samenwerkingsinspanningen, ziet Europa steeds vaker het gebruik van gerechtelijke actie als een middel om ecologische verplichtingen af te dwingen, zoals blijkt uit de opkomst van 'klimaatzaken'. Deze juridische uitdagingen worden aangespannen door burgers, NGO's en andere groepen tegen regeringen, met het argument dat de inactiviteit of onvoldoende actie van de staat op het gebied van klimaatverandering bestaande wetten of grondrechten schendt.
 
@@ -134,9 +128,7 @@ Evenzo resulteerde in België de bovengenoemde [Klimaatzaak](https://www.klimaat
 
 Het probleem met dergelijke 'klimaatzaken' is echter dat een rechter alleen kan zeggen *wat* de regeringen van het land moeten bereiken, maar niet *hoe*. Als politieke partijen nog steeds niet durven in te vullen *hoe*, of niet voldoende maatregelen nemen, uit angst voor electoraal verlies, is de samenleving geen stap verder.
 
-### Klimaat burgerpanels als antwoord
-
-> ***Opmerking**: Dit paragraaf is geschreven met de hulp van ChatGPT.*
+### Klimaat burgerpanels als antwoord [1]
 
 [Klimaat burgerpanels](https://knoca.eu/what-is-a-climate-assembly/) bieden daarentegen een nieuwe (of liever, [zeer oude](https://nl.wikipedia.org/wiki/Deliberatieve_democratie#Geschiedenis)) democratische tool, uit handen van partijpolitici, om te komen met het *hoe* van het bereiken van ecologische doelen.
 
@@ -183,3 +175,5 @@ Idealiter zal deze tool alle traditionele politieke partijen tijdens de Belgisch
 Daarna, zodra dit concept officieel wordt aangenomen door de overheid, om een officieel preferendum te lanceren om de voorkeuren van de gehele bevolking te peilen, kan deze implementatie dienen als uitgangspunt. De code is open source en kan hergebruikt worden, of het kan gewoon dienen ter inspiratie.
 
 Het grote publiek, en in het bijzonder de auteurs van deze website, zullen blijven evalueren hoe de officiële tool presteert, door deze te vergelijken met deze demo-tool.
+
+> *[1] Deze paragrafen zijn geschreven met behulp van ChatGPT*
