@@ -1,3 +1,18 @@
-<div class="responsive-page-container">
-  <markdown [src]="'/assets/md/' + (languageService.language | async) + '/info.md'"></markdown>
+<div class="responsive-page-container responsive-page-content-with-toc">
+  <div class="responsive-page-toc-container">
+    <div class="responsive-page-toc-box">
+      <h3>Content</h3>
+      <ul>
+        <li>Test</li>
+        <li>Test sqdg sdg sd</li>
+        <li>Testsdg sdqg sdqg sdg sdqg sdqg </li>
+        <li>Tests gsdqg sdgsd gsdfg fdg fdg fd</li>
+        <li>Testdf gsfdg df</li>
+        <li>Test sfdg sfdg fdgsfdg sfd gsfdg fdg sfdg dfdsgfdg</li>
+      </ul>
+    </div>
+  </div>
+  <div class="responsive-page-content">
+    <markdown [src]="'/assets/md/' + (languageService.language | async) + '/info.md'"></markdown>
+  </div>
 </div>

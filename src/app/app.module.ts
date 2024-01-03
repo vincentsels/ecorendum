@@ -45,6 +45,7 @@ import { TranslateEnumPipe } from './common/translate-enum.pipe';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 import { InfoComponent } from './info/info.component';
 import { TranslateProposalProp } from './common/translate-proposal-prop';
+import { gfmHeadingId } from 'marked-gfm-heading-id';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -93,6 +94,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,
+      markedExtensions: [gfmHeadingId()],
      }),
     TranslateModule.forRoot({
       loader: {
