@@ -84,11 +84,11 @@ The real version of this tool should include at least the following:
 
 A large problem with our democratic system is that it was never conceived to deal with issues which have **deadlines** and **thresholds** imposed by unsurmountable laws of nature and physics, simply because such limits and their effect on societies were not yet known at the time the system was conceived in the 18th century in America and France, or the 19th century in the case of the Belgian consitution. This is a major flaw in the system which has never been properly corrected.
 
-#### Elections
+### Elections
 
 The problem with a system where representatives are **elected** which hold all the power, is that this encourages **short-term** thinking and policy. Politicians which are willing to make sacrifices today, to the benefit of the future, do not get elected as long as there are others who proclaim such sacrifices are not necessary. This was popularized in Belgium by politician Bruno Tobback, as early as 2007, through his [quote](https://nl.wikiquote.org/wiki/Bruno_Tobback): "Almost every politician knows what to do to address the climate problem. There is just no politician who knows how to get elected after that."
 
-#### Political parties
+### Political parties
 
 The rise of **political parties** and the resulting party-political system, which is not per se necessary in a representative democracy (the Belgian constitution, for instance, does not mention them at all) but which de facto has taken rule in almost every representative democracy, further complicates matters. Political parties become vast sovereign entities on themselves, with only **one raison d'être: to get re-elected**. Not to govern with good, responsible policy; not to protect or properly inform citizens.
 

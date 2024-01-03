@@ -86,11 +86,11 @@ De echte versie van dit hulpmiddel moet minstens het volgende omvatten:
 
 Een groot probleem met ons democratisch systeem is dat het nooit bedacht is om om te gaan met kwesties die **deadlines** en **drempels** hebben die worden opgelegd door onoverkomelijke wetten van natuur en fysica, simpelweg omdat dergelijke grenzen en hun effect op samenlevingen nog niet bekend waren toen het systeem in de 18e eeuw in Amerika en Frankrijk, of de 19e eeuw in het geval van de Belgische grondwet, werd bedacht. Dit is een groot gebrek in het systeem dat nooit adequaat is gecorrigeerd.
 
-#### Verkiezingen
+### Verkiezingen
 
 Het probleem met een systeem waarin vertegenwoordigers worden **gekozen** die alle macht hebben, is dat dit **kortetermijndenken** en beleid aanmoedigt. Politici die bereid zijn om vandaag offers te brengen ten gunste van de toekomst, worden niet gekozen zolang er anderen zijn die beweren dat dergelijke offers niet nodig zijn. Dit werd in België gepopulariseerd door politicus Bruno Tobback, al in 2007, via zijn [citaat](https://nl.wikiquote.org/wiki/Bruno_Tobback): "Bijna elke politicus weet wat te doen om het klimaatprobleem aan te pakken. Er is gewoon geen politicus die weet hoe hij daarna herkozen kan worden."
 
-#### Politieke partijen
+### Politieke partijen
 
 De opkomst van **politieke partijen** en het daaruit voortvloeiende partijpolitieke systeem, dat niet per se noodzakelijk is in een representatieve democratie (de Belgische grondwet vermeldt ze bijvoorbeeld helemaal niet) maar dat de facto bijna elke representatieve democratie heeft overgenomen, compliceert de zaken verder. Politieke partijen worden enorme soevereine entiteiten op zich, met slechts **één bestaansreden: herkozen worden**. Niet om met goed, verantwoord beleid te regeren; niet om burgers te beschermen of correct te informeren.
 

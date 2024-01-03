@@ -238,6 +238,7 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .responsive-page-content-with-toc {
   display: flex;
+  scroll-behavior: smooth;
 
   .responsive-page-toc-container {
     position: relative;
@@ -251,6 +252,37 @@ body:not(:-moz-handler-blocked) fieldset {
       border-color: var(--mdc-elevated-card-container-color);
       margin-right: 20px;
       padding-right: 10px;
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li.H1 {
+          margin-top: 8px;
+          list-style-type: disc;
+        }
+
+        li.H2 {
+          margin-left: 4px;
+          margin-top: 4px;
+        }
+
+        li.H3 {
+          margin-left: 8px;
+          font-size: 90%;
+        }
+
+        li.H4 {
+          margin-left: 12px;
+          font-size: 90%;
+        }
+
+        li.H5 {
+          margin-left: 16px;
+          font-size: 90%;
+        }
+      }
     }
   }
 }

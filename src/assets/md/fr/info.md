@@ -88,11 +88,11 @@ La version réelle de cet outil devrait inclure au moins ce qui suit :
 
 Un grand problème avec notre système démocratique est qu'il n'a jamais été conçu pour faire face à des problèmes qui ont des **délais** et des **seuils** imposés par des lois de la nature et de la physique insurmontables, simplement parce que de telles limites et leur effet sur les sociétés n'étaient pas encore connus à l'époque où le système a été conçu au 18ème siècle en Amérique et en France, ou au 19ème siècle dans le cas de la constitution belge. C'est un défaut majeur du système qui n'a jamais été correctement corrigé.
 
-#### Élections
+### Élections
 
 Le problème avec un système où les représentants sont **élus** et détiennent tout le pouvoir, c'est que cela encourage la pensée et la politique **à court terme**. Les politiciens qui sont prêts à faire des sacrifices aujourd'hui, au bénéfice du futur, ne sont pas élus tant qu'il y en a d'autres qui proclament que de tels sacrifices ne sont pas nécessaires. Cela a été popularisé en Belgique par le politicien Bruno Tobback, dès 2007, à travers sa [citation](https://nl.wikiquote.org/wiki/Bruno_Tobback) : "Presque tous les politiciens savent quoi faire pour résoudre le problème climatique. Il n'y a juste aucun politicien qui sait comment être élu après cela."
 
-#### Partis politiques
+### Partis politiques
 
 L'émergence de **partis politiques** et du système parti-politique qui en résulte, qui n'est pas nécessairement nécessaire dans une démocratie représentative (la constitution belge, par exemple, ne les mentionne pas du tout) mais qui de facto a pris le pouvoir dans presque toutes les démocraties représentatives, complique encore les choses. Les partis politiques deviennent de vastes entités souveraines en elles-mêmes, avec une seule **raison d'être : être réélus**. Non pour gouverner avec une bonne politique responsable ; non pour protéger ou informer correctement les citoyens.
 
