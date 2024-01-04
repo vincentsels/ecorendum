@@ -16,6 +16,7 @@
 
     <div class="proposal-types">
       <mat-radio-group [(ngModel)]="selectedProposalType" (change)="proposalSetSelectionChanged()">
+        <mat-radio-button value="nekp" class="proposal-type">{{ 'Current plans' | translate }}</mat-radio-button>
         <mat-radio-button value="veka" class="proposal-type">{{ 'Examples VEKA' | translate }}</mat-radio-button>
         <mat-radio-button value="own" class="proposal-type">{{ 'Create your own' | translate }}</mat-radio-button>
       </mat-radio-group>

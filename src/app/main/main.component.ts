@@ -21,7 +21,7 @@ export class MainComponent {
   proposalsFilter$ = new BehaviorSubject<string>('');
   includeCommitted = true;
 
-  selectedProposalType: ProposalSetType = 'veka';
+  selectedProposalType: ProposalSetType = 'nekp';
   proposalSet: ProposalDetail[] = [];
 
   constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService,

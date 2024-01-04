@@ -220,4 +220,4 @@ export class TranslatedText {
 
 export type LanguageType = 'en' | 'nl' | 'fr';
 
-export type ProposalSetType = 'veka' | 'own';
+export type ProposalSetType = 'nekp' | 'veka' | 'own';

@@ -309,8 +309,8 @@ export class ProposalService {
   }
 
   public getSet(setType: ProposalSetType) {
-    // TODO
-    if (setType === 'veka') return PROPOSALS.filter(p => p.committed).concat(PROPOSALS.filter(p => p.origin === ProposalOrigin.veka));
+    if (setType === 'nekp') return PROPOSALS.filter(p => p.committed);
+    else if (setType === 'veka') return PROPOSALS.filter(p => p.committed).concat(PROPOSALS.filter(p => p.origin === ProposalOrigin.veka));
     else return PROPOSALS.filter(p => p.committed).concat(PROPOSALS.filter(p => !p.committed && Math.random() > 0.3));
   }
 
