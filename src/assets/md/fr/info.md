@@ -4,7 +4,7 @@
 
 Ce site web présente une nouvelle manière possible pour les gouvernements de sonder leurs citoyens sur les mesures politiques à adopter afin d'atteindre plusieurs objectifs écologiques imposés.
 
-Ce n'est *pas encore* une initiative gouvernementale réelle. Les données ne sont *pas encore* totalement précises. Il est actuellement dans un état utilisé pour présenter le concept, afin de trouver des partenaires pour le transformer en réalité.
+Ce n'est *pas encore* une initiative gouvernementale réelle. Les données ne sont *pas encore* totalement précises. Il est actuellement utilisé dans cet état pour présenter le concept, afin de trouver des partenaires pour le transformer en une réalité.
 
 Cet outil est actuellement juste le 'front-end' du site web ; il n'est pas connecté à une base de données ; il n'est pas possible de 'soumettre' réellement votre sélection de mesures.
 
@@ -24,7 +24,7 @@ De plus, le coût total de ces mesures est affiché, en tenant compte du coût o
 
 Enfin, le site affiche l'impact estimé plus large des mesures sélectionnées, sur deux dimensions :
 
-- L'impact écologique large, dans le cadre des (restants) [9 limites planétaires](https://www.stockholmresilience.org/research/planetary-boundaries.html), seuils scientifiques pour les processus du système terrestre, au-delà desquels l'humanité risque de déstabiliser la capacité de la planète à soutenir la vie ;
+- L'impact écologique large, dans le cadre des [9 limites planétaires](https://www.stockholmresilience.org/research/planetary-boundaries.html) (restants), seuils scientifiques pour les processus du système terrestre, au-delà desquels l'humanité risque de déstabiliser la capacité de la planète à subvenir aux besoins de la vie ;
 
 - L'impact socio-économique large, dans le cadre des [Objectifs de développement durable](https://www.undp.org/sustainable-development-goals) (ODD), 17 objectifs mondiaux fixés par l'ONU pour atteindre un monde durable, équitable et prospère d'ici 2030.
 
@@ -38,9 +38,7 @@ Les données utilisées pour ce site de démonstration, tant les objectifs que l
 
 - L'**objectif de réduction de 55 % de CO2-équivalent légal**, et sa valeur absolue de 34 Mt, a été calculé par VEKA et devrait être correct.
 
-- L'**objectif de réduction de CO2-équivalent européen** est basé sur l'objectif ESR de l'UE de 47% pour la Belgique. Le gouvernement fédéral, Bruxelles et la Wallonie reconnaissent tous ce 47%. La Fland
-
-re vise actuellement seulement 42%, laissant un grand écart au niveau national. Tant que les différentes régions ne se sont pas mises d'accord sur la façon de diviser les efforts, cet outil suppose que la Flandre devrait également atteindre une réduction de 47%. En valeur absolue, cela se traduit par environ 27 Mt de réductions de CO2-équivalent. Notez que, dans le contexte européen, cela n'inclut que les secteurs ESR (transport routier, bâtiments, agriculture, petite industrie, gestion des déchets), pas les secteurs ETS (production d'électricité et de chaleur, grande industrie, aviation et transport maritime).
+- L'**objectif de réduction de CO2-équivalent européen** est basé sur l'objectif ESR de l'UE de 47% pour la Belgique. Le gouvernement fédéral, Bruxelles et la Wallonie reconnaissent tous ce 47%. La Flandre vise actuellement seulement 42%, laissant un grand écart au niveau national. Tant que les différentes régions ne se sont pas mises d'accord sur la façon de diviser les efforts, cet outil induit que la Flandre devrait également atteindre une réduction de 47%. En valeur absolue, cela se traduit par environ 27 Mt de réductions de CO2-équivalent. Notez que, dans le contexte européen, cela n'inclut que les secteurs ESR (transport routier, bâtiments, agriculture, petite industrie, gestion des déchets), pas les secteurs ETS (production d'électricité et de chaleur, grande industrie, aviation et transport maritime).
 
 - L'**objectif d'efficacité énergétique** est actuellement une estimation très approximative de 10.000 GWh d'économies supplémentaires par an.
 
@@ -48,7 +46,7 @@ re vise actuellement seulement 42%, laissant un grand écart au niveau national.
 
 ### Mesures
 
-La majorité de l'ensemble des mesures provient d'une collection d'échantillons de mesures compilés le premier décembre 2023 par l'[Agence flamande de l'énergie et du climat](https://www.vlaanderen.be/veka)' (VEKA), commandée par le ministre flamand de l'Environnement et de l'Énergie, Zuhal Demir, en réponse à la décision de la Klimaatzaak mentionnée ci-dessus, pour avoir une idée de l'étendue des mesures à exiger pour atteindre l'objectif imposé. Cela a pris la forme d'un document Word de 4 pages qu'ils ont partagé avec nous. Nous avons traduit ces mesures dans le format de notre outil, ce qui est bien sûr une approximation grossière.
+La majorité de l'ensemble des mesures provient d'une collection d'échantillons de mesures compilés le premier décembre 2023 par l'[Agence flamande de l'énergie et du climat](https://www.vlaanderen.be/veka)' (VEKA), commandée par la ministre flamande de l'Environnement et de l'Énergie, Zuhal Demir, en réponse à la décision de la Klimaatzaak mentionnée ci-dessus, pour avoir une idée de l'étendue des mesures à exiger pour atteindre l'objectif imposé. Cela a pris la forme d'un document Word de 4 pages qu'ils ont partagé avec nous. Nous avons traduit ces mesures dans le format de notre outil, ce qui est bien sûr une approximation grossière.
 
 Une mesure supplémentaire, 'Affichage obligatoire de l'empreinte carbone sur les produits et services' a été entièrement inventée par nous, et ajoutée juste pour avoir une différence dans les mesures entre les 'ensembles' préconfigurés et lorsque vous compilez votre propre ensemble.
 
@@ -159,11 +157,11 @@ Enfin, l'outil permet à **l'ensemble de la population** de s'impliquer dans **l
 
 Tout en restant entièrement démocratique, cela déplace cet exercice difficile entièrement hors des mains du système politique partisan, qui n'a donc pas à craindre de répercussions électorales.
 
-De plus, les objectifs rigoureux proviennent de **l'extérieur de la sphère politique partisane** (à savoir, les cadres déjà convenus par l'ONU et l'UE, et une décision judiciaire). Les partis politiques peuvent toujours donner à leurs électeurs un ensemble de mesures qui s'alignent le plus avec ce qu'ils croient préférer idéologiquement, ce qui peut guider leur électorat dans leur choix. Au moins, l'ensemble des mesures sélectionnées de chacun des partis politiques devra, finalement, **être suffisant** pour atteindre les objectifs, ou, sinon, cela sera très visible, et les répercussions négatives rendues claires.
+De plus, les objectifs rigoureux proviennent de **l'extérieur de la sphère politique partisane** (à savoir, les cadres déjà convenus par l'ONU et l'UE, et une décision judiciaire). Les partis politiques peuvent toujours guider leur électorat en élaborant un ensemble de mesures qui correspondent le mieux à leur idéologie. Au moins, l'ensemble des mesures sélectionnées de chacun des partis politiques devra, finalement, **être suffisant** pour atteindre les objectifs, ou, sinon, cela sera très visible, et les répercussions négatives rendues claires.
 
 # Quelles sont les prochaines étapes ?
 
-Ce site Web sert initialement d'outil de campagne, comme exemple pour le grand public, pour les agences gouvernementales éventuellement impliquées, et pour les partis politiques, de comment nous pouvons atteindre des mesures écologiques suffisantes de manière démocratique et juste.
+Ce site Web sert dans un premier temps d'outil de campagne, d'exemple -- au grand public, aux agences gouvernementales éventuellement impliquées et aux partis politiques -- sur la manière dont nous pouvons obtenir des mesures écologiques suffisantes de manière démocratique et juste.
 
 Pendant cette campagne, la qualité de l'outil peut encore être grandement améliorée, et ses fonctionnalités élargies, pour donner une idée toujours plus large de son fonctionnement.
 
@@ -171,11 +169,11 @@ Avec le temps, au moins les résultats et un ensemble de base de mesures devraie
 
 #### Campagne électorale
 
-Idéalement, cet outil forcera tous les partis politiques traditionnels pendant la campagne électorale belge de 2024 à proposer leur propre ensemble de mesures calculées pour aborder ces résultats écologiques. Bien sûr, elles seront heureusement intégrées dans l'outil par les auteurs.
+Idéalement, cet outil devrait encourager un large éventail d'institutions (universités, groupes de réflexion, groupes d'intérêt,...) et, à terme, tous les partis politiques, lors de la campagne électorale belge de 2024, à proposer leur propre ensemble de mesures calculées qui s'attaquent de manière adéquate ces défis écologiques. Nous serons heureux de travailler avec eux et de les intégrer dans notre outil.
 
 #### Adoption officielle
 
-Ensuite, une fois que ce concept est officiellement adopté par le gouvernement, pour lancer un préférendum officiel pour mesurer les préférences de toute la population, cette mise en œuvre peut servir de point de départ. Le code est open source et peut être réutilisé, ou il peut simplement servir d'inspiration.
+Par la suite, si ce concept est officiellement adopté par le gouvernement et qu'un référendum officiel est lancé pour jauger les préférences de l'ensemble de la population, cette mise en œuvre peut servir de point de départ. Le code est open source et peut être réutilisé, ou il peut simplement servir d’inspiration.
 
 Le grand public, et en particulier les auteurs de ce site Web, continueront à évaluer la qualité de l'outil officiel, en le comparant avec cet outil de démonstration.
 

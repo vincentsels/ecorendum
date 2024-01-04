@@ -155,11 +155,11 @@ Finally, the tool allows for **the entire population** to be involved in **choos
 
 While remaining entirely democratic, it moves this difficult exercise entirely out of the hands of the party-political system, which does thus not have to fear electoral repercussions.
 
-Additionally, the stringent targets come from **outside of the party-political sphere** (namely, the already agreed upon frameworks by the UN and EU, and a judicial ruling). Political parties can still give their voters a set of measures that most aligns with what they believe will prefer ideologically, which can guide their electorate in their choice. At least, the set of selected measures of each of the political parties will, finally, **have to be sufficient** to meet the targets, or, if not, it will be very visible, and the negative repercussians made clear.
+Additionally, the stringent targets come from **outside of the party-political sphere** (namely, the already agreed upon frameworks by the UN and EU, and a judicial ruling). Political parties can still guide their electorate by compiling a set of measures that most aligns with their ideology. At least, the set of selected measures of each of the political parties will, finally, **have to be sufficient** to meet the targets, or, if not, it will be very visible, and the negative repercussians made clear.
 
 # What are the next steps?
 
-This website initially serves as a campaigning tool, as an example to both the broad public, to possibly involved government agencies, and to political parties, of how we can achieve sufficient ecological measures in a democratic and just way.
+This website initially serves as a campaigning tool, as an example -- to the broad public, to possibly involved government agencies, and to political parties -- of how we can achieve sufficient ecological measures in a democratic and just way.
 
 During this campaign, the quality of the tool can still be vastly improved, and its features expanded, to give an ever-broader idea of how it could function.
 
@@ -167,11 +167,11 @@ Over time, at least the results and a baseline set of measures should have accur
 
 #### Election campaign
 
-Ideally, this tool will force all traditional political parties during the Belgian electoral campaign of 2024 to come up with their own set of calculated measures to tackle these ecological results. Of course, they will happily be integrated in the tool by the authors.
+Ideally, this tool should encourage a wide range of institutions (universities, think tanks, interest groups,...) and ultimately all political parties during the Belgian electoral campaign of 2024, to come up with their own set of calculated measures which adequately tackle these ecological challenges. We will happily work together with them, and integrate them in our tool.
 
 #### Official adoption
 
-Afterwards, once this concept gets officially adopted by the government, to launch an official preferendum to gauge the entire population's preferences, this implementation can serve as a starting point. The code is open source and can be reused, or it can just serve as inspiration.
+Afterwards, if this concept gets officially adopted by the government, and an official preferendum is launched to gauge the entire population's preferences, this implementation can serve as a starting point. The code is open source and can be reused, or it can just serve as inspiration.
 
 The public at large, and in particular this website's authors, will continue to evaluate the quality of the official tool, by comparing it with this demo tool.
 

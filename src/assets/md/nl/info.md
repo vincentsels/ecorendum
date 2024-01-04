@@ -4,7 +4,7 @@
 
 Deze website toont een mogelijke nieuwe manier waarop overheden hun burgers kunnen raadplegen over welke beleidsmaatregelen ze moeten aannemen om aan meerdere opgelegde ecologische doelstellingen te voldoen.
 
-Dit is *nog geen* echt overheidsinitiatief. De gegevens zijn *nog niet* volledig nauwkeurig. Momenteel is het in een staat die gebruikt wordt om het concept te demonstreren, om partners te vinden om het tot werkelijkheid te maken.
+Dit is *nog geen* echt overheidsinitiatief. De gegevens zijn *nog niet* volledig nauwkeurig. De tool dient momenteel enkel om het concept te demonstreren, om partners te vinden om het tot een werkelijkheid te maken.
 
 Deze tool is momenteel alleen de 'front-end' van de website; het is niet verbonden met een database; het is niet mogelijk om daadwerkelijk je selectie van maatregelen in te dienen.
 
@@ -157,11 +157,11 @@ Tot slot stelt het hulpmiddel **de gehele bevolking** in staat om betrokken te z
 
 Terwijl het volledig democratisch blijft, verplaatst het deze moeilijke oefening volledig uit handen van het partijpolitieke systeem, dat dus geen angst hoeft te hebben voor electorale repercussies.
 
-Daarnaast komen de strikte doelstellingen **van buiten de partijpolitieke sfeer** (namelijk, de al overeengekomen kaders van de VN en EU, en een gerechtelijke uitspraak). Politieke partijen kunnen hun kiezers nog steeds een reeks maatregelen bieden die het meest overeenkomen met wat zij ideologisch verkiezen, wat hun electoraat kan leiden in hun keuze. Tenminste, de reeks geselecteerde maatregelen van elke politieke partij zal uiteindelijk **toereikend moeten zijn** om aan de doelstellingen te voldoen, of, zo niet, zal dit zeer zichtbaar zijn, en de negatieve repercussies duidelijk gemaakt.
+Daarnaast komen de strikte doelstellingen **van buiten de partijpolitieke sfeer** (namelijk, de al overeengekomen kaders van de VN en EU, en een gerechtelijke uitspraak). Politieke partijen kunnen hun electoraat nog steeds sturen door een reeks maatregelen samen te stellen die het beste aansluiten bij hun ideologie. De reeks geselecteerde maatregelen van elke politieke partij zal eindelijk ten minste **toereikend moeten zijn** om aan de doelstellingen te voldoen, of, zo niet, zal dit zeer zichtbaar zijn, en de negatieve repercussies duidelijk gemaakt.
 
 # Wat zijn de volgende stappen?
 
-Deze website dient in eerste instantie als campagnetool, als voorbeeld voor zowel het brede publiek, mogelijk betrokken overheidsinstanties, als politieke partijen, over hoe we op een democratische en rechtvaardige manier voldoende ecologische maatregelen kunnen bereiken.
+Deze website dient in eerste instantie als campagnemiddel, als voorbeeld – voor het brede publiek, voor mogelijk betrokken overheidsinstanties en voor politieke partijen – van hoe we op een democratische en rechtvaardige manier voldoende ecologische maatregelen kunnen realiseren.
 
 Tijdens deze campagne kan de kwaliteit van de tool nog aanzienlijk verbeterd worden, en de functionaliteiten uitgebreid, om een steeds breder beeld te geven van hoe het zou kunnen functioneren.
 
@@ -169,12 +169,12 @@ Na verloop van tijd moeten ten minste de resultaten en een basisreeks maatregele
 
 #### Verkiezingscampagne
 
-Idealiter zal deze tool alle traditionele politieke partijen tijdens de Belgische verkiezingscampagne van 2024 dwingen om met hun eigen berekende reeks maatregelen te komen om deze ecologische resultaten aan te pakken. Natuurlijk zullen deze met plezier in de tool geïntegreerd worden door de auteurs.
+Idealiter zou dit instrument een breed scala aan instellingen (universiteiten, denktanks, belangengroepen,...) en uiteindelijk alle politieke partijen tijdens de Belgische verkiezingscampagne van 2024 moeten aanmoedigen om met hun eigen reeks berekende maatregelen te komen die de problemen adequaat aanpakken. deze ecologische uitdagingen. Wij werken graag met hen samen en integreren ze in onze tool.
 
 #### Officiële adoptie
 
-Daarna, zodra dit concept officieel wordt aangenomen door de overheid, om een officieel preferendum te lanceren om de voorkeuren van de gehele bevolking te peilen, kan deze implementatie dienen als uitgangspunt. De code is open source en kan hergebruikt worden, of het kan gewoon dienen ter inspiratie.
+Als dit concept daarna officieel door de overheid wordt overgenomen en er een officieel preferendum wordt gelanceerd om de voorkeuren van de hele bevolking te peilen, kan deze implementatie als uitgangspunt dienen. De code is open source en kan hergebruikt worden, maar kan ook gewoon als inspiratie dienen.
 
-Het grote publiek, en in het bijzonder de auteurs van deze website, zullen blijven evalueren hoe de officiële tool presteert, door deze te vergelijken met deze demo-tool.
+Het grote publiek, en in het bijzonder de auteurs van deze website, zullen blijven evalueren hoe de officiële tool presteert, door haar te vergelijken met deze demo-tool.
 
 > *[1] Deze paragrafen zijn geschreven met behulp van ChatGPT*
