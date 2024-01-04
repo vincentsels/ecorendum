@@ -36,7 +36,7 @@ The data used for this demowebsite, both targets and measure impacts, is largely
 
 - The **legal 55% CO2-equivalent reduction target**, and its resulting 34 Mt absolute value, was calculated by VEKA and should be correct.
 
-- The **European CO2-equivalent reduction target** is based on the EU ESR target of 47% for Belgium. The federal government, Brussels and Wallonia all recognize this 47%. Flanders currently only targets 42%, leaving a large gap nationally. As long as the different regions haven't come to an agreement of how to divide the efforts, this tool assumes Flanders should also achieve a 47% reduction. As an absolute value, this translates into roughly 27 Mt of CO2-equivalent reductions. Note that in the European context, this only includees the ESR-sectors (road transport, buildings, agriculture, small industry, waste management), no ETS-sectors (electricity and heat generation, large industry, aviation and maritime transport).
+- The **European CO2-equivalent reduction target** is based on the EU ESR target of 47% for Belgium. The federal government, Brussels and Wallonia all recognize this 47%. Flanders currently only targets 42%, leaving a large gap nationally. As long as the different regions haven't come to an agreement of how to divide the efforts, this tool assumes Flanders should also achieve a 47% reduction. As an absolute value, this translates into roughly 27 Mt of CO2-equivalent reductions. Note that in the European context, this only includes the ESR-sectors (road transport, buildings, agriculture, small industry, waste management), no ETS-sectors (electricity and heat generation, large industry, aviation and maritime transport).
 
 - The **energy efficiency target** is currently a very rough estimate of 10.000 GWh additional savings per year.
 
@@ -44,13 +44,13 @@ The data used for this demowebsite, both targets and measure impacts, is largely
 
 ### Measures
 
-The majority of the set of measures stems from a collection of sample measures compiled the first of december 2023 by the '[Vlaams Energie- en Klimaatagentschap](https://www.vlaanderen.be/veka)' (VEKA), ordered by the Flemish minister of Environment and Energy, Zuhal Demir, in response to the abovementioned Klimaatzaak ruling, to get an idea of the scope of measurements to require to meet the imposed target. This came in the form of a 4-page Word document which they shared with us. We translated these measures into the format of our tool, which is of course a rough approximation.
+The majority of the set of measures stems from a collection of sample measures compiled the first of december 2023 by the '[Vlaams Energie- en Klimaatagentschap](https://www.vlaanderen.be/veka)' (VEKA), ordered by the Flemish minister of Environment and Energy, Zuhal Demir, in response to the abovementioned Klimaatzaak ruling, to get an idea of the scope of measures to meet the imposed target. This came in the form of a 4-page Word document which they shared with us. We translated these measures into the format of our tool, which is of course a rough approximation.
 
 An additional measure, 'Obligatory display of carbon footprint on products and services' was entirely made up by us, and added just to have a difference in the measures between preconfigured 'sets' and when you compile your own set.
 
 ### Measure impact
 
-- All **measurement cost estimates** are largely made-up, intuitive guesses, where possible loosely based on similar measures in other countries. The tool supports both 
+- All **measure cost estimates** are largely made-up, intuitive guesses, where possible loosely based on similar measures in other countries. The tool supports both an 'initial cost' and a 'yearly cost'. Ideally, this should be changed into a minimum and maximum value, to account for uncertainty. Certain measures will have a larger spread than others.
 
 - The **ecological and SDG impact** are also largely made-up, intuitive guesses.
 
@@ -62,18 +62,19 @@ In this demo-version, all of this data is entirely made-up, even using randomly 
 
 ## Calculations
 
-Currently, straightforward formulas are used to calculate the effect of measures on each of the targets: the estimted CO2-equivalent emissions saved, energy saved, and new renewable power generation added for each selected measure/variant are added up. Same for the cost and broader imapct. Currently, diminishing returns, overlap between measures, mutually exclusive measures, or the timing at which or a degree in which a measure takes effect, are not taken into account.
+Currently, straightforward formulas are used to calculate the effect of measures on each of the targets: the estimted CO2-equivalent emissions saved, energy saved, and new renewable power generation added for each selected measure/variant are added up. Same for the cost and broader imapct. Diminishing returns, overlap between measures, mutually exclusive measures, or the timing at which or a degree in which a measure takes effect, are currently not taken into account.
 
 # What should the real version do more?
 
 The real version of this tool should include at least the following:
 
 - Allow citizens to authenticate and submit their preferred set of measures;
-- Allow citizens, to crowd-source details about the measures, discuss them, and collaboratively propose new measures;
+- Allow citizens to crowd-source details about the measures, discuss them, and collaboratively propose new measures;
 - Support each of the Belgian regions; with their correct targets, measures, sets of measures, and political party stances;
 - More measure sets, by e.g. think tanks and universities, reviewed by a carefully selected independent board; and ultimately a set of measures selected by every political party;
 - Additional explicit (ecological) targets, presumably nitrogen disposition;
 - Minimum and maximum measure impact, to express degree of uncertainty;
+- A more realistic model to aggregate impacts;
 - More properties for each of the measures and the ability to filter;
 - A thorough tutorial, guiding everyone through the features of the tool;
 - Much more and better help tooltips/dialogs;
@@ -82,7 +83,7 @@ The real version of this tool should include at least the following:
 
 # Why is this website on the topic of ecology?
 
-A large problem with our democratic system is that it was never conceived to deal with issues which have **deadlines** and **thresholds** imposed by unsurmountable laws of nature and physics, simply because such limits and their effect on societies were not yet known at the time the system was conceived in the 18th century in America and France, or the 19th century in the case of the Belgian consitution. This is a major flaw in the system which has never been properly corrected.
+A large problem with our democratic system is that it was never conceived to deal with issues which have **deadlines** and **thresholds** imposed by unsurmountable laws of nature and physics. Such limits and their effect on societies were simply not yet known at the time the system was conceived: in 18th century America and France, or in 1831 in Belgium. This is a major flaw in the system which has never been properly corrected.
 
 ### Elections
 
@@ -90,7 +91,7 @@ The problem with a system where representatives are **elected** which hold all t
 
 ### Political parties
 
-The rise of **political parties** and the resulting party-political system, which is not per se necessary in a representative democracy (the Belgian constitution, for instance, does not mention them at all) but which de facto has taken rule in almost every representative democracy, further complicates matters. Political parties become vast sovereign entities on themselves, with only **one raison d'être: to get re-elected**. Not to govern with good, responsible policy; not to protect or properly inform citizens.
+The rise of **political parties** and the resulting party-political system (which is not per se necessary in a representative democracy -- the Belgian constitution, for instance, does not mention them at all), further complicates matters. Political parties become vast sovereign entities on themselves, with only **one raison d'être: to get re-elected**. Not to govern with good, responsible policy; not to protect or properly inform citizens.
 
 Political parties play a **zero-sum game** in which the loss of one party equals the gain of another. This results in a negative atmosphere where parties work against each other rather than alongside each other; it results in polarization and dogmatism.
 
@@ -120,11 +121,11 @@ In addition to policy and collaborative efforts, Europe is increasingly witnessi
 
 Such cases have seen notable successes, as in the Netherlands with the [Urgenda case](https://www.urgenda.nl/themas/klimaat-en-energie/klimaatzaak/), where the Dutch Supreme Court ruled that the government must take more aggressive action to reduce greenhouse gas emissions, setting a precedent for judicial enforcement of climate policy.
 
-Similarly, in Belgium, the above mentioned [Klimaatzaak](https://www.klimaatzaak.eu/) case resulted in the court ruling that Belgian authorities had breached their duty of care and human rights obligations by failing to take sufficient measures against climate change, and in appeal, the judge [ruled](https://prismic-io.s3.amazonaws.com/affaireclimat/aff2e124-f79d-4d5a-916a-e7919342f880_SP52019923113012320+en.pdf) that Belgium should have its emissions reduced by 55% compared to 1990 levels.
+Similarly, in Belgium, the above mentioned [Klimaatzaak](https://www.klimaatzaak.eu/) case resulted in the court ruling that Belgian authorities had breached their duty of care and human rights obligations by failing to take sufficient measures against climate change, and in appeal, the judge [ruled](https://prismic-io.s3.amazonaws.com/affaireclimat/aff2e124-f79d-4d5a-916a-e7919342f880_SP52019923113012320+en.pdf) that by 2030 Belgium should have its emissions reduced by 55% compared to 1990 levels.
 
 ### Limitations of judiciary rulings
 
-The problem with such 'climate cases' however is that a judge can only say *what* the country's governments should achieve, but not *how*. If political parties still do not dare to fill in the *how*, or do not take sufficient measures, out of a fear of electoral loss, the society is no step further.
+The problem with such 'climate cases' however is that a judge can only say *what* the country's governments should achieve, but not *how*. If political parties still do not dare to fill in the *how*, or do not take sufficient measures, out of a fear of electoral loss, society is no step further.
 
 ### Climate assemblies as answer [1]
 
@@ -140,17 +141,17 @@ Climate assemblies have their limitations, however.
 
 - Although the participating citizens are well informed and typically acknowledge the need of stringent action, and although they *demographically* represent the broad polulation from which they were randomly selected, they do not have the legitimacy to speak for the entirety of the population, who are not involved, neither in the deliberative phase of compiling measures, nor in deciding on which policies will actually be enacted.
 
-- The only way to legitimately continue with the result of the climate assembly in thus to pass it on to the traditional party-political representative democratic system. The abovementioned problems again come into play: politicians will still be hesitant to impose stringent measures, out of a fear of electoral loss. This is what happened in France, where the government ultimately [53% of proposals was fully adopted](https://reporterre.net/Convention-pour-le-climat-seules-10-des-propositions-ont-ete-reprises-par-le-gouvernement).
+- The only way to legitimately continue with the result of the climate assembly in thus to pass it on to the traditional party-political representative democratic system. The abovementioned problems again come into play: politicians will still be hesitant to impose stringent measures, out of a fear of electoral loss. This is what happened in France, where the government ultimately [fully adopted only 53% of proposals](https://reporterre.net/Convention-pour-le-climat-seules-10-des-propositions-ont-ete-reprises-par-le-gouvernement).
 
 ### The solution: preferenda
 
 Ideally, the set of measures is still sourced deliberatively, such as in climate assemblies, for the reasons mentioned above. However, the **entire civil society** should get a chance to **participate in the creation of the list of measures**. Think tanks, universities, NGO's, lobby groups, and interested or expert citizens should get a chance to participate.
 
-Doing that 'offline' is not possible without a system of representation/delegation; either through elections or sortition. However, **the internet** allows [the vast and ever increasing majority](https://statbel.fgov.be/en/themes/households/ict-usage-households) of citizens to participate. This must be done in a way that encourages qualitative, respectful contributions, and it should be thoroughly and justly moderated. Decades of experience (notably in the software development world) has taught us how this can be done, through crowd-sourcing.
+Doing that 'offline' is not possible without a system of representation/delegation; either through elections or sortition. However, **the internet** allows [the vast and ever increasing majority](https://statbel.fgov.be/en/themes/households/ict-usage-households) of citizens to participate. This must be done in a way that encourages qualitative, respectful contributions, and it should be thoroughly and justly moderated. Decades of experience (notably in the [software development world](https://resources.github.com/open-source/what-is-open-source-software/)) has taught us [how this can be done](https://www.lesswrong.com/posts/dYwQCFkR6cCbP9Xqk/how-forummagnum-builds-communities-of-inquiry), through crowd-sourcing.
 
 However, given the challenging deadline of 2030, there may not be enough time to deliberatively compose a list of measures. Luckily, in the context of Belgium, many **institutions have already given a lot of though** on how to reduce emissions. The tool could start from such lists of measures, as long as their impact is calculated. Next, multiple collections of measures, or '**sets**', can be compiled, which ideally, as a whole, achieve the required targets.
 
-Finally, the tool allows for **the entire population** to be involved in **choosing the set of measures**, or 'rating and ranking' them. Hence the name **preferendum**: a referendum which gauges the *preferences* of the population, rather than just asking one polarizing yes/no question.
+Finally, the tool allows for **the entire population** to be involved in **choosing the set of measures**, or 'rating and ranking' them. Hence the name [preferendum](https://www.noemamag.com/democracys-missing-link/): a referendum which gauges the *preferences* of the population, rather than just asking one polarizing yes/no question.
 
 While remaining entirely democratic, it moves this difficult exercise entirely out of the hands of the party-political system, which does thus not have to fear electoral repercussions.
 
@@ -162,7 +163,7 @@ This website initially serves as a campaigning tool, as an example to both the b
 
 During this campaign, the quality of the tool can still be vastly improved, and its features expanded, to give an ever-broader idea of how it could function.
 
-Over time, at least the results and a baseline set of measurements should have accurate numbers for the targets, and a way to achieve them.
+Over time, at least the results and a baseline set of measures should have accurate numbers for the targets, and a way to achieve them.
 
 #### Election campaign
 

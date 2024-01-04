@@ -54,7 +54,7 @@ Une mesure supplémentaire, 'Affichage obligatoire de l'empreinte carbone sur le
 
 ### Impact des mesures
 
-- Toutes les **estimations des coûts de mesure** sont largement inventées, des suppositions intuitives, où possible vaguement basées sur des mesures similaires dans d'autres pays. L'outil prend en charge à la fois 
+- Toutes les **estimations des coûts de mesure** sont largement inventées, des suppositions intuitives, où possible vaguement basées sur des mesures similaires dans d'autres pays. L'outil prend en charge à la fois un « coût initial » et un « coût annuel ». Idéalement, cela devrait être modifié en valeurs minimale et maximale, pour tenir compte de l'incertitude. Certaines mesures auront une portée plus large que d’autres.
 
 - L'**impact écologique et ODD** sont également largement inventés, des suppositions intuitives.
 
@@ -78,6 +78,7 @@ La version réelle de cet outil devrait inclure au moins ce qui suit :
 - Plus d'ensembles de mesures, par exemple par des think tanks et des universités, examinés par un conseil indépendant soigneusement sélectionné ; et finalement un ensemble de mesures choisi par chaque parti politique ;
 - Des objectifs explicites supplémentaires (écologiques), probablement la disposition de l'azote ;
 - Impact minimum et maximum de la mesure, pour exprimer le degré d'incertitude ;
+- Un modèle plus réaliste pour agréger les impacts ;
 - Plus de propriétés pour chacune des mesures et la capacité de filtrer ;
 - Un tutoriel approfondi, guidant tout le monde à travers les fonctionnalités de l'outil ;
 - Beaucoup plus et de meilleurs tooltips/dialogues d'aide ;
@@ -86,7 +87,7 @@ La version réelle de cet outil devrait inclure au moins ce qui suit :
 
 # Pourquoi ce site Web traite-t-il de l'écologie ?
 
-Un grand problème avec notre système démocratique est qu'il n'a jamais été conçu pour faire face à des problèmes qui ont des **délais** et des **seuils** imposés par des lois de la nature et de la physique insurmontables, simplement parce que de telles limites et leur effet sur les sociétés n'étaient pas encore connus à l'époque où le système a été conçu au 18ème siècle en Amérique et en France, ou au 19ème siècle dans le cas de la constitution belge. C'est un défaut majeur du système qui n'a jamais été correctement corrigé.
+Un grand problème avec notre système démocratique est qu'il n'a jamais été conçu pour faire face à des problèmes qui ont des **délais** et des **seuils** imposés par des lois de la nature et de la physique insurmontables. Telles limites et leur effet sur les sociétés n'étaient simplement pas encore connus à l'époque où le système a été conçu : Amérique et la France de la 18ème siècle, ou à 1831 en Belgique. C'est un défaut majeur du système qui n'a jamais été correctement corrigé.
 
 ### Élections
 
@@ -94,7 +95,7 @@ Le problème avec un système où les représentants sont **élus** et détienne
 
 ### Partis politiques
 
-L'émergence de **partis politiques** et du système parti-politique qui en résulte, qui n'est pas nécessairement nécessaire dans une démocratie représentative (la constitution belge, par exemple, ne les mentionne pas du tout) mais qui de facto a pris le pouvoir dans presque toutes les démocraties représentatives, complique encore les choses. Les partis politiques deviennent de vastes entités souveraines en elles-mêmes, avec une seule **raison d'être : être réélus**. Non pour gouverner avec une bonne politique responsable ; non pour protéger ou informer correctement les citoyens.
+L'émergence de **partis politiques** et du système parti-politique qui en résulte (qui n'est pas forcément nécessaire dans une démocratie représentative -- la constitution belge, par exemple, ne les mentionne pas du tout), complique encore les choses. Les partis politiques deviennent de vastes entités souveraines en elles-mêmes, avec une seule **raison d'être : être réélus**. Non pour gouverner avec une bonne politique responsable ; non pour protéger ou informer correctement les citoyens.
 
 Les partis politiques jouent un **jeu à somme nulle** dans lequel la perte d'un parti équivaut au gain d'un autre. Cela entraîne une atmosphère négative où les partis travaillent les uns contre les autres plutôt qu'ensemble ; cela résulte en polarisation et dogmatisme.
 
@@ -124,7 +125,7 @@ En plus des politiques et des efforts collaboratifs, l'Europe assiste de plus en
 
 De telles affaires ont connu des succès notables, comme aux Pays-Bas avec l'affaire [Urgenda](https://www.urgenda.nl/themas/klimaat-en-energie/klimaatzaak/), où la Cour suprême néerlandaise a statué que le gouvernement doit prendre des mesures plus agressives pour réduire les émissions de gaz à effet de serre, établissant un précédent pour l'application judiciaire de la politique climatique.
 
-De même, en Belgique, l'affaire [Klimaatzaak](https://www.klimaatzaak.eu/) mentionnée ci-dessus a abouti à une décision de justice selon laquelle les autorités belges avaient manqué à leur devoir de diligence et à leurs obligations en matière de droits de l'homme en ne prenant pas de mesures suffisantes contre le changement climatique, et en appel, le juge a [statué](https://prismic-io.s3.amazonaws.com/affaireclimat/aff2e124-f79d-4d5a-916a-e7919342f880_SP52019923113012320+en.pdf) que la Belgique devrait réduire ses émissions de 55% par rapport aux niveaux de 1990.
+De même, en Belgique, l'affaire [Klimaatzaak](https://www.klimaatzaak.eu/) mentionnée ci-dessus a abouti à une décision de justice selon laquelle les autorités belges avaient manqué à leur devoir de diligence et à leurs obligations en matière de droits de l'homme en ne prenant pas de mesures suffisantes contre le changement climatique, et en appel, le juge a [statué](https://prismic-io.s3.amazonaws.com/affaireclimat/aff2e124-f79d-4d5a-916a-e7919342f880_SP52019923113012320+en.pdf) que en 2030 la Belgique devrait réduire ses émissions de 55% par rapport aux niveaux de 1990.
 
 ### Limitations des décisions judiciaires
 
@@ -144,17 +145,17 @@ Cependant, les assemblées climatiques ont leurs limites.
 
 - Bien que les citoyens participants soient bien informés et reconnaissent généralement la nécessité d'une action rigoureuse, et bien qu'ils représentent *démographiquement* l'ample population d'où ils ont été sélectionnés aléatoirement, ils n'ont pas la légitimité de parler pour l'ensemble de la population, qui n'est pas impliquée, ni dans la phase délibérative de compilation des mesures, ni dans la décision sur les politiques qui seront effectivement mises en œuvre.
 
-- La seule façon de légitimement continuer avec le résultat de l'assemblée climatique est donc de le transmettre au système démocratique représentatif traditionnel des partis politiques. Les problèmes mentionnés ci-dessus se posent à nouveau : les politiciens hésiteront toujours à imposer des mesures rigoureuses, par peur de perdre des élections. C'est ce qui s'est passé en France, où le gouvernement a finalement [adopté pleinement 53 % des propositions](https://reporterre.net/Convention-pour-le-climat-seules-10-des-propositions-ont-ete-reprises-par-le-gouvernement).
+- La seule façon de légitimement continuer avec le résultat de l'assemblée climatique est donc de le transmettre au système démocratique représentatif traditionnel des partis politiques. Les problèmes mentionnés ci-dessus se posent à nouveau : les politiciens hésiteront toujours à imposer des mesures rigoureuses, par peur de perdre des élections. C'est ce qui s'est passé en France, où le gouvernement a finalement [adopté que 53 % des propositions](https://reporterre.net/Convention-pour-le-climat-seules-10-des-propositions-ont-ete-reprises-par-le-gouvernement).
 
 ### La solution : les préférendums
 
 Idéalement, l'ensemble des mesures doit toujours être source de manière délibérative, comme dans les assemblées climatiques, pour les raisons mentionnées ci-dessus. Cependant, **l'ensemble de la société civile** devrait avoir la chance de **participer à la création de la liste des mesures**. Les groupes de réflexion, les universités, les ONG, les groupes de pression et les citoyens intéressés ou experts devraient avoir la possibilité de participer.
 
-Le faire 'hors ligne' n'est pas possible sans un système de représentation/délégation ; soit par des élections, soit par tirage au sort. Cependant, **internet** permet à [la grande et toujours croissante majorité](https://statbel.fgov.be/en/themes/households/ict-usage-households) des citoyens de participer. Cela doit se faire d'une manière qui encourage des contributions qualitatives et respectueuses, et cela doit être modéré de manière approfondie et juste. Des décennies d'expérience (notamment dans le monde du développement logiciel) nous ont appris comment cela peut être fait, grâce au crowdsourcing.
+Le faire 'hors ligne' n'est pas possible sans un système de représentation/délégation ; soit par des élections, soit par tirage au sort. Cependant, **internet** permet à [la grande et toujours croissante majorité](https://statbel.fgov.be/en/themes/households/ict-usage-households) des citoyens de participer. Cela doit se faire d'une manière qui encourage des contributions qualitatives et respectueuses, et cela doit être modéré de manière approfondie et juste. Des décennies d'expérience (notamment dans [le monde du développement logiciel](https://resources.github.com/open-source/what-is-open-source-software/)) nous ont appris [comment cela peut être fait](https://www.lesswrong.com/posts/dYwQCFkR6cCbP9Xqk/how-forummagnum-builds-communities-of-inquiry), avec du crowdsourcing.
 
 Cependant, étant donné l'échéance difficile de 2030, il se peut qu'il n'y ait pas assez de temps pour composer de manière délibérative une liste de mesures. Heureusement, dans le contexte de la Belgique, de nombreuses **institutions ont déjà beaucoup réfléchi** sur la manière de réduire les émissions. L'outil pourrait partir de telles listes de mesures, tant que leur impact est calculé. Ensuite, plusieurs collections de mesures, ou '**ensembles**', peuvent être compilées, qui idéalement, dans leur ensemble, atteignent les objectifs requis.
 
-Enfin, l'outil permet à **l'ensemble de la population** de s'impliquer dans **le choix de l'ensemble des mesures**, ou de les 'noter et classer'. D'où le nom **préférendum** : un référendum qui mesure les *préférences* de la population, plutôt que de poser simplement une question polarisante de oui/non.
+Enfin, l'outil permet à **l'ensemble de la population** de s'impliquer dans **le choix de l'ensemble des mesures**, ou de les 'noter et classer'. D'où le nom [preferendum](https://www.noemamag.com/democracys-missing-link/) : un référendum qui mesure les *préférences* de la population, plutôt que de poser simplement une question polarisante de oui/non.
 
 Tout en restant entièrement démocratique, cela déplace cet exercice difficile entièrement hors des mains du système politique partisan, qui n'a donc pas à craindre de répercussions électorales.
 

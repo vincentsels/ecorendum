@@ -52,7 +52,7 @@ Een extra maatregel, 'Verplichte weergave van de koolstofvoetafdruk op producten
 
 ### Impact van de maatregel
 
-- Alle **schattingen van de kosten van de meting** zijn grotendeels verzonnen, intuïtieve gissingen, waar mogelijk losjes gebaseerd op vergelijkbare maatregelen in andere landen. De tool ondersteunt beide
+- Alle **schattingen van de kosten van de maatregelen** zijn grotendeels verzonnen, intuïtieve gissingen, waar mogelijk losjes gebaseerd op vergelijkbare maatregelen in andere landen. De tool ondersteunt zowel 'initiële kosten' als 'jaarlijkse kosten'. Idealiter zou dit moeten worden veranderd in een minimum- en maximumwaarde, om rekening te houden met de onzekerheid. Bepaalde maatregelen zullen een grotere spreiding hebben dan andere.
 
 - De **ecologische en SDG-impact** zijn ook grotendeels verzonnen, intuïtieve gissingen.
 
@@ -76,6 +76,7 @@ De echte versie van dit hulpmiddel moet minstens het volgende omvatten:
 - Meer maatregelsets, bijv. van denktanks en universiteiten, beoordeeld door een zorgvuldig geselecteerde onafhankelijke raad; en uiteindelijk een set maatregelen geselecteerd door elke politieke partij;
 - Aanvullende expliciete (ecologische) doelstellingen, vermoedelijk stikstofafzetting;
 - Minimum en maximum effect van maatregelen, om de mate van onzekerheid uit te drukken;
+- Een meer realistisch model om de impact te aggregeren;
 - Meer eigenschappen voor elk van de maatregelen en de mogelijkheid om te filteren;
 - Een grondige tutorial, die iedereen door de functies van het hulpmiddel leidt;
 - Veel meer en betere hulptekstballonnen/dialogen;
@@ -84,7 +85,7 @@ De echte versie van dit hulpmiddel moet minstens het volgende omvatten:
 
 # Waarom gaat deze website over ecologie?
 
-Een groot probleem met ons democratisch systeem is dat het nooit bedacht is om om te gaan met kwesties die **deadlines** en **drempels** hebben die worden opgelegd door onoverkomelijke wetten van natuur en fysica, simpelweg omdat dergelijke grenzen en hun effect op samenlevingen nog niet bekend waren toen het systeem in de 18e eeuw in Amerika en Frankrijk, of de 19e eeuw in het geval van de Belgische grondwet, werd bedacht. Dit is een groot gebrek in het systeem dat nooit adequaat is gecorrigeerd.
+Een groot probleem met ons democratisch systeem is dat het nooit bedacht is om om te gaan met kwesties die **deadlines** en **drempels** hebben die worden opgelegd door onoverkomelijke wetten van natuur en fysica. Dergelijke grenzen en hun effect op samenlevingen waren eenvoudigweg nog niet bekend toen het systeem werd bedacht in het Amerika of Frankrijk van de 18e eeuw, in België in, 1831. Dit is een groot gebrek in het systeem dat nooit adequaat is gecorrigeerd.
 
 ### Verkiezingen
 
@@ -92,7 +93,7 @@ Het probleem met een systeem waarin vertegenwoordigers worden **gekozen** die al
 
 ### Politieke partijen
 
-De opkomst van **politieke partijen** en het daaruit voortvloeiende partijpolitieke systeem, dat niet per se noodzakelijk is in een representatieve democratie (de Belgische grondwet vermeldt ze bijvoorbeeld helemaal niet) maar dat de facto bijna elke representatieve democratie heeft overgenomen, compliceert de zaken verder. Politieke partijen worden enorme soevereine entiteiten op zich, met slechts **één bestaansreden: herkozen worden**. Niet om met goed, verantwoord beleid te regeren; niet om burgers te beschermen of correct te informeren.
+De opkomst van **politieke partijen** en het daaruit voortvloeiende partijpolitieke systeem (dat niet per se noodzakelijk is in een representatieve democratie -- de Belgische grondwet vermeldt ze bijvoorbeeld helemaal niet), compliceert de zaken verder. Politieke partijen worden enorme soevereine entiteiten op zich, met slechts **één bestaansreden: herkozen worden**. Niet om met goed, verantwoord beleid te regeren; niet om burgers te beschermen of correct te informeren.
 
 Politieke partijen spelen een **nulsomspel** waarin het verlies van de ene partij de winst van de andere betekent. Dit resulteert in een negatieve sfeer waarin partijen tegen elkaar werken in plaats van met elkaar; het resulteert in polarisatie en dogmatisme.
 
@@ -122,7 +123,7 @@ Naast beleid en samenwerkingsinspanningen, ziet Europa steeds vaker het gebruik 
 
 Dergelijke zaken hebben opmerkelijke successen geboekt, zoals in Nederland met de [Urgenda-zaak](https://www.urgenda.nl/themas/klimaat-en-energie/klimaatzaak/), waar het Nederlandse Hooggerechtshof oordeelde dat de regering agressievere actie moet ondernemen om de uitstoot van broeikasgassen te verminderen, waarmee een precedent werd geschapen voor gerechtelijke handhaving van het klimaatbeleid.
 
-Evenzo resulteerde in België de bovengenoemde [Klimaatzaak](https://www.klimaatzaak.eu/) in de uitspraak van de rechter dat de Belgische autoriteiten hun zorgplicht en mensenrechtenverplichtingen hebben geschonden door niet voldoende maatregelen te nemen tegen klimaatverandering, en in hoger beroep oordeelde de rechter [besliste](https://prismic-io.s3.amazonaws.com/affaireclimat/aff2e124-f79d-4d5a-916a-e7919342f880_SP52019923113012320+en.pdf) dat België zijn uitstoot met 55% moet verminderen ten opzichte van de niveaus van 1990.
+Evenzo resulteerde in België de bovengenoemde [Klimaatzaak](https://www.klimaatzaak.eu/) in de uitspraak van de rechter dat de Belgische autoriteiten hun zorgplicht en mensenrechtenverplichtingen hebben geschonden door niet voldoende maatregelen te nemen tegen klimaatverandering, en in hoger beroep oordeelde de rechter [besliste](https://prismic-io.s3.amazonaws.com/affaireclimat/aff2e124-f79d-4d5a-916a-e7919342f880_SP52019923113012320+en.pdf) dat België tegen 2030 zijn uitstoot met 55% moet verminderen ten opzichte van de niveaus van 1990.
 
 ### Beperkingen van gerechtelijke uitspraken
 
@@ -142,17 +143,17 @@ Klimaat burgerpanels hebben echter hun beperkingen.
 
 - Hoewel de deelnemende burgers goed geïnformeerd zijn en doorgaans de noodzaak van stringente actie erkennen, en hoewel zij *demografisch* de brede bevolking vertegenwoordigen waaruit zij willekeurig zijn geselecteerd, hebben zij niet de legitimiteit om te spreken namens de gehele bevolking, die niet betrokken is, noch in de deliberatieve fase van het samenstellen van maatregelen, noch in het beslissen over welk beleid daadwerkelijk wordt uitgevoerd.
 
-- De enige manier om legitiem verder te gaan met het resultaat van het klimaat burgerpanel is dus om het door te geven aan het traditionele partijpolitieke representatieve democratische systeem. De eerdergenoemde problemen spelen opnieuw een rol: politici zullen nog steeds aarzelen om stringente maatregelen op te leggen, uit angst voor electoraal verlies. Dit is wat er in Frankrijk gebeurde, waar de regering uiteindelijk [53% van de voorstellen volledig heeft overgenomen](https://reporterre.net/Convention-pour-le-climat-seules-10-des-propositions-ont-ete-reprises-par-le-gouvernement).
+- De enige manier om legitiem verder te gaan met het resultaat van het klimaat burgerpanel is dus om het door te geven aan het traditionele partijpolitieke representatieve democratische systeem. De eerdergenoemde problemen spelen opnieuw een rol: politici zullen nog steeds aarzelen om stringente maatregelen op te leggen, uit angst voor electoraal verlies. Dit is wat er in Frankrijk gebeurde, waar de regering uiteindelijk [slechts 53% van de voorstellen volledig heeft overgenomen](https://reporterre.net/Convention-pour-le-climat-seules-10-des-propositions-ont-ete-reprises-par-le-gouvernement).
 
 ### De oplossing: preferenda
 
 Idealiter wordt de set maatregelen nog steeds deliberatief samengesteld, zoals in klimaat burgerpanels, om de hierboven genoemde redenen. Echter, de **gehele burgermaatschappij** zou de kans moeten krijgen om **deel te nemen aan het creëren van de lijst met maatregelen**. Denktanks, universiteiten, NGO's, lobbygroepen en geïnteresseerde of deskundige burgers zouden de kans moeten krijgen om deel te nemen.
 
-Dit 'offline' doen is niet mogelijk zonder een systeem van vertegenwoordiging/delegatie; hetzij door verkiezingen of door loting. Echter, **het internet** stelt [de overgrote en steeds groter wordende meerderheid](https://statbel.fgov.be/nl/themas/huishoudens/ict-gebruik-huishoudens) van de burgers in staat om deel te nemen. Dit moet gebeuren op een manier die kwalitatieve, respectvolle bijdragen aanmoedigt, en het moet grondig en rechtvaardig worden gemodereerd. Decennia van ervaring (met name in de wereld van softwareontwikkeling) hebben ons geleerd hoe dit kan worden gedaan, via crowdsourcing.
+Dit 'offline' doen is niet mogelijk zonder een systeem van vertegenwoordiging/delegatie; hetzij door verkiezingen of door loting. Echter, **het internet** stelt [de overgrote en steeds groter wordende meerderheid](https://statbel.fgov.be/nl/themas/huishoudens/ict-gebruik-huishoudens) van de burgers in staat om deel te nemen. Dit moet gebeuren op een manier die kwalitatieve, respectvolle bijdragen aanmoedigt, en het moet grondig en rechtvaardig worden gemodereerd. Decennia van ervaring (met name in de [wereld van softwareontwikkeling](https://resources.github.com/open-source/what-is-open-source-software/)) hebben ons geleerd [hoe dit kan worden gedaan](https://www.lesswrong.com/posts/dYwQCFkR6cCbP9Xqk/how-forummagnum-builds-communities-of-inquiry), via crowdsourcing.
 
 Gezien de uitdagende deadline van 2030, is er misschien niet genoeg tijd om deliberatief een lijst met maatregelen samen te stellen. Gelukkig hebben in de context van België veel **instellingen al veel nagedacht** over hoe de uitstoot te verminderen. Het hulpmiddel kan beginnen met dergelijke lijsten met maatregelen, zolang hun impact wordt berekend. Vervolgens kunnen meerdere verzamelingen maatregelen, of '**sets**', worden samengesteld, die idealiter als geheel de vereiste doelen bereiken.
 
-Tot slot stelt het hulpmiddel **de gehele bevolking** in staat om betrokken te zijn bij **het kiezen van de set maatregelen**, of ze te 'beoordelen en rangschikken'. Vandaar de naam **preferendum**: een referendum dat de *voorkeuren* van de bevolking peilt, in plaats van slechts één polariserende ja/nee-vraag te stellen.
+Tot slot stelt het hulpmiddel **de gehele bevolking** in staat om betrokken te zijn bij **het kiezen van de set maatregelen**, of ze te 'beoordelen en rangschikken'. Vandaar de naam [preferendum](https://www.noemamag.com/democracys-missing-link/): een referendum dat de *voorkeuren* van de bevolking peilt, in plaats van slechts één polariserende ja/nee-vraag te stellen.
 
 Terwijl het volledig democratisch blijft, verplaatst het deze moeilijke oefening volledig uit handen van het partijpolitieke systeem, dat dus geen angst hoeft te hebben voor electorale repercussies.
 
@@ -164,7 +165,7 @@ Deze website dient in eerste instantie als campagnetool, als voorbeeld voor zowe
 
 Tijdens deze campagne kan de kwaliteit van de tool nog aanzienlijk verbeterd worden, en de functionaliteiten uitgebreid, om een steeds breder beeld te geven van hoe het zou kunnen functioneren.
 
-Na verloop van tijd moeten ten minste de resultaten en een basisreeks metingen nauwkeurige cijfers hebben voor de doelstellingen, en een manier om deze te bereiken.
+Na verloop van tijd moeten ten minste de resultaten en een basisreeks maatregelen nauwkeurige cijfers hebben voor de doelstellingen, en een manier om deze te bereiken.
 
 #### Verkiezingscampagne
 
