@@ -4,18 +4,20 @@ import { CommonDialogService } from './dialog.component';
 import { LanguageService } from './language.service';
 import { Observable } from 'rxjs';
 import { LanguageType } from '../main/proposal';
+import { ProposalService } from '../main/proposal.service';
 
 @Component({
   selector: 'app-help-widget',
   template: `<span [class.dialog]="dialogKey || dialogMdSrc || dialogMdData"
-    [matTooltip]="tooltipText || (tooltipKey | translate)"
+    [matTooltip]="tooltipText || (tooltipKey | translate:(tooltipParameters || { region: (proposalService.context$ | async) || '' | translate }))"
     [matTooltipClass]="{
       'help-widget-tooltip': true,
       'help-widget-tooltip-en': (lang | async) === 'en',
       'help-widget-tooltip-nl': (lang | async) === 'nl',
       'help-widget-tooltip-fr': (lang | async) === 'fr',
       }"
-    (click)="openDialog()">{{ text || (textKey && (textKey | translate)) }}<mat-icon>contact_support</mat-icon></span>`,
+    (click)="openDialog()">{{
+      text || (textKey && (textKey | translate)) }}<mat-icon>contact_support</mat-icon></span>`,
   styles: [
 `mat-icon {
   opacity: 0.3;
@@ -44,7 +46,8 @@ span:hover {
   ],
 })
 export class HelpWidgetComponent {
-  constructor(private dialogService: CommonDialogService, private translate: TranslateService, languageService: LanguageService) {
+  constructor(private dialogService: CommonDialogService, private translate: TranslateService,
+    public proposalService: ProposalService, languageService: LanguageService) {
     this.lang = languageService.language;
   }
 
@@ -53,16 +56,19 @@ export class HelpWidgetComponent {
   @Input() text?: string;
   @Input() textKey?: string;
   @Input() tooltipKey: string = '';
+  @Input() tooltipParameters?: {};
   @Input() tooltipText: string = '';
   @Input() dialogKey?: string;
+  @Input() dialogParameters?: {};
   @Input() dialogMdSrc?: string;
   @Input() dialogMdData?: string;
 
   openDialog() {
     if (this.dialogKey || this.dialogMdSrc || this.dialogMdData) {
       this.dialogService.show(
-        this.textKey ? this.translate.instant(this.textKey) : undefined,
-        this.dialogKey ? this.translate.instant(this.dialogKey) : undefined,
+        this.textKey ? this.translate.instant(this.textKey, this.tooltipParameters) : undefined,
+        this.dialogKey ? this.translate.instant(this.dialogKey,
+          this.dialogParameters || { region: this.translate.instant(this.proposalService.context$.value) }) : undefined,
         undefined,
         this.dialogMdSrc ? '/assets/md/' + this.translate.currentLang + '/' + this.dialogMdSrc + '.md' : undefined,
         this.dialogMdData);

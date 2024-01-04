@@ -31,9 +31,7 @@
     <mat-icon class="context-button-icon" *ngIf="proposalService.isFlandersContext$ | async" svgIcon="flanders" />
     <mat-icon class="context-button-icon" *ngIf="proposalService.isBrusselsContext$ | async" svgIcon="brussels" />
     <mat-icon class="context-button-icon" *ngIf="proposalService.isWallonianContext$ | async" svgIcon="wallonia" />
-    <span fxHide.xs *ngIf="proposalService.isFlandersContext$ | async">{{ 'Flanders' | translate }}</span>
-    <span fxHide.xs *ngIf="proposalService.isBrusselsContext$ | async">{{ 'Brussels' | translate }}</span>
-    <span fxHide.xs *ngIf="proposalService.isWallonianContext$ | async">{{ 'Wallonia' | translate }}</span>
+    <span fxHide.xs>{{ (proposalService.context$ | async) || '' | translate }}</span>
   </button>
 
   <div fxHide.xs class="flex-spacer"></div>
