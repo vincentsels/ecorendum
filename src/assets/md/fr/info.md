@@ -159,11 +159,11 @@ Enfin, l'outil permet à **l'ensemble de la population** de s'impliquer dans **l
 
 Tout en restant entièrement démocratique, cela déplace cet exercice difficile entièrement hors des mains du système politique partisan, qui n'a donc pas à craindre de répercussions électorales.
 
-De plus, les objectifs rigoureux proviennent de **l'extérieur de la sphère politique partisane** (à savoir, les cadres déjà convenus par l'ONU et l'UE, et une décision judiciaire). Les partis politiques peuvent toujours donner à leurs électeurs un ensemble de mesures qui s'alignent le plus avec ce qu'ils croient préférer idéologiquement, ce qui peut guider leur électorat dans leur choix. Au moins, l'ensemble des mesures sélectionnées de chacun des partis politiques devra, finalement, **être suffisant** pour atteindre les objectifs, ou, sinon, cela sera très visible, et les répercussions négatives rendues claires.
+De plus, les objectifs rigoureux proviennent de **l'extérieur de la sphère politique partisane** (à savoir, les cadres déjà convenus par l'ONU et l'UE, et une décision judiciaire). Les partis politiques peuvent toujours guider leur électorat en élaborant un ensemble de mesures qui correspondent le mieux à leur idéologie. Au moins, l'ensemble des mesures sélectionnées de chacun des partis politiques devra, finalement, **être suffisant** pour atteindre les objectifs, ou, sinon, cela sera très visible, et les répercussions négatives rendues claires.
 
 # Quelles sont les prochaines étapes ?
 
-Ce site Web sert initialement d'outil de campagne, comme exemple pour le grand public, pour les agences gouvernementales éventuellement impliquées, et pour les partis politiques, de comment nous pouvons atteindre des mesures écologiques suffisantes de manière démocratique et juste.
+Ce site Web sert dans un premier temps d'outil de campagne, d'exemple -- au grand public, aux agences gouvernementales éventuellement impliquées et aux partis politiques -- sur la manière dont nous pouvons obtenir des mesures écologiques suffisantes de manière démocratique et juste.
 
 Pendant cette campagne, la qualité de l'outil peut encore être grandement améliorée, et ses fonctionnalités élargies, pour donner une idée toujours plus large de son fonctionnement.
 
@@ -171,11 +171,11 @@ Avec le temps, au moins les résultats et un ensemble de base de mesures devraie
 
 #### Campagne électorale
 
-Idéalement, cet outil forcera tous les partis politiques traditionnels pendant la campagne électorale belge de 2024 à proposer leur propre ensemble de mesures calculées pour aborder ces résultats écologiques. Bien sûr, elles seront heureusement intégrées dans l'outil par les auteurs.
+Idéalement, cet outil devrait encourager un large éventail d'institutions (universités, groupes de réflexion, groupes d'intérêt,...) et, à terme, tous les partis politiques, lors de la campagne électorale belge de 2024, à proposer leur propre ensemble de mesures calculées qui s'attaquent de manière adéquate ces défis écologiques. Nous serons heureux de travailler avec eux et de les intégrer dans notre outil.
 
 #### Adoption officielle
 
-Ensuite, une fois que ce concept est officiellement adopté par le gouvernement, pour lancer un préférendum officiel pour mesurer les préférences de toute la population, cette mise en œuvre peut servir de point de départ. Le code est open source et peut être réutilisé, ou il peut simplement servir d'inspiration.
+Par la suite, si ce concept est officiellement adopté par le gouvernement et qu'un référendum officiel est lancé pour jauger les préférences de l'ensemble de la population, cette mise en œuvre peut servir de point de départ. Le code est open source et peut être réutilisé, ou il peut simplement servir d’inspiration.
 
 Le grand public, et en particulier les auteurs de ce site Web, continueront à évaluer la qualité de l'outil officiel, en le comparant avec cet outil de démonstration.
 
