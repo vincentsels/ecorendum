@@ -36,19 +36,28 @@
   font-size: 110%;
 }
 
-.inline-block {
-  display: inline-block;
+.calc-table {
+  display: inline-flex;
+  flex-direction: column;
 }
 
-.number-right {
-  float: right;
-  margin-left: 8px;
+.calc-line {
+  display: flex;
 }
 
-.bottom-line {
-  border-bottom: solid 1px;
-  margin-bottom: 2pt;
-  padding-bottom: 2pt;
+.calc-line-header {
+  margin-right: 6px;
+}
+
+.calc-line-number {
+    text-align: right;
+    flex-grow: 1;
+}
+
+.total-line {
+  border-top: solid 1px;
+  margin-top: 2pt;
+  padding-top: 3pt;
 }
 
 .submit-button-lg {

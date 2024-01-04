@@ -116,18 +116,19 @@
     </h3>
 
     <div *ngIf="expandedTotalCost">
-      <div class="numerical inline-block">
-        <div>
-          {{ 'Total measures cost' | translate }}: <span class="number-right">€&nbsp;{{ results.totalMeasurementCost | number }}</span>
+      <div class="calc-table">
+        <div class="calc-line">
+          <span class="calc-line-header">{{ 'Total measures cost' | translate }}:</span>
+          <span class="calc-line-number">€&nbsp;{{ results.totalMeasurementCost | number }}</span>
         </div>
-        <div class="bottom-line">
-          <app-help-widget [tooltipKey]="(results.totalEuGhgTax > 0 ? 'helpCarbonTax' : 'helpCarbonIncome')"
-            [textKey]="results.totalEuGhgTax > 0 ? 'Emissions trading cost' : 'Emissions trading profit'"></app-help-widget>:
-          <span class="number-right" [class.color-accent]="results.totalEuGhgTax < 0"> €&nbsp;{{ (results.totalEuGhgTax > 0 ? results.totalEuGhgTax : -results.totalEuGhgTax) | number }}</span>
+        <div class="calc-line">
+          <span class="calc-line-header"><app-help-widget [tooltipKey]="(results.totalEuGhgTax > 0 ? 'helpCarbonTax' : 'helpCarbonIncome')"
+            [textKey]="results.totalEuGhgTax > 0 ? 'Emissions trading cost' : 'Emissions trading profit'"></app-help-widget>:</span>
+          <span class="calc-line-number" [class.color-accent]="results.totalEuGhgTax < 0"> €&nbsp;{{ (results.totalEuGhgTax > 0 ? results.totalEuGhgTax : -results.totalEuGhgTax) | number }}</span>
         </div>
-        <div>
-          {{ 'Including emission trading' | translate }}:
-          <span class="number-right" [class.color-accent]="results.totalCostIncludingTax < 0"> €&nbsp;{{ (results.totalCostIncludingTax < 0 ? -results.totalCostIncludingTax : results.totalCostIncludingTax) | number }}</span>
+        <div class="calc-line total-line">
+          <span class="calc-line-header">{{ 'Including emission trading' | translate }}:</span>
+          <span class="calc-line-number" [class.color-accent]="results.totalCostIncludingTax < 0"> €&nbsp;{{ (results.totalCostIncludingTax < 0 ? -results.totalCostIncludingTax : results.totalCostIncludingTax) | number }}</span>
         </div>
       </div>
       <p *ngIf="results.totalCostIncludingTax > 0" style="margin-top: 12px">
