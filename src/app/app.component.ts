@@ -22,7 +22,7 @@ export class AppComponent {
     translate.setDefaultLang(defaultLang);
     languageService.setLanguage(lang);
     languageService.language.subscribe({
-      next: lang => titleService.setTitle('Ecorendum - Choose your own policy')
+      next: lang => setTimeout(() => titleService.setTitle(translate.instant('siteTitle')))
     });
 
     matIconRegistry.addSvgIcon('flanders', domSanitizer.bypassSecurityTrustResourceUrl("../assets/icon_flanders.svg"));
