@@ -40,7 +40,7 @@ export class MainComponent {
         })
       );
 
-    this.proposalService.updateResults();
+    this.proposalService.updateSelection();
 
     if (localStorage.getItem(this.proposalService.getLocalStorageSelectedVariantsKey())) {
       this.selectedProposalType = 'own';

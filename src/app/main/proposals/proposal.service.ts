@@ -1,51 +1,55 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { LoremIpsumService } from '../../common/lorem-ipsum.service';
-import { rnd, toss } from '../../common/helper';
+import { PROPOSALS_FEDERAL } from './proposal-data/proposals-federal';
 import { PROPOSALS_FLANDERS } from './proposal-data/proposals-flanders';
-import { PARTY_IDS } from '../party';
-import { ProposalOrigin, ProposalSetType, TranslatedText, Variant } from './proposal';
-import { Faq, Link, PartyOpinion, ProposalDetail } from './proposal-details';
+import { PROPOSALS_BRUSSELS } from './proposal-data/proposals-brussels';
+import { PROPOSALS_WALLONIA } from './proposal-data/proposals-wallonia';
+import { ProposalOrigin, ProposalSetType, Variant } from './proposal';
+import { ProposalDetail } from './proposal-details';
 import { ContextService } from '../context/context.service';
-import { TargetsService } from '../targets/targets.service';
+import { DummyProposalDataGeneratorService } from './dummy-proposal-data-generator.service';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 
 @Injectable()
 export class ProposalService {
-  proposals$: BehaviorSubject<ProposalDetail[]>;
+  proposalsLoading = false;
+  proposals$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
 
   selectionKey = '';
 
-  initialized = false;
-
   constructor(private contextService: ContextService,
-    private targetsService: TargetsService,
-    private loremIpsumService: LoremIpsumService) {
-    this.proposals$ = new BehaviorSubject<ProposalDetail[]>(PROPOSALS_FLANDERS); // TODO: Actually get them from the BE,...
+    private dummyProposalDataGeneratorService: DummyProposalDataGeneratorService) {
+
+    this.initializeProposals(PROPOSALS_FEDERAL);
+    this.initializeProposals(PROPOSALS_FLANDERS);
+    this.initializeProposals(PROPOSALS_BRUSSELS);
+    this.initializeProposals(PROPOSALS_WALLONIA);
 
     this.loadProposals(true);
 
-    this.updateResults(false);
-
-    this.targetsService.targets$.subscribe(() => this.updateResults());
+    this.contextService.context$.subscribe(() => this.loadProposals());
   }
 
-  public loadProposals(initial = false) {
-    let proposals = this.proposals$.value;
-
-    this.initializeDummyData(proposals);
+  private initializeProposals(proposals: ProposalDetail[]) {
+    this.dummyProposalDataGeneratorService.initializeDummyData(proposals);
 
     for (let proposal of proposals) {
       for (let variant of proposal.variants) {
         variant.proposal = proposal;
       }
     }
+  }
+
+  public loadProposals(initial = false) {
+    this.proposalsLoading = true;
+
+    const proposals = this.getAllProposalsForSelectedContext();
 
     // Load selected variants
 
-    if (!initial) this.clearSelection(false);
+    this.clearSelection(false);
 
     const selectedVariantNumbers = JSON.parse(localStorage.getItem(this.getLocalStorageSelectedVariantsKey()) || '[]');
 
@@ -53,76 +57,22 @@ export class ProposalService {
 
     this.proposals$.next(proposals);
 
-    if (!initial) this.updateResults(false);
+    // if (!initial) this.updateSelection(false);
   }
 
-  public generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
-    this.loremIpsumService.generateWords(rnd(2, 8)), toss() ? 'nl' : toss() ? 'fr' : 'en');
+  private getAllProposalsForSelectedContext(): ProposalDetail[] {
+    const context = this.contextService.context$.value;
 
-  private initializeDummyData(proposals: ProposalDetail[]) {
-    if (this.initialized) return;
-    this.initialized = true;
+    let proposals: ProposalDetail[];
 
-    for (let proposal of proposals) {
-      // Random descriptions
-      proposal.description = [
-        new TranslatedText('nl', this.loremIpsumService.generateParagraphs()),
-        new TranslatedText('fr', this.loremIpsumService.generateParagraphs()),
-        new TranslatedText('en', this.loremIpsumService.generateParagraphs()),
-      ];
+    if (context === 'flanders') proposals = [...PROPOSALS_FEDERAL, ...PROPOSALS_FLANDERS];
+    else if (context === 'brussels') proposals = [...PROPOSALS_FEDERAL, ...PROPOSALS_BRUSSELS];
+    else if (context === 'wallonia') proposals = [...PROPOSALS_FEDERAL, ...PROPOSALS_WALLONIA];
+    else throw new Error('Unknown context');
 
-      // Random party opinions
-      for (let partyId of PARTY_IDS) {
-        if (toss()) {
-          proposal.partyOpinions?.push(
-            new PartyOpinion(partyId, proposal.id, [
-              new TranslatedText('nl', this.loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('fr', this.loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('en', this.loremIpsumService.generateParagraphs(1)),
-            ], true, rnd(1, proposal.variants.length))
-          );
-        } else {
-          proposal.partyOpinions?.push(
-            new PartyOpinion(partyId, proposal.id, [
-              new TranslatedText('nl', this.loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('fr', this.loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('en', this.loremIpsumService.generateParagraphs(1)),
-            ], false)
-          );
-        }
-      }
+    proposals.sort((a, b) => Number(b.committed) - Number(a.committed));
 
-      // Random links
-      for (let i = 0; i < rnd(1, 3); i++) proposal.linksToDebates?.push(this.generateRandomLink(proposal.id));
-      for (let i = 0; i < rnd(0, 2); i++) proposal.linksToExamplesAbroad?.push(this.generateRandomLink(proposal.id));
-      for (let i = 0; i < rnd(1, 6); i++) proposal.linksToMediaArticles?.push(this.generateRandomLink(proposal.id));
-      for (let i = 0; i < rnd(1, 5); i++) proposal.linksToPapers?.push(this.generateRandomLink(proposal.id));
-      for (let i = 0; i < rnd(0, 3); i++) proposal.linksToExplainers?.push(this.generateRandomLink(proposal.id));
-
-      // Random faqs
-      for (let i = 0; i < rnd(0, 8); i++) {
-        proposal.faqs?.push(new Faq(proposal.id + '-' + i, proposal.id, [
-          new TranslatedText('nl', this.loremIpsumService.generateWords(rnd(4, 12)) + '?'),
-          new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(4, 12)) + ' ?'),
-          new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)) + '?')
-        ], [
-          new TranslatedText('nl', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-')),
-          new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-')),
-          new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)).replace(' ', '-'))
-        ], [
-          new TranslatedText('nl', this.loremIpsumService.generateParagraphs(1)),
-          new TranslatedText('fr', this.loremIpsumService.generateParagraphs(1)),
-          new TranslatedText('en', this.loremIpsumService.generateParagraphs(1))
-        ],
-          toss() ? [] : [
-            new TranslatedText('nl', this.loremIpsumService.generateParagraphs(rnd(1, 3))),
-            new TranslatedText('fr', this.loremIpsumService.generateParagraphs(rnd(1, 3))),
-            new TranslatedText('en', this.loremIpsumService.generateParagraphs(rnd(1, 3)))
-          ]
-        )
-        );
-      }
-    }
+    return proposals;
   }
 
   private selectVariants(selectedVariantNumbers: any, proposals: ProposalDetail[]) {
@@ -160,7 +110,7 @@ export class ProposalService {
     proposals[proposals.findIndex(p => p.id === proposal.id)] = new ProposalDetail(proposal);
 
     this.proposals$.next(proposals);
-    this.updateResults(saveSelection);
+    this.updateSelection(saveSelection);
   }
 
   clearVariant(proposal: ProposalDetail, saveSelection: boolean = true) {
@@ -178,7 +128,7 @@ export class ProposalService {
     proposals[proposals.findIndex(p => p.id === proposal.id)] = new ProposalDetail(proposal);
 
     this.proposals$.next(proposals);
-    this.updateResults(saveSelection);
+    this.updateSelection(saveSelection);
   }
 
   clearSelection(saveSelection: boolean = true) {
@@ -201,14 +151,14 @@ export class ProposalService {
       localStorage.removeItem(this.getLocalStorageSelectedVariantsKey());
     }
 
-    this.updateResults(saveSelection);
+    this.updateSelection(saveSelection);
   }
 
   getLocalStorageSelectedVariantsKey(): string {
     return LS_KEY_SELECTED_VARIANTS + '.' + this.contextService.context$.value;
   }
 
-  updateResults(saveSelection: boolean = true) {
+  updateSelection(saveSelection: boolean = true) {
     const proposals = this.proposals$.value;
 
     if (!proposals || proposals.length === 0) return;
@@ -226,9 +176,10 @@ export class ProposalService {
   }
 
   public getSet(setType: ProposalSetType) {
-    if (setType === 'nekp') return PROPOSALS_FLANDERS.filter(p => p.committed);
-    else if (setType === 'veka') return PROPOSALS_FLANDERS.filter(p => p.committed).concat(PROPOSALS_FLANDERS.filter(p => p.origin === ProposalOrigin.veka));
-    else return PROPOSALS_FLANDERS.filter(p => p.committed).concat(PROPOSALS_FLANDERS.filter(p => !p.committed && Math.random() > 0.3));
+    const allProposals = this.getAllProposalsForSelectedContext();
+    if (setType === 'nekp') return allProposals.filter(p => p.committed);
+    else if (setType === 'veka') return allProposals.filter(p => p.committed).concat(allProposals.filter(p => p.origin === ProposalOrigin.veka));
+    else return allProposals.filter(p => p.committed).concat(allProposals.filter(p => !p.committed && Math.random() > 0.3));
   }
 
   public setFromKey(key: string) {
@@ -238,7 +189,7 @@ export class ProposalService {
     let proposals = PROPOSALS_FLANDERS;
     this.selectVariants(variants, proposals);
     this.proposals$.next(proposals);
-    this.updateResults(false);
+    this.updateSelection(false);
   }
 
   public getKey(selectedVariantNumbers: { id: number; selectedVariant: number | undefined; }[]): string {
