@@ -7,9 +7,9 @@ import { ProposalDetail } from '../proposal-details';
 import { ProposalService } from '../proposal.service';
 
 @Component({
-  selector: 'app-proposal',
-  templateUrl: './proposal.component.html',
-  styleUrls: ['./proposal.component.scss']
+  selector: 'app-proposal-card',
+  templateUrl: './proposal-card.component.html',
+  styleUrls: ['./proposal-card.component.scss']
 })
 export class ProposalComponent {
   @Input() proposal?: ProposalDetail;

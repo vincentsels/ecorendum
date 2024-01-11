@@ -17,7 +17,7 @@ import { UserService } from './user/user.service';
 import { LimitLengthPipe } from './common/limit-length.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
-import { ProposalComponent } from './main/proposals/proposal/proposal.component';
+import { ProposalComponent } from './main/proposals/proposal-card/proposal-card.component';
 import { ProposalService } from './main/proposals/proposal.service';
 import { TranslateTextPipe } from './common/translate-text.pipe';
 import { TranslateTextAsyncPipe } from './common/translate-text-async.pipe';

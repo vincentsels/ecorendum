@@ -29,7 +29,7 @@
     </span>
 
     <div *ngIf="selectedProposalType === 'own' && (filteredProposals$ | async); let filteredProposals">
-      <app-proposal *ngFor="let proposal of filteredProposals" [proposal]="proposal"></app-proposal>
+      <app-proposal-card *ngFor="let proposal of filteredProposals" [proposal]="proposal"></app-proposal-card>
 
       <p *ngIf="filteredProposals.length > 0 && filteredProposals.length < proposalService.proposals$.value.length">
         {{ 'Cannot find the proposal you are looking for? There is a filter applied.' | translate }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
