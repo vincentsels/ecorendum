@@ -15,7 +15,10 @@ const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 @Injectable()
 export class ProposalService {
   proposalsLoading = false;
-  proposals$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
+  allProposals$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
+
+  committedProposals$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
+  proposalSet$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
 
   selectionKey = '';
 
@@ -55,9 +58,11 @@ export class ProposalService {
 
     this.selectVariants(selectedVariantNumbers, proposals);
 
-    this.proposals$.next(proposals);
+    this.allProposals$.next(proposals);
 
     // if (!initial) this.updateSelection(false);
+
+    this.proposalsLoading = false;
   }
 
   private getAllProposalsForSelectedContext(): ProposalDetail[] {
@@ -104,12 +109,12 @@ export class ProposalService {
     proposal.selectedAmbitionLevel = variant.ambitionLevel;
 
     const proposals = [
-      ...this.proposals$.value
+      ...this.allProposals$.value
     ];
 
     proposals[proposals.findIndex(p => p.id === proposal.id)] = new ProposalDetail(proposal);
 
-    this.proposals$.next(proposals);
+    this.allProposals$.next(proposals);
     this.updateSelection(saveSelection);
   }
 
@@ -122,18 +127,18 @@ export class ProposalService {
     }
 
     const proposals = [
-      ...this.proposals$.value
+      ...this.allProposals$.value
     ];
 
     proposals[proposals.findIndex(p => p.id === proposal.id)] = new ProposalDetail(proposal);
 
-    this.proposals$.next(proposals);
+    this.allProposals$.next(proposals);
     this.updateSelection(saveSelection);
   }
 
   clearSelection(saveSelection: boolean = true) {
     const proposals = [
-      ...this.proposals$.value,
+      ...this.allProposals$.value,
     ];
 
     proposals.forEach((proposal) => {
@@ -145,7 +150,7 @@ export class ProposalService {
       });
     });
 
-    this.proposals$.next(proposals);
+    this.allProposals$.next(proposals);
 
     if (saveSelection) {
       localStorage.removeItem(this.getLocalStorageSelectedVariantsKey());
@@ -159,7 +164,7 @@ export class ProposalService {
   }
 
   updateSelection(saveSelection: boolean = true) {
-    const proposals = this.proposals$.value;
+    const proposals = this.allProposals$.value;
 
     if (!proposals || proposals.length === 0) return;
 
@@ -175,7 +180,24 @@ export class ProposalService {
     }
   }
 
-  public getSet(setType: ProposalSetType) {
+  public selectSet(setType: ProposalSetType) {
+    if (setType === 'own') {
+      this.clearSelection(false);
+      this.loadProposals();
+    } else {
+      const proposalSet = this.getSet(setType);
+
+      this.clearSelection(false);
+      for (let proposal of proposalSet) {
+        this.selectVariant(proposal, proposal.variants[proposal.variants.length -1], false);
+      }
+
+      this.committedProposals$.next(proposalSet.filter(p => p.committed));
+      this.proposalSet$.next(proposalSet.filter(p => !p.committed));
+    }
+  }
+
+  private getSet(setType: ProposalSetType) {
     const allProposals = this.getAllProposalsForSelectedContext();
     if (setType === 'nekp') return allProposals.filter(p => p.committed);
     else if (setType === 'veka') return allProposals.filter(p => p.committed).concat(allProposals.filter(p => p.origin === ProposalOrigin.veka));
@@ -188,7 +210,7 @@ export class ProposalService {
     this.clearSelection();
     let proposals = PROPOSALS_FLANDERS;
     this.selectVariants(variants, proposals);
-    this.proposals$.next(proposals);
+    this.allProposals$.next(proposals);
     this.updateSelection(false);
   }
 

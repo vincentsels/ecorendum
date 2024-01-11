@@ -22,13 +22,10 @@ export class MainComponent {
   includeCommitted = true;
 
   selectedProposalType: ProposalSetType = 'nekp';
-  proposalSet: ProposalDetail[] = [];
-  proposalSetCommitted: ProposalDetail[] = [];
-  proposalSetOther: ProposalDetail[] = [];
 
   constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService,
     private route: ActivatedRoute) {
-    this.filteredProposals$ = combineLatest([this.proposalsFilter$, this.proposalService.proposals$])
+    this.filteredProposals$ = combineLatest([this.proposalsFilter$, this.proposalService.allProposals$])
       .pipe(
         map(([filter, proposals]) => {
           return proposals.filter(
@@ -58,19 +55,7 @@ export class MainComponent {
   }
 
   proposalSetSelectionChanged() {
-    if (this.selectedProposalType !== 'own') {
-      this.proposalService.clearSelection(false);
-      this.proposalSet = this.proposalService.getSet(this.selectedProposalType);
-      for (let proposal of this.proposalSet) {
-        this.proposalService.selectVariant(proposal, proposal.variants[proposal.variants.length -1], false);
-      }
-      this.proposalSetCommitted = this.proposalSet.filter(p => p.committed);
-      this.proposalSetOther = this.proposalSet.filter(p => !p.committed);
-    } else {
-      this.proposalSet = [];
-      this.proposalService.clearSelection(false);
-      this.proposalService.loadProposals();
-    }
+    this.proposalService.selectSet(this.selectedProposalType);
   }
 
   showResults() {

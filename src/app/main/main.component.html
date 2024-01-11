@@ -23,15 +23,19 @@
     </div>
 
     <span *ngIf="selectedProposalType !== 'own'">
-      <app-proposal-set [baseSet]="selectedProposalType === 'nekp'" style="display: block; margin-bottom: 20px" *ngIf="selectedProposalType === 'nekp' || includeCommitted === true" [proposalSet]="proposalSetCommitted"></app-proposal-set>
+      <app-proposal-set [baseSet]="selectedProposalType === 'nekp'" style="display: block; margin-bottom: 20px"
+        *ngIf="selectedProposalType === 'nekp' || includeCommitted === true"
+        [proposalSet]="(proposalService.committedProposals$ | async) || []"></app-proposal-set>
 
-      <app-proposal-set *ngIf="proposalSetOther.length > 0" [proposalSet]="proposalSetOther"></app-proposal-set>
+      <ng-container *ngIf="(proposalService.proposalSet$ | async); let proposalSet">
+        <app-proposal-set *ngIf="proposalSet.length > 0" [proposalSet]="proposalSet"></app-proposal-set>
+      </ng-container>
     </span>
 
     <div *ngIf="selectedProposalType === 'own' && (filteredProposals$ | async); let filteredProposals">
       <app-proposal-card *ngFor="let proposal of filteredProposals" [proposal]="proposal"></app-proposal-card>
 
-      <p *ngIf="filteredProposals.length > 0 && filteredProposals.length < proposalService.proposals$.value.length">
+      <p *ngIf="filteredProposals.length > 0 && filteredProposals.length < proposalService.allProposals$.value.length">
         {{ 'Cannot find the proposal you are looking for? There is a filter applied.' | translate }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
       </p>
 

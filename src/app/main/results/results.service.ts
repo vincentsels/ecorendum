@@ -19,7 +19,7 @@ export class ResultsService {
     this.updateResults();
 
     // TODO: combine all/latest or something
-    this.proposalService.proposals$.subscribe(() => this.updateResults());
+    this.proposalService.allProposals$.subscribe(() => this.updateResults());
     this.targetsService.targets$.subscribe(() => this.updateResults());
   }
 
@@ -30,7 +30,7 @@ export class ResultsService {
   }
 
   calculateResults(): Results {
-    const proposals = this.proposalService.proposals$.value;
+    const proposals = this.proposalService.allProposals$.value;
     const targets = this.targetsService.targets$.value;
     const parameters = this.parametersService.parameters$.value;
 
