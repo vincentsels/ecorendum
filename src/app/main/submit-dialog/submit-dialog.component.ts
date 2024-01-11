@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { CommonDialogService } from '../../common/dialog.component';
 import { ProposalService } from '../proposal.service';
 import { Results } from '../results/results';
+import { ResultsService } from '../results.service';
 
 @Component({
   selector: 'app-submit-dialog',
@@ -20,9 +21,9 @@ export class SubmitDialogComponent {
 
   agree = false;
 
-  constructor(public dialogRef: MatDialogRef<SubmitDialogComponent>, proposalService: ProposalService,
+  constructor(public dialogRef: MatDialogRef<SubmitDialogComponent>, resultsService: ResultsService,
     private snackBar: MatSnackBar, private translate: TranslateService, private commonDialog: CommonDialogService) {
-    this.result = proposalService.results$.getValue();
+    this.result = resultsService.results$.getValue();
     this.ghgTargetMet = this.result.euGhgTarget.percentage >= 100;
     this.eeTargetMet = this.result.euEeTarget.percentage >= 100;
     this.reTargetMet = this.result.euReTarget.percentage >= 100;

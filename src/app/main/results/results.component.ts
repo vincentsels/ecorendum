@@ -2,13 +2,13 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { CommonDialogService } from '../../common/dialog.component';
 
+import { CommonDialogService } from '../../common/dialog.component';
 import { EnumsService } from '../../common/enums.service';
-import { ProposalService } from '../proposal.service';
 import { SubmitDialogComponent } from '../submit-dialog/submit-dialog.component';
 import { Results } from './results';
 import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
+import { ResultsService } from '../results.service';
 
 @Component({
   selector: 'app-results',
@@ -18,19 +18,12 @@ import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
 export class ResultsComponent implements OnInit {
   results$: Observable<Results>;
 
-  // gasGapBcm = Results.gasGapBcm;
-  // oilGapMb = Results.oilGapMb;
-
-  // co2GapCumulativeMt = Results.co2GapCumulativeMt;
-  // reGapTargetTwh = Results.reGapTargetTwh;
-  // eeGapTargetTwh = Results.eeGapTargetTwh;
-
   expandedTotalCost = false;
   expandedTotalImpact = false;
 
   @Input() dialog = false;
 
-  constructor(service: ProposalService, public enums: EnumsService, private matDialog: MatDialog,
+  constructor(service: ResultsService, public enums: EnumsService, private matDialog: MatDialog,
     private commonDialog: CommonDialogService, private translate: TranslateService) {
     this.results$ = service.results$;
   }

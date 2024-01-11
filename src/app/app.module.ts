@@ -49,6 +49,7 @@ import { gfmHeadingId } from 'marked-gfm-heading-id';
 import { ContextService } from './main/context/context.service';
 import { TargetsService } from './main/targets/targets.service';
 import { ParametersService } from './main/parameters/parameters.service';
+import { ResultsService } from './main/results.service';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -112,6 +113,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserService,
     MatSnackbarErrorHandler,
     ProposalService,
+    ResultsService,
     ContextService,
     TargetsService,
     ParametersService,

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { EnumsService } from '../../common/enums.service';
 
-import { ProposalService } from '../proposal.service';
 import { Results } from '../results/results';
+import { ResultsService } from '../results.service';
 
 @Component({
   selector: 'app-results-mobile-summary',
@@ -14,7 +13,7 @@ import { Results } from '../results/results';
 export class ResultsMobileSummaryComponent {
   results$: Observable<Results>;
 
-  constructor(service: ProposalService, private snackBar: MatSnackBar, public enums: EnumsService) {
+  constructor(service: ResultsService, public enums: EnumsService) {
     this.results$ = service.results$;
   }
 }

@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { LoremIpsumService } from '../common/lorem-ipsum.service';
 import { rnd, toss } from '../common/helper';
 import { PROPOSALS } from './dummy-proposals';
 import { PARTY_IDS } from './party';
-import { ImpactAmount, ImpactAmountMap, ProposalOrigin, ProposalSetType, TargetType, TranslatedText, Variant } from './proposal';
+import { ProposalOrigin, ProposalSetType, TranslatedText, Variant } from './proposal';
 import { Faq, Link, PartyOpinion, ProposalDetail } from './proposal-details';
-import { Results, TargetResult, TotalImpact } from './results/results';
 import { ContextService } from './context/context.service';
 import { TargetsService } from './targets/targets.service';
 import { ParametersService } from './parameters/parameters.service';
@@ -17,7 +16,6 @@ const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 @Injectable()
 export class ProposalService {
   proposals$: BehaviorSubject<ProposalDetail[]>;
-  results$: BehaviorSubject<Results>;
 
   selectionKey = '';
 
@@ -30,8 +28,6 @@ export class ProposalService {
     this.proposals$ = new BehaviorSubject<ProposalDetail[]>(PROPOSALS); // TODO: Actually get them from the BE,...
 
     this.loadProposals(true);
-
-    this.results$ = new BehaviorSubject<Results>(this.calculateResults());
 
     this.updateResults(false);
 
@@ -229,102 +225,6 @@ export class ProposalService {
     if (saveSelection && selectedVariantNumbers.length > 0) {
       localStorage.setItem(this.getLocalStorageSelectedVariantsKey(), JSON.stringify(selectedVariantNumbers));
     }
-
-    const results = this.calculateResults();
-
-    this.results$.next(results);
-  }
-
-  calculateResults(): Results {
-    const proposals = this.proposals$.value;
-    const targets = this.targetsService.targets$.value;
-    const parameters = this.parametersService.parameters$.value;
-
-    const selectedVariants = proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
-
-    const legalGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, true);
-
-    const legalGhgReductionPercentage = legalGhgReducedKt / targets.legalTargetGapGhgKt * 100;
-    const legalGhgTax = (targets.legalTargetGapGhgKt - legalGhgReducedKt) * parameters.pricePerKtGhg;
-    const legalGhgIncome = (targets.legalTargetGapGhgKt - legalGhgReducedKt) * -parameters.pricePerKtGhg;
-    const legalGhgReductionColor = legalGhgReductionPercentage >= 100 ? 'accent' : 'warn';
-
-    const legalGhgTarget = new TargetResult(targets.legalTargetGapGhgKt, 'Kt', parameters.pricePerKtGhg, legalGhgReducedKt,
-      legalGhgReductionColor, legalGhgReductionPercentage, legalGhgTax, legalGhgIncome);
-
-    const euGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, false);
-
-    const euGhgReductionPercentage = euGhgReducedKt / targets.euTargetGapGhgKt * 100;
-    const euGhgTax = (targets.euTargetGapGhgKt - euGhgReducedKt) * parameters.pricePerKtGhg;
-    const euGhgIncome = (targets.euTargetGapGhgKt - euGhgReducedKt) * -parameters.pricePerKtGhg;
-    const euGhgReductionColor = euGhgReductionPercentage >= 100 ? 'accent' : 'warn';
-
-    const euGhgTarget = new TargetResult(targets.euTargetGapGhgKt, 'Kt', parameters.pricePerKtGhg, euGhgReducedKt,
-      euGhgReductionColor, euGhgReductionPercentage, euGhgTax, euGhgIncome);
-
-    const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency, false);
-    const energySavedPercentage = energySavedGwh / targets.euTargetGapEeGwh * 100;
-    const energySavedColor = energySavedPercentage >= 100 ? 'accent' : 'warn';
-
-    const euEeTarget = new TargetResult(targets.euTargetGapEeGwh, 'GWh', 0, energySavedGwh,
-      energySavedColor, energySavedPercentage);
-
-    const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy, false);
-    const reAddedPercentage = reAddedGwh / targets.euTargetGapReGwh * 100;
-    const renewableEnergyAddedColor = reAddedPercentage >= 100 ? 'accent' : 'warn';
-
-    const euReTarget = new TargetResult(targets.euTargetGapReGwh, 'GWh', 0, reAddedGwh,
-      renewableEnergyAddedColor, reAddedPercentage);
-
-    const totalMeasurementCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
-    const totalEuGhgTax = euGhgTax;
-    const totalCostIncludingTax = totalMeasurementCost + totalEuGhgTax;
-
-    const totalImpact: TotalImpact[] = [];
-
-    for (let variant of selectedVariants) {
-      for (let impact of variant.impacts) {
-        const impactItem = totalImpact.find(i => i.domain === impact.domain);
-        if (impactItem) {
-          impactItem.amount += (impact.amount - 5);
-        } else {
-          totalImpact.push(new TotalImpact(impact.domain, impact.amount - 5 ));
-        }
-      }
-    }
-
-    for (let impact of totalImpact) {
-      if (impact.amount <= -8) impact.class = ImpactAmountMap[ImpactAmount.extremelyPositive];
-      else if (impact.amount <= -6) impact.class = ImpactAmountMap[ImpactAmount.veryPositive];
-      else if (impact.amount <= -4) impact.class = ImpactAmountMap[ImpactAmount.moderatelyPositive];
-      else if (impact.amount <= -2) impact.class = ImpactAmountMap[ImpactAmount.somewhatPositive];
-      else if (impact.amount >= 8) impact.class = ImpactAmountMap[ImpactAmount.extremelyNegative];
-      else if (impact.amount >= 6) impact.class = ImpactAmountMap[ImpactAmount.veryNegative];
-      else if (impact.amount >= 4) impact.class = ImpactAmountMap[ImpactAmount.moderatelyNegative];
-      else if (impact.amount >= 2) impact.class = ImpactAmountMap[ImpactAmount.somewhatNegative];
-      else impact.class = ImpactAmountMap[ImpactAmount.neutral];
-    }
-
-    totalImpact.sort((a, b) => b.amount - a.amount);
-
-    //let image = '';
-    //for (let threshold of Results.moneyImageMap) {
-    //  if (totalMoneyToRussia <= threshold.threshold) {
-    //    image = threshold.image;
-    //    break;
-    //  }
-    //}
-
-    return new Results(
-      legalGhgTarget,
-      euGhgTarget,
-      euEeTarget,
-      euReTarget,
-      totalMeasurementCost,
-      totalEuGhgTax,
-      totalCostIncludingTax,
-      totalImpact,
-    );
   }
 
   public getSet(setType: ProposalSetType) {
@@ -343,14 +243,7 @@ export class ProposalService {
     this.updateResults(false);
   }
 
-  private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean) {
-    return selectedVariants
-      .filter(v => includeEts || v.proposal?.ets === false)
-      .flatMap(v => v.targets.filter(t => t.type === targetType).map(t => t.amount))
-      .reduce((a, b) => a + b, 0);
-  }
-
-  private getKey(selectedVariantNumbers: { id: number; selectedVariant: number | undefined; }[]): string {
+  public getKey(selectedVariantNumbers: { id: number; selectedVariant: number | undefined; }[]): string {
     return this.encodeVariantArray(selectedVariantNumbers);
   }
 
