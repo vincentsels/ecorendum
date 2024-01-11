@@ -61,6 +61,7 @@ export class ProposalHeaderComponent {
     { threshold: 999999999999999, class: 'impact-extremely-positive' },
   ];
 
+  @Input() baseSet: boolean = false;
   @Input() proposal?: Proposal;
   @Input() card: boolean = false;
   @Input() set: boolean = false;

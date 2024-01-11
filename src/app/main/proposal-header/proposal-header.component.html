@@ -1,4 +1,4 @@
-<div *ngIf="proposal" style="display: flex" [class.committed]="proposal.committed">
+<div *ngIf="proposal" style="display: flex" [class.committed]="proposal.committed && !baseSet">
   <h2 [class.set-title]="set" *ngIf="!dialog">
     <mat-icon class="inline header-icon" fontSet="material-symbols-outlined">{{ proposal.icon || 'eco' }}</mat-icon>
   </h2>
@@ -14,7 +14,7 @@
       </ng-container>
     </h2>
     <div class="proposal-target-summary" [class.set]="set">
-      <span class="proposal-target-summary-item" *ngIf="proposal.committed && set;">
+      <span class="proposal-target-summary-item" *ngIf="proposal.committed && set">
         {{ 'Committed' | translate }}
       </span>
       <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinCost(set); let cost;">

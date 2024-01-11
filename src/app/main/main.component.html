@@ -1,18 +1,17 @@
 <div class="page-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="24px">
   <div fxFlex="60%" fxFlex.lt-md="100%" class="proposals">
     <h1 class="proposals-header" ngClass.xs="proposals-header-xs">
-      <app-help-widget tooltipKey="helpProposals"
-        textKey="Proposals" dialogKey="helpDialogProposals"></app-help-widget>
-      <!-- <div class="project-filters" ngClass.xs="project-filters-xs">
-        <mat-checkbox [(ngModel)]="includeCommitted" (ngModelChange)="filterChanged()" style="margin-right: 12px">
+      <app-help-widget style="height: 40px;" tooltipKey="helpProposals" textKey="Proposals" dialogKey="helpDialogProposals"></app-help-widget>
+      <div class="project-filters" ngClass.xs="project-filters-xs">
+        <mat-checkbox *ngIf="selectedProposalType !== 'nekp'" [(ngModel)]="includeCommitted" (ngModelChange)="filterChanged()" style="margin-right: 12px">
           {{ 'Include already committed' | translate }}
         </mat-checkbox>
 
-        <mat-form-field appearance="outline" >
+        <!-- <mat-form-field appearance="outline" >
           <mat-label>{{ 'Filter proposals' | translate }}</mat-label>
           <input matInput type="text" [(ngModel)]="proposalsFilter" (input)="filterChanged()">
-        </mat-form-field>
-      </div> -->
+        </mat-form-field> -->
+      </div>
     </h1>
 
     <div class="proposal-types">
@@ -23,7 +22,11 @@
       </mat-radio-group>
     </div>
 
-    <app-proposal-set *ngIf="selectedProposalType !== 'own'" [proposalSet]="proposalSet"></app-proposal-set>
+    <span *ngIf="selectedProposalType !== 'own'">
+      <app-proposal-set [baseSet]="selectedProposalType === 'nekp'" style="display: block; margin-bottom: 20px" *ngIf="selectedProposalType === 'nekp' || includeCommitted === true" [proposalSet]="proposalSetCommitted"></app-proposal-set>
+
+      <app-proposal-set *ngIf="proposalSetOther.length > 0" [proposalSet]="proposalSetOther"></app-proposal-set>
+    </span>
 
     <div *ngIf="selectedProposalType === 'own' && (filteredProposals$ | async); let filteredProposals">
       <app-proposal *ngFor="let proposal of filteredProposals" [proposal]="proposal"></app-proposal>

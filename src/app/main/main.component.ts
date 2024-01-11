@@ -23,19 +23,20 @@ export class MainComponent {
 
   selectedProposalType: ProposalSetType = 'nekp';
   proposalSet: ProposalDetail[] = [];
+  proposalSetCommitted: ProposalDetail[] = [];
+  proposalSetOther: ProposalDetail[] = [];
 
   constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService,
     private route: ActivatedRoute) {
     this.filteredProposals$ = combineLatest([this.proposalsFilter$, this.proposalService.proposals$])
       .pipe(
         map(([filter, proposals]) => {
-          return proposals;
-          // return proposals.filter(
-          //   p =>
-          //     (this.includeCommitted || !p.committed) &&
-          //     (p.title.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())) ||
-          //     p.summary.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())))
-          // );
+          return proposals.filter(
+            p =>
+              (this.includeCommitted || !p.committed)
+              // && (p.title.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())) ||
+              // p.summary.some(t => t.text.toLocaleLowerCase().includes(this.projectsFilter.toLocaleLowerCase())))
+          );
         })
       );
 
@@ -63,6 +64,8 @@ export class MainComponent {
       for (let proposal of this.proposalSet) {
         this.proposalService.selectVariant(proposal, proposal.variants[proposal.variants.length -1], false);
       }
+      this.proposalSetCommitted = this.proposalSet.filter(p => p.committed);
+      this.proposalSetOther = this.proposalSet.filter(p => !p.committed);
     } else {
       this.proposalSet = [];
       this.proposalService.clearSelection(false);

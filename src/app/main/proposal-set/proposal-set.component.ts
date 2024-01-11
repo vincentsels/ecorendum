@@ -10,6 +10,7 @@ import { ProposalService } from '../proposal.service';
   styleUrls: ['./proposal-set.component.scss']
 })
 export class ProposalSetComponent {
+  @Input() baseSet: boolean = false;
   @Input() proposalSet?: Proposal[];
 
   constructor(public enums: EnumsService, public service: ProposalService) {}
