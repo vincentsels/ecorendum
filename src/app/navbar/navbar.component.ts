@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ProposalService } from '../main/proposal.service';
+import { ProposalService } from '../main/proposals/proposal.service';
 import { SelectContextDialogComponent } from '../main/context/select-context-dialog/select-context-dialog.component';
-import { LanguageType } from '../main/proposal';
+import { LanguageType } from '../main/proposals/proposal';
 import { LanguageService } from '../common/language.service';
 import { ContextService } from '../main/context/context.service';
 

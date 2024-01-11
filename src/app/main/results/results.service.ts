@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { ImpactAmount, ImpactAmountMap, TargetType, Variant } from './proposal';
-import { Results, TargetResult, TotalImpact } from './results/results';
-import { TargetsService } from './targets/targets.service';
-import { ParametersService } from './parameters/parameters.service';
-import { ProposalService } from './proposal.service';
+import { ImpactAmount, ImpactAmountMap, TargetType, Variant } from '../proposals/proposal';
+import { Results, TargetResult, TotalImpact } from './results';
+import { TargetsService } from '../targets/targets.service';
+import { ParametersService } from '../parameters/parameters.service';
+import { ProposalService } from '../proposals/proposal.service';
 
 @Injectable()
 export class ResultsService {

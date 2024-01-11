@@ -1,4 +1,4 @@
-import { PartyId } from './party';
+import { PartyId } from '../party';
 import { LanguageType, Proposal, TranslatedText } from './proposal';
 
 export class ProposalDetail extends Proposal {

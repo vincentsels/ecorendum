@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { environment } from '../../environments/environment';
 
-import { TranslatedText } from '../main/proposal';
+import { TranslatedText } from '../main/proposals/proposal';
 import { LanguageService } from './language.service';
 
 @Pipe({ name: 'translateText' })

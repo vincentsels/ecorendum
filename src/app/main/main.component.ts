@@ -4,9 +4,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Proposal, ProposalSetType } from './proposal';
-import { ProposalDetail } from './proposal-details';
-import { ProposalService } from './proposal.service';
+import { Proposal, ProposalSetType } from './proposals/proposal';
+import { ProposalDetail } from './proposals/proposal-details';
+import { ProposalService } from './proposals/proposal.service';
 import { ResultsDialogComponent } from './results/results-dialog.component';
 import { ActivatedRoute } from '@angular/router';
 

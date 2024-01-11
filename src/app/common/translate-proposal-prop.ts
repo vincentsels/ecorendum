@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, combineLatest, from, map, startWith } from 'rxjs';
-import { ProposalDetail } from '../main/proposal-details';
-import { Proposal } from '../main/proposal';
+import { ProposalDetail } from '../main/proposals/proposal-details';
+import { Proposal } from '../main/proposals/proposal';
 
 @Pipe({
   name: 'translateProp',

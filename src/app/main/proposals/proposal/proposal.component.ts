@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
-import { EnumsService } from '../../common/enums.service';
+import { EnumsService } from '../../../common/enums.service';
 import { Proposal, Variant } from '../proposal';
 import { ProposalDetail } from '../proposal-details';
 import { ProposalService } from '../proposal.service';

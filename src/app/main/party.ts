@@ -1,4 +1,4 @@
-import { TranslatedText } from './proposal';
+import { TranslatedText } from './proposals/proposal';
 
 export class Party {
   constructor(

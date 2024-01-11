@@ -3,9 +3,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { CommonDialogService } from '../../common/dialog.component';
-import { ProposalService } from '../proposal.service';
 import { Results } from '../results/results';
-import { ResultsService } from '../results.service';
+import { ResultsService } from '../results/results.service';
 
 @Component({
   selector: 'app-submit-dialog',

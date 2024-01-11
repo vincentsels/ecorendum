@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Proposal } from '../proposal';
 import { ProposalDetail } from '../proposal-details';
-import { LanguageService } from '../../common/language.service';
+import { LanguageService } from '../../../common/language.service';
 
 @Component({
   selector: 'proposal-detail-dialog',

@@ -8,7 +8,7 @@ import { EnumsService } from '../../common/enums.service';
 import { SubmitDialogComponent } from '../submit-dialog/submit-dialog.component';
 import { Results } from './results';
 import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
-import { ResultsService } from '../results.service';
+import { ResultsService } from './results.service';
 
 @Component({
   selector: 'app-results',

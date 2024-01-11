@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DateAdapter } from '@angular/material/core';
 import { BehaviorSubject } from 'rxjs';
-import { LanguageType } from '../main/proposal';
+import { LanguageType } from '../main/proposals/proposal';
 
 export const LOCAL_STORAGE_KEY_LANGUAGE = 'language';
 

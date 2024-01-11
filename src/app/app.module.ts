@@ -17,8 +17,8 @@ import { UserService } from './user/user.service';
 import { LimitLengthPipe } from './common/limit-length.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
-import { ProposalComponent } from './main/proposal/proposal.component';
-import { ProposalService } from './main/proposal.service';
+import { ProposalComponent } from './main/proposals/proposal/proposal.component';
+import { ProposalService } from './main/proposals/proposal.service';
 import { TranslateTextPipe } from './common/translate-text.pipe';
 import { TranslateTextAsyncPipe } from './common/translate-text-async.pipe';
 import { EnumsService } from './common/enums.service';
@@ -32,12 +32,12 @@ import { ResultsDialogComponent } from './main/results/results-dialog.component'
 import { CostPipe } from './common/cost.pipe';
 import { SubmitDialogComponent } from './main/submit-dialog/submit-dialog.component';
 import { CostEstPipe } from './common/cost-est.pipe';
-import { ProposalHeaderComponent } from './main/proposal-header/proposal-header.component';
-import { ProposalDetailComponent } from './main/proposal-detail/proposal-detail.component';
-import { ProposalDetailsDialogComponent } from './main/proposal-detail/proposal-detail-dialog.component';
+import { ProposalHeaderComponent } from './main/proposals/proposal-header/proposal-header.component';
+import { ProposalDetailComponent } from './main/proposals/proposal-detail/proposal-detail.component';
+import { ProposalDetailsDialogComponent } from './main/proposals/proposal-detail/proposal-detail-dialog.component';
 import { LoremIpsumService } from './common/lorem-ipsum.service';
 import { PartyLogoOrNameComponent } from './common/party-logo-or-name.component';
-import { ProposalSetComponent } from './main/proposal-set/proposal-set.component';
+import { ProposalSetComponent } from './main/proposals/proposal-set/proposal-set.component';
 import { ShareDialogComponent } from './main/share-dialog/share-dialog.component';
 import { ResultProgressComponent } from './main/results/result-progress.component';
 import { SelectContextDialogComponent } from './main/context/select-context-dialog/select-context-dialog.component';
@@ -49,7 +49,7 @@ import { gfmHeadingId } from 'marked-gfm-heading-id';
 import { ContextService } from './main/context/context.service';
 import { TargetsService } from './main/targets/targets.service';
 import { ParametersService } from './main/parameters/parameters.service';
-import { ResultsService } from './main/results.service';
+import { ResultsService } from './main/results/results.service';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name

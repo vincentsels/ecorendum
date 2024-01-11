@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { CommonDialogService } from './dialog.component';
 import { LanguageService } from './language.service';
-import { LanguageType } from '../main/proposal';
+import { LanguageType } from '../main/proposals/proposal';
 import { ContextService } from '../main/context/context.service';
 
 @Component({

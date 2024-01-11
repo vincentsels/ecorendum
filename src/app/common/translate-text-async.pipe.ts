@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { TranslatedText } from '../main/proposal';
+import { TranslatedText } from '../main/proposals/proposal';
 import { LanguageService } from './language.service';
 
 @Pipe({ name: 'translateTextAsync' })

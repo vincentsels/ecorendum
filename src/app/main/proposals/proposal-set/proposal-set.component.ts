@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { EnumsService } from '../../common/enums.service';
+import { EnumsService } from '../../../common/enums.service';
 import { Proposal } from '../proposal';
 import { ProposalService } from '../proposal.service';
 

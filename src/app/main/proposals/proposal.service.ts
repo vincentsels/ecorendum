@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { LoremIpsumService } from '../common/lorem-ipsum.service';
-import { rnd, toss } from '../common/helper';
+import { LoremIpsumService } from '../../common/lorem-ipsum.service';
+import { rnd, toss } from '../../common/helper';
 import { PROPOSALS } from './dummy-proposals';
-import { PARTY_IDS } from './party';
+import { PARTY_IDS } from '../party';
 import { ProposalOrigin, ProposalSetType, TranslatedText, Variant } from './proposal';
 import { Faq, Link, PartyOpinion, ProposalDetail } from './proposal-details';
-import { ContextService } from './context/context.service';
-import { TargetsService } from './targets/targets.service';
-import { ParametersService } from './parameters/parameters.service';
+import { ContextService } from '../context/context.service';
+import { TargetsService } from '../targets/targets.service';
+import { ParametersService } from '../parameters/parameters.service';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 

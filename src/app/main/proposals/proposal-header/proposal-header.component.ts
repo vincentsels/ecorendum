@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { EnumsService } from '../../common/enums.service';
-import { LanguageService } from '../../common/language.service';
+import { EnumsService } from '../../../common/enums.service';
+import { LanguageService } from '../../../common/language.service';
 import { Proposal } from '../proposal';
 import { ProposalDetailsDialogComponent } from '../proposal-detail/proposal-detail-dialog.component';
 import { ProposalDetail } from '../proposal-details';

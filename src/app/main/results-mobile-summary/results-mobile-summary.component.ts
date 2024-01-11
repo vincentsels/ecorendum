@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { EnumsService } from '../../common/enums.service';
 
 import { Results } from '../results/results';
-import { ResultsService } from '../results.service';
+import { ResultsService } from '../results/results.service';
 
 @Component({
   selector: 'app-results-mobile-summary',

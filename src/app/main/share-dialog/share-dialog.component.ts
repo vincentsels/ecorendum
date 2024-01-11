@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProposalService } from '../proposal.service';
+import { ProposalService } from '../proposals/proposal.service';
 
 @Component({
   selector: 'app-share-dialog',

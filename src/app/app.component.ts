@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { HelpWidgetComponent } from './common/help-widget.component';
 
 import { LanguageService, LOCAL_STORAGE_KEY_LANGUAGE } from './common/language.service';
-import { LanguageType } from './main/proposal';
+import { LanguageType } from './main/proposals/proposal';
 
 const defaultLang: LanguageType = 'en';
 
