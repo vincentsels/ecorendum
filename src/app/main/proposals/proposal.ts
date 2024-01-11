@@ -59,9 +59,11 @@ export class Proposal {
 
 export enum ProposalOrigin {
   general = 0,
-  flemishGovernment = 1,
-  federalGovernment = 2,
-  veka = 3,
+  federalGovernment = 1,
+  flemishGovernment = 2,
+  brusselianGovernment = 3,
+  wallonianGovernment = 4,
+  veka = 5,
   unknown = 99,
 }
 

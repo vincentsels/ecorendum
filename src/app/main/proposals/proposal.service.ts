@@ -3,13 +3,12 @@ import { BehaviorSubject } from 'rxjs';
 
 import { LoremIpsumService } from '../../common/lorem-ipsum.service';
 import { rnd, toss } from '../../common/helper';
-import { PROPOSALS } from './dummy-proposals';
+import { PROPOSALS_FLANDERS } from './proposal-data/proposals-flanders';
 import { PARTY_IDS } from '../party';
 import { ProposalOrigin, ProposalSetType, TranslatedText, Variant } from './proposal';
 import { Faq, Link, PartyOpinion, ProposalDetail } from './proposal-details';
 import { ContextService } from '../context/context.service';
 import { TargetsService } from '../targets/targets.service';
-import { ParametersService } from '../parameters/parameters.service';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 
@@ -23,9 +22,8 @@ export class ProposalService {
 
   constructor(private contextService: ContextService,
     private targetsService: TargetsService,
-    private parametersService: ParametersService,
     private loremIpsumService: LoremIpsumService) {
-    this.proposals$ = new BehaviorSubject<ProposalDetail[]>(PROPOSALS); // TODO: Actually get them from the BE,...
+    this.proposals$ = new BehaviorSubject<ProposalDetail[]>(PROPOSALS_FLANDERS); // TODO: Actually get them from the BE,...
 
     this.loadProposals(true);
 
@@ -228,16 +226,16 @@ export class ProposalService {
   }
 
   public getSet(setType: ProposalSetType) {
-    if (setType === 'nekp') return PROPOSALS.filter(p => p.committed);
-    else if (setType === 'veka') return PROPOSALS.filter(p => p.committed).concat(PROPOSALS.filter(p => p.origin === ProposalOrigin.veka));
-    else return PROPOSALS.filter(p => p.committed).concat(PROPOSALS.filter(p => !p.committed && Math.random() > 0.3));
+    if (setType === 'nekp') return PROPOSALS_FLANDERS.filter(p => p.committed);
+    else if (setType === 'veka') return PROPOSALS_FLANDERS.filter(p => p.committed).concat(PROPOSALS_FLANDERS.filter(p => p.origin === ProposalOrigin.veka));
+    else return PROPOSALS_FLANDERS.filter(p => p.committed).concat(PROPOSALS_FLANDERS.filter(p => !p.committed && Math.random() > 0.3));
   }
 
   public setFromKey(key: string) {
     const variants = this.decodeVariantArray(key);
 
     this.clearSelection();
-    let proposals = PROPOSALS;
+    let proposals = PROPOSALS_FLANDERS;
     this.selectVariants(variants, proposals);
     this.proposals$.next(proposals);
     this.updateResults(false);
