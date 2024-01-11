@@ -64,7 +64,7 @@ Dans cette version de démonstration, toutes ces données sont entièrement inve
 
 ## Calculs
 
-Actuellement, des formules simples sont utilisées pour calculer l'effet des mesures sur chacun des objectifs : les émissions estimées de CO2-équivalent économisées, l'énergie économisée et la nouvelle production d'énergie renouvelable ajoutée pour chaque mesure/variante sélectionnée sont additionnées. De même pour le coût et l'impact plus large. Actuellement, les rendements décroissants, la chevauchement entre les mesures, les mesures mutuellement exclusives, ou le moment auquel ou le degré auquel une mesure prend effet, ne sont pas pris en compte.
+Actuellement, des formules simples sont utilisées pour calculer l'effet des mesures sur chacun des objectifs : les émissions estimées de CO2-équivalent économisées, l'énergie économisée et la nouvelle production d'énergie renouvelable ajoutée pour chaque mesure/variante sélectionnée sont additionnées. De même pour le coût et l'impact plus large. Actuellement, les rendements décroissants, la chevauchement entre les mesures, les mesures mutuellement exclusives, ou le moment auquel ou le degré auquel une mesure prend effet, ne sont pas pris en compte. Un outil du monde réel utiliserait un modèle [System Dynamics](https://systemdynamics.org/what-is-system-dynamics/) avancé, tel que celui utilisé dans le projet [En-ROADS](https://www.climateinteractive.org/en-roads/) du MIT, ou le [2050 Pathway Explorer](https://becalc.netzero2050.be), dans le contexte belge.
 
 # Que devrait faire de plus la version réelle ?
 
@@ -76,7 +76,7 @@ La version réelle de cet outil devrait inclure au moins ce qui suit :
 - Plus d'ensembles de mesures, par exemple par des think tanks et des universités, examinés par un conseil indépendant soigneusement sélectionné ; et finalement un ensemble de mesures choisi par chaque parti politique ;
 - Des objectifs explicites supplémentaires (écologiques), probablement la disposition de l'azote ;
 - Impact minimum et maximum de la mesure, pour exprimer le degré d'incertitude ;
-- Un modèle plus réaliste pour agréger les impacts ;
+- Un modèle System Dynamics avancé pour calculer les impacts ;
 - Plus de propriétés pour chacune des mesures et la capacité de filtrer ;
 - Un tutoriel approfondi, guidant tout le monde à travers les fonctionnalités de l'outil ;
 - Beaucoup plus et de meilleurs tooltips/dialogues d'aide ;

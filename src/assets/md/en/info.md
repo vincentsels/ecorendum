@@ -62,7 +62,7 @@ In this demo-version, all of this data is entirely made-up, even using randomly 
 
 ## Calculations
 
-Currently, straightforward formulas are used to calculate the effect of measures on each of the targets: the estimted CO2-equivalent emissions saved, energy saved, and new renewable power generation added for each selected measure/variant are added up. Same for the cost and broader imapct. Diminishing returns, overlap between measures, mutually exclusive measures, or the timing at which or a degree in which a measure takes effect, are currently not taken into account.
+Currently, straightforward formulas are used to calculate the effect of measures on each of the targets: the estimted CO2-equivalent emissions saved, energy saved, and new renewable power generation added for each selected measure/variant are added up. Same for the cost and broader imapct. Diminishing returns, overlap between measures, mutually exclusive measures, or the timing at which or a degree in which a measure takes effect, are currently not taken into account. A real-world tool would use an advanced [System Dynamics](https://systemdynamics.org/what-is-system-dynamics/) model, such as used in the MIT [En-ROADS](https://www.climateinteractive.org/en-roads/) project, or the [2050 Pathway Explorer](https://becalc.netzero2050.be), in the Belgian context.
 
 # What should the real version do more?
 
@@ -74,7 +74,7 @@ The real version of this tool should include at least the following:
 - More measure sets, by e.g. think tanks and universities, reviewed by a carefully selected independent board; and ultimately a set of measures selected by every political party;
 - Additional explicit (ecological) targets, presumably nitrogen disposition;
 - Minimum and maximum measure impact, to express degree of uncertainty;
-- A more realistic model to aggregate impacts;
+- An advanced system dynamics model to calculate impacts;
 - More properties for each of the measures and the ability to filter;
 - A thorough tutorial, guiding everyone through the features of the tool;
 - Much more and better help tooltips/dialogs;

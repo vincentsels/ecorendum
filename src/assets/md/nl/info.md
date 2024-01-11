@@ -64,7 +64,7 @@ In deze demoversie zijn al deze gegevens volledig verzonnen, zelfs met willekeur
 
 ## Berekeningen
 
-Momenteel worden eenvoudige formules gebruikt om het effect van maatregelen op elk van de doelstellingen te berekenen: de geschatte CO2-equivalente emissiereducties, energiebesparing en toegevoegde nieuwe hernieuwbare energieopwekking voor elke geselecteerde maatregel/variant worden opgeteld. Hetzelfde geldt voor de kosten en bredere impact. Momenteel worden afnemende meeropbrengsten, overlapping tussen maatregelen, onderling uitsluitende maatregelen, of de timing waarop of de mate waarin een maatregel effect heeft, niet meegenomen.
+Momenteel worden eenvoudige formules gebruikt om het effect van maatregelen op elk van de doelstellingen te berekenen: de geschatte CO2-equivalente emissiereducties, energiebesparing en toegevoegde nieuwe hernieuwbare energieopwekking voor elke geselecteerde maatregel/variant worden opgeteld. Hetzelfde geldt voor de kosten en bredere impact. Momenteel worden afnemende meeropbrengsten, overlapping tussen maatregelen, onderling uitsluitende maatregelen, of de timing waarop of de mate waarin een maatregel effect heeft, niet meegenomen. Een real-world tool zou gebruik maken van een geavanceerd [System Dynamics](https://systemdynamics.org/what-is-system-dynamics/) model, zoals gebruikt in het MIT [En-ROADS](https://www.climateinteractive.org/en-roads/) project, of de [2050 Pathway Explorer](https://becalc.netzero2050.be), in de Belgische context.
 
 # Wat zou de echte versie meer moeten doen?
 
@@ -76,7 +76,7 @@ De echte versie van dit hulpmiddel moet minstens het volgende omvatten:
 - Meer maatregelsets, bijv. van denktanks en universiteiten, beoordeeld door een zorgvuldig geselecteerde onafhankelijke raad; en uiteindelijk een set maatregelen geselecteerd door elke politieke partij;
 - Aanvullende expliciete (ecologische) doelstellingen, vermoedelijk stikstofafzetting;
 - Minimum en maximum effect van maatregelen, om de mate van onzekerheid uit te drukken;
-- Een meer realistisch model om de impact te aggregeren;
+- Een geavanceerd System Dynamics model om de impact te berekenen;
 - Meer eigenschappen voor elk van de maatregelen en de mogelijkheid om te filteren;
 - Een grondige tutorial, die iedereen door de functies van het hulpmiddel leidt;
 - Veel meer en betere hulptekstballonnen/dialogen;
