@@ -1,15 +1,16 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+
 import { CommonDialogService } from './dialog.component';
 import { LanguageService } from './language.service';
-import { Observable } from 'rxjs';
 import { LanguageType } from '../main/proposal';
-import { ProposalService } from '../main/proposal.service';
+import { ContextService } from '../main/context/context.service';
 
 @Component({
   selector: 'app-help-widget',
   template: `<span [class.dialog]="dialogKey || dialogMdSrc || dialogMdData"
-    [matTooltip]="tooltipText || (tooltipKey | translate:(tooltipParameters || { region: (proposalService.context$ | async) || '' | translate }))"
+    [matTooltip]="tooltipText || (tooltipKey | translate:(tooltipParameters || { region: (contextService.context$ | async) || '' | translate }))"
     [matTooltipClass]="{
       'help-widget-tooltip': true,
       'help-widget-tooltip-en': (lang | async) === 'en',
@@ -47,7 +48,7 @@ span:hover {
 })
 export class HelpWidgetComponent {
   constructor(private dialogService: CommonDialogService, private translate: TranslateService,
-    public proposalService: ProposalService, languageService: LanguageService) {
+    public contextService: ContextService, languageService: LanguageService) {
     this.lang = languageService.language;
   }
 
@@ -68,7 +69,7 @@ export class HelpWidgetComponent {
       this.dialogService.show(
         this.textKey ? this.translate.instant(this.textKey, this.tooltipParameters) : undefined,
         this.dialogKey ? this.translate.instant(this.dialogKey,
-          this.dialogParameters || { region: this.translate.instant(this.proposalService.context$.value) }) : undefined,
+          this.dialogParameters || { region: this.translate.instant(this.contextService.context$.value) }) : undefined,
         undefined,
         this.dialogMdSrc ? '/assets/md/' + this.translate.currentLang + '/' + this.dialogMdSrc + '.md' : undefined,
         this.dialogMdData);

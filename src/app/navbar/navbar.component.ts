@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProposalService } from '../main/proposal.service';
-import { SelectContextDialogComponent } from './select-context-dialog/select-context-dialog.component';
+import { SelectContextDialogComponent } from '../main/context/select-context-dialog/select-context-dialog.component';
 import { LanguageType } from '../main/proposal';
 import { LanguageService } from '../common/language.service';
+import { ContextService } from '../main/context/context.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,8 @@ import { LanguageService } from '../common/language.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  constructor(public proposalService: ProposalService, private matDialog: MatDialog, private languageService: LanguageService) {
+  constructor(public proposalService: ProposalService, public contextService: ContextService,
+    private matDialog: MatDialog, private languageService: LanguageService) {
     this.language = languageService.language.value;
   }
 

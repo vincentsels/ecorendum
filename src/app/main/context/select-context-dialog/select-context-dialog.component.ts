@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { ProposalService } from '../../main/proposal.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ContextService } from '../context.service';
 
 @Component({
   selector: 'app-select-context-dialog',
@@ -9,21 +8,21 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./select-context-dialog.component.scss']
 })
 export class SelectContextDialogComponent {
-  constructor(public proposalService: ProposalService,
+  constructor(public contextService: ContextService,
     private dialogRef: MatDialogRef<SelectContextDialogComponent>) {}
 
   selectWallonia() {
-    this.proposalService.setContext('wallonia');
+    this.contextService.setContext('wallonia');
     this.dialogRef.close();
   }
 
   selectBrussels() {
-    this.proposalService.setContext('brussels');
+    this.contextService.setContext('brussels');
     this.dialogRef.close();
   }
 
   selectFlanders() {
-    this.proposalService.setContext('flanders');
+    this.contextService.setContext('flanders');
     this.dialogRef.close();
   }
 }

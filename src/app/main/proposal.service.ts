@@ -8,15 +8,12 @@ import { PARTY_IDS } from './party';
 import { ImpactAmount, ImpactAmountMap, ProposalOrigin, ProposalSetType, TargetType, TranslatedText, Variant } from './proposal';
 import { Faq, Link, PartyOpinion, ProposalDetail } from './proposal-details';
 import { Results, TargetResult, TotalImpact } from './results/results';
+import { ContextService } from './context/context.service';
 
-export const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
-export const LS_KEY_SELECTED_CONTEXT = 'ecorendum.context';
-
-export type Context = 'flanders' | 'brussels' | 'wallonia';
+const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 
 @Injectable()
 export class ProposalService {
-  context$ = new BehaviorSubject<Context>(localStorage.getItem(LS_KEY_SELECTED_CONTEXT) as Context ?? 'flanders');
   proposals$ = new BehaviorSubject<ProposalDetail[]>(PROPOSALS);
   results$ = new BehaviorSubject<Results>(new Results());
 
@@ -24,13 +21,9 @@ export class ProposalService {
 
   initialized = false;
 
-  constructor(private loremIpsumService: LoremIpsumService) {
+  constructor(private contextService: ContextService, private loremIpsumService: LoremIpsumService) {
     this.loadProposals();
   }
-
-  isFlandersContext$ = this.context$.pipe(map(c => c === 'flanders'));
-  isBrusselsContext$ = this.context$.pipe(map(c => c === 'brussels'));
-  isWallonianContext$ = this.context$.pipe(map(c => c === 'wallonia'));
 
   public loadProposals() {
     let proposals = this.proposals$.value;
@@ -47,7 +40,7 @@ export class ProposalService {
 
     this.clearSelection(false);
 
-    const selectedVariantNumbers = JSON.parse(localStorage.getItem(LS_KEY_SELECTED_VARIANTS) || '[]');
+    const selectedVariantNumbers = JSON.parse(localStorage.getItem(this.getLocalStorageSelectedVariantsKey()) || '[]');
 
     this.selectVariants(selectedVariantNumbers, proposals);
 
@@ -55,7 +48,7 @@ export class ProposalService {
     this.updateResults(false);
   }
 
-  generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
+  public generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
     this.loremIpsumService.generateWords(rnd(2, 8)), toss() ? 'nl' : toss() ? 'fr' : 'en');
 
   private initializeDummyData(proposals: ProposalDetail[]) {
@@ -197,10 +190,14 @@ export class ProposalService {
     this.proposals$.next(proposals);
 
     if (saveSelection) {
-      localStorage.removeItem(LS_KEY_SELECTED_VARIANTS);
+      localStorage.removeItem(this.getLocalStorageSelectedVariantsKey());
     }
 
     this.updateResults(saveSelection);
+  }
+
+  getLocalStorageSelectedVariantsKey(): string {
+    return LS_KEY_SELECTED_VARIANTS + '.' + this.contextService.context$.value;
   }
 
   updateResults(saveSelection: boolean = true) {
@@ -216,7 +213,7 @@ export class ProposalService {
     this.selectionKey = this.getKey(selectedVariantNumbers);
 
     if (saveSelection && selectedVariantNumbers.length > 0) {
-      localStorage.setItem(LS_KEY_SELECTED_VARIANTS, JSON.stringify(selectedVariantNumbers));
+      localStorage.setItem(this.getLocalStorageSelectedVariantsKey(), JSON.stringify(selectedVariantNumbers));
     }
 
     const selectedVariants = proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
@@ -322,11 +319,6 @@ export class ProposalService {
     this.selectVariants(variants, proposals);
     this.proposals$.next(proposals);
     this.updateResults(false);
-  }
-
-  public setContext(context: Context) {
-    this.context$.next(context);
-    localStorage.setItem(LS_KEY_SELECTED_CONTEXT, context);
   }
 
   private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean) {

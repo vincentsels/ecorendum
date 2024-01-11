@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { Proposal, ProposalSetType } from './proposal';
 import { ProposalDetail } from './proposal-details';
-import { LS_KEY_SELECTED_VARIANTS, ProposalService } from './proposal.service';
+import { ProposalService } from './proposal.service';
 import { ResultsDialogComponent } from './results/results-dialog.component';
 import { ActivatedRoute } from '@angular/router';
 
@@ -42,7 +42,7 @@ export class MainComponent {
 
     this.proposalService.updateResults();
 
-    if (localStorage.getItem(LS_KEY_SELECTED_VARIANTS)) {
+    if (localStorage.getItem(this.proposalService.getLocalStorageSelectedVariantsKey())) {
       this.selectedProposalType = 'own';
     }
 

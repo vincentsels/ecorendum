@@ -28,10 +28,10 @@
 
   <button mat-button class="context-button menu-button" (click)="changeContext()">
     <span fxHide.xs="true" class="context-button-header">{{ 'Context' | translate }}</span>
-    <mat-icon class="context-button-icon" *ngIf="proposalService.isFlandersContext$ | async" svgIcon="flanders" />
-    <mat-icon class="context-button-icon" *ngIf="proposalService.isBrusselsContext$ | async" svgIcon="brussels" />
-    <mat-icon class="context-button-icon" *ngIf="proposalService.isWallonianContext$ | async" svgIcon="wallonia" />
-    <span fxHide.xs>{{ (proposalService.context$ | async) || '' | translate }}</span>
+    <mat-icon class="context-button-icon" *ngIf="contextService.isFlandersContext$ | async" svgIcon="flanders" />
+    <mat-icon class="context-button-icon" *ngIf="contextService.isBrusselsContext$ | async" svgIcon="brussels" />
+    <mat-icon class="context-button-icon" *ngIf="contextService.isWallonianContext$ | async" svgIcon="wallonia" />
+    <span fxHide.xs>{{ (contextService.context$ | async) || '' | translate }}</span>
   </button>
 
   <div fxHide.xs class="flex-spacer"></div>

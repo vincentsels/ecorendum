@@ -40,7 +40,7 @@ import { PartyLogoOrNameComponent } from './common/party-logo-or-name.component'
 import { ProposalSetComponent } from './main/proposal-set/proposal-set.component';
 import { ShareDialogComponent } from './main/share-dialog/share-dialog.component';
 import { ResultProgressComponent } from './main/results/result-progress.component';
-import { SelectContextDialogComponent } from './navbar/select-context-dialog/select-context-dialog.component';
+import { SelectContextDialogComponent } from './main/context/select-context-dialog/select-context-dialog.component';
 import { TranslateEnumPipe } from './common/translate-enum.pipe';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 import { InfoComponent } from './info/info.component';
