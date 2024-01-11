@@ -46,6 +46,9 @@ import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 import { InfoComponent } from './info/info.component';
 import { TranslateProposalProp } from './common/translate-proposal-prop';
 import { gfmHeadingId } from 'marked-gfm-heading-id';
+import { ContextService } from './main/context/context.service';
+import { TargetsService } from './main/targets/targets.service';
+import { ParametersService } from './main/parameters/parameters.service';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -109,6 +112,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserService,
     MatSnackbarErrorHandler,
     ProposalService,
+    ContextService,
+    TargetsService,
+    ParametersService,
     EnumsService,
     CommonDialogService,
     LoremIpsumService,

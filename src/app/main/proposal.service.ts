@@ -1,31 +1,44 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
+
 import { LoremIpsumService } from '../common/lorem-ipsum.service';
 import { rnd, toss } from '../common/helper';
-
 import { PROPOSALS } from './dummy-proposals';
 import { PARTY_IDS } from './party';
 import { ImpactAmount, ImpactAmountMap, ProposalOrigin, ProposalSetType, TargetType, TranslatedText, Variant } from './proposal';
 import { Faq, Link, PartyOpinion, ProposalDetail } from './proposal-details';
 import { Results, TargetResult, TotalImpact } from './results/results';
 import { ContextService } from './context/context.service';
+import { TargetsService } from './targets/targets.service';
+import { ParametersService } from './parameters/parameters.service';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection';
 
 @Injectable()
 export class ProposalService {
-  proposals$ = new BehaviorSubject<ProposalDetail[]>(PROPOSALS);
-  results$ = new BehaviorSubject<Results>(new Results());
+  proposals$: BehaviorSubject<ProposalDetail[]>;
+  results$: BehaviorSubject<Results>;
 
   selectionKey = '';
 
   initialized = false;
 
-  constructor(private contextService: ContextService, private loremIpsumService: LoremIpsumService) {
-    this.loadProposals();
+  constructor(private contextService: ContextService,
+    private targetsService: TargetsService,
+    private parametersService: ParametersService,
+    private loremIpsumService: LoremIpsumService) {
+    this.proposals$ = new BehaviorSubject<ProposalDetail[]>(PROPOSALS); // TODO: Actually get them from the BE,...
+
+    this.loadProposals(true);
+
+    this.results$ = new BehaviorSubject<Results>(this.calculateResults());
+
+    this.updateResults(false);
+
+    this.targetsService.targets$.subscribe(() => this.updateResults());
   }
 
-  public loadProposals() {
+  public loadProposals(initial = false) {
     let proposals = this.proposals$.value;
 
     this.initializeDummyData(proposals);
@@ -38,14 +51,15 @@ export class ProposalService {
 
     // Load selected variants
 
-    this.clearSelection(false);
+    if (!initial) this.clearSelection(false);
 
     const selectedVariantNumbers = JSON.parse(localStorage.getItem(this.getLocalStorageSelectedVariantsKey()) || '[]');
 
     this.selectVariants(selectedVariantNumbers, proposals);
 
     this.proposals$.next(proposals);
-    this.updateResults(false);
+
+    if (!initial) this.updateResults(false);
   }
 
   public generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
@@ -216,40 +230,50 @@ export class ProposalService {
       localStorage.setItem(this.getLocalStorageSelectedVariantsKey(), JSON.stringify(selectedVariantNumbers));
     }
 
+    const results = this.calculateResults();
+
+    this.results$.next(results);
+  }
+
+  calculateResults(): Results {
+    const proposals = this.proposals$.value;
+    const targets = this.targetsService.targets$.value;
+    const parameters = this.parametersService.parameters$.value;
+
     const selectedVariants = proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
 
     const legalGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, true);
 
-    const legalGhgReductionPercentage = legalGhgReducedKt / Results.legalTargetGapGhgKt * 100;
-    const legalGhgTax = (Results.legalTargetGapGhgKt - legalGhgReducedKt) * Results.pricePerKtGhg;
-    const legalGhgIncome = (Results.legalTargetGapGhgKt - legalGhgReducedKt) * -Results.pricePerKtGhg;
+    const legalGhgReductionPercentage = legalGhgReducedKt / targets.legalTargetGapGhgKt * 100;
+    const legalGhgTax = (targets.legalTargetGapGhgKt - legalGhgReducedKt) * parameters.pricePerKtGhg;
+    const legalGhgIncome = (targets.legalTargetGapGhgKt - legalGhgReducedKt) * -parameters.pricePerKtGhg;
     const legalGhgReductionColor = legalGhgReductionPercentage >= 100 ? 'accent' : 'warn';
 
-    const legalGhgTarget = new TargetResult(Results.legalTargetGapGhgKt, 'Kt', Results.pricePerKtGhg, legalGhgReducedKt,
+    const legalGhgTarget = new TargetResult(targets.legalTargetGapGhgKt, 'Kt', parameters.pricePerKtGhg, legalGhgReducedKt,
       legalGhgReductionColor, legalGhgReductionPercentage, legalGhgTax, legalGhgIncome);
 
     const euGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, false);
 
-    const euGhgReductionPercentage = euGhgReducedKt / Results.euTargetGapGhgKt * 100;
-    const euGhgTax = (Results.euTargetGapGhgKt - euGhgReducedKt) * Results.pricePerKtGhg;
-    const euGhgIncome = (Results.euTargetGapGhgKt - euGhgReducedKt) * -Results.pricePerKtGhg;
+    const euGhgReductionPercentage = euGhgReducedKt / targets.euTargetGapGhgKt * 100;
+    const euGhgTax = (targets.euTargetGapGhgKt - euGhgReducedKt) * parameters.pricePerKtGhg;
+    const euGhgIncome = (targets.euTargetGapGhgKt - euGhgReducedKt) * -parameters.pricePerKtGhg;
     const euGhgReductionColor = euGhgReductionPercentage >= 100 ? 'accent' : 'warn';
 
-    const euGhgTarget = new TargetResult(Results.euTargetGapGhgKt, 'Kt', Results.pricePerKtGhg, euGhgReducedKt,
+    const euGhgTarget = new TargetResult(targets.euTargetGapGhgKt, 'Kt', parameters.pricePerKtGhg, euGhgReducedKt,
       euGhgReductionColor, euGhgReductionPercentage, euGhgTax, euGhgIncome);
 
     const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency, false);
-    const energySavedPercentage = energySavedGwh / Results.euTargetGapEeGwh * 100;
+    const energySavedPercentage = energySavedGwh / targets.euTargetGapEeGwh * 100;
     const energySavedColor = energySavedPercentage >= 100 ? 'accent' : 'warn';
 
-    const euEeTarget = new TargetResult(Results.euTargetGapEeGwh, 'GWh', 0, energySavedGwh,
+    const euEeTarget = new TargetResult(targets.euTargetGapEeGwh, 'GWh', 0, energySavedGwh,
       energySavedColor, energySavedPercentage);
 
     const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy, false);
-    const reAddedPercentage = reAddedGwh / Results.euTargetGapReGwh * 100;
+    const reAddedPercentage = reAddedGwh / targets.euTargetGapReGwh * 100;
     const renewableEnergyAddedColor = reAddedPercentage >= 100 ? 'accent' : 'warn';
 
-    const euReTarget = new TargetResult(Results.euTargetGapReGwh, 'GWh', 0, reAddedGwh,
+    const euReTarget = new TargetResult(targets.euTargetGapReGwh, 'GWh', 0, reAddedGwh,
       renewableEnergyAddedColor, reAddedPercentage);
 
     const totalMeasurementCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
@@ -291,18 +315,16 @@ export class ProposalService {
     //  }
     //}
 
-    this.results$.next(
-      new Results({
-        legalGhgTarget,
-        euGhgTarget,
-        euEeTarget,
-        euReTarget,
-        totalMeasurementCost,
-        totalEuGhgTax,
-        totalImpact,
-        totalCostIncludingTax,
-      })
-    )
+    return new Results(
+      legalGhgTarget,
+      euGhgTarget,
+      euEeTarget,
+      euReTarget,
+      totalMeasurementCost,
+      totalEuGhgTax,
+      totalCostIncludingTax,
+      totalImpact,
+    );
   }
 
   public getSet(setType: ProposalSetType) {
