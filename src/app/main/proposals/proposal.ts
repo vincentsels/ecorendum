@@ -222,8 +222,6 @@ export class TranslatedText {
 
 export type LanguageType = 'en' | 'nl' | 'fr';
 
-export type ProposalSetType = 'vekp' | 'bekp' | 'wekp' | 'veka' | 'beka' | 'weka' | 'own';
-
 export type SelectedProposal = {
   id: number,
   variant: number,

@@ -4,11 +4,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Proposal, ProposalSetType } from './proposals/proposal';
 import { ProposalDetail } from './proposals/proposal-details';
 import { ProposalService } from './proposals/proposal.service';
 import { ResultsDialogComponent } from './results/results-dialog.component';
 import { ActivatedRoute } from '@angular/router';
+import { ProposalSetType } from './proposals/proposal-data/proposal-sets';
+import { ContextService } from './context/context.service';
 
 @Component({
   selector: 'app-main',
@@ -21,11 +22,11 @@ export class MainComponent {
   proposalsFilter$ = new BehaviorSubject<string>('');
   includeCommitted = true;
 
-  selectedProposalSetType: ProposalSetType = 'vekp';
+  selectedProposalSetType: ProposalSetType = 'wam';
 
-  constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService,
-    private route: ActivatedRoute) {
-    this.filteredProposals$ = combineLatest([this.proposalsFilter$, this.proposalService.allProposals$])
+  constructor(public proposalService: ProposalService, public contextService: ContextService,
+    private dialog: MatDialog, private translate: TranslateService, private route: ActivatedRoute) {
+    this.filteredProposals$ = combineLatest([this.proposalsFilter$, this.proposalService.activeProposals$])
       .pipe(
         map(([filter, proposals]) => {
           return proposals.filter(
@@ -40,7 +41,7 @@ export class MainComponent {
     this.proposalService.storeSelection();
 
     if (localStorage.getItem(this.proposalService.getLocalStorageSelectedVariantsKey())) {
-      this.selectedProposalSetType = 'own';
+      this.selectedProposalSetType = 'custom';
     }
 
     this.proposalSetSelectionChanged();
@@ -48,7 +49,7 @@ export class MainComponent {
     this.route.params.subscribe(p => {
       const key = p['key'];
       if (key) {
-        this.selectedProposalSetType = 'own';
+        this.selectedProposalSetType = 'custom';
         this.proposalService.setFromKey(key);
       }
     });

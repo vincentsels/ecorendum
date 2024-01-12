@@ -29,7 +29,7 @@ export class ProposalDetailComponent implements OnInit {
     if (!this.dialog) {
       this.route.paramMap.subscribe((paramMap) => {
         const idOrSlug = paramMap.get('idorslug');
-        const foundProposal = this.service.allProposals$.value.find(p =>
+        const foundProposal = this.service.activeProposals$.value.find(p =>
           (!isNaN(Number(idOrSlug)) && p.id === Number(idOrSlug)) ||
           (p.slugNl === idOrSlug || p.slugFr === idOrSlug ||p.slugEn === idOrSlug));
         if (foundProposal) this.proposal = new ProposalDetail(foundProposal);

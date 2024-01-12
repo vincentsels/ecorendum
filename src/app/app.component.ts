@@ -8,7 +8,7 @@ import { HelpWidgetComponent } from './common/help-widget.component';
 import { LanguageService, LOCAL_STORAGE_KEY_LANGUAGE } from './common/language.service';
 import { LanguageType } from './main/proposals/proposal';
 
-const defaultLang: LanguageType = 'en';
+const DEFAULT_LANG: LanguageType = 'en'; // TODO: retrieve from browser language
 
 @Component({
   selector: 'app-root',
@@ -18,8 +18,8 @@ const defaultLang: LanguageType = 'en';
 export class AppComponent {
   constructor(languageService: LanguageService, titleService: Title, translate: TranslateService,
     matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer, injector: Injector) {
-    const lang = <LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || defaultLang;
-    translate.setDefaultLang(defaultLang);
+    const lang = <LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || DEFAULT_LANG;
+    translate.setDefaultLang(DEFAULT_LANG);
     languageService.setLanguage(lang);
     languageService.language.subscribe({
       next: lang => setTimeout(() => titleService.setTitle(translate.instant('siteTitle')))
