@@ -3,7 +3,7 @@ import { ProposalDetail } from '../proposal-details';
 
 export const PROPOSALS_WALLONIA: ProposalDetail[] = [
   new ProposalDetail({
-    id: 11,
+    id: 301,
     committed: true,
     origin: ProposalOrigin.wallonianGovernment,
     selected: true,
@@ -34,7 +34,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 12,
+    id: 302,
     committed: true,
     origin: ProposalOrigin.wallonianGovernment,
     selected: true,
@@ -69,7 +69,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 13,
+    id: 303,
     committed: true,
     origin: ProposalOrigin.wallonianGovernment,
     selected: true,
@@ -99,7 +99,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 14,
+    id: 304,
     origin: ProposalOrigin.veka,
     slugEn: 'reduction-cattle-pig-herds-wal',
     slugNl: 'afbouw-rundvee-varkensstapel-wal',
@@ -150,7 +150,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 15,
+    id: 305,
     origin: ProposalOrigin.veka,
     slugEn: 'phase-out-carbon-intensive-industry-wal',
     slugNl: 'afbouw-carbon-intensive-industry-wal',

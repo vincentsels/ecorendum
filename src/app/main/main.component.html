@@ -3,7 +3,7 @@
     <h1 class="proposals-header" ngClass.xs="proposals-header-xs">
       <app-help-widget style="height: 40px;" tooltipKey="helpProposals" textKey="Proposals" dialogKey="helpDialogProposals"></app-help-widget>
       <div class="project-filters" ngClass.xs="project-filters-xs">
-        <mat-checkbox *ngIf="selectedProposalType !== 'nekp'" [(ngModel)]="includeCommitted" (ngModelChange)="filterChanged()" style="margin-right: 12px">
+        <mat-checkbox *ngIf="selectedProposalSetType !== 'vekp'" [(ngModel)]="includeCommitted" (ngModelChange)="filterChanged()" style="margin-right: 12px">
           {{ 'Include already committed' | translate }}
         </mat-checkbox>
 
@@ -15,24 +15,24 @@
     </h1>
 
     <div class="proposal-types">
-      <mat-radio-group [(ngModel)]="selectedProposalType" (change)="proposalSetSelectionChanged()">
-        <mat-radio-button value="nekp" class="proposal-type">{{ 'Current plans' | translate }}</mat-radio-button>
+      <mat-radio-group [(ngModel)]="selectedProposalSetType" (change)="proposalSetSelectionChanged()">
+        <mat-radio-button value="vekp" class="proposal-type">{{ 'Current plans' | translate }}</mat-radio-button>
         <mat-radio-button value="veka" class="proposal-type">{{ 'Examples VEKA' | translate }}</mat-radio-button>
         <mat-radio-button value="own" class="proposal-type">{{ 'Create your own' | translate }}</mat-radio-button>
       </mat-radio-group>
     </div>
 
-    <span *ngIf="selectedProposalType !== 'own'">
-      <app-proposal-set [baseSet]="selectedProposalType === 'nekp'" style="display: block; margin-bottom: 20px"
-        *ngIf="selectedProposalType === 'nekp' || includeCommitted === true"
+    <span *ngIf="selectedProposalSetType !== 'own'">
+      <app-proposal-set [baseSet]="selectedProposalSetType === 'vekp'" style="display: block; margin-bottom: 20px"
+        *ngIf="selectedProposalSetType === 'vekp' || includeCommitted === true"
         [proposalSet]="(proposalService.committedProposals$ | async) || []"></app-proposal-set>
 
-      <ng-container *ngIf="(proposalService.proposalSet$ | async); let proposalSet">
+      <ng-container *ngIf="(proposalService.extraProposalsFromSet$| async); let proposalSet">
         <app-proposal-set *ngIf="proposalSet.length > 0" [proposalSet]="proposalSet"></app-proposal-set>
       </ng-container>
     </span>
 
-    <div *ngIf="selectedProposalType === 'own' && (filteredProposals$ | async); let filteredProposals">
+    <div *ngIf="selectedProposalSetType === 'own' && (filteredProposals$ | async); let filteredProposals">
       <app-proposal-card *ngFor="let proposal of filteredProposals" [proposal]="proposal"></app-proposal-card>
 
       <p *ngIf="filteredProposals.length > 0 && filteredProposals.length < proposalService.allProposals$.value.length">

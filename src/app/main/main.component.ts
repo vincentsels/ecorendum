@@ -21,7 +21,7 @@ export class MainComponent {
   proposalsFilter$ = new BehaviorSubject<string>('');
   includeCommitted = true;
 
-  selectedProposalType: ProposalSetType = 'nekp';
+  selectedProposalSetType: ProposalSetType = 'vekp';
 
   constructor(public proposalService: ProposalService, private dialog: MatDialog, private translate: TranslateService,
     private route: ActivatedRoute) {
@@ -37,10 +37,10 @@ export class MainComponent {
         })
       );
 
-    this.proposalService.updateSelection();
+    this.proposalService.storeSelection();
 
     if (localStorage.getItem(this.proposalService.getLocalStorageSelectedVariantsKey())) {
-      this.selectedProposalType = 'own';
+      this.selectedProposalSetType = 'own';
     }
 
     this.proposalSetSelectionChanged();
@@ -48,14 +48,14 @@ export class MainComponent {
     this.route.params.subscribe(p => {
       const key = p['key'];
       if (key) {
-        this.selectedProposalType = 'own';
+        this.selectedProposalSetType = 'own';
         this.proposalService.setFromKey(key);
       }
     });
   }
 
   proposalSetSelectionChanged() {
-    this.proposalService.selectSet(this.selectedProposalType);
+    this.proposalService.loadActiveProposalSet({ setType: this.selectedProposalSetType });
   }
 
   showResults() {

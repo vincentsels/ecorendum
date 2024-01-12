@@ -3,7 +3,7 @@ import { ProposalDetail } from '../proposal-details';
 
 export const PROPOSALS_FLANDERS: ProposalDetail[] = [
   new ProposalDetail({
-    id: 11,
+    id: 101,
     committed: true,
     origin: ProposalOrigin.flemishGovernment,
     selected: true,
@@ -34,7 +34,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 12,
+    id: 102,
     committed: true,
     origin: ProposalOrigin.flemishGovernment,
     selected: true,
@@ -69,7 +69,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 13,
+    id: 103,
     committed: true,
     origin: ProposalOrigin.flemishGovernment,
     selected: true,
@@ -99,7 +99,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 14,
+    id: 104,
     origin: ProposalOrigin.veka,
     slugEn: 'reduction-cattle-pig-herds',
     slugNl: 'afbouw-rundvee-varkensstapel',
@@ -150,7 +150,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
     ]
   }),
   new ProposalDetail({
-    id: 15,
+    id: 105,
     origin: ProposalOrigin.veka,
     slugEn: 'phase-out-carbon-intensive-industry',
     slugNl: 'afbouw-carbon-intensive-industry',

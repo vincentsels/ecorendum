@@ -51,6 +51,7 @@ import { TargetsService } from './main/targets/targets.service';
 import { ParametersService } from './main/parameters/parameters.service';
 import { ResultsService } from './main/results/results.service';
 import { DummyProposalDataGeneratorService } from './main/proposals/dummy-proposal-data-generator.service';
+import { ProposalSetSerializerService } from './main/proposals/proposal-set-serializer.service';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -122,6 +123,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonDialogService,
     LoremIpsumService,
     DummyProposalDataGeneratorService,
+    ProposalSetSerializerService,
     { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: { showDelay: 300 } },
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 10000 } },
     { provide: ErrorHandler, useClass: MatSnackbarErrorHandler, deps: [MatSnackBar, NgZone] },
