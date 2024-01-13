@@ -10,6 +10,7 @@ import { ResultsDialogComponent } from './results/results-dialog.component';
 import { ActivatedRoute } from '@angular/router';
 import { ProposalSetType } from './proposals/proposal-data/proposal-sets';
 import { ContextService } from './context/context.service';
+import { MatRadioChange } from '@angular/material/radio';
 
 @Component({
   selector: 'app-main',
@@ -21,8 +22,6 @@ export class MainComponent {
   projectsFilter = '';
   proposalsFilter$ = new BehaviorSubject<string>('');
   includeCommitted = true;
-
-  selectedProposalSetType: ProposalSetType = 'wam';
 
   constructor(public proposalService: ProposalService, public contextService: ContextService,
     private dialog: MatDialog, private translate: TranslateService, private route: ActivatedRoute) {
@@ -40,23 +39,23 @@ export class MainComponent {
 
     this.proposalService.storeSelection();
 
-    if (localStorage.getItem(this.proposalService.getLocalStorageSelectedVariantsKey())) {
-      this.selectedProposalSetType = 'custom';
-    }
+    // if (localStorage.getItem(this.proposalService.getLocalStorageSelectedVariantsKey())) {
+    //   this.selectedProposalSetType = 'custom';
+    // }
 
-    this.proposalSetSelectionChanged();
+    // this.proposalSetSelectionChanged();
 
     this.route.params.subscribe(p => {
       const key = p['key'];
       if (key) {
-        this.selectedProposalSetType = 'custom';
+        // this.selectedProposalSetType = 'custom';
         this.proposalService.setFromKey(key);
       }
     });
   }
 
-  proposalSetSelectionChanged() {
-    this.proposalService.loadActiveProposalSet({ setType: this.selectedProposalSetType });
+  proposalSetSelectionChanged(event: MatRadioChange) {
+    this.proposalService.loadActiveProposalSet({ setType: event.value });
   }
 
   showResults() {

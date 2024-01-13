@@ -5,23 +5,23 @@ import { PROPOSALS_FEDERAL } from './proposal-data/proposals-federal';
 import { PROPOSALS_FLANDERS } from './proposal-data/proposals-flanders';
 import { PROPOSALS_BRUSSELS } from './proposal-data/proposals-brussels';
 import { PROPOSALS_WALLONIA } from './proposal-data/proposals-wallonia';
-import { ProposalOrigin, ProposalSet, SelectedProposal, Variant } from './proposal';
+import { ProposalSet, SelectedProposal, Variant } from './proposal';
 import { ProposalDetail } from './proposal-details';
 import { ContextService } from '../context/context.service';
 import { DummyProposalDataGeneratorService } from './dummy-proposal-data-generator.service';
 import { ProposalSetSerializerService } from './proposal-set-serializer.service';
-import { PROPOSAL_SET_BEKA, PROPOSAL_SET_VEKA, PROPOSAL_SET_VEKP, PROPOSAL_SET_WEKA, ProposalSetType } from './proposal-data/proposal-sets';
+import { PROPOSAL_SET_BEKA, PROPOSAL_SET_VEKA, PROPOSAL_SET_WEKA, ProposalSetType } from './proposal-data/proposal-sets';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection.v2';
 
 @Injectable()
 export class ProposalService {
-  proposalsLoading = false;
-
   activeProposals$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
 
   committedProposals$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
   extraProposalsFromSet$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
+
+  selectedProposalSetType: ProposalSetType = 'wam';
 
   selectionKey = '';
 
@@ -33,8 +33,6 @@ export class ProposalService {
     this.initializeProposals(PROPOSALS_FLANDERS);
     this.initializeProposals(PROPOSALS_BRUSSELS);
     this.initializeProposals(PROPOSALS_WALLONIA);
-
-    this.loadActiveProposalSet();
 
     this.contextService.context$.subscribe(() => this.loadActiveProposalSet());
   }
@@ -76,17 +74,23 @@ export class ProposalService {
     let selectedProposalSet: ProposalSet;
 
     if (!proposalsToActivate || proposalsToActivate?.setType === 'wam') {
+      this.selectedProposalSetType = 'wam';
       selectedProposalSet = [];
       proposals = proposals.filter(p => p.committed);
     } else if (proposalsToActivate.set) {
+      this.selectedProposalSetType = 'custom';
       selectedProposalSet = proposalsToActivate.set;
       proposals = proposals.filter(p => p.committed || selectedProposalSet.map(s => s.id).includes(p.id));
     } else if (proposalsToActivate.setType) {
-      selectedProposalSet = this.getProposalSetByType(proposalsToActivate.setType);
-      proposals = proposals.filter(p => p.committed || selectedProposalSet.map(s => s.id).includes(p.id));
-    } else if (proposalsToActivate.custom) {
-      selectedProposalSet = JSON.parse(localStorage.getItem(this.getLocalStorageSelectedVariantsKey()) || '[]') as ProposalSet;
-      // We include all possible proposals
+      if (proposalsToActivate.setType === 'custom') {
+        this.selectedProposalSetType = 'custom';
+        selectedProposalSet = JSON.parse(localStorage.getItem(this.getLocalStorageSelectedVariantsKey()) || '[]') as ProposalSet;
+        // We include all possible proposals
+      } else {
+        this.selectedProposalSetType = proposalsToActivate.setType;
+        selectedProposalSet = this.getProposalSetByType(proposalsToActivate.setType);
+        proposals = proposals.filter(p => p.committed || selectedProposalSet.map(s => s.id).includes(p.id));
+      }
     } else {
       throw new Error('Unknown type to activate proposals');
     }
@@ -227,7 +231,6 @@ export class ProposalService {
 }
 
 type ActivateProposalType = {
-  custom?: boolean;
   setType?: ProposalSetType;
   set?: ProposalSet;
 }
