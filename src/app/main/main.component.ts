@@ -8,7 +8,6 @@ import { ProposalDetail } from './proposals/proposal-details';
 import { ProposalService } from './proposals/proposal.service';
 import { ResultsDialogComponent } from './results/results-dialog.component';
 import { ActivatedRoute } from '@angular/router';
-import { ProposalSetType } from './proposals/proposal-data/proposal-sets';
 import { ContextService } from './context/context.service';
 import { MatRadioChange } from '@angular/material/radio';
 
@@ -39,16 +38,11 @@ export class MainComponent {
 
     this.proposalService.updateSelection();
 
-    // if (localStorage.getItem(this.proposalService.getLocalStorageSelectedVariantsKey())) {
-    //   this.selectedProposalSetType = 'custom';
-    // }
-
-    // this.proposalSetSelectionChanged();
-
     this.route.params.subscribe(p => {
       const key = p['key'];
       if (key) {
-        // this.selectedProposalSetType = 'custom';
+        // TODO: we need error handling here to check for invalid keys
+        // TODO: we need to include the region in the key
         this.proposalService.setFromKey(key);
       }
     });
