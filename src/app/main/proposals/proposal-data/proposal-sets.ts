@@ -35,20 +35,20 @@ export const PROPOSAL_SET_WEKP = [
 export const PROPOSAL_SET_VEKA = [
   { id: 1, variant: 3 },
   { id: 2, variant: 3 },
-  { id: 14, variant: 2 },
-  { id: 15, variant: 3 },
+  { id: 104, variant: 2 },
+  { id: 105, variant: 3 },
 ] as ProposalSet;
 
 export const PROPOSAL_SET_BEKA = [
   { id: 1, variant: 3 },
   { id: 2, variant: 3 },
-  { id: 14, variant: 2 },
-  { id: 15, variant: 3 },
+  { id: 204, variant: 2 },
+  { id: 205, variant: 3 },
 ] as ProposalSet;
 
 export const PROPOSAL_SET_WEKA = [
   { id: 1, variant: 3 },
   { id: 2, variant: 3 },
-  { id: 14, variant: 2 },
-  { id: 15, variant: 3 },
+  { id: 304, variant: 2 },
+  { id: 305, variant: 3 },
 ] as ProposalSet;
