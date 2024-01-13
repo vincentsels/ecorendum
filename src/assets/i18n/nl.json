@@ -160,6 +160,12 @@
   "uf": "UF",
   "volt": "Volt",
 
+  "sets": {
+    "veka": "Voorbeelden VEKA",
+    "beka": "Voorbeelden BEKA (fake)",
+    "weka": "Voorbeelden WEKA (fake)"
+  },
+
   "proposals": {
     "extra-measures-vekp": {
       "title": "Aanvullende maatregelen VEKP",
