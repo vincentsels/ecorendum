@@ -78,9 +78,10 @@ export class ProposalService {
       selectedProposalSet = [];
       proposals = proposals.filter(p => p.committed);
     } else if (proposalsToActivate.set) {
+      // TODO: this should be an explicitly different set; "x's set"; as to not override own. also include context.
       this.selectedProposalSetType = 'custom';
       selectedProposalSet = proposalsToActivate.set;
-      proposals = proposals.filter(p => p.committed || selectedProposalSet.map(s => s.id).includes(p.id));
+      // We include all possible proposals
     } else if (proposalsToActivate.setType) {
       if (proposalsToActivate.setType === 'custom') {
         this.selectedProposalSetType = 'custom';
@@ -101,6 +102,7 @@ export class ProposalService {
     this.activeProposals$.next(proposals);
     this.committedProposals$.next(proposals.filter(p => p.committed));
     this.extraProposalsFromSet$.next(proposals.filter(p => !p.committed));
+    this.updateSelection(false);
   }
 
   private getAllProposalsForSelectedContext(): ProposalDetail[] {
@@ -153,7 +155,7 @@ export class ProposalService {
     proposals[proposals.findIndex(p => p.id === proposal.id)] = new ProposalDetail(proposal);
 
     this.activeProposals$.next(proposals);
-    this.storeSelection(saveSelection);
+    this.updateSelection(saveSelection);
   }
 
   public clearVariant(proposal: ProposalDetail, saveSelection: boolean = true) {
@@ -171,7 +173,7 @@ export class ProposalService {
     proposals[proposals.findIndex(p => p.id === proposal.id)] = new ProposalDetail(proposal);
 
     this.activeProposals$.next(proposals);
-    this.storeSelection(saveSelection);
+    this.updateSelection(saveSelection);
   }
 
   public clearSelection(saveSelection: boolean = true) {
@@ -192,14 +194,14 @@ export class ProposalService {
       localStorage.removeItem(this.getLocalStorageSelectedVariantsKey());
     }
 
-    this.storeSelection(saveSelection);
+    this.updateSelection(saveSelection);
   }
 
   public getLocalStorageSelectedVariantsKey(): string {
     return LS_KEY_SELECTED_VARIANTS + '.' + this.contextService.context$.value;
   }
 
-  public storeSelection(saveSelection: boolean = true) {
+  public updateSelection(storeSelection: boolean = true) {
     const proposals = this.activeProposals$.value;
 
     if (!proposals || proposals.length === 0) return;
@@ -208,7 +210,7 @@ export class ProposalService {
 
     this.selectionKey = this.getKey(selectedVariantNumbers);
 
-    if (saveSelection && selectedVariantNumbers.length > 0) {
+    if (storeSelection && selectedVariantNumbers.length > 0) {
       localStorage.setItem(this.getLocalStorageSelectedVariantsKey(), JSON.stringify(selectedVariantNumbers));
     }
   }
@@ -221,12 +223,12 @@ export class ProposalService {
   }
 
   public setFromKey(key: string) {
-    const set = this.proposalSerializerService.decodeVariants(key);
+    const set = this.proposalSerializerService.decode(key);
     this.loadActiveProposalSet({ set: set });
   }
 
   public getKey(selectedVariantNumbers: ProposalSet): string {
-    return this.proposalSerializerService.encodeVariants(selectedVariantNumbers);
+    return this.proposalSerializerService.encode(selectedVariantNumbers);
   }
 }
 

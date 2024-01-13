@@ -37,7 +37,7 @@ export class MainComponent {
         })
       );
 
-    this.proposalService.storeSelection();
+    this.proposalService.updateSelection();
 
     // if (localStorage.getItem(this.proposalService.getLocalStorageSelectedVariantsKey())) {
     //   this.selectedProposalSetType = 'custom';
@@ -70,6 +70,7 @@ export class MainComponent {
 
   clearFilter() {
     this.projectsFilter = '';
+    this.includeCommitted = true;
     this.filterChanged();
   }
 

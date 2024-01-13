@@ -9,6 +9,7 @@ import { SubmitDialogComponent } from '../submit-dialog/submit-dialog.component'
 import { Results } from './results';
 import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
 import { ResultsService } from './results.service';
+import { ProposalService } from '../proposals/proposal.service';
 
 @Component({
   selector: 'app-results',
@@ -23,8 +24,8 @@ export class ResultsComponent implements OnInit {
 
   @Input() dialog = false;
 
-  constructor(service: ResultsService, public enums: EnumsService, private matDialog: MatDialog,
-    private commonDialog: CommonDialogService, private translate: TranslateService) {
+  constructor(service: ResultsService, public enums: EnumsService, public proposalService: ProposalService,
+    private matDialog: MatDialog, private commonDialog: CommonDialogService, private translate: TranslateService) {
     this.results$ = service.results$;
   }
 
