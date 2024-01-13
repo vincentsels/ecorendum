@@ -32,7 +32,7 @@ Tot slot toont de website de bredere geschatte impact van de geselecteerde maatr
 
 ### Vlaamse context
 
-De gegevens die voor deze demowebsite worden gebruikt, zowel doelstellingen als impact van maatregelen, zijn grotendeels verzonnen, maar semi-realistisch. Hoewel de website lijkt toe te staan om van context te wisselen naar de andere Belgische regio's, Brussel en Wallonië, verandert dit momenteel niets aan de gegevens. Dus alle gegevens richten zich momenteel op Vlaanderen.
+De Vlaamse gegevens die voor deze demowebsite worden gebruikt, zowel de doelstellingen als de impact van de maatregelen, zijn grotendeels verzonnen, maar toch semi-realistisch. De tool maakt het mogelijk om van context te wisselen naar de andere Belgische gewesten, Brussel en Wallonië. Deze gebruiken momenteel echter volledig valse, dummy doel- en maatregelgegevens.
 
 ### Doelstellingen
 

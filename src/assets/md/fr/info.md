@@ -32,7 +32,7 @@ Enfin, le site affiche l'impact estimé plus large des mesures sélectionnées, 
 
 ### Contexte flamand
 
-Les données utilisées pour ce site de démonstration, tant les objectifs que les impacts des mesures, sont largement fictives, mais semi-réalistes. Bien que le site semble permettre de changer de contexte pour les autres régions belges, Bruxelles et la Wallonie, cela ne change actuellement aucune des données. Par conséquent, toutes les données visent actuellement la Flandre.
+Les données flamandes utilisées pour ce site web de démonstration, tant pour les objectifs que pour l'impact des mesures, sont en grande partie inventées, mais semi-réalistes. L'outil permet de passer du contexte aux autres régions belges, Bruxelles et la Wallonie. Toutefois, ces régions utilisent actuellement des objectifs et des données de mesure entièrement faux et factices.
 
 ### Objectifs
 

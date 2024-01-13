@@ -10,7 +10,7 @@ For a deep dive into the concept, you can read this [white paper](https://forum.
 
 ## Context and targets
 
-The context for this demowebsite is Flanders, Belgium, and the ecological targets are:
+The context for this demowebsite is currently Flanders, Belgium, and the ecological targets are:
 
 - The CO2-equivalent emission reduction imposed by a judge in a case called the '[Klimaatzaak](https://www.klimaatzaak.eu)' (climate case);
 
@@ -30,7 +30,7 @@ Finally, the website displays the broader estimated impact of the selected measu
 
 ### Flemish context
 
-The data used for this demowebsite, both targets and measure impacts, is largely made up, yet semi-realistic. Although the website seems to allow to switch context to the other Belgian regions, Brussels and Wallonia, this currently does not change any of the data. Hence, all data is currently targeting Flanders.
+The Flemish data used for this demowebsite, both targets and measure impacts, is largely made up, yet semi-realistic. The tool allows switching context to the other Belgian regions, Brussels and Wallonia. However, these currently use entirely fake, dummy target and measure data.
 
 ### Targets
 
