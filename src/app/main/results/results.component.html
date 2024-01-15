@@ -50,8 +50,11 @@
   <mat-card class="result-section">
     <h3 class="result-section-collapsed">
       <span class="collapsed-header">
-        <mat-icon class="inline">gavel</mat-icon>
-        <app-help-widget tooltipKey="helpLegalReductionTarget" textKey="Legal reduction" dialogKey="helpDialogLegalReductionTarget"></app-help-widget>
+        <!-- <span class="icon-with-icon-badge"> -->
+          <mat-icon class="inline">cloud_download</mat-icon>&nbsp;<app-help-widget tooltipKey="helpLegalReductionTarget" textKey="Legal reduction" dialogKey="helpDialogLegalReductionTarget"></app-help-widget>
+          <!-- <mat-icon class="inline icon-badge">gavel</mat-icon> -->
+        <!-- </span> -->
+
       </span>
 
       <app-result-progress [target]="results.legalGhgTarget"></app-result-progress>
@@ -71,7 +74,7 @@
 
     <h3 class="result-section-collapsed">
       <span class="collapsed-header">
-        <mat-icon class="inline">savings</mat-icon>
+        <mat-icon class="inline">energy_savings_leaf</mat-icon>
         {{ 'Energy efficiency' | translate }}
       </span>
 
