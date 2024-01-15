@@ -183,8 +183,8 @@ export const ImpactDomainMap = {
   [ImpactDomain.ozoneDepletion]: 'public',
   [ImpactDomain.aerosols]: 'ac_unit',
   [ImpactDomain.chemicalPollution]: 'science',
-  [ImpactDomain.redistributionLocal]: 'payments',
-  [ImpactDomain.redistributionGlobal]: 'payments',
+  [ImpactDomain.redistributionLocal]: 'balance',
+  [ImpactDomain.redistributionGlobal]: 'public',
   [ImpactDomain.humanRightsLocal]: 'volunteer_activism',
   [ImpactDomain.humanRightsGlobal]: 'volunteer_activism',
 }

@@ -24,10 +24,11 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
           new Impact(ImpactDomain.oceanAcidification, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.redistributionLocal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 1500 }),
-          new Target({ type: TargetType.energyEfficiency, amount: -1000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
         ]
       }),
       new Variant({
@@ -41,10 +42,11 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.redistributionLocal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 3000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: -2000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 2000 }),
         ]
       }),
       new Variant({
@@ -57,10 +59,11 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.somewhatNegative),
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.redistributionLocal, ImpactAmount.moderatelyNegative),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 4500 }),
-          new Target({ type: TargetType.energyEfficiency, amount: -3000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 3000 }),
         ]
       })
     ]

@@ -14,7 +14,7 @@
       </ng-container>
     </h2>
     <div class="proposal-target-summary" [class.set]="set">
-      <span class="proposal-target-summary-item" *ngIf="proposal.committed && set">
+      <span class="proposal-target-summary-item" *ngIf="proposal.committed">
         {{ 'Committed' | translate }}
       </span>
       <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinCost(set); let cost;">
