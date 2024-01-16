@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { EnumsService } from '../../../common/enums.service';
 import { PARTIES_WITH_LOGOS } from '../../party';
-import { Proposal, Variant } from '../proposal';
+import { Variant } from '../proposal';
 import { ProposalDetail } from '../proposal-details';
 import { ProposalService } from '../proposal.service';
 

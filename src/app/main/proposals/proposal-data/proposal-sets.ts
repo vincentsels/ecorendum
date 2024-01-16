@@ -1,6 +1,6 @@
 import { ProposalSet } from "../proposal";
 
-export type ProposalSetType = 'wam' | 'veka' | 'beka' | 'weka' | 'custom';
+export type ProposalSetType = 'wam' | 'veka' | 'beka' | 'weka' | 'party' | 'custom';
 
 export const PROPOSAL_SETS_FLANDERS: ProposalSetType[] = [
   'veka',

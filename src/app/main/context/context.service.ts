@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, map } from "rxjs";
 import { PROPOSAL_SETS_BRUSSELS, PROPOSAL_SETS_FLANDERS, PROPOSAL_SETS_WALLONIA, ProposalSetType } from "../proposals/proposal-data/proposal-sets";
+import { PARTIES_BRUSSELS, PARTIES_FLANDERS, PARTIES_WALLONIA, PartyId } from "../party";
 
 const LS_KEY_SELECTED_CONTEXT = 'ecorendum.context';
 const DEFAULT_CONTEXT = 'flanders'; // TODO: based on lang/region
@@ -12,6 +13,7 @@ export class ContextService {
   context$: BehaviorSubject<Context>;
 
   proposalSets$: Observable<ProposalSetType[]>;
+  parties$: Observable<PartyId[]>;
 
   isFlandersContext$: Observable<boolean>;
   isBrusselsContext$: Observable<boolean>;
@@ -20,7 +22,8 @@ export class ContextService {
   constructor() {
     this.context$ = new BehaviorSubject<Context>(localStorage.getItem(LS_KEY_SELECTED_CONTEXT) as Context ?? DEFAULT_CONTEXT);
 
-    this.proposalSets$ = this.context$.pipe(map(c => this.getProposalSetTypesForContext(c)))
+    this.proposalSets$ = this.context$.pipe(map(c => this.getProposalSetTypesForContext(c)));
+    this.parties$ = this.context$.pipe(map(c => this.getPartiesForContext(c)));
 
     this.isFlandersContext$ = this.context$.pipe(map(c => c === 'flanders'));
     this.isBrusselsContext$ = this.context$.pipe(map(c => c === 'brussels'));
@@ -37,6 +40,14 @@ export class ContextService {
       case 'flanders': return PROPOSAL_SETS_FLANDERS;
       case 'brussels': return PROPOSAL_SETS_BRUSSELS;
       case 'wallonia': return PROPOSAL_SETS_WALLONIA;
+    }
+  }
+
+  private getPartiesForContext(context: Context) {
+    switch (context) {
+      case 'flanders': return PARTIES_FLANDERS;
+      case 'brussels': return PARTIES_BRUSSELS;
+      case 'wallonia': return PARTIES_WALLONIA;
     }
   }
 }

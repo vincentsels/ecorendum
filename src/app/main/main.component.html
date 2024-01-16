@@ -20,6 +20,9 @@
         <mat-radio-button *ngFor="let setType of contextService.proposalSets$ | async" [value]="setType" class="proposal-type">
           {{ ('sets.' + setType + '.title') | translate }}
         </mat-radio-button>
+        <mat-radio-button value="party" class="proposal-type">
+          <button mat-button>{{ 'Political parties' | translate }}</button>
+        </mat-radio-button>
         <mat-radio-button value="custom" class="proposal-type">{{ 'Create your own' | translate }}</mat-radio-button>
       </mat-radio-group>
     </div>
