@@ -59,3 +59,13 @@ app-results-mobile-summary {
 .proposals-header-xs {
   flex-wrap: wrap;
 }
+
+.alert-with-icon {
+  display: flex;
+  flex-direction: row;
+}
+
+.alert-icon {
+  font-size: 250%;
+  min-width: 40px;
+}

@@ -106,6 +106,7 @@
   "Current plans": "Current plans",
   "Committed": "Committed",
   "selectPartySetInfo": "Select a political party to view their set of plans and whether they are enough.",
+  "partyHasNoMeasuresInfo": "This party has not published or submitted a (calculated) set of proposals. Help us convince them to do so! Write your representatives, share our website on social media.",
 
   "allTargetsMet": "Congratulations! The measures you selected allows Belgium to meet all the targets set by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated € {{ profit }}",
@@ -170,6 +171,10 @@
     "wam": {
       "title": "Current plans",
       "description": "These are all relevant policy measures already planned between now and 2030; both from the regional and National Energy- and Climate Plan (EKP) as well as already committed impactful plans in industry."
+    },
+    "party": {
+      "title": "Political parties",
+      "description": "The set of measures proposed by {{ partyName }}."
     },
     "veka": {
       "title": "Examples VEKA",

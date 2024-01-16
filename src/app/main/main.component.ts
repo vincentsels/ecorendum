@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ContextService } from './context/context.service';
 import { MatRadioChange } from '@angular/material/radio';
 import { SelectPartySetDialogComponent } from './select-party-set-dialog/select-party-set-dialog.component';
+import { EnumsService } from '../common/enums.service';
 
 @Component({
   selector: 'app-main',
@@ -23,7 +24,7 @@ export class MainComponent {
   proposalsFilter$ = new BehaviorSubject<string>('');
   includeCommitted = true;
 
-  constructor(public proposalService: ProposalService, public contextService: ContextService,
+  constructor(public proposalService: ProposalService, public contextService: ContextService, public enumsService: EnumsService,
     private dialog: MatDialog, private translate: TranslateService, private route: ActivatedRoute) {
     this.filteredProposals$ = combineLatest([this.proposalsFilter$, this.proposalService.activeProposals$])
       .pipe(

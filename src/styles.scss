@@ -167,6 +167,14 @@ body:not(:-moz-handler-blocked) fieldset {
   box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
 }
 
+.bg-color-danger {
+  background-color: #f4433614!important;
+}
+
+.bg-color-success {
+  background-color: #1de9b617!important;
+}
+
 .alert-code {
   background-color: #fcc3bf;
 }

@@ -3,8 +3,8 @@
   <div class="party-set-toggle-buttons">
     <mat-button-toggle class="party-set-button"
       *ngFor="let partySetResult of (partySetResults$ | async)"
-      [class.party-set-button-good]="partySetResult.results?.legalGhgTarget?.percentage || 0 >= 100"
-      [class.party-set-button-bad]="partySetResult.results?.legalGhgTarget?.percentage || 0 < 100"
+      [class.bg-color-success]="partySetResult.results?.legalGhgTarget?.percentage || 0 >= 100"
+      [class.bg-color-danger]="partySetResult.results?.legalGhgTarget?.percentage || 0 < 100"
       [checked]="proposalService.selectedPartyId === partySetResult.partyId" (change)="selectParty(partySetResult.partyId)">
       <div class="party-set-button-content">
         <div>

@@ -21,14 +21,24 @@
           {{ ('sets.' + setType + '.title') | translate }}
         </mat-radio-button>
         <mat-radio-button value="party" class="proposal-type">
-          <button mat-button (click)="showSelectPartyDialog()">{{ 'Political parties' | translate }}</button>
+          <button mat-button (click)="showSelectPartyDialog()">
+            <span *ngIf="!proposalService.selectedPartyId">{{ 'Political parties' | translate }}</span>
+            <app-party-logo-or-name *ngIf="proposalService.selectedPartyId" [partyId]="proposalService.selectedPartyId"></app-party-logo-or-name>
+          </button>
         </mat-radio-button>
         <mat-radio-button value="custom" class="proposal-type">{{ 'Create your own' | translate }}</mat-radio-button>
       </mat-radio-group>
     </div>
 
     <span *ngIf="proposalService.selectedProposalSetType !== 'custom'">
-      <p class="card-side-padding set-description">{{ ('sets.' + proposalService.selectedProposalSetType + '.description') | translate }}</p>
+      <p class="card-side-padding set-description">
+        <ng-container *ngIf="proposalService.selectedProposalSetType !== 'party'">
+          {{ ('sets.' + proposalService.selectedProposalSetType + '.description') | translate }}
+        </ng-container>
+        <ng-container *ngIf="proposalService.selectedProposalSetType === 'party' && proposalService.selectedPartyId">
+          {{ ('sets.party.description') | translate:{ partyName: ( 'parties.' + enumsService.PartyId[proposalService.selectedPartyId] | translate) } }}
+        </ng-container>
+      </p>
 
       <app-proposal-set [baseSet]="proposalService.selectedProposalSetType === 'wam'" class="block-card"
         *ngIf="proposalService.selectedProposalSetType === 'wam' || includeCommitted === true"
@@ -37,6 +47,11 @@
       <ng-container *ngIf="(proposalService.extraProposalsFromSet$| async); let proposalSet">
         <app-proposal-set *ngIf="proposalSet.length > 0" [proposalSet]="proposalSet"></app-proposal-set>
       </ng-container>
+
+      <mat-card class="bg-color-danger alert-with-icon" *ngIf="proposalService.selectedProposalSetType === 'party' && (proposalService.extraProposalsFromSet$ | async)!.length === 0">
+        <mat-icon class="inline danger alert-icon">sentiment_dissatisfied</mat-icon>
+        <div>{{ 'partyHasNoMeasuresInfo' | translate }}</div>
+      </mat-card>
     </span>
 
     <div *ngIf="proposalService.selectedProposalSetType === 'custom' && (filteredProposals$ | async); let filteredProposals">
