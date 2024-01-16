@@ -161,9 +161,22 @@
   "volt": "Volt",
 
   "sets": {
-    "veka": "Voorbeelden VEKA",
-    "beka": "Voorbeelden BEKA (fake)",
-    "weka": "Voorbeelden WEKA (fake)"
+    "wam": {
+      "title": "Huidige plannen",
+      "description": "Dit zijn alle relevante beleidsmaatregelen die al gepland staan tussen nu en 2030; zowel uit het regionale en Nationale Energie- en Klimaatplan (EKP) als reeds toegezegde impactvolle plannen in de industrie."
+    },
+    "veka": {
+      "title": "Voorbeelden VEKA",
+      "description": "Toen de rechter bepaalde dat België zijn uitstoot met 55% moet verminderen, vroeg minister Demir aan het Vlaams Energie- en Klimaatagentschap (VEKA) om enkele voorbeeldmaatregelen te berekenen waarmee deze doelstelling zou worden gehaald. Ze kozen ervoor om de inspanning gelijk te verdelen over alle sectoren. Dit is hun voorbeeldreeks van maatregelen."
+    },
+    "beka": {
+      "title": "Voorbeelden BEKA (nep)",
+      "description": "We hebben momenteel geen echte voorbeeldgegevens voor Brussel. Deze gegevens zijn gekopieerd van de Vlaamse VEKA-gegevens."
+    },
+    "weka": {
+      "title": "Voorbeelden WEKA (nep)",
+      "description": "We hebben momenteel geen echte voorbeeldgegevens voor Wallonië. Deze gegevens zijn gekopieerd van de Vlaamse VEKA-gegevens."
+    }
   },
 
   "proposals": {

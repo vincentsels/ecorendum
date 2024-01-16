@@ -143,6 +143,11 @@ body:not(:-moz-handler-blocked) fieldset {
   }
 }
 
+.card-side-padding {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .accent {
   color: mat.get-color-from-palette($ecorendum-accent, A200);
 }

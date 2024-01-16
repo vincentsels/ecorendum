@@ -6,6 +6,15 @@ app-results-mobile-summary {
   z-index: 2;
 }
 
+.block-card {
+  display: block;
+  margin-bottom: 20px
+}
+
+.set-description {
+  opacity: 0.8;
+}
+
 .project-filters {
   float: right;
   font-size: 14px;

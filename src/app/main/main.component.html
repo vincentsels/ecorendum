@@ -18,14 +18,16 @@
       <mat-radio-group [value]="proposalService.selectedProposalSetType" (change)="proposalSetSelectionChanged($event)">
         <mat-radio-button value="wam" class="proposal-type">{{ 'Current plans' | translate }}</mat-radio-button>
         <mat-radio-button *ngFor="let setType of contextService.proposalSets$ | async" [value]="setType" class="proposal-type">
-          {{ ('sets.' + setType) | translate }}
+          {{ ('sets.' + setType + '.title') | translate }}
         </mat-radio-button>
         <mat-radio-button value="custom" class="proposal-type">{{ 'Create your own' | translate }}</mat-radio-button>
       </mat-radio-group>
     </div>
 
     <span *ngIf="proposalService.selectedProposalSetType !== 'custom'">
-      <app-proposal-set [baseSet]="proposalService.selectedProposalSetType === 'wam'" style="display: block; margin-bottom: 20px"
+      <p class="card-side-padding set-description">{{ ('sets.' + proposalService.selectedProposalSetType + '.description') | translate }}</p>
+
+      <app-proposal-set [baseSet]="proposalService.selectedProposalSetType === 'wam'" class="block-card"
         *ngIf="proposalService.selectedProposalSetType === 'wam' || includeCommitted === true"
         [proposalSet]="(proposalService.committedProposals$ | async) || []"></app-proposal-set>
 

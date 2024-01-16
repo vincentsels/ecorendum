@@ -162,10 +162,23 @@
   "uf": "UF",
   "volt": "Volt",
 
-  "sets": {
-    "veka": "Examples VEKA",
-    "beka": "Examples BEKA (fake)",
-    "weka": "Examples WEKA (fake)"
+  "sets" : {
+    "wam" : {
+      "title" : "Plans en cours",
+      "description" : "Il s'agit de toutes les mesures politiques pertinentes déjà planifiées d'ici 2030 ; à la fois du plan régional et national pour l'énergie et le climat (EKP) ainsi que des plans à impact déjà engagés dans l'industrie."
+    },
+    "veka" : {
+      "title" : "Exemples VEKA",
+      "description" : "Lorsque le juge a décidé que la Belgique devait réduire ses émissions de 55 %, le ministre Demir a demandé à l'Agence flamande de l'énergie et du climat (VEKA) de calculer quelques exemples de mesures qui permettraient d'atteindre cet objectif. L'Agence a choisi de répartir l'effort de manière égale entre tous les secteurs. Voici leur exemple de mesures."
+    },
+    "beka" : {
+      "title" : "Exemples BEKA (faux)",
+      "description" : "Nous ne disposons actuellement d'aucune donnée d'exemple réelle pour Bruxelles. Ces données sont copiées à partir des données flamandes VEKA."
+    },
+    "weka" : {
+      "title" : "Exemples WEKA (faux)",
+      "description" : "Nous ne disposons actuellement d'aucune donnée d'exemple réelle pour la Wallonie. Ces données sont copiées à partir des données flamandes de VEKA."
+    }
   },
 
   "proposals": {
