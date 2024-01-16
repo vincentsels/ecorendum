@@ -24,7 +24,7 @@ export class ProposalService {
   extraProposalsFromSet$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
 
   selectedProposalSetType: ProposalSetType = 'wam';
-  selectedParty?: PartyId;
+  selectedPartyId?: PartyId;
 
   selectionKey = '';
 
@@ -39,13 +39,13 @@ export class ProposalService {
 
     const storedSelectedParty = localStorage.getItem(LS_KEY_SELECTED_PARTY);
     if (storedSelectedParty) {
-      this.selectedParty = Number(storedSelectedParty);
+      this.selectedPartyId = Number(storedSelectedParty);
     }
 
     this.contextService.context$.subscribe(c => {
       const partiesForContext = this.contextService.getPartiesForContext(c);
-      if (this.selectedParty && partiesForContext.includes(this.selectedParty)) {
-        this.updateSelectedparty(undefined)
+      if (this.selectedPartyId && partiesForContext.includes(this.selectedPartyId)) {
+        this.updateSelectedParty(undefined)
       }
 
       this.loadActiveProposalSet();
@@ -62,14 +62,14 @@ export class ProposalService {
     }
   }
 
-  private getProposalSetByType(setType?: ProposalSetType) {
+  public getProposalSetByType(setType: ProposalSetType, selectedPartyId: PartyId) {
     switch (setType) {
       case 'wam': return []; // Default / WAM: no 'extra' measures
       case 'veka': return PROPOSAL_SET_VEKA;
       case 'beka': return PROPOSAL_SET_BEKA;
       case 'weka': return PROPOSAL_SET_WEKA;
       case 'party':
-        if (this.selectedParty === PartyId.example) {
+        if (selectedPartyId === PartyId.example) {
           const context = this.contextService.context$.value;
           switch (context) {
             case 'flanders': return PROPOSAL_SET_VEKA;
@@ -114,13 +114,13 @@ export class ProposalService {
         selectedProposalSet = JSON.parse(localStorage.getItem(this.getLocalStorageSelectedVariantsKey()) || '[]') as ProposalSet;
         // We include all possible proposals
       } else {
-        if (proposalsToActivate.setType === 'party' && !this.selectedParty) {
+        if (proposalsToActivate.setType === 'party' && !this.selectedPartyId) {
           const partiesForContext = this.contextService.getPartiesForContext(this.contextService.context$.value);
-          this.updateSelectedparty(partiesForContext[0]);
+          this.updateSelectedParty(partiesForContext[0]);
         }
 
         this.selectedProposalSetType = proposalsToActivate.setType;
-        selectedProposalSet = this.getProposalSetByType(proposalsToActivate.setType);
+        selectedProposalSet = this.getProposalSetByType(proposalsToActivate.setType, this.selectedPartyId!);
         proposals = proposals.filter(p => p.committed || selectedProposalSet.map(s => s.id).includes(p.id));
       }
     } else {
@@ -136,7 +136,8 @@ export class ProposalService {
     this.updateSelection(false);
   }
 
-  private getAllProposalsForSelectedContext(): ProposalDetail[] {
+  // TODO: we probably don't want to make this public, and use a better solution to access this from the party selection screen
+  public getAllProposalsForSelectedContext(): ProposalDetail[] {
     const context = this.contextService.context$.value;
 
     let proposals: ProposalDetail[];
@@ -151,7 +152,8 @@ export class ProposalService {
     return proposals;
   }
 
-  private selectProposalSet(set: ProposalSet, proposals: ProposalDetail[]) {
+  // TODO: we probably don't want to make this public, and use a better solution to access this from the party selection screen
+  public selectProposalSet(set: ProposalSet, proposals: ProposalDetail[]) {
     if (set.length > 0) {
       for (let selectedVariantNumber of set) {
         const selectedProposal = proposals.find(p => p.id === selectedVariantNumber.id);
@@ -246,8 +248,8 @@ export class ProposalService {
     }
   }
 
-  public updateSelectedparty(partyId?: PartyId) {
-    this.selectedParty = partyId;
+  public updateSelectedParty(partyId?: PartyId) {
+    this.selectedPartyId = partyId;
     if (partyId) localStorage.setItem(LS_KEY_SELECTED_PARTY, partyId.toString());
     else localStorage.removeItem(LS_KEY_SELECTED_PARTY);
   }

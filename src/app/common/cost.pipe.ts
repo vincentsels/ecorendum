@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'cost' })
 export class CostPipe implements PipeTransform {
-  transform(value: number): string {
+  transform(value?: number): string {
     if (!value) return '';
 
     let ret = '€\u00A0';

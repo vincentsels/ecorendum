@@ -10,6 +10,7 @@ import { ResultsDialogComponent } from './results/results-dialog.component';
 import { ActivatedRoute } from '@angular/router';
 import { ContextService } from './context/context.service';
 import { MatRadioChange } from '@angular/material/radio';
+import { SelectPartySetDialogComponent } from './select-party-set-dialog/select-party-set-dialog.component';
 
 @Component({
   selector: 'app-main',
@@ -52,10 +53,14 @@ export class MainComponent {
     this.proposalService.loadActiveProposalSet({ setType: event.value });
   }
 
-  showResults() {
+  showResultsDialog() {
     this.dialog.open(ResultsDialogComponent, {
       autoFocus: false,
     });
+  }
+
+  showSelectPartyDialog() {
+    this.dialog.open(SelectPartySetDialogComponent);
   }
 
   filterChanged() {

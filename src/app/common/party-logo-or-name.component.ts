@@ -16,6 +16,7 @@ import { EnumsService } from './enums.service';
 .party-logo {
   max-width: 48px;
   max-height: 24px;
+  vertical-align: middle;
 }
 `
   ]

@@ -13,7 +13,7 @@ export class ContextService {
   context$: BehaviorSubject<Context>;
 
   proposalSets$: Observable<ProposalSetType[]>;
-  parties$: Observable<PartyId[]>;
+  partyIds$: Observable<PartyId[]>;
 
   isFlandersContext$: Observable<boolean>;
   isBrusselsContext$: Observable<boolean>;
@@ -23,7 +23,7 @@ export class ContextService {
     this.context$ = new BehaviorSubject<Context>(localStorage.getItem(LS_KEY_SELECTED_CONTEXT) as Context ?? DEFAULT_CONTEXT);
 
     this.proposalSets$ = this.context$.pipe(map(c => this.getProposalSetTypesForContext(c)));
-    this.parties$ = this.context$.pipe(map(c => this.getPartiesForContext(c)));
+    this.partyIds$ = this.context$.pipe(map(c => this.getPartiesForContext(c)));
 
     this.isFlandersContext$ = this.context$.pipe(map(c => c === 'flanders'));
     this.isBrusselsContext$ = this.context$.pipe(map(c => c === 'brussels'));

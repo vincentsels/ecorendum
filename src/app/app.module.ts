@@ -52,6 +52,7 @@ import { ParametersService } from './main/parameters/parameters.service';
 import { ResultsService } from './main/results/results.service';
 import { DummyProposalDataGeneratorService } from './main/proposals/dummy-proposal-data-generator.service';
 import { ProposalSetSerializerService } from './main/proposals/proposal-set-serializer.service';
+import { SelectPartySetDialogComponent } from './main/select-party-set-dialog/select-party-set-dialog.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -87,6 +88,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ResultProgressComponent,
     SelectContextDialogComponent,
     InfoComponent,
+    SelectPartySetDialogComponent,
   ],
   imports: [
     BrowserModule,

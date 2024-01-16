@@ -1,0 +1,32 @@
+<div mat-dialog-content class="party-set-content">
+  <p>{{ 'selectPartySetInfo' | translate }}</p>
+  <div class="party-set-toggle-buttons">
+    <mat-button-toggle class="party-set-button"
+      *ngFor="let partySetResult of (partySetResults$ | async)"
+      [class.party-set-button-good]="partySetResult.results?.legalGhgTarget?.percentage || 0 >= 100"
+      [class.party-set-button-bad]="partySetResult.results?.legalGhgTarget?.percentage || 0 < 100"
+      [checked]="proposalService.selectedPartyId === partySetResult.partyId" (change)="selectParty(partySetResult.partyId)">
+      <div class="party-set-button-content">
+        <div>
+          <app-party-logo-or-name [partyId]="partySetResult.partyId"></app-party-logo-or-name>
+          <span class="party-set-button-content-party-name">{{ 'parties.' + parties[partySetResult.partyId] | translate }}</span>
+        </div>
+        <div class="party-set-button-content-result">
+          <div *ngIf="partySetResult.received">
+            <span class="party-set-button-content-result-item">
+              #&nbsp;{{ partySetResult.measureCount }}
+            </span>
+            <span class="party-set-button-content-result-item">
+              <mat-icon class="inline">cloud_download</mat-icon>
+              {{ partySetResult.results?.legalGhgTarget?.percentage | number:'1.0-0' }}%
+            </span>
+            <span class="party-set-button-content-result-item"> {{ partySetResult.results?.totalCostIncludingTax | cost }}</span>
+          </div>
+          <div *ngIf="!partySetResult.received">
+            <mat-icon class="inline danger">close</mat-icon> {{ 'No plan' | translate }}
+          </div>
+        </div>
+      </div>
+    </mat-button-toggle>
+  </div>
+</div>

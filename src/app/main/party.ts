@@ -76,17 +76,17 @@ export const PARTIES_WITH_LOGOS = [
 ];
 
 export const PARTIES_FLANDERS = [
+  PartyId.example,
   PartyId.groen,
   PartyId.nva,
   PartyId.openvld,
-  PartyId.ps,
   PartyId.pvdaPtb,
   PartyId.vb,
   PartyId.vooruit,
-  PartyId.example,
 ];
 
 export const PARTIES_BRUSSELS = [
+  PartyId.example,
   PartyId.agora,
   PartyId.cdh,
   PartyId.cdv,
@@ -100,15 +100,14 @@ export const PARTIES_BRUSSELS = [
   PartyId.pvdaPtb,
   PartyId.vb,
   PartyId.vooruit,
-  PartyId.example,
 ];
 
 export const PARTIES_WALLONIA = [
+  PartyId.example,
   PartyId.cdh,
   PartyId.defi,
   PartyId.ecolo,
   PartyId.mr,
   PartyId.ps,
   PartyId.pvdaPtb,
-  PartyId.example,
 ];

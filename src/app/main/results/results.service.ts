@@ -6,6 +6,7 @@ import { Results, TargetResult, TotalImpact } from './results';
 import { TargetsService } from '../targets/targets.service';
 import { ParametersService } from '../parameters/parameters.service';
 import { ProposalService } from '../proposals/proposal.service';
+import { ProposalDetail } from '../proposals/proposal-details';
 
 @Injectable()
 export class ResultsService {
@@ -29,8 +30,8 @@ export class ResultsService {
     this.results$.next(results);
   }
 
-  calculateResults(): Results {
-    const proposals = this.proposalService.activeProposals$.value;
+  calculateResults(forProposals?: ProposalDetail[]): Results {
+    const proposals = forProposals || this.proposalService.activeProposals$.value;
     const targets = this.targetsService.targets$.value;
     const parameters = this.parametersService.parameters$.value;
 

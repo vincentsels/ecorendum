@@ -1,0 +1,64 @@
+.party-set-toggle-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.party-set-button {
+  margin-top: 12px;
+
+  ::ng-deep .mat-button-toggle-button {
+    text-align: left!important;
+    width: 100%;
+  }
+
+  ::ng-deep .mat-button-toggle-label-content {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.party-set-button-bad {
+  background-color: #f4433614!important;
+}
+
+.party-set-button-good {
+  background-color: #1de9b617!important;
+}
+
+.party-set-button-content {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.party-set-button-content-party-name {
+  margin-left: 12px;
+}
+
+@media(max-width: 450px) {
+  .party-set-button-content-party-name {
+    display: none;
+  }
+}
+
+.party-set-content {
+  max-width: 400px;
+}
+
+.party-set-icon {
+  margin-right: 8px;
+}
+
+.party-set-button-content-result {
+  opacity: 0.6;
+}
+
+.party-set-button-content-result-item:not(:first-child) {
+  &::before {
+    opacity: 0.6;
+    content: '•';
+    margin-right: 6px;
+    margin-left: 6px;
+  }
+}
