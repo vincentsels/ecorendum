@@ -11,8 +11,10 @@ import { ContextService } from '../context/context.service';
 import { DummyProposalDataGeneratorService } from './dummy-proposal-data-generator.service';
 import { ProposalSetSerializerService } from './proposal-set-serializer.service';
 import { PROPOSAL_SET_BEKA, PROPOSAL_SET_VEKA, PROPOSAL_SET_WEKA, ProposalSetType } from './proposal-data/proposal-sets';
+import { PartyId } from '../party';
 
 const LS_KEY_SELECTED_VARIANTS = 'ecorendum.selection.v2';
+const LS_KEY_SELECTED_PARTY = 'ecorendum.partyId';
 
 @Injectable()
 export class ProposalService {
@@ -22,6 +24,7 @@ export class ProposalService {
   extraProposalsFromSet$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
 
   selectedProposalSetType: ProposalSetType = 'wam';
+  selectedParty?: PartyId;
 
   selectionKey = '';
 
@@ -34,7 +37,19 @@ export class ProposalService {
     this.initializeProposals(PROPOSALS_BRUSSELS);
     this.initializeProposals(PROPOSALS_WALLONIA);
 
-    this.contextService.context$.subscribe(() => this.loadActiveProposalSet());
+    const storedSelectedParty = localStorage.getItem(LS_KEY_SELECTED_PARTY);
+    if (storedSelectedParty) {
+      this.selectedParty = Number(storedSelectedParty);
+    }
+
+    this.contextService.context$.subscribe(c => {
+      const partiesForContext = this.contextService.getPartiesForContext(c);
+      if (this.selectedParty && partiesForContext.includes(this.selectedParty)) {
+        this.updateSelectedparty(undefined)
+      }
+
+      this.loadActiveProposalSet();
+    });
   }
 
   private initializeProposals(proposals: ProposalDetail[]) {
@@ -48,12 +63,23 @@ export class ProposalService {
   }
 
   private getProposalSetByType(setType?: ProposalSetType) {
-    switch (setType)
-    {
+    switch (setType) {
       case 'wam': return []; // Default / WAM: no 'extra' measures
       case 'veka': return PROPOSAL_SET_VEKA;
       case 'beka': return PROPOSAL_SET_BEKA;
       case 'weka': return PROPOSAL_SET_WEKA;
+      case 'party':
+        if (this.selectedParty === PartyId.example) {
+          const context = this.contextService.context$.value;
+          switch (context) {
+            case 'flanders': return PROPOSAL_SET_VEKA;
+            case 'brussels': return PROPOSAL_SET_BEKA;
+            case 'wallonia': return PROPOSAL_SET_WEKA;
+            default: throw new Error('Unknown proposal set type: ' + setType);
+          }
+        }
+
+        return []; // For now, none
       default: throw new Error('Unknown proposal set type: ' + setType);
     }
   }
@@ -73,7 +99,7 @@ export class ProposalService {
 
     let selectedProposalSet: ProposalSet;
 
-    if (!proposalsToActivate || proposalsToActivate?.setType === 'wam') {
+    if (!proposalsToActivate || proposalsToActivate.setType === 'wam') {
       this.selectedProposalSetType = 'wam';
       selectedProposalSet = [];
       proposals = proposals.filter(p => p.committed);
@@ -88,6 +114,11 @@ export class ProposalService {
         selectedProposalSet = JSON.parse(localStorage.getItem(this.getLocalStorageSelectedVariantsKey()) || '[]') as ProposalSet;
         // We include all possible proposals
       } else {
+        if (proposalsToActivate.setType === 'party' && !this.selectedParty) {
+          const partiesForContext = this.contextService.getPartiesForContext(this.contextService.context$.value);
+          this.updateSelectedparty(partiesForContext[0]);
+        }
+
         this.selectedProposalSetType = proposalsToActivate.setType;
         selectedProposalSet = this.getProposalSetByType(proposalsToActivate.setType);
         proposals = proposals.filter(p => p.committed || selectedProposalSet.map(s => s.id).includes(p.id));
@@ -213,6 +244,12 @@ export class ProposalService {
     if (storeSelection && selectedVariantNumbers.length > 0) {
       localStorage.setItem(this.getLocalStorageSelectedVariantsKey(), JSON.stringify(selectedVariantNumbers));
     }
+  }
+
+  public updateSelectedparty(partyId?: PartyId) {
+    this.selectedParty = partyId;
+    if (partyId) localStorage.setItem(LS_KEY_SELECTED_PARTY, partyId.toString());
+    else localStorage.removeItem(LS_KEY_SELECTED_PARTY);
   }
 
   private getSetFromSelectedProposals(proposals: ProposalDetail[]): ProposalSet {

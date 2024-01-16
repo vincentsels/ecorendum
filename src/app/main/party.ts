@@ -48,6 +48,7 @@ export enum PartyId {
   sapGa = 110,
   uf = 111,
   volt = 112,
+  example = 999
 }
 
 export const PARTY_IDS = Object.keys(PartyId)
@@ -71,6 +72,7 @@ export const PARTIES_WITH_LOGOS = [
   PartyId.vb,
   PartyId.vivant,
   PartyId.vooruit,
+  PartyId.example,
 ];
 
 export const PARTIES_FLANDERS = [
@@ -81,6 +83,7 @@ export const PARTIES_FLANDERS = [
   PartyId.pvdaPtb,
   PartyId.vb,
   PartyId.vooruit,
+  PartyId.example,
 ];
 
 export const PARTIES_BRUSSELS = [
@@ -97,6 +100,7 @@ export const PARTIES_BRUSSELS = [
   PartyId.pvdaPtb,
   PartyId.vb,
   PartyId.vooruit,
+  PartyId.example,
 ];
 
 export const PARTIES_WALLONIA = [
@@ -106,4 +110,5 @@ export const PARTIES_WALLONIA = [
   PartyId.mr,
   PartyId.ps,
   PartyId.pvdaPtb,
+  PartyId.example,
 ];

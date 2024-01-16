@@ -43,7 +43,7 @@ export class ContextService {
     }
   }
 
-  private getPartiesForContext(context: Context) {
+  public getPartiesForContext(context: Context) {
     switch (context) {
       case 'flanders': return PARTIES_FLANDERS;
       case 'brussels': return PARTIES_BRUSSELS;
