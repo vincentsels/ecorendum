@@ -4,11 +4,11 @@
 
 Deze website toont een mogelijke nieuwe manier waarop overheden hun burgers kunnen raadplegen over welke beleidsmaatregelen ze moeten aannemen om aan meerdere opgelegde ecologische doelstellingen te voldoen.
 
-Dit is *nog geen* echt overheidsinitiatief. De gegevens zijn *nog niet* volledig nauwkeurig. De tool dient momenteel enkel om het concept te demonstreren, om partners te vinden om het tot een werkelijkheid te maken.
+Dit is *nog geen* echt overheidsinitiatief. De gegevens zijn *nog niet* volledig nauwkeurig en zijn nog voor een groot deel verzonnen. De tool dient momenteel enkel om het concept te demonstreren, om partners te vinden om het tot een werkelijkheid te maken.
 
 Deze tool is momenteel alleen de 'front-end' van de website; het is niet verbonden met een database; het is niet mogelijk om daadwerkelijk je selectie van maatregelen in te dienen.
 
-Voor een diepe duik in het concept, kun je dit [witboek](https://forum.effectivealtruism.org/posts/ytbjbS6wYBoyYLthu/online-preferendum-to-select-climate-policy-measures) lezen.
+Voor meer achtergrondinfo over het concept, kun je dit [witboek](https://forum.effectivealtruism.org/posts/ytbjbS6wYBoyYLthu/online-preferendum-to-select-climate-policy-measures) lezen.
 
 ## Context en doelstellingen
 

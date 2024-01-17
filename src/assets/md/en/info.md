@@ -2,7 +2,7 @@
 
 This website demonstrates a possible new way in which governments could poll their citizens about which policy measures they should adopt in order to meet multiple imposed ecological targets.
 
-This is *not yet* a real government initiative. The data is *not yet* completely accurate. It is currently in a state used to showcase the concept, in order to find partners to turn it into a reality.
+This is *not yet* a real government initiative. The data is *not yet* very accurate and largely dummy. It is currently in a state used to showcase the concept, in order to find partners to turn it into a reality.
 
 This tool is currently just the 'front-end' of the website; it is not connected to a database; it is not possible to actually 'submit' your selection of measures.
 
