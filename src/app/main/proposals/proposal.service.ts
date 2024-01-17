@@ -44,7 +44,7 @@ export class ProposalService {
 
     this.contextService.context$.subscribe(c => {
       const partiesForContext = this.contextService.getPartiesForContext(c);
-      if (this.selectedPartyId && partiesForContext.includes(this.selectedPartyId)) {
+      if (this.selectedPartyId && !partiesForContext.includes(this.selectedPartyId)) {
         this.updateSelectedParty(undefined)
       }
 
