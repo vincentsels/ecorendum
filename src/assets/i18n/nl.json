@@ -107,6 +107,7 @@
   "Committed": "Reeds toegezegd",
   "selectPartySetInfo": "Selecteer een politieke partij om hun plannen te bekijken en te zien of ze volstaan.",
   "partyHasNoMeasuresInfo": "Deze partij heeft geen (berekende) reeks voorstellen gepubliceerd of ingediend. Help ons hen te overtuigen dit wel te doen! Schrijf je vertegenwoordigers, deel onze website op sociale media.",
+  "Political parties": "Politieke partijen",
 
   "allTargetsMet": "Gefeliciteerd! Met de maatregelen die je hebt geselecteerd, kan België alle doelstellingen van Europa halen.",
   "profitMessage": "Hierdoor zal België naar schatting € {{ profit }} bijverdienen",

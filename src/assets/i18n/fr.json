@@ -107,6 +107,7 @@
   "Committed": "Déjà engagé",
   "selectPartySetInfo": "Sélectionnez un parti politique pour voir ses projets et déterminer s'ils sont suffisants.",
   "partyHasNoMeasuresInfo": "Ce parti n'a pas publié ou soumis un ensemble (calculé) de propositions. Aidez-nous à les convaincre de le faire ! Écrivez à vos représentants, partagez notre site web sur les médias sociaux.",
+  "Political parties": "Partis politiques",
 
   "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'Europe.",
   "profitMessage": "Cela permettra à la Belgique de recevoir une estimation de € {{ profit }}",

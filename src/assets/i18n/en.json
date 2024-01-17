@@ -107,6 +107,7 @@
   "Committed": "Committed",
   "selectPartySetInfo": "Select a political party to view their set of plans and whether they are enough.",
   "partyHasNoMeasuresInfo": "This party has not published or submitted a (calculated) set of proposals. Help us convince them to do so! Write your representatives, share our website on social media.",
+  "Political parties": "Political parties",
 
   "allTargetsMet": "Congratulations! The measures you selected allows Belgium to meet all the targets set by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated € {{ profit }}",
