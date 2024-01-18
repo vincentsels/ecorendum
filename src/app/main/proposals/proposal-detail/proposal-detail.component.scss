@@ -12,6 +12,10 @@
   margin-bottom: 12px;
 }
 
+.variant-body {
+  max-width: 440px; /* Fits 3 next to each other on 1920 monitor */
+}
+
 .all-parties-checkbox {
   margin-left: 12px;
 }

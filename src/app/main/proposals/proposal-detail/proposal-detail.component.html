@@ -11,7 +11,7 @@
     <markdown [data]="proposal.description | translateText"></markdown>
   </div>
 
-  <h2 class="clear detail-section-header">{{ 'Variants' | translate }}</h2>
+  <h2 *ngIf="proposal.variants.length > 1" class="clear detail-section-header">{{ 'Variants' | translate }}</h2>
 
   <div class="variant-list">
     <mat-card class="variant" *ngFor="let variant of proposal.variants">
@@ -40,6 +40,7 @@
               <mat-icon class="inline">solar_power</mat-icon> {{ amount | number }} GWh
             </div>
           </div>
+
           <div *ngIf="variant.impacts && variant.impacts.length > 1">
             <h3>{{ 'Impact' | translate }}</h3>
             <div *ngFor="let impact of variant.impacts" ngClass.xs="impact-xs">
