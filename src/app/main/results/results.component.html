@@ -1,6 +1,9 @@
 <h1 *ngIf="!dialog" style="display: flex; justify-content: space-between;">
   <app-help-widget tooltipKey="helpResults" textKey="Results" dialogKey="helpDialogResults"></app-help-widget>
-  <mat-icon *ngIf="proposalService.selectedProposalSetType === 'custom'" class="inline share-button" (click)="openCopyDialog()">share</mat-icon>
+  <span>
+    <mat-icon *ngIf="proposalService.selectedProposalSetType === 'custom'" class="inline icon-button" (click)="openCopyDialog()">share</mat-icon>
+    <mat-icon class="inline icon-button" (click)="openParametersDialog()">settings</mat-icon>
+  </span>
 </h1>
 
 <div *ngIf="results$ | async; let results">
@@ -121,20 +124,20 @@
     <div *ngIf="expandedTotalCost">
       <div class="calc-table">
         <div class="calc-line">
-          <span class="calc-line-header">{{ 'Total measures cost' | translate }}:</span>
+          <span class="calc-line-header">{{ 'Total measures cost' | translate }}</span>
           <span class="calc-line-number">€&nbsp;{{ results.totalMeasurementCost | number }}</span>
         </div>
         <div class="calc-line">
           <span class="calc-line-header"><app-help-widget [tooltipKey]="(results.totalEuGhgTax > 0 ? 'helpCarbonTax' : 'helpCarbonIncome')"
-            [textKey]="results.totalEuGhgTax > 0 ? 'Emissions trading cost' : 'Emissions trading profit'"></app-help-widget>:</span>
+            [textKey]="results.totalEuGhgTax > 0 ? 'Emissions trading cost' : 'Emissions trading profit'"></app-help-widget></span>
           <span class="calc-line-number" [class.color-accent]="results.totalEuGhgTax < 0"> €&nbsp;{{ (results.totalEuGhgTax > 0 ? results.totalEuGhgTax : -results.totalEuGhgTax) | number }}</span>
         </div>
         <div class="calc-line">
-          <span class="calc-line-header"><app-help-widget tooltipKey="helpLegalPenalty" textKey="Legal penalty"></app-help-widget>:</span>
+          <span class="calc-line-header"><app-help-widget tooltipKey="helpLegalPenalty" textKey="Legal penalty"></app-help-widget></span>
           <span class="calc-line-number" [class.color-accent]="results.totalLegalPenalty === 0"> €&nbsp;{{ results.totalLegalPenalty | number }}</span>
         </div>
         <div class="calc-line total-line">
-          <span class="calc-line-header">{{ 'Including emission trading' | translate }}:</span>
+          <span class="calc-line-header">{{ 'Including emission trading' | translate }}</span>
           <span class="calc-line-number" [class.color-accent]="results.totalCostIncludingTax < 0"> €&nbsp;{{ (results.totalCostIncludingTax < 0 ? -results.totalCostIncludingTax : results.totalCostIncludingTax) | number }}</span>
         </div>
       </div>

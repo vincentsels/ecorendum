@@ -22,6 +22,7 @@ export class ResultsService {
     // TODO: combine all/latest or something
     this.proposalService.activeProposals$.subscribe(() => this.updateResults());
     this.targetsService.targets$.subscribe(() => this.updateResults());
+    this.parametersService.parameters$.subscribe(() => this.updateResults());
   }
 
   updateResults() {
@@ -40,21 +41,21 @@ export class ResultsService {
     const legalGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, true);
 
     const legalGhgReductionPercentage = legalGhgReducedKt / targets.legalTargetGapGhgKt * 100;
-    const legalGhgTax = (targets.legalTargetGapGhgKt - legalGhgReducedKt) * parameters.pricePerKtGhg;
-    const legalGhgIncome = (targets.legalTargetGapGhgKt - legalGhgReducedKt) * -parameters.pricePerKtGhg;
+    const legalGhgTax = (targets.legalTargetGapGhgKt - legalGhgReducedKt) * parameters.pricePerTonGhg * 1000;
+    const legalGhgIncome = (targets.legalTargetGapGhgKt - legalGhgReducedKt) * -parameters.pricePerTonGhg * 1000;
     const legalGhgReductionColor = legalGhgReductionPercentage >= 100 ? 'accent' : 'warn';
 
-    const legalGhgTarget = new TargetResult(targets.legalTargetGapGhgKt, 'Kt', parameters.pricePerKtGhg, legalGhgReducedKt,
+    const legalGhgTarget = new TargetResult(targets.legalTargetGapGhgKt, 'Kt', parameters.pricePerTonGhg * 1000, legalGhgReducedKt,
       legalGhgReductionColor, legalGhgReductionPercentage, legalGhgTax, legalGhgIncome);
 
     const euGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, false);
 
     const euGhgReductionPercentage = euGhgReducedKt / targets.euTargetGapGhgKt * 100;
-    const euGhgTax = (targets.euTargetGapGhgKt - euGhgReducedKt) * parameters.pricePerKtGhg;
-    const euGhgIncome = (targets.euTargetGapGhgKt - euGhgReducedKt) * -parameters.pricePerKtGhg;
+    const euGhgTax = (targets.euTargetGapGhgKt - euGhgReducedKt) * parameters.pricePerTonGhg * 1000;
+    const euGhgIncome = (targets.euTargetGapGhgKt - euGhgReducedKt) * -parameters.pricePerTonGhg * 1000;
     const euGhgReductionColor = euGhgReductionPercentage >= 100 ? 'accent' : 'warn';
 
-    const euGhgTarget = new TargetResult(targets.euTargetGapGhgKt, 'Kt', parameters.pricePerKtGhg, euGhgReducedKt,
+    const euGhgTarget = new TargetResult(targets.euTargetGapGhgKt, 'Kt', parameters.pricePerTonGhg * 1000, euGhgReducedKt,
       euGhgReductionColor, euGhgReductionPercentage, euGhgTax, euGhgIncome);
 
     const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency, false);

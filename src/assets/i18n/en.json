@@ -109,6 +109,10 @@
   "partyHasNoMeasuresInfo": "This party has not published or submitted a (calculated) set of proposals. Help us convince them to do so! Write your representatives, share our website on social media.",
   "Political parties": "Political parties",
   "Legal penalty": "Legal penalty",
+  "Configure parameters": "Configure parameters",
+  "configureParametersDescription": "In our calculations, a couple of assumptions are made with regards to certain variables which are currently not yet certain. You can change these parameters here and see how they change the results.",
+  "pricePerTonGhgParam": "Price per ton CO2",
+  "pricePerTonGhgParamDescription": "The average price per ton CO2-equivalent of emissions on the European emissions trading market.",
 
   "allTargetsMet": "Congratulations! The measures you selected allows Belgium to meet all the targets set by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated € {{ profit }}",

@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>
+  {{ 'Configure parameters' | translate }}
+</h2>
+<div mat-dialog-content class="parameter-content" *ngIf="parameterService.parameters$ | async; let parameters">
+  <div>
+    {{ 'configureParametersDescription' | translate }}
+  </div>
+
+  <hr />
+
+  <div class="parameter-list">
+    <div class="parameter">
+      <div class="parameter-name-and-description">
+        <div class="parameter-name">{{ 'pricePerTonGhgParam' | translate }}</div>
+        <div class="parameter-description">{{ 'pricePerTonGhgParamDescription' | translate }}</div>
+      </div>
+      <div class="parameter-value parameter-value-number">
+        <mat-form-field class="parameter-value-form-field" appearance="outline" [hideRequiredMarker]="true">
+          <mat-label>{{ 'Value' | translate }}</mat-label>
+          <input #pricePerTonGhgInput matInput type="text" [required]="true"
+            [value]="parameters.pricePerTonGhg" (input)="pricePerTonGhg(pricePerTonGhgInput.value)">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,9 +4,9 @@ import { Parameters } from "./parameters";
 
 const LS_KEY_PARAMETERS = 'ecorendum.parameters';
 
-const defaultParameters: Parameters = new Parameters({
-  pricePerKtGhg: 100000,
-});
+const defaultParameters: Parameters = new Parameters(
+  100, 12000000
+);
 
 @Injectable()
 export class ParametersService {
@@ -17,7 +17,8 @@ export class ParametersService {
 
     let parameters: Parameters;
     if (storedParametersString) {
-      parameters = new Parameters(JSON.parse(storedParametersString) as Parameters);
+      const storedParameters = JSON.parse(storedParametersString) as Parameters;
+      parameters = new Parameters(storedParameters.pricePerTonGhg, storedParameters.annualLegalPenalty);
     } else {
       parameters = defaultParameters;
     }

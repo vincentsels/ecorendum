@@ -1,0 +1,20 @@
+.parameter-content {
+  max-width: 500px;
+}
+
+.parameter-name {
+  font-weight: 500;
+}
+
+.parameter {
+  display: flex;
+  flex-direction: row;
+}
+
+.parameter-value-number {
+  width: 100px;
+}
+
+.parameter-value-form-field {
+  width: 100%;
+}

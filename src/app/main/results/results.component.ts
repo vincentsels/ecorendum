@@ -10,6 +10,7 @@ import { Results } from './results';
 import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
 import { ResultsService } from './results.service';
 import { ProposalService } from '../proposals/proposal.service';
+import { ConfigureParametersDialogComponent } from '../parameters/configure-parameters-dialog/configure-parameters-dialog.component';
 
 @Component({
   selector: 'app-results',
@@ -63,5 +64,9 @@ export class ResultsComponent implements OnInit {
 
   openCopyDialog() {
     this.matDialog.open(ShareDialogComponent);
+  }
+
+  openParametersDialog() {
+    this.matDialog.open(ConfigureParametersDialogComponent);
   }
 }

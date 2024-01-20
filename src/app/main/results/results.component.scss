@@ -46,7 +46,7 @@
 }
 
 .calc-line-header {
-  margin-right: 6px;
+  margin-right: 12px;
 }
 
 .calc-line-number {
@@ -93,8 +93,18 @@ app-result-progress {
   margin-bottom: 16px;
 }
 
-.share-button {
+.icon-button {
   cursor: pointer;
+  opacity: 0.6;
+  margin-left: 12px;
+
+  &:first-child {
+    margin-left: 0px;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .icon-with-icon-badge {
