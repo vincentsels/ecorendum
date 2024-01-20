@@ -1,3 +1,3 @@
 export class Parameters {
-  constructor(public pricePerTonGhg: number, public annualLegalPenalty: number) {}
+  constructor(public pricePerTonGhg: number, public monthlyLegalPenalty: number) {}
 }

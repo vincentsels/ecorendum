@@ -600,6 +600,14 @@ markdown {
   }
 }
 
+hr {
+  margin: 30px 0px;
+  border: none;
+  background-color: #ccc;
+  color: #ccc;
+  height: 1px;
+}
+
 .releasenotes {
   img {
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
@@ -662,10 +670,10 @@ mat-card > :last-child:not(mat-card-footer) {
 }
 
 .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
-  border-left: none!important;
-  border-right: none!important;
-  border-top: none!important;
-  border-radius: 0!important;
+  // border-left: none!important;
+  // border-right: none!important;
+  // border-top: none!important;
+  // border-radius: 0!important;
 }
 
 .dark-dialog .mat-mdc-dialog-container,

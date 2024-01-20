@@ -1,26 +1,51 @@
 <h2 mat-dialog-title>
-  {{ 'Configure parameters' | translate }}
+  <mat-icon class="inline">settings</mat-icon> {{ 'Configure parameters' | translate }}
 </h2>
 <div mat-dialog-content class="parameter-content" *ngIf="parameterService.parameters$ | async; let parameters">
-  <div>
+  <div class="intro">
     {{ 'configureParametersDescription' | translate }}
   </div>
 
-  <hr />
-
   <div class="parameter-list">
     <div class="parameter">
-      <div class="parameter-name-and-description">
-        <div class="parameter-name">{{ 'pricePerTonGhgParam' | translate }}</div>
-        <div class="parameter-description">{{ 'pricePerTonGhgParamDescription' | translate }}</div>
-      </div>
-      <div class="parameter-value parameter-value-number">
-        <mat-form-field class="parameter-value-form-field" appearance="outline" [hideRequiredMarker]="true">
-          <mat-label>{{ 'Value' | translate }}</mat-label>
-          <input #pricePerTonGhgInput matInput type="text" [required]="true"
-            [value]="parameters.pricePerTonGhg" (input)="pricePerTonGhg(pricePerTonGhgInput.value)">
-        </mat-form-field>
+      <mat-form-field class="parameter-input" [hideRequiredMarker]="true">
+        <mat-icon matPrefix class="inline">cloud_download</mat-icon>
+        <mat-label>{{ 'pricePerTonGhgParam' | translate }}</mat-label>
+        <input #pricePerTonGhgInput matInput type="text" [required]="true"
+          [value]="parameters.pricePerTonGhg" (input)="pricePerTonGhgChanged(pricePerTonGhgInput.value)">
+      </mat-form-field>
+      <div class="parameter-description">
+        {{ 'pricePerTonGhgParamDescription' | translate }}
+        <div *ngIf="defaultParameters.pricePerTonGhg !== parameters.pricePerTonGhg">
+          <a [routerLink]="null" (click)="pricePerTonGhgChanged(defaultParameters.pricePerTonGhg)">
+            {{ 'Reset to default: ' | translate }}
+            {{ defaultParameters.pricePerTonGhg | number }}
+          </a>
+        </div>
       </div>
     </div>
+
+    <div class="parameter">
+      <mat-form-field class="parameter-input" [hideRequiredMarker]="true">
+        <mat-icon matPrefix class="inline">gavel</mat-icon>
+        <mat-label>{{ 'monthlyLegalPenalty' | translate }}</mat-label>
+        <input #monthlyLegalPenaltyInput matInput type="text" [required]="true"
+          [value]="parameters.monthlyLegalPenalty" (input)="monthlyLegalPenaltyChanged(monthlyLegalPenaltyInput.value)">
+      </mat-form-field>
+      <div class="parameter-description">
+        {{ 'monthlyLegalPenaltyDescription' | translate }}
+        <div *ngIf="defaultParameters.monthlyLegalPenalty !== parameters.monthlyLegalPenalty">
+          <a [routerLink]="null" (click)="monthlyLegalPenaltyChanged(defaultParameters.monthlyLegalPenalty)">
+            {{ 'Reset to default: ' | translate }}
+            {{ defaultParameters.monthlyLegalPenalty | number }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reset-all">
+    <a [routerLink]="null" (click)="resetAll()">
+      {{ 'Reset all to defaults' | translate }}
+    </a>
   </div>
 </div>

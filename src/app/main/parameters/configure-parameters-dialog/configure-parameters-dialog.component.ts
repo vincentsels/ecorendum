@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-import { ParametersService } from '../parameters.service';
+import { DEFAULT_PARAMETERS, ParametersService } from '../parameters.service';
 
 @Component({
   selector: 'app-configure-parameters-dialog',
@@ -8,15 +7,29 @@ import { ParametersService } from '../parameters.service';
   styleUrls: ['./configure-parameters-dialog.component.scss']
 })
 export class ConfigureParametersDialogComponent {
-  constructor(public parameterService: ParametersService,
-    private dialogRef: MatDialogRef<ConfigureParametersDialogComponent>) {}
+  constructor(public parameterService: ParametersService) {}
 
-    pricePerTonGhg(value: string) {
-      if (value) {
-        this.parameterService.setParameters({
-          ...this.parameterService.parameters$.value,
-          pricePerTonGhg: Number(value),
-        });
-      }
+  defaultParameters = DEFAULT_PARAMETERS;
+
+  pricePerTonGhgChanged(value: string | number) {
+    if (value) {
+      this.parameterService.setParameters({
+        ...this.parameterService.parameters$.value,
+        pricePerTonGhg: Number(value),
+      });
     }
+  }
+
+  monthlyLegalPenaltyChanged(value: string | number) {
+    if (value) {
+      this.parameterService.setParameters({
+        ...this.parameterService.parameters$.value,
+        monthlyLegalPenalty: Number(value),
+      });
+    }
+  }
+
+  resetAll() {
+    this.parameterService.setParameters(DEFAULT_PARAMETERS);
+  }
 }

@@ -2,19 +2,42 @@
   max-width: 500px;
 }
 
-.parameter-name {
-  font-weight: 500;
-}
-
 .parameter {
   display: flex;
   flex-direction: row;
+  column-gap: 24px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  &:last-child {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: none;
+  }
 }
 
-.parameter-value-number {
-  width: 100px;
+.intro {
+  opacity: 0.6;
+  margin-bottom: 24px;
 }
 
-.parameter-value-form-field {
-  width: 100%;
+.parameter-input {
+  min-width: 160px;
+  display: block;
+}
+
+.reset-all {
+  margin-top: 24px;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .parameter {
+    flex-wrap: wrap;
+  }
 }
