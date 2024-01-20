@@ -12,10 +12,10 @@ import { ContextService } from '../main/context/context.service';
   template: `<span [class.dialog]="dialogKey || dialogMdSrc || dialogMdData"
     [matTooltip]="tooltipText || (tooltipKey | translate:(tooltipParameters || { region: (contextService.context$ | async) || '' | translate }))"
     [matTooltipClass]="{
-      'help-widget-tooltip': true,
-      'help-widget-tooltip-en': (lang | async) === 'en',
-      'help-widget-tooltip-nl': (lang | async) === 'nl',
-      'help-widget-tooltip-fr': (lang | async) === 'fr',
+      'help-widget-tooltip': dialogKey || dialogMdSrc || dialogMdData,
+      'help-widget-tooltip-en': (dialogKey || dialogMdSrc || dialogMdData) && (lang | async) === 'en',
+      'help-widget-tooltip-nl': (dialogKey || dialogMdSrc || dialogMdData) && (lang | async) === 'nl',
+      'help-widget-tooltip-fr': (dialogKey || dialogMdSrc || dialogMdData) && (lang | async) === 'fr',
       }"
     (click)="openDialog()">{{
       text || (textKey && (textKey | translate)) }}<mat-icon>contact_support</mat-icon></span>`,

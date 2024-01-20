@@ -129,6 +129,10 @@
             [textKey]="results.totalEuGhgTax > 0 ? 'Emissions trading cost' : 'Emissions trading profit'"></app-help-widget>:</span>
           <span class="calc-line-number" [class.color-accent]="results.totalEuGhgTax < 0"> €&nbsp;{{ (results.totalEuGhgTax > 0 ? results.totalEuGhgTax : -results.totalEuGhgTax) | number }}</span>
         </div>
+        <div class="calc-line">
+          <span class="calc-line-header"><app-help-widget tooltipKey="helpLegalPenalty" textKey="Legal penalty"></app-help-widget>:</span>
+          <span class="calc-line-number" [class.color-accent]="results.totalLegalPenalty === 0"> €&nbsp;{{ results.totalLegalPenalty | number }}</span>
+        </div>
         <div class="calc-line total-line">
           <span class="calc-line-header">{{ 'Including emission trading' | translate }}:</span>
           <span class="calc-line-number" [class.color-accent]="results.totalCostIncludingTax < 0"> €&nbsp;{{ (results.totalCostIncludingTax < 0 ? -results.totalCostIncludingTax : results.totalCostIncludingTax) | number }}</span>

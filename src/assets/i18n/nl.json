@@ -108,6 +108,7 @@
   "selectPartySetInfo": "Selecteer een politieke partij om hun plannen te bekijken en te zien of ze volstaan.",
   "partyHasNoMeasuresInfo": "Deze partij heeft geen (berekende) reeks voorstellen gepubliceerd of ingediend. Help ons hen te overtuigen dit wel te doen! Schrijf je vertegenwoordigers, deel onze website op sociale media.",
   "Political parties": "Politieke partijen",
+  "Legal penalty": "Dwangsom",
 
   "allTargetsMet": "Gefeliciteerd! Met de maatregelen die je hebt geselecteerd, kan België alle doelstellingen van Europa halen.",
   "profitMessage": "Hierdoor zal België naar schatting € {{ profit }} bijverdienen",
@@ -125,6 +126,7 @@
   "helpCo2reductionTarget": "{{ region }} moet de uitstoot van broeikasgassen met 47% verminderen in de sectoren transport, gebouwen, landbouw, afvalbeheer en kleine industrie, om te voldoen aan Europese doelstellingen.",
   "helpCarbonTax": "EU-lidstaten die niet voldoen aan CO2-doelstellingen betalen een belasting gebaseerd op ETS-prijzen, geschat op €100 per ton CO2.",
   "helpCarbonIncome": "EU-lidstaten die minder uitstoten dan hun doelstelling kunnen overtollige emissierechten verkopen voor een geschatte €100 per ton CO2.",
+  "helpLegalPenalty": "Als de overheid de wettelijke doelstelling na een evaluatieperiode niet haalt, moet een dwangsom van €1000000 per maand worden betaald.",
 
   "helpDialogProposals": "Deze lijst van voorbeeldmaatregelen werd in december 2023 samengesteld door het Vlaams Energie- en Klimaatagentschap (VEKA) na de uitspraak in de klimaatzaak, waarbij de rechter bepaalde dat België zijn uitstoot van broeikasgassen tegen 2030 met 55% moet verminderen vergeleken met 1990 om het klimaat niet te verstoren. Dit zijn momenteel slechts voorbeelden om een idee te krijgen van de omvang van de impact. De waarden voor emissiereducties zijn ruwe schattingen van VEKA. Alle andere waarden zijn momenteel willekeurig.",
   "helpDialogResults": "Alle kwantificeerbare doelstellingen die {{ region }} moet bereiken tegen 2030, opgelegd door zowel de rechter in de Klimaatzaak (CO2-uitstoot) als door Europa (CO2-uitstoot, energie-efficiëntie en hernieuwbare energie); de kosten van geselecteerde maatregelen; en hun bredere impact. Momenteel zijn alleen de effecten op broeikasgassen gekwantificeerd.",

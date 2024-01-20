@@ -8,6 +8,7 @@ export class Results {
     public euReTarget: TargetResult,
     public totalMeasurementCost: number,
     public totalEuGhgTax: number,
+    public totalLegalPenalty: number,
     public totalCostIncludingTax: number,
     public totalImpact?: TotalImpact[],
     public image?: string,

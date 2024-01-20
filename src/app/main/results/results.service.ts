@@ -73,7 +73,8 @@ export class ResultsService {
 
     const totalMeasurementCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
     const totalEuGhgTax = euGhgTax;
-    const totalCostIncludingTax = totalMeasurementCost + totalEuGhgTax;
+    const totalLegalPenalty = legalGhgReductionPercentage >= 100 ? 0 : 5 * parameters.annualLegalPenalty;
+    const totalCostIncludingTax = totalMeasurementCost + totalEuGhgTax + totalLegalPenalty;
 
     const totalImpact: TotalImpact[] = [];
 
@@ -117,6 +118,7 @@ export class ResultsService {
       euReTarget,
       totalMeasurementCost,
       totalEuGhgTax,
+      totalLegalPenalty,
       totalCostIncludingTax,
       totalImpact,
     );

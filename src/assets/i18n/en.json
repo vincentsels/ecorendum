@@ -108,6 +108,7 @@
   "selectPartySetInfo": "Select a political party to view their set of plans and whether they are enough.",
   "partyHasNoMeasuresInfo": "This party has not published or submitted a (calculated) set of proposals. Help us convince them to do so! Write your representatives, share our website on social media.",
   "Political parties": "Political parties",
+  "Legal penalty": "Legal penalty",
 
   "allTargetsMet": "Congratulations! The measures you selected allows Belgium to meet all the targets set by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated € {{ profit }}",
@@ -127,6 +128,7 @@
   "helpCo2reductionTarget": "{{ region }} must reduce greenhouse gases by 47% in the sectors of transport, buildings, agriculture, waste management and small industry, to meet European targets.",
   "helpCarbonTax": "EU states failing to meet CO2 targets pay a tax based on ETS system prices, estimated at €100 per ton of CO2.",
   "helpCarbonIncome": "EU states emitting less than their target can sell excess emission rights at an estimated €100 per ton of CO2.",
+  "helpLegalPenalty": "If the government does not meet the legal target, after an evaluation period, a legal penalty of €1000000 per month must be paid.",
 
   "helpDialogProposals": "This list of sample measures was compiled by the Flemish Energy and Climate Agency (VEKA) following the ruling in the climate case, where the judge determined that Belgium and {{ region }} must reduce its greenhouse gas emissions by 55% by 2030 compared to 1990 to avoid disrupting the climate. These are currently just examples to get an idea of the magnitude of the impact. The values for emission reductions are rough estimates from VEKA. All other values are currently arbitrary.",
   "helpDialogResults": "All quantifiable targets {{ region }} must reach by 2030, imposed by both the Klimaatzaak judge (CO2 emissions) and by Europe (CO2 emissions, energy efficiency and renewable energy); the cost of selected measures; and their broader impact. Currently, only greenhouse gas impacts are quantified.",

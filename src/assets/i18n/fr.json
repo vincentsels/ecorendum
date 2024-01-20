@@ -108,6 +108,7 @@
   "selectPartySetInfo": "Sélectionnez un parti politique pour voir ses projets et déterminer s'ils sont suffisants.",
   "partyHasNoMeasuresInfo": "Ce parti n'a pas publié ou soumis un ensemble (calculé) de propositions. Aidez-nous à les convaincre de le faire ! Écrivez à vos représentants, partagez notre site web sur les médias sociaux.",
   "Political parties": "Partis politiques",
+  "Legal penalty": "Pénalité légale",
 
   "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'Europe.",
   "profitMessage": "Cela permettra à la Belgique de recevoir une estimation de € {{ profit }}",
@@ -127,6 +128,7 @@
   "helpCo2reductionTarget": "{{ region }} doit réduire les gaz à effet de serre de 47 % dans les secteurs des transports, des bâtiments, de l'agriculture, de la gestion des déchets et de la petite industrie, pour atteindre les objectifs européens.",
   "helpCarbonTax": "Les États de l'UE qui ne respectent pas les objectifs de CO2 paient une taxe basée sur les prix du système ETS, estimée à 100 € par tonne de CO2.",
   "helpCarbonIncome": "Les États de l'UE émettant moins que leur objectif peuvent vendre des droits d'émission excédentaires à un prix estimé à 100 € par tonne de CO2.",
+  "helpLegalPenalty": "Si le gouvernement n'atteint pas l'objectif légal, après une période d'évaluation, une pénalité légale de 1 000 000 € par mois doit être payée.",
 
   "helpDialogProposals": "Cette liste d'exemples de mesures a été compilée par l'Agence Flamande de l'Énergie et du Climat (VEKA) suite à la décision dans l'affaire climatique, où le juge a déterminé que la Belgique et {{ region }} doivent réduire leurs émissions de gaz à effet de serre de 55 % d'ici 2030 par rapport à 1990 pour éviter de perturber le climat. Ce ne sont actuellement que des exemples pour se faire une idée de l'ampleur de l'impact. Les valeurs pour les réductions d'émissions sont des estimations approximatives de VEKA. Toutes les autres valeurs sont actuellement arbitraires.",
   "helpDialogResults": "Tous les objectifs quantifiables que {{ region }} doit atteindre d'ici 2030, imposés à la fois par le juge de Klimaatzaak (émissions de CO2) et par l'Europe (émissions de CO2, efficacité énergétique et énergies renouvelables) ; le coût des mesures sélectionnées ; et leur impact plus large. Actuellement, seuls les impacts des gaz à effet de serre sont quantifiés.",

@@ -6,4 +6,5 @@ export class Parameters {
   }
 
   pricePerKtGhg = 100000;
+  annualLegalPenalty = 12000000;
 }
