@@ -10,7 +10,7 @@
 }
 
 .proposal-card {
-  overflow: auto;
+  overflow-x: hidden;
   background-size: cover;
   background-position: left, right;
   background-repeat: no-repeat, no-repeat;

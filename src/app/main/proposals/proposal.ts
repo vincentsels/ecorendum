@@ -26,9 +26,12 @@ export class Proposal {
   getSelectedVariant = () => (this.variants || []).find(v => v.selected);
   getAverageCost = () => this.variants.map(v => v.getTotalCost()).reduce((total, curr) => total + curr, 0) / this.variants.length;
 
-  getSingleOrMinCost(fromSelected: boolean) {
-    if (fromSelected) return this.getSelectedVariant()?.getTotalCost();
+  getSingleOrMinCost() {
     return this.variants[0].getTotalCost();
+  }
+
+  getSelectedCost() {
+    return this.getSelectedVariant()?.getTotalCost() || 0;
   }
 
   getMaxCost(ignore: boolean) {
@@ -37,9 +40,12 @@ export class Proposal {
     return this.variants[this.variants.length - 1].getTotalCost();
   }
 
-  getSingleOrMinTargetAmount(targetType: TargetType, fromSelected: boolean) {
-    if (fromSelected) return this.getSelectedVariant()?.getTargetAmount(targetType);
+  getSingleOrMinTargetAmount(targetType: TargetType) {
     return this.variants[0].getTargetAmount(targetType);
+  }
+
+  getSelectedTargetAmount(targetType: TargetType) {
+    return this.getSelectedVariant()?.getTargetAmount(targetType) || 0;
   }
 
   getMaxTargetAmount(targetType: TargetType, ignore: boolean) {
@@ -117,7 +123,7 @@ export class Variant {
 
   proposal?: Proposal;
 
-  getTargetAmount = (type: TargetType) => this.targets.find(t => t.type === type)?.amount;
+  getTargetAmount = (type: TargetType) => this.targets.find(t => t.type === type)?.amount || 0;
   getTotalCost = () => this.costInitial + (this.costPerYearFixed * 7) +
     (Object.values(this.costPerYearVariable || {}).reduce((a, b) => a + b, 0) || 0);
 }

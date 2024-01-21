@@ -8,9 +8,11 @@ import { DecimalPipe } from '@angular/common';
   <div class="impact-scale-container" [matTooltip]="getTooltip()">
     <mat-icon class="inline" *ngIf="isCost && !icon">euro</mat-icon>
     <mat-icon class="inline" *ngIf="icon">{{ icon }}</mat-icon>
-    <div class="impact-scale" [style.width]="(getTotalColumns() * 3) + 'px'">
+    <div class="impact-scale" [style.width]="getTotalWidth() + 'px'">
       <div *ngFor="let square of getSquares()" class="impact-square bg-color-{{ style }}-semi-transparent"></div>
+      <!-- <div *ngIf="truncated()" class="impact-truncated">•••</div> -->
       <div *ngFor="let square of getMaxSquares()" class="impact-square bg-color-{{ style }}-transparent"></div>
+      <!-- <div *ngIf="maxTruncated()" class="impact-truncated">•••</div> -->
     </div>
   </div>
 `,
@@ -29,6 +31,7 @@ import { DecimalPipe } from '@angular/common';
   justify-content: start;
   flex-wrap: wrap;
   align-content: flex-start;
+  margin-bottom: 1px; // To align properly with image
 }
 
 .impact-square {
@@ -43,6 +46,7 @@ export class ImpactScaleComponent {
   }
 
   @Input({ required: true }) singleOrMin!: number;
+  @Input({ required: true }) selected!: number;
   @Input() max?: number;
   @Input({ required: true }) scale!: number;
 
@@ -52,16 +56,25 @@ export class ImpactScaleComponent {
 
   @Input() style?: 'accent' | 'warn' = 'accent';
 
-  getSquares() {
-    return new Array(Math.ceil(this.singleOrMin / this.scale));
+  getSquareCount() {
+    return Math.ceil(this.selected / this.scale);
   }
 
-  getMaxSquares() {
-    return !this.max ? [] : new Array(Math.ceil(this.max / this.scale) - Math.ceil(this.singleOrMin / this.scale));
+  // truncated = () => this.getSquareCount() > 20;
+  // getTruncatedSquareCount = () => Math.min(this.getSquareCount(), 20);
+  getSquares = () => !this.selected ? [] : new Array(this.getSquareCount());
+
+  getMaxSquareCount() {
+    return !this.max ? 0 : Math.ceil(this.max / this.scale) - Math.ceil(this.selected / this.scale);
   }
 
-  getTotalColumns() {
-    return (Math.ceil((Math.ceil(this.singleOrMin / this.scale) + (!this.max ? 0 : Math.ceil((this.max - this.singleOrMin) / this.scale))) / 2) * 2) - 1;
+  // maxTruncated = () => this.getMaxSquareCount() > 20;
+  // getTruncatedMaxSquareCount = () => Math.min(this.getMaxSquareCount(), 20);
+  getMaxSquares = () => !this.max ? [] : new Array(this.getMaxSquareCount());
+
+  getTotalWidth() {
+    const squareWidth = (Math.ceil((this.getSquareCount() + this.getMaxSquareCount()) / 2) * 2) * 3;
+    return squareWidth; // + (this.truncated() ? 15 : 0) + (this.maxTruncated() ? 15 : 0)
   }
 
   getTooltip() {
