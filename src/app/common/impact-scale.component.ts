@@ -31,7 +31,7 @@ import { DecimalPipe } from '@angular/common';
   justify-content: start;
   flex-wrap: wrap;
   align-content: flex-start;
-  margin-bottom: 1px; // To align properly with image
+  margin-bottom: 1px; /* To align properly with image */
 }
 
 .impact-square {
