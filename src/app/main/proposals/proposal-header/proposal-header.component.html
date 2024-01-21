@@ -14,17 +14,19 @@
       </ng-container>
     </h2>
     <div class="proposal-target-summary" [class.set]="set">
-      <span class="proposal-target-summary-item" *ngIf="proposal.committed">
-        {{ 'Committed' | translate }}
-      </span>
-      <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinCost(set); let cost;">
-        <app-impact-scale [singleOrMin]="cost" [max]="proposal.getMaxCost(set)"
-          [scale]="25000000" [isCost]="true" [style]="'warn'"></app-impact-scale>
-      </span>
-      <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinTargetAmount(enums.TargetType.ghgReduction, set); let amt;">
-        <app-impact-scale [singleOrMin]="amt" [max]="proposal.getMaxTargetAmount(enums.TargetType.ghgReduction, set)"
-          [scale]="1000" unit="kt" icon="cloud_download"></app-impact-scale>
-      </span>
+      <div class="proposal-target-summary-primary">
+        <span class="proposal-target-summary-item" *ngIf="proposal.committed">
+          {{ 'Committed' | translate }}
+        </span>
+        <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinCost(true); let cost;">
+          <app-impact-scale [singleOrMin]="cost" [max]="proposal.getMaxCost(set)"
+            [scale]="25000000" [isCost]="true" [style]="'warn'"></app-impact-scale>
+        </span>
+        <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinTargetAmount(enums.TargetType.ghgReduction, true); let amt;">
+          <app-impact-scale [singleOrMin]="amt" [max]="proposal.getMaxTargetAmount(enums.TargetType.ghgReduction, set)"
+            [scale]="1000" unit="kt" icon="cloud_download"></app-impact-scale>
+        </span>
+      </div>
       <div class="proposal-target-summary-secondary set" *ngIf="set">
         <span class="proposal-target-summary-item">{{ enums.PolicyLevel[proposal.policyLevel || enums.PolicyLevel.unknown] | translate }}</span>
         <span class="proposal-target-summary-item">{{ enums.Sector[proposal.sector || enums.Sector.unknown] | translate }}</span>

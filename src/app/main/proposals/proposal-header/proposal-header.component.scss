@@ -43,6 +43,11 @@
   opacity: 0.6;
   margin-top: -16px;
   display: flex;
+  flex-wrap: wrap;
+}
+
+.proposal-target-summary-primary {
+  display: inline-flex;
 }
 
 .proposal-target-summary-secondary {
@@ -55,6 +60,10 @@
 }
 
 @media (max-width: 576px) {
+  .proposal-target-summary {
+    display: block;
+  }
+
   .proposal-target-summary-secondary {
     display: block;
   }
