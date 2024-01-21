@@ -18,13 +18,12 @@
         {{ 'Committed' | translate }}
       </span>
       <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinCost(set); let cost;">
-        <span [class]="getCostClass(cost)">{{ cost | cost }}</span>
-        <span *ngIf="proposal.getMaxCost(set); let maxCost"> - <span [class]="getCostClass(cost)">{{ maxCost | cost }}</span></span>
+        <app-impact-scale [singleOrMin]="cost" [max]="proposal.getMaxCost(set)"
+          [scale]="25000000" [isCost]="true" [style]="'warn'"></app-impact-scale>
       </span>
       <span class="proposal-target-summary-item" *ngIf="proposal.getSingleOrMinTargetAmount(enums.TargetType.ghgReduction, set); let amt;">
-        <mat-icon class="inline">cloud_download</mat-icon>
-        <span [class]="getCo2Class(amt)">{{ amt | number }} kt</span>
-        <span *ngIf="proposal.getMaxTargetAmount(enums.TargetType.ghgReduction, set); let maxAmt"> - <span [class]="getGasClass(amt)">{{ maxAmt | number }} kt</span></span>
+        <app-impact-scale [singleOrMin]="amt" [max]="proposal.getMaxTargetAmount(enums.TargetType.ghgReduction, set)"
+          [scale]="1000" unit="kt" icon="cloud_download"></app-impact-scale>
       </span>
       <div class="proposal-target-summary-secondary set" *ngIf="set">
         <span class="proposal-target-summary-item">{{ enums.PolicyLevel[proposal.policyLevel || enums.PolicyLevel.unknown] | translate }}</span>

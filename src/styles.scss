@@ -63,6 +63,26 @@ $margin-inline: 4px;
   color: mat.get-color-from-palette($ecorendum-warn) !important;
 }
 
+// This should move just to the component that uses it, but lots of work :)
+.bg-color-accent-semi-transparent {
+  background-color: rgba(mat.get-color-from-palette($ecorendum-accent), 0.8) !important;
+}
+
+// This should move just to the component that uses it, but lots of work :)
+.bg-color-accent-transparent {
+  background-color: rgba(mat.get-color-from-palette($ecorendum-accent), 0.4) !important;
+}
+
+// This should move just to the component that uses it, but lots of work :)
+.bg-color-warn-semi-transparent {
+  background-color: rgba(mat.get-color-from-palette($ecorendum-warn), 0.8) !important;
+}
+
+// This should move just to the component that uses it, but lots of work :)
+.bg-color-warn-transparent {
+  background-color: rgba(mat.get-color-from-palette($ecorendum-warn), 0.4) !important;
+}
+
 .success { color: #46f8cf }
 .neutral { color: #ffffff }
 .warning { color: #f8837b }
@@ -669,12 +689,12 @@ mat-card > :last-child:not(mat-card-footer) {
   margin-bottom: 0;
 }
 
-.mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
-  // border-left: none!important;
-  // border-right: none!important;
-  // border-top: none!important;
-  // border-radius: 0!important;
-}
+// .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+//   border-left: none!important;
+//   border-right: none!important;
+//   border-top: none!important;
+//   border-radius: 0!important;
+// }
 
 .dark-dialog .mat-mdc-dialog-container,
 .dark-dialog .mat-mdc-dialog-container .mdc-dialog__surface {

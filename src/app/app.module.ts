@@ -54,6 +54,8 @@ import { DummyProposalDataGeneratorService } from './main/proposals/dummy-propos
 import { ProposalSetSerializerService } from './main/proposals/proposal-set-serializer.service';
 import { SelectPartySetDialogComponent } from './main/select-party-set-dialog/select-party-set-dialog.component';
 import { ConfigureParametersDialogComponent } from './main/parameters/configure-parameters-dialog/configure-parameters-dialog.component';
+import { ImpactScaleComponent } from './common/impact-scale.component';
+import { DecimalPipe } from '@angular/common';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -91,6 +93,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     InfoComponent,
     SelectPartySetDialogComponent,
     ConfigureParametersDialogComponent,
+    ImpactScaleComponent,
   ],
   imports: [
     BrowserModule,
@@ -115,6 +118,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   providers: [
+    DecimalPipe,
+    CostPipe,
     LanguageService,
     UserService,
     MatSnackbarErrorHandler,
