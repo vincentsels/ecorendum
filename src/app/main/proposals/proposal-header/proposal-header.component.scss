@@ -44,6 +44,10 @@
   margin-top: -16px;
   display: flex;
   flex-wrap: wrap;
+
+  &.set {
+    margin-bottom: 12px;
+  }
 }
 
 .proposal-target-summary-primary {
@@ -54,10 +58,6 @@
 .proposal-target-summary-secondary {
   display: inline-block;
   opacity: 0.4;
-
-  &.set {
-    margin-bottom: 12px;
-  }
 }
 
 @media (max-width: 576px) {

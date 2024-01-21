@@ -29,7 +29,7 @@
             [scale]="500" unit="kt" icon="cloud_download"></app-impact-scale>
         </span>
       </div>
-      <div class="proposal-target-summary-secondary set" *ngIf="set">
+      <div class="proposal-target-summary-secondary" *ngIf="set">
         <span class="proposal-target-summary-item">{{ enums.PolicyLevel[proposal.policyLevel || enums.PolicyLevel.unknown] | translate }}</span>
         <span class="proposal-target-summary-item">{{ enums.Sector[proposal.sector || enums.Sector.unknown] | translate }}</span>
         <span class="proposal-target-summary-item" *ngIf="proposal.ets">ETS</span>
