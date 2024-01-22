@@ -49,7 +49,7 @@ export class ResultsService {
     const euGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, false);
 
     const euGhgReductionPercentage = euGhgReducedKt / targets.euTargetGapGhgKt * 100;
-    const euGhgTax = (targets.euTargetGapGhgKt - euGhgReducedKt) * parameters.pricePerTonGhg * 1000;
+    const euGhgTax = (targets.euTargetGapGhgKt - euGhgReducedKt) * parameters.pricePerTonGhg * 1000 * parameters.emissionGapMultiplier;
     const euGhgReductionColor = euGhgReductionPercentage >= 100 ? 'accent' : 'warn';
 
     const euGhgTarget = new TargetResult(targets.euTargetGapGhgKt, 'Kt', parameters.pricePerTonGhg * 1000, euGhgReducedKt,

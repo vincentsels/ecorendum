@@ -122,18 +122,18 @@
     </h3>
 
     <div *ngIf="expandedTotalCost">
-      <div class="calc-table">
+      <div class="calc-table" *ngIf="parametersService.parameters$ | async; let parameters">
         <div class="calc-line">
           <span class="calc-line-header">{{ 'Total measures cost' | translate }}</span>
           <span class="calc-line-number">€&nbsp;{{ results.totalMeasurementCost | number }}</span>
         </div>
         <div class="calc-line">
-          <span class="calc-line-header"><app-help-widget [tooltipKey]="(results.totalEuGhgTax > 0 ? 'helpCarbonTax' : 'helpCarbonIncome')"
+          <span class="calc-line-header"><app-help-widget [tooltipKey]="(results.totalEuGhgTax > 0 ? 'helpCarbonTax' : 'helpCarbonIncome')" [tooltipParameters]="{ carbonTax: parameters.pricePerTonGhg | number }"
             [textKey]="results.totalEuGhgTax > 0 ? 'Emissions trading cost' : 'Emissions trading profit'"></app-help-widget></span>
           <span class="calc-line-number" [class.color-accent]="results.totalEuGhgTax < 0"> €&nbsp;{{ (results.totalEuGhgTax > 0 ? results.totalEuGhgTax : -results.totalEuGhgTax) | number }}</span>
         </div>
         <div class="calc-line">
-          <span class="calc-line-header"><app-help-widget tooltipKey="helpLegalPenalty" textKey="Legal penalty"></app-help-widget></span>
+          <span class="calc-line-header"><app-help-widget tooltipKey="helpLegalPenalty" textKey="Legal penalty" [tooltipParameters]="{ legalPenalty: parameters.monthlyLegalPenalty| number }"></app-help-widget></span>
           <span class="calc-line-number" [class.color-accent]="results.totalLegalPenalty === 0"> €&nbsp;{{ results.totalLegalPenalty | number }}</span>
         </div>
         <div class="calc-line total-line">

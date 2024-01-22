@@ -9,7 +9,7 @@
   <div class="parameter-list">
     <div class="parameter">
       <mat-form-field class="parameter-input" [hideRequiredMarker]="true">
-        <mat-icon matPrefix class="inline">cloud_download</mat-icon>
+        <mat-icon matPrefix class="inline form">currency_exchange</mat-icon>
         <mat-label>{{ 'pricePerTonGhgParam' | translate }}</mat-label>
         <input #pricePerTonGhgInput matInput type="text" [required]="true"
           [value]="parameters.pricePerTonGhg" (input)="pricePerTonGhgChanged(pricePerTonGhgInput.value)">
@@ -27,13 +27,31 @@
 
     <div class="parameter">
       <mat-form-field class="parameter-input" [hideRequiredMarker]="true">
-        <mat-icon matPrefix class="inline">gavel</mat-icon>
-        <mat-label>{{ 'monthlyLegalPenalty' | translate }}</mat-label>
+        <mat-icon matPrefix class="inline form">signal_cellular_alt</mat-icon>
+        <mat-label>{{ 'emissionGapMultiplierParam' | translate }}</mat-label>
+        <input #emissionGapMultiplierInput matInput type="text" [required]="true"
+          [value]="parameters.emissionGapMultiplier" (input)="emissionGapMultiplierChanged(emissionGapMultiplierInput.value)">
+      </mat-form-field>
+      <div class="parameter-description">
+        {{ 'emissionGapMultiplierParamDescription' | translate }}
+        <div *ngIf="defaultParameters.emissionGapMultiplier !== parameters.emissionGapMultiplier">
+          <a [routerLink]="null" (click)="emissionGapMultiplierChanged(defaultParameters.emissionGapMultiplier)">
+            {{ 'Reset to default: ' | translate }}
+            {{ defaultParameters.emissionGapMultiplier | number }}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="parameter">
+      <mat-form-field class="parameter-input" [hideRequiredMarker]="true">
+        <mat-icon matPrefix class="inline form">gavel</mat-icon>
+        <mat-label>{{ 'monthlyLegalPenaltyParam' | translate }}</mat-label>
         <input #monthlyLegalPenaltyInput matInput type="text" [required]="true"
           [value]="parameters.monthlyLegalPenalty" (input)="monthlyLegalPenaltyChanged(monthlyLegalPenaltyInput.value)">
       </mat-form-field>
       <div class="parameter-description">
-        {{ 'monthlyLegalPenaltyDescription' | translate }}
+        {{ 'monthlyLegalPenaltyParamDescription' | translate }}
         <div *ngIf="defaultParameters.monthlyLegalPenalty !== parameters.monthlyLegalPenalty">
           <a [routerLink]="null" (click)="monthlyLegalPenaltyChanged(defaultParameters.monthlyLegalPenalty)">
             {{ 'Reset to default: ' | translate }}

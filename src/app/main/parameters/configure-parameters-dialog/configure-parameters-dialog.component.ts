@@ -12,7 +12,7 @@ export class ConfigureParametersDialogComponent {
   defaultParameters = DEFAULT_PARAMETERS;
 
   pricePerTonGhgChanged(value: string | number) {
-    if (value) {
+    if (value && this.isValidNumber(value)) {
       this.parameterService.setParameters({
         ...this.parameterService.parameters$.value,
         pricePerTonGhg: Number(value),
@@ -20,8 +20,17 @@ export class ConfigureParametersDialogComponent {
     }
   }
 
+  emissionGapMultiplierChanged(value: string | number) {
+    if (value && this.isValidNumber(value)) {
+      this.parameterService.setParameters({
+        ...this.parameterService.parameters$.value,
+        emissionGapMultiplier: Number(value),
+      });
+    }
+  }
+
   monthlyLegalPenaltyChanged(value: string | number) {
-    if (value) {
+    if (value && this.isValidNumber(value)) {
       this.parameterService.setParameters({
         ...this.parameterService.parameters$.value,
         monthlyLegalPenalty: Number(value),
@@ -31,5 +40,9 @@ export class ConfigureParametersDialogComponent {
 
   resetAll() {
     this.parameterService.setParameters(DEFAULT_PARAMETERS);
+  }
+
+  private isValidNumber(value?: string | number): boolean {
+    return !!value && !isNaN(Number(value.toString()));
   }
 }

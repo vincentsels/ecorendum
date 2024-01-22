@@ -11,6 +11,7 @@ import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
 import { ResultsService } from './results.service';
 import { ProposalService } from '../proposals/proposal.service';
 import { ConfigureParametersDialogComponent } from '../parameters/configure-parameters-dialog/configure-parameters-dialog.component';
+import { ParametersService } from '../parameters/parameters.service';
 
 @Component({
   selector: 'app-results',
@@ -25,7 +26,7 @@ export class ResultsComponent implements OnInit {
 
   @Input() dialog = false;
 
-  constructor(service: ResultsService, public enums: EnumsService, public proposalService: ProposalService,
+  constructor(service: ResultsService, public enums: EnumsService, public proposalService: ProposalService, public parametersService: ParametersService,
     private matDialog: MatDialog, private commonDialog: CommonDialogService, private translate: TranslateService) {
     this.results$ = service.results$;
   }

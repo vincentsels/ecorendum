@@ -5,10 +5,12 @@ import { Parameters } from "./parameters";
 const LS_KEY_PARAMETERS = 'ecorendum.parameters';
 
 export const DEFAULT_PARAM_PRICE_PER_TON_CO2 = 100;
+export const DEFAULT_PARAM_EMISSION_GAP_MULIPLIER = 4;
 export const DEFAULT_PARAM_MONTHLY_PENALTY = 1000000;
 
 export const DEFAULT_PARAMETERS: Parameters = new Parameters(
   DEFAULT_PARAM_PRICE_PER_TON_CO2,
+  DEFAULT_PARAM_EMISSION_GAP_MULIPLIER,
   DEFAULT_PARAM_MONTHLY_PENALTY
 );
 
@@ -23,8 +25,9 @@ export class ParametersService {
     if (storedParametersString) {
       const storedParameters = JSON.parse(storedParametersString) as Parameters;
       parameters = new Parameters(
-        storedParameters.pricePerTonGhg,
-        storedParameters.monthlyLegalPenalty);
+        storedParameters.pricePerTonGhg || DEFAULT_PARAM_PRICE_PER_TON_CO2,
+        storedParameters.emissionGapMultiplier || DEFAULT_PARAM_EMISSION_GAP_MULIPLIER,
+        storedParameters.monthlyLegalPenalty || DEFAULT_PARAM_MONTHLY_PENALTY);
     } else {
       parameters = DEFAULT_PARAMETERS;
     }

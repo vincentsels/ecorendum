@@ -416,6 +416,10 @@ table, li, mat-table {
   margin-right: $margin-inline;
   height: unset;
   width: unset;
+
+  &.form {
+    padding-right: 8px;
+  }
 }
 
 mat-button-toggle-group {
