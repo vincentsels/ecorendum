@@ -26,7 +26,7 @@ Tot slot toont de website de bredere geschatte impact van de geselecteerde maatr
 
 - De brede ecologische impact, in het kader van de (resterende) [9 planetaire grenzen](https://www.stockholmresilience.org/research/planetary-boundaries.html), wetenschappelijke drempels voor aarde-systeemprocessen, waarbuiten de mensheid het risico loopt om het vermogen van de planeet om leven te ondersteunen te destabiliseren;
 
-- De brede sociaal-economische impact, in het kader van de [Duurzame Ontwikkelingsdoelen](https://www.undp.org/sustainable-development-goals) (SDG's), 17 wereldwijde doelen gesteld door de VN om tegen 2030 een duurzame, rechtvaardige en welvarende wereld te bereiken.
+- De herverdelingsimpact (globaal en lokaal) en de impact op mensenrechten.
 
 ## Gebruikte gegevens
 
@@ -36,13 +36,34 @@ De Vlaamse gegevens die voor deze demowebsite worden gebruikt, zowel de doelstel
 
 ### Doelstellingen
 
-- Het **wettelijke doel van 55% CO2-equivalente reductie**, en de resulterende absolute waarde van 34 Mt, werd berekend door VEKA en zou correct moeten zijn.
+#### Wettelijke 55% CO2-eq reductiedoelstelling: 34,4 Mt
 
-- Het **Europese CO2-equivalente reductiedoel** is gebaseerd op het EU ESR-doel van 47% voor België. De federale overheid, Brussel en Wallonië erkennen allemaal deze 47%. Vlaanderen richt zich momenteel alleen op 40%, waardoor er nationaal een grote kloof overblijft. Zolang de verschillende regio's geen overeenstemming hebben bereikt over hoe ze de inspanningen moeten verdelen, gaat deze tool ervan uit dat Vlaanderen ook een reductie van 47% moet bereiken. In absolute waarde vertaalt dit zich in ongeveer 27 Mt aan CO2-equivalente reducties. Merk op dat dit in de Europese context alleen de ESR-sectoren omvat (wegvervoer, gebouwen, landbouw, kleine industrie, afvalbeheer), geen ETS-sectoren (elektriciteits- en warmteproductie, grote industrie, luchtvaart en maritiem transport).
+Dit cijfer werd berekend door VEKA.
 
-- Het **doel van energie-efficiëntie** is momenteel een zeer ruwe schatting van 10.000 GWh extra besparingen per jaar.
+- In 1990 stootte Vlaanderen 86,8 Mt CO2-eq uit.
+- Een reductie van 55% betekent een doelstelling voor 2030 van 39,06 Mt.
+- In 2021 (laatste beschikbare cijfers) stootte Vlaanderen 73,4 Mt uit.
+- Dat laat nog steeds een kloof van **34,3 Mt**.
+- Merk op dat daarvan al 18,7 Mt is vastgelegd:
+  - 12,8 Mt als ESR-maatregelen in het VEKP
+  - 3,9 Mt via de DRI-installatie bij Arcelor
+  - 2 Mt via verschillende CCS-projecten
 
-- Het **doel voor hernieuwbare energie** is momenteel een zeer ruwe schatting van 5.000 GWh extra hernieuwbare energie per jaar.
+#### Europese CO2-eq reductiedoelstelling: 17,0 Mt.
+
+Dit is gebaseerd op de EU ESR-doelstelling van 47% voor België. De federale regering, Brussel en Wallonië erkennen deze 47%. Vlaanderen streeft momenteel slechts 40% na, waardoor er op nationaal niveau een grote kloof blijft bestaan (slechts 42,6% reductie op nationaal niveau). Zolang de verschillende gewesten het niet eens zijn over de verdeling van de inspanningen, gaat deze tool ervan uit dat Vlaanderen ook een reductie van 47% moet halen. Merk op dat dit in de Europese context enkel de ESR-sectoren omvat (wegtransport, gebouwen, landbouw, kleine industrie, afvalbeheer), geen ETS-sectoren (elektriciteits- en warmteopwekking, grote industrie, luchtvaart en maritiem transport).
+
+Onze berekening is als volgt:
+
+- In 2005 stootte Vlaanderen 50,4 Mt CO2-eq uit (in het 'herberekende' kader).
+- Een reductie van 47% vertaalt zich in een 2030-doelstelling van 26,7 Mt.
+- In 2021 (laatste beschikbare cijfers) stootte Vlaanderen 43,7 Mt uit.
+- Dat laat nog steeds een kloof van **17.0 Mt**.
+- Merk op dat daarvan al 12,8 Mt is vastgelegd in het VEKP.
+
+#### Energie-efficiëntie (5000 GWh) & doelstelling hernieuwbare energie (4000 GWh)**
+
+Deze twee doelstellingen zijn op dit moment nog volledig verzonnen (maar zouden in de juiste orde van grootte moeten liggen). We proberen momenteel de juiste getallen te berekenen.
 
 ### Maatregelen
 
@@ -52,9 +73,9 @@ Een extra maatregel, 'Verplichte weergave van de koolstofvoetafdruk op producten
 
 ### Impact van de maatregel
 
-- Alle **schattingen van de kosten van de maatregelen** zijn grotendeels verzonnen, intuïtieve gissingen, waar mogelijk losjes gebaseerd op vergelijkbare maatregelen in andere landen. De tool ondersteunt zowel 'initiële kosten' als 'jaarlijkse kosten'. Idealiter zou dit moeten worden veranderd in een minimum- en maximumwaarde, om rekening te houden met de onzekerheid. Bepaalde maatregelen zullen een grotere spreiding hebben dan andere.
+- Alle **schattingen van de kosten van de maatregelen** zijn grotendeels verzonnen, intuïtieve schattingen, waar mogelijk losjes gebaseerd op vergelijkbare maatregelen in andere landen. De tool ondersteunt zowel 'initiële kosten' als 'jaarlijkse kosten'. Idealiter zou dit moeten worden veranderd in een minimum- en maximumwaarde, om rekening te houden met de onzekerheid. Bepaalde maatregelen zullen een grotere spreiding hebben dan andere.
 
-- De **ecologische en SDG-impact** zijn ook grotendeels verzonnen, intuïtieve gissingen.
+- De **ecologische, herverdelings- en mensenrechtenimpact** zijn momenteel ook grotendeels verzonnen, intuïtieve schattingen.
 
 ### Gegevens over maatregeldetails
 
@@ -65,6 +86,23 @@ In deze demoversie zijn al deze gegevens volledig verzonnen, zelfs met willekeur
 ## Berekeningen
 
 Momenteel worden eenvoudige formules gebruikt om het effect van maatregelen op elk van de doelstellingen te berekenen: de geschatte CO2-equivalente emissiereducties, energiebesparing en toegevoegde nieuwe hernieuwbare energieopwekking voor elke geselecteerde maatregel/variant worden opgeteld. Hetzelfde geldt voor de kosten en bredere impact. Momenteel worden afnemende meeropbrengsten, overlapping tussen maatregelen, onderling uitsluitende maatregelen, of de timing waarop of de mate waarin een maatregel effect heeft, niet meegenomen. Een real-world tool zou gebruik maken van een geavanceerd [System Dynamics](https://systemdynamics.org/what-is-system-dynamics/) model, zoals gebruikt in het MIT [En-ROADS](https://www.climateinteractive.org/en-roads/) project, of de [2050 Pathway Explorer](https://becalc.netzero2050.be), in de Belgische context.
+
+### Kosten van niets doen
+
+#### Emissiehandel
+
+Onze tool gebruikt momenteel een zeer eenvoudige benadering om de kosten of inkomsten van emissiehandel te berekenen.
+
+- We houden alleen rekening met het ESR-tekort of -overschot, aangezien die met overheidsgeld moeten worden gekocht of verkocht. We houden geen rekening met het ETS-tekort of -overschot, omdat dit door particuliere bedrijven wordt betaald.
+- Als we kijken naar de tabellen voor de berekening van de balans ([NEKP, blz. 123](https://www.nationaalenergieklimaatplan.be/admin/storage/nekp/be-nekp-ontwerp-geactualiseerd.pdf)), zien we dat het totale geaccumuleerde tekort min of meer 4 keer zo groot is als het tekort voor 2030. Daarom nemen we aan dat dit altijd min of meer het geval is. De tool biedt de gebruiker de mogelijkheid om van deze parameter af te wijken.
+- Standaard gebruiken we een CO2-prijs van 100 euro. Met de tool kan deze parameter worden gewijzigd.
+
+#### Dwangsom klimaatzaak
+
+Het is nog niet bekend wat de dwangsom zal zijn als de overheid (overheden) de opgelegde doelstelling niet haalt (halen). Klimaatzaak stelt €1M per maand voor voor elke maand vertraging. Onze tool vereenvoudigt dit aanzienlijk:
+
+- Als de 55% reductiedoelstelling wordt gehaald: geen boete, want we liggen op schema;
+- Als de 55% reductiedoelstelling niet wordt gehaald: €1M x 12 x 5 (resterende jaren) = €60M
 
 # Wat zou de echte versie meer moeten doen?
 

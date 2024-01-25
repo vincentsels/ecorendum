@@ -17,24 +17,24 @@ export class TargetsService {
   getTargetsByContext(context: Context): Targets {
     if (context === 'flanders') {
       return new Targets(
-        34300, // Should be pretty ok
-        27400, // Rough estimate
-        10000, // Rough order of magnitude
-        5000, // Rough order of magnitude
+        34300, // Number VEKA
+        17000, // 50.4 (2005 ESR) - 47% (23.7) = 26.7 target in 2030. 2021 = 43.7 - 26.7 (target) = 17.0 gap
+        5000, // TO DO
+        4000, // TO DO
       );
     } else if (context === 'brussels') {
       return new Targets(
-        3430, // Made up
-        2740, // Made up
-        1000, // Made up
-        500, // Made up
+        34300 / 10, // TO DO
+        17000 / 10, // TO DO
+        5000 / 10, // TO DO
+        4000 / 10, // TO DO
       );
     } else if (context === 'wallonia') {
       return new Targets(
-        34300 / 2, // Made up
-        27400 / 2, // Made up
-        10000 / 2, // Made up
-        5000 / 2, // Made up
+        34300 / 2, // TO DO
+        1700 / 2, // TO DO
+        5000 / 2, // TO DO
+        4000 / 2, // TO DO
       );
     } else {
       throw new Error('Unknown context');

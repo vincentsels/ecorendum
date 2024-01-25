@@ -120,7 +120,7 @@
   "Reset to default: ": "Standaardwaarde herstellen: ",
   "Reset all to defaults": "Alle standaardwaarden herstellen",
 
-  "allTargetsMet": "Gefeliciteerd! Met de maatregelen die je hebt geselecteerd, kan België alle doelstellingen van Europa halen.",
+  "allTargetsMet": "Gefeliciteerd! Met de maatregelen die je hebt geselecteerd, kan België alle doelstellingen opgelegd door de klimaatzaak en Europa behalen.",
   "profitMessage": "Hierdoor zal België naar schatting € {{ profit }} bijverdienen",
   "warningGhgNotMet": "Uw selectie van maatregelen voldeed niet aan de Europese doelstelling voor de vermindering van broeikasgassen. Dit heeft verschillende ernstig negatieve gevolgen: <ul><li>België zal andere Europese lidstaten € {{ tax }} moeten betalen. Door meer maatregelen te selecteren, zou België in plaats daarvan extra financiering kunnen ontvangen.</li> <li>Als België zijn broeikasgasemissies niet voldoende vermindert, betekent dit dat andere Europese lidstaten moeten compenseren - en zij kunnen zich in een veel moeilijkere positie bevinden om dat te doen. We kunnen de doelen alleen bereiken als iedereen zijn deel doet.</li> <li>Er is geen garantie dat andere lidstaten kunnen compenseren. Het niet halen van de doelstellingen voor de vermindering van broeikasgassen zorgt bijna zeker ervoor dat de wereld naar de knoppen gaat. Ja, dit moet nog een beetje herformuleerd worden. TODO.</li></ul>",
   "warningEeTargetNotMet": "Uw selectie van maatregelen voldoet niet aan de Europese doelstelling voor energie-efficiëntie. Wat meer info over wat dat inhoudt. TODO.",

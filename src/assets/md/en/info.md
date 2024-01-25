@@ -24,7 +24,7 @@ Finally, the website displays the broader estimated impact of the selected measu
 
 - The broad ecological impact, in the framework of the (remaining) [9 planetary boundaries](https://www.stockholmresilience.org/research/planetary-boundaries.html), scientific thresholds for Earth-system processes, beyond which humanity risks destabilizing the planet's capacity to support life;
 
-- The broad socio-economical impact, in the framework of the [Sustainable Development Goals](https://www.undp.org/sustainable-development-goals) (SDGs), 17 global goals set by the UN to achieve a sustainable, equitable, and prosperous world by 2030.
+- The redistributive (global and local) and human rights impact.
 
 ## Used data
 
@@ -34,13 +34,34 @@ The Flemish data used for this demowebsite, both targets and measure impacts, is
 
 ### Targets
 
-- The **legal 55% CO2-equivalent reduction target**, and its resulting 34 Mt absolute value, was calculated by VEKA and should be correct.
+#### Legal 55% CO2-eq reduction target: 34.4 Mt
 
-- The **European CO2-equivalent reduction target** is based on the EU ESR target of 47% for Belgium. The federal government, Brussels and Wallonia all recognize this 47%. Flanders currently only targets 40%, leaving a large gap nationally. As long as the different regions haven't come to an agreement of how to divide the efforts, this tool assumes Flanders should also achieve a 47% reduction. As an absolute value, this translates into roughly 27 Mt of CO2-equivalent reductions. Note that in the European context, this only includes the ESR-sectors (road transport, buildings, agriculture, small industry, waste management), no ETS-sectors (electricity and heat generation, large industry, aviation and maritime transport).
+This number was calculated by VEKA.
 
-- The **energy efficiency target** is currently a very rough estimate of 10.000 GWh additional savings per year.
+- In 1990 Flanders emitted 86.8 Mt CO2-eq
+- A 55% reduction translates into a 2030 goal of 39.06 Mt.
+- In 2021 (last available numbers), Flanders emitted 73.4 Mt.
+- That still leaves a gap of **34.3 Mt**.
+- Note that of that, already 18.7 Mt are committed:
+  - 12.8 Mt as ESR measures in the VEKP
+  - 3.9 Mt through the DRI installation at Arcelor
+  - 2 Mt through various CCS projects
 
-- The **renewable energy target** is currently a very rough estimate of 5.000 GWh additional renewable energy per year.
+#### European CO2-eq reduction target: 17.0 Mt
+
+This is based on the EU ESR target of 47% for Belgium. The federal government, Brussels and Wallonia all recognize this 47%. Flanders currently only targets 40%, leaving a large gap nationally (reducing only 42.6% nationally). As long as the different regions haven't come to an agreement of how to divide the efforts, this tool assumes Flanders should also achieve a 47% reduction. Note that in the European context, this only includes the ESR-sectors (road transport, buildings, agriculture, small industry, waste management), no ETS-sectors (electricity and heat generation, large industry, aviation and maritime transport).
+
+Our calculation is as follows:
+
+- In 2005 Flanders emitted 50.4 Mt CO2-eq (under the 'recalculated' framework)
+- A 47% reduction translates into a 2030 goal of 26.7 Mt.
+- In 2021 (last available numbers), Flanders emitted 43.7 Mt.
+- That still leaves a gap of **17.0 Mt**.
+- Note that of that, already 12.8 Mt is already committed in the VEKP.
+
+#### Energy efficiency (5000 GWh) & renewable energy target (4000 GWh)**
+
+These two targets are currently still entirely made up (but should be in the correct order of magnitude). We are currently in the process of trying to calculate the correct numbers.
 
 ### Measures
 
@@ -52,7 +73,7 @@ An additional measure, 'Obligatory display of carbon footprint on products and s
 
 - All **measure cost estimates** are largely made-up, intuitive guesses, where possible loosely based on similar measures in other countries. The tool supports both an 'initial cost' and a 'yearly cost'. Ideally, this should be changed into a minimum and maximum value, to account for uncertainty. Certain measures will have a larger spread than others.
 
-- The **ecological and SDG impact** are also largely made-up, intuitive guesses.
+- The **ecological, redistributive and human rights impact** are currently also largely made-up, intuitive guesses.
 
 ### Measure detail data
 
@@ -63,6 +84,23 @@ In this demo-version, all of this data is entirely made-up, even using randomly 
 ## Calculations
 
 Currently, straightforward formulas are used to calculate the effect of measures on each of the targets: the estimted CO2-equivalent emissions saved, energy saved, and new renewable power generation added for each selected measure/variant are added up. Same for the cost and broader imapct. Diminishing returns, overlap between measures, mutually exclusive measures, or the timing at which or a degree in which a measure takes effect, are currently not taken into account. A real-world tool would use an advanced [System Dynamics](https://systemdynamics.org/what-is-system-dynamics/) model, such as used in the MIT [En-ROADS](https://www.climateinteractive.org/en-roads/) project, or the [2050 Pathway Explorer](https://becalc.netzero2050.be), in the Belgian context.
+
+### Cost of inaction
+
+#### Emission trading
+
+Our tool currently use a very simple approximation to calculate the cost or income from emission trading.
+
+- We only take into account the ESR deficit or surplus, since those will have to be bought or sold with public money. We do not take into account the ETS deficit or surpluss, since it will be private companies who pay this.
+- Looking at balance calculation tables ([NEKP, p. 123](https://www.nationaalenergieklimaatplan.be/admin/storage/nekp/be-nekp-ontwerp-geactualiseerd.pdf)), we notice that the total accumulated gap is more or less 4 times the 2030 gap. Hence, we assume this is always more or less the case. The tool allows the user to deviate this parameter.
+- We use a CO2-price of € 100 by default. The tool allows to change this parmeter.
+
+#### Klimaatzaak penalty
+
+It is not yet known what the penalty will be in case the government(s) do(es) not meet the imposed target. Klimaatzaak proposes €1M per month for each month of delay. Our tool greatly simplifies this:
+
+- If the 55% reduction target is met: no penalty, since we're on track;
+- If the 55% reduction target is not met: €1M x 12 x 5 (remaining years) = €60M
 
 # What should the real version do more?
 

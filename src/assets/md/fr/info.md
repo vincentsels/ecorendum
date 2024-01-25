@@ -26,7 +26,7 @@ Enfin, le site affiche l'impact estimé plus large des mesures sélectionnées, 
 
 - L'impact écologique large, dans le cadre des [9 limites planétaires](https://www.stockholmresilience.org/research/planetary-boundaries.html) (restants), seuils scientifiques pour les processus du système terrestre, au-delà desquels l'humanité risque de déstabiliser la capacité de la planète à subvenir aux besoins de la vie ;
 
-- L'impact socio-économique large, dans le cadre des [Objectifs de développement durable](https://www.undp.org/sustainable-development-goals) (ODD), 17 objectifs mondiaux fixés par l'ONU pour atteindre un monde durable, équitable et prospère d'ici 2030.
+- L'impact redistributif (mondial et local) et l'impact sur les droits de l'homme.
 
 ## Données utilisées
 
@@ -36,13 +36,34 @@ Les données flamandes utilisées pour ce site web de démonstration, tant pour 
 
 ### Objectifs
 
-- L'**objectif de réduction de 55 % de CO2-équivalent légal**, et sa valeur absolue de 34 Mt, a été calculé par VEKA et devrait être correct.
+#### Objectif légal de réduction de 55 % des émissions de CO2 : 34,4 Mt
 
-- L'**objectif de réduction de CO2-équivalent européen** est basé sur l'objectif ESR de l'UE de 47% pour la Belgique. Le gouvernement fédéral, Bruxelles et la Wallonie reconnaissent tous ce 47%. La Flandre vise actuellement seulement 40%, laissant un grand écart au niveau national. Tant que les différentes régions ne se sont pas mises d'accord sur la façon de diviser les efforts, cet outil induit que la Flandre devrait également atteindre une réduction de 47%. En valeur absolue, cela se traduit par environ 27 Mt de réductions de CO2-équivalent. Notez que, dans le contexte européen, cela n'inclut que les secteurs ESR (transport routier, bâtiments, agriculture, petite industrie, gestion des déchets), pas les secteurs ETS (production d'électricité et de chaleur, grande industrie, aviation et transport maritime).
+Ce chiffre a été calculé par VEKA.
 
-- L'**objectif d'efficacité énergétique** est actuellement une estimation très approximative de 10.000 GWh d'économies supplémentaires par an.
+- En 1990, la Flandre a émis 86,8 Mt d'équivalent CO2.
+- Une réduction de 55 % se traduit par un objectif de 39,06 Mt pour 2030.
+- En 2021 (derniers chiffres disponibles), la Flandre a émis 73,4 Mt.
+- Il reste donc un écart de **34,3 Mt**.
+- Notez que sur ce total, 18,7 Mt sont déjà engagées :
+  - 12,8 Mt en tant que mesures ESR dans le VEKP
+  - 3,9 Mt grâce à l'installation de DRI chez Arcelor
+  - 2 Mt dans le cadre de divers projets de CSC
 
-- L'**objectif d'énergie renouvelable** est actuellement une estimation très approximative de 5.000 GWh d'énergie renouvelable supplémentaire par an.
+#### Objectif européen de réduction des émissions de CO2 : 17,0 Mt
+
+Cet objectif est basé sur l'objectif ESR de l'UE de 47 % pour la Belgique. Le gouvernement fédéral, Bruxelles et la Wallonie reconnaissent tous ces 47 %. La Flandre ne vise actuellement que 40 %, ce qui laisse un grand vide au niveau national (réduction de seulement 42,6 % au niveau national). Tant que les différentes régions ne sont pas parvenues à un accord sur la répartition des efforts, cet outil part du principe que la Flandre devrait également atteindre une réduction de 47 %. Notez que dans le contexte européen, cela n'inclut que les secteurs ESR (transport routier, bâtiments, agriculture, petite industrie, gestion des déchets), pas les secteurs ETS (production d'électricité et de chaleur, grande industrie, aviation et transport maritime).
+
+Notre calcul est le suivant :
+
+- En 2005, la Flandre a émis 50,4 Mt CO2-eq (dans le cadre "recalculé").
+- Une réduction de 47 % se traduit par un objectif de 26,7 Mt pour 2030.
+- En 2021 (derniers chiffres disponibles), la Flandre a émis 43,7 Mt.
+- Il reste donc un écart de **17,0 Mt**.
+- Notez que sur ce total, 12,8 Mt sont déjà engagées dans le VEKP.
+
+#### Objectif en matière d'efficacité énergétique (5000 GWh) et d'énergies renouvelables (4000 GWh)**.
+
+Ces deux objectifs sont actuellement encore entièrement inventés (mais devraient se situer dans le bon ordre de grandeur). Nous sommes actuellement en train d'essayer de calculer les chiffres corrects.
 
 ### Mesures
 
@@ -54,7 +75,7 @@ Une mesure supplémentaire, 'Affichage obligatoire de l'empreinte carbone sur le
 
 - Toutes les **estimations des coûts de mesure** sont largement inventées, des suppositions intuitives, où possible vaguement basées sur des mesures similaires dans d'autres pays. L'outil prend en charge à la fois un « coût initial » et un « coût annuel ». Idéalement, cela devrait être modifié en valeurs minimale et maximale, pour tenir compte de l'incertitude. Certaines mesures auront une portée plus large que d’autres.
 
-- L'**impact écologique et ODD** sont également largement inventés, des suppositions intuitives.
+- Les **impacts écologiques, redistributifs et sur les droits de l'homme** sont également des suppositions intuitives largement inventées.
 
 ### Données détaillées sur les mesures
 
@@ -65,6 +86,23 @@ Dans cette version de démonstration, toutes ces données sont entièrement inve
 ## Calculs
 
 Actuellement, des formules simples sont utilisées pour calculer l'effet des mesures sur chacun des objectifs : les émissions estimées de CO2-équivalent économisées, l'énergie économisée et la nouvelle production d'énergie renouvelable ajoutée pour chaque mesure/variante sélectionnée sont additionnées. De même pour le coût et l'impact plus large. Actuellement, les rendements décroissants, la chevauchement entre les mesures, les mesures mutuellement exclusives, ou le moment auquel ou le degré auquel une mesure prend effet, ne sont pas pris en compte. Un outil du monde réel utiliserait un modèle [System Dynamics](https://systemdynamics.org/what-is-system-dynamics/) avancé, tel que celui utilisé dans le projet [En-ROADS](https://www.climateinteractive.org/en-roads/) du MIT, ou le [2050 Pathway Explorer](https://becalc.netzero2050.be), dans le contexte belge.
+
+### Coût de l'inaction
+
+#### Échange de quotas d'émission
+
+Notre outil utilise actuellement une approximation très simple pour calculer le coût ou le revenu de l'échange de quotas d'émission.
+
+- Nous ne prenons en compte que le déficit ou l'excédent de l'ESR, puisqu'il devra être acheté ou vendu avec de l'argent public. Nous ne tenons pas compte du déficit ou de l'excédent du système d'échange de quotas d'émission, puisque ce sont des entreprises privées qui le paieront.
+- En examinant les tableaux de calcul de l'équilibre ([NEKP, p. 123] (https://www.nationaalenergieklimaatplan.be/admin/storage/nekp/be-nekp-ontwerp-geactualiseerd.pdf)), nous constatons que l'écart total accumulé est plus ou moins quatre fois supérieur à l'écart de 2030. Nous supposons donc que c'est toujours plus ou moins le cas. L'outil permet à l'utilisateur de s'écarter de ce paramètre.
+- Nous utilisons un prix du CO2 de 100 € par défaut. L'outil permet de modifier ce paramètre.
+
+#### Pénalité Klimaatzaak
+
+On ne sait pas encore quelle sera la pénalité si le(s) gouvernement(s) ne respecte(nt) pas l'objectif imposé. Klimaatzaak propose 1 million d'euros par mois pour chaque mois de retard. Notre outil simplifie grandement les choses :
+
+- Si l'objectif de réduction de 55 % est atteint : pas de pénalité, puisque nous sommes sur la bonne voie ;
+- Si l'objectif de réduction de 55 % n'est pas atteint : 1 M€ x 12 x 5 (années restantes) = 60 M€.
 
 # Que devrait faire de plus la version réelle ?
 

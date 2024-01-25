@@ -13,6 +13,7 @@ import { ResultsService } from '../results/results.service';
 })
 export class SubmitDialogComponent {
   result: Results;
+  legalTargetMet: boolean;
   ghgTargetMet: boolean;
   eeTargetMet: boolean;
   reTargetMet: boolean;
@@ -26,7 +27,8 @@ export class SubmitDialogComponent {
     this.ghgTargetMet = this.result.euGhgTarget.percentage >= 100;
     this.eeTargetMet = this.result.euEeTarget.percentage >= 100;
     this.reTargetMet = this.result.euReTarget.percentage >= 100;
-    this.allTargetsMet = this.ghgTargetMet && this.eeTargetMet && this.reTargetMet;
+    this.legalTargetMet = this.result.legalGhgTarget.percentage >= 100;
+    this.allTargetsMet = this.legalTargetMet && this.ghgTargetMet && this.eeTargetMet && this.reTargetMet;
   }
 
   ok() {

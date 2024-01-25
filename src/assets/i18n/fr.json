@@ -120,7 +120,7 @@
   "Reset to default: ": "Réinitialiser par défaut : ",
   "Reset all to defaults": "Réinitialiser tous les paramètres par défaut",
 
-  "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'Europe.",
+  "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'affaire climat et par l'Europe.",
   "profitMessage": "Cela permettra à la Belgique de recevoir une estimation de € {{ profit }}",
   "warningGhgNotMet": "Votre sélection de mesures n'a pas atteint l'objectif européen de réduction des gaz à effet de serre. Cela a plusieurs implications très négatives : <ul><li>La Belgique devra payer d'autres États membres européens € {{ tax }}. En sélectionnant plus de mesures, la Belgique pourrait recevoir un financement supplémentaire à la place.</li><li>Si la Belgique ne réduit pas suffisamment ses émissions de gaz à effet de serre, cela signifie que d'autres États membres européens devront compenser - et ils peuvent être dans une position beaucoup plus difficile pour le faire. Nous ne pouvons atteindre les objectifs que si tout le monde fait sa part.</li><li>Il n'y a aucune garantie que d'autres États membres pourront compenser. Ne pas atteindre les objectifs de réduction des gaz à effet de serre garantit presque que le monde va aller à vau-l'eau. Oui, cela doit être un peu reformulé. À faire.</li></ul>",
   "warningEeTargetNotMet": "Votre sélection de mesures ne répond pas à l'objectif européen en matière d'efficacité énergétique. Plus d'informations sur ce que cela implique. À faire.",
