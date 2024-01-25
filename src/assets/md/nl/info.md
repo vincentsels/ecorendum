@@ -36,7 +36,7 @@ De Vlaamse gegevens die voor deze demowebsite worden gebruikt, zowel de doelstel
 
 ### Doelstellingen
 
-#### Wettelijke 55% CO2-eq reductiedoelstelling: 34,4 Mt
+#### Wettelijke 55% CO2-eq reductiedoelstelling (34,4 Mt)
 
 Dit cijfer werd berekend door VEKA.
 
@@ -49,7 +49,7 @@ Dit cijfer werd berekend door VEKA.
   - 3,9 Mt via de DRI-installatie bij Arcelor
   - 2 Mt via verschillende CCS-projecten
 
-#### Europese CO2-eq reductiedoelstelling: 17,0 Mt.
+#### Europese 47% CO2-eq reductiedoelstelling (17,0 Mt)
 
 Dit is gebaseerd op de EU ESR-doelstelling van 47% voor België. De federale regering, Brussel en Wallonië erkennen deze 47%. Vlaanderen streeft momenteel slechts 40% na, waardoor er op nationaal niveau een grote kloof blijft bestaan (slechts 42,6% reductie op nationaal niveau). Zolang de verschillende gewesten het niet eens zijn over de verdeling van de inspanningen, gaat deze tool ervan uit dat Vlaanderen ook een reductie van 47% moet halen. Merk op dat dit in de Europese context enkel de ESR-sectoren omvat (wegtransport, gebouwen, landbouw, kleine industrie, afvalbeheer), geen ETS-sectoren (elektriciteits- en warmteopwekking, grote industrie, luchtvaart en maritiem transport).
 

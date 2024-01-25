@@ -34,7 +34,7 @@ The Flemish data used for this demowebsite, both targets and measure impacts, is
 
 ### Targets
 
-#### Legal 55% CO2-eq reduction target: 34.4 Mt
+#### Legal 55% CO2-eq reduction target (34.4 Mt)
 
 This number was calculated by VEKA.
 
@@ -47,7 +47,7 @@ This number was calculated by VEKA.
   - 3.9 Mt through the DRI installation at Arcelor
   - 2 Mt through various CCS projects
 
-#### European CO2-eq reduction target: 17.0 Mt
+#### European 47% CO2-eq reduction target (17.0 Mt)
 
 This is based on the EU ESR target of 47% for Belgium. The federal government, Brussels and Wallonia all recognize this 47%. Flanders currently only targets 40%, leaving a large gap nationally (reducing only 42.6% nationally). As long as the different regions haven't come to an agreement of how to divide the efforts, this tool assumes Flanders should also achieve a 47% reduction. Note that in the European context, this only includes the ESR-sectors (road transport, buildings, agriculture, small industry, waste management), no ETS-sectors (electricity and heat generation, large industry, aviation and maritime transport).
 

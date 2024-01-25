@@ -36,7 +36,7 @@ Les données flamandes utilisées pour ce site web de démonstration, tant pour 
 
 ### Objectifs
 
-#### Objectif légal de réduction de 55 % des émissions de CO2 : 34,4 Mt
+#### Objectif légal de réduction de 55 % des émissions de CO2 (34,4 Mt)
 
 Ce chiffre a été calculé par VEKA.
 
@@ -49,7 +49,7 @@ Ce chiffre a été calculé par VEKA.
   - 3,9 Mt grâce à l'installation de DRI chez Arcelor
   - 2 Mt dans le cadre de divers projets de CSC
 
-#### Objectif européen de réduction des émissions de CO2 : 17,0 Mt
+#### Objectif européen de réduction de 47 % des émissions de CO2 (17,0 Mt)
 
 Cet objectif est basé sur l'objectif ESR de l'UE de 47 % pour la Belgique. Le gouvernement fédéral, Bruxelles et la Wallonie reconnaissent tous ces 47 %. La Flandre ne vise actuellement que 40 %, ce qui laisse un grand vide au niveau national (réduction de seulement 42,6 % au niveau national). Tant que les différentes régions ne sont pas parvenues à un accord sur la répartition des efforts, cet outil part du principe que la Flandre devrait également atteindre une réduction de 47 %. Notez que dans le contexte européen, cela n'inclut que les secteurs ESR (transport routier, bâtiments, agriculture, petite industrie, gestion des déchets), pas les secteurs ETS (production d'électricité et de chaleur, grande industrie, aviation et transport maritime).
 
