@@ -61,7 +61,7 @@ Onze berekening is als volgt:
 - Dat laat nog steeds een kloof van **17.0 Mt**.
 - Merk op dat daarvan al 12,8 Mt is vastgelegd in het VEKP.
 
-#### Energie-efficiëntie (5000 GWh) & doelstelling hernieuwbare energie (4000 GWh)**
+#### Energie-efficiëntie (5000 GWh) & doelstelling hernieuwbare energie (4000 GWh)
 
 Deze twee doelstellingen zijn op dit moment nog volledig verzonnen (maar zouden in de juiste orde van grootte moeten liggen). We proberen momenteel de juiste getallen te berekenen.
 

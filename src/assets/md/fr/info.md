@@ -61,7 +61,7 @@ Notre calcul est le suivant :
 - Il reste donc un écart de **17,0 Mt**.
 - Notez que sur ce total, 12,8 Mt sont déjà engagées dans le VEKP.
 
-#### Objectif en matière d'efficacité énergétique (5000 GWh) et d'énergies renouvelables (4000 GWh)**.
+#### Objectif en matière d'efficacité énergétique (5000 GWh) et d'énergies renouvelables (4000 GWh)
 
 Ces deux objectifs sont actuellement encore entièrement inventés (mais devraient se situer dans le bon ordre de grandeur). Nous sommes actuellement en train d'essayer de calculer les chiffres corrects.
 

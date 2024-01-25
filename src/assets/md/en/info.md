@@ -59,7 +59,7 @@ Our calculation is as follows:
 - That still leaves a gap of **17.0 Mt**.
 - Note that of that, already 12.8 Mt is already committed in the VEKP.
 
-#### Energy efficiency (5000 GWh) & renewable energy target (4000 GWh)**
+#### Energy efficiency (5000 GWh) & renewable energy target (4000 GWh)
 
 These two targets are currently still entirely made up (but should be in the correct order of magnitude). We are currently in the process of trying to calculate the correct numbers.
 
