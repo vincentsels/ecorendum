@@ -10,6 +10,6 @@
     </div>
   </div>
   <div class="responsive-page-content">
-    <markdown [src]="'/assets/md/' + (languageService.language | async) + '/info.md'" (load)="markdownLoaded()"></markdown>
+    <markdown [src]="'/assets/md/info/' + (languageService.language | async) + '.md'" (load)="markdownLoaded()"></markdown>
   </div>
 </div>

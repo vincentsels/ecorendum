@@ -8,6 +8,8 @@ import { PARTIES_WITH_LOGOS } from '../../party';
 import { Variant } from '../proposal';
 import { ProposalDetail } from '../proposal-details';
 import { ProposalService } from '../proposal.service';
+import { LanguageService } from '../../../common/language.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-proposal-detail',
@@ -20,10 +22,11 @@ export class ProposalDetailComponent implements OnInit {
 
   @Output('closeDialog') closeDialogEmitter = new EventEmitter();
 
+  hasDetails = true;
   allParties: boolean = false;
 
-  constructor(public enums: EnumsService, public service: ProposalService, private route: ActivatedRoute,
-    private snackBar: MatSnackBar, private translate: TranslateService) {}
+  constructor(public enums: EnumsService, public service: ProposalService, public languageService: LanguageService,
+    private route: ActivatedRoute, private snackBar: MatSnackBar, private translate: TranslateService) {}
 
   ngOnInit() {
     if (!this.dialog) {
@@ -34,6 +37,12 @@ export class ProposalDetailComponent implements OnInit {
           (p.slugNl === idOrSlug || p.slugFr === idOrSlug ||p.slugEn === idOrSlug));
         if (foundProposal) this.proposal = new ProposalDetail(foundProposal);
       });
+    }
+  }
+
+  errorLoadingMarkdown(evt: any) {
+    if (evt instanceof HttpErrorResponse && evt.status === 404) {
+      this.hasDetails = false;
     }
   }
 

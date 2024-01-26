@@ -71,7 +71,7 @@ export class HelpWidgetComponent {
         this.dialogKey ? this.translate.instant(this.dialogKey,
           this.dialogParameters || { region: this.translate.instant(this.contextService.context$.value) }) : undefined,
         undefined,
-        this.dialogMdSrc ? '/assets/md/' + this.translate.currentLang + '/' + this.dialogMdSrc + '.md' : undefined,
+        this.dialogMdSrc ? '/assets/md/help/' + this.dialogMdSrc + '/' + this.translate.currentLang + '.md' : undefined,
         this.dialogMdData);
     }
   }

@@ -5,10 +5,11 @@
 
   <p> {{ proposal | translateProp:'summary' | async }}</p>
 
-  <div *ngIf="proposal.description">
+  <div *ngIf="hasDetails">
     <h2 class="clear detail-section-header">{{ 'Description' | translate }}</h2>
 
-    <markdown [data]="proposal.description | translateText"></markdown>
+    <markdown [src]="'/assets/md/proposals/' + proposal.slugEn + '/' + (languageService.language | async) + '.md'"
+      (error)="errorLoadingMarkdown($event)"></markdown>
   </div>
 
   <h2 *ngIf="proposal.variants.length > 1" class="clear detail-section-header">{{ 'Variants' | translate }}</h2>
