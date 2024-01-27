@@ -13,9 +13,36 @@
   }
 }
 
+.variable-form {
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
+  justify-items: flex-start;
+}
+
 @media (max-width: 576px) {
   .row-form {
     flex-direction: column;
   }
+
+  .variable-form {
+    flex-direction: column;
+    justify-items: unset;
+  }
 }
 
+.subform {
+  border-width: 2px;
+  border-style: dashed;
+  border-color: var(--mdc-elevated-card-container-color);
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+button {
+  margin-bottom: 12px;
+}
+
+mat-checkbox {
+  margin-bottom: 12px;
+}

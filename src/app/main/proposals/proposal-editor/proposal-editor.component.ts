@@ -28,8 +28,10 @@ export class ProposalEditorComponent {
   }
 
   addYearCost(variant: Variant) {
-    // Example implementation, adjust as per your data structure
-    const newYear = new Date().getFullYear();
+    const date = new Date();
+    date.setFullYear(date.getFullYear() + Object.keys(variant.costPerYearVariable || {}).length);
+
+    const newYear = date.getFullYear();
     variant.costPerYearVariable = { ...variant.costPerYearVariable, [newYear]: 0 };
   }
 
