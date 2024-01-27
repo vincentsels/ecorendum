@@ -56,6 +56,7 @@ import { SelectPartySetDialogComponent } from './main/select-party-set-dialog/se
 import { ConfigureParametersDialogComponent } from './main/parameters/configure-parameters-dialog/configure-parameters-dialog.component';
 import { ImpactScaleComponent } from './common/impact-scale.component';
 import { DecimalPipe } from '@angular/common';
+import { ProposalEditorComponent } from './main/proposals/proposal-editor/proposal-editor.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -94,6 +95,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SelectPartySetDialogComponent,
     ConfigureParametersDialogComponent,
     ImpactScaleComponent,
+    ProposalEditorComponent,
   ],
   imports: [
     BrowserModule,
