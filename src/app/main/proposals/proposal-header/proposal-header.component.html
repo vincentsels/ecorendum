@@ -22,10 +22,10 @@
           <app-impact-scale [singleOrMin]="proposal.getSingleOrMinCost()" [selected]="selectedCost" [max]="proposal.getMaxCost(set)"
             [scale]="25000000" [isCost]="true" [style]="'warn'"></app-impact-scale>
         </span>
-        <span class="proposal-target-summary-item" *ngIf="proposal.getSelectedTargetAmount(enums.TargetType.ghgReduction); let selectedAmt">
-          <app-impact-scale [singleOrMin]="proposal.getSingleOrMinTargetAmount(enums.TargetType.ghgReduction)"
+        <span class="proposal-target-summary-item" *ngIf="proposal.getSelectedTargetAmount(enums.TargetType.ghgReduction, contextService.context$.value); let selectedAmt">
+          <app-impact-scale [singleOrMin]="proposal.getSingleOrMinTargetAmount(enums.TargetType.ghgReduction, contextService.context$.value)"
             [selected]="selectedAmt"
-            [max]="proposal.getMaxTargetAmount(enums.TargetType.ghgReduction, set)"
+            [max]="proposal.getMaxTargetAmount(enums.TargetType.ghgReduction, set, contextService.context$.value)"
             [scale]="500" unit="kt" icon="cloud_download"></app-impact-scale>
         </span>
       </div>

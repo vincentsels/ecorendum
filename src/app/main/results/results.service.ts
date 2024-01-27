@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { ImpactAmount, ImpactAmountMap, TargetType, Variant } from '../proposals/proposal';
+import { ImpactAmount, ImpactAmountMap, PolicyLevel, TargetType, Variant } from '../proposals/proposal';
 import { Results, TargetResult, TotalImpact } from './results';
 import { TargetsService } from '../targets/targets.service';
 import { ParametersService } from '../parameters/parameters.service';
 import { ProposalService } from '../proposals/proposal.service';
 import { ProposalDetail } from '../proposals/proposal-details';
+import { Context, ContextService } from '../context/context.service';
 
 @Injectable()
 export class ResultsService {
   results$: BehaviorSubject<Results>;
 
   constructor(private proposalService: ProposalService,
+    private contextService: ContextService,
     private targetsService: TargetsService,
     private parametersService: ParametersService) {
     this.results$ = new BehaviorSubject<Results>(this.calculateResults());
@@ -35,10 +37,11 @@ export class ResultsService {
     const proposals = forProposals || this.proposalService.activeProposals$.value;
     const targets = this.targetsService.targets$.value;
     const parameters = this.parametersService.parameters$.value;
+    const context = this.contextService.context$.value;
 
     const selectedVariants = proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
 
-    const legalGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, true);
+    const legalGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, true, context);
 
     const legalGhgReductionPercentage = legalGhgReducedKt / targets.legalTargetGapGhgKt * 100;
     const legalGhgReductionColor = legalGhgReductionPercentage >= 100 ? 'accent' : 'warn';
@@ -46,7 +49,7 @@ export class ResultsService {
     const legalGhgTarget = new TargetResult(targets.legalTargetGapGhgKt, 'Kt', parameters.pricePerTonGhg * 1000, legalGhgReducedKt,
       legalGhgReductionColor, legalGhgReductionPercentage);
 
-    const euGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, false);
+    const euGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, false, context);
 
     const euGhgReductionPercentage = euGhgReducedKt / targets.euTargetGapGhgKt * 100;
     const euGhgTax = (targets.euTargetGapGhgKt - euGhgReducedKt) * parameters.pricePerTonGhg * 1000 * parameters.emissionGapMultiplier;
@@ -55,14 +58,14 @@ export class ResultsService {
     const euGhgTarget = new TargetResult(targets.euTargetGapGhgKt, 'Kt', parameters.pricePerTonGhg * 1000, euGhgReducedKt,
       euGhgReductionColor, euGhgReductionPercentage);
 
-    const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency, false);
+    const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency, false, context);
     const energySavedPercentage = energySavedGwh / targets.euTargetGapEeGwh * 100;
     const energySavedColor = energySavedPercentage >= 100 ? 'accent' : 'warn';
 
     const euEeTarget = new TargetResult(targets.euTargetGapEeGwh, 'GWh', 0, energySavedGwh,
       energySavedColor, energySavedPercentage);
 
-    const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy, false);
+    const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy, false, context);
     const reAddedPercentage = reAddedGwh / targets.euTargetGapReGwh * 100;
     const renewableEnergyAddedColor = reAddedPercentage >= 100 ? 'accent' : 'warn';
 
@@ -122,10 +125,18 @@ export class ResultsService {
     );
   }
 
-  private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean) {
-    return selectedVariants
+  private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean, context: Context) {
+    const singleRegionAmount = selectedVariants
       .filter(v => includeEts || v.proposal?.ets === false)
-      .flatMap(v => v.targets.filter(t => t.type === targetType).map(t => t.amount))
+      .flatMap(v => v.targets?.filter(t => t.type === targetType).map(t => t?.amount || 0))
       .reduce((a, b) => a + b, 0);
+
+    const federalAmountForRegion = selectedVariants
+      .filter(v => includeEts || v.proposal?.ets === false && v.regionalTargets && v.regionalTargets[context])
+      .filter(v => v.proposal?.policyLevel === PolicyLevel.federal)
+      .flatMap(v => v.regionalTargets![context].filter(t => t.type === targetType).map(t => t?.amount || 0))
+      .reduce((a, b) => a + b, 0);
+
+    return singleRegionAmount + federalAmountForRegion;
   }
 }

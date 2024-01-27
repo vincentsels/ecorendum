@@ -1,3 +1,5 @@
+import { Context } from "../context/context.service";
+
 export class Proposal {
   constructor(props: Partial<Proposal> = {}) {
     Object.assign(this, props);
@@ -40,18 +42,18 @@ export class Proposal {
     return this.variants[this.variants.length - 1].getTotalCost();
   }
 
-  getSingleOrMinTargetAmount(targetType: TargetType) {
-    return this.variants[0].getTargetAmount(targetType);
+  getSingleOrMinTargetAmount(targetType: TargetType, context: Context) {
+    return this.variants[0].getTargetAmount(targetType, context);
   }
 
-  getSelectedTargetAmount(targetType: TargetType) {
-    return this.getSelectedVariant()?.getTargetAmount(targetType) || 0;
+  getSelectedTargetAmount(targetType: TargetType, context: Context) {
+    return this.getSelectedVariant()?.getTargetAmount(targetType, context) || 0;
   }
 
-  getMaxTargetAmount(targetType: TargetType, ignore: boolean) {
+  getMaxTargetAmount(targetType: TargetType, ignore: boolean, context: Context) {
     if (ignore) return 0;
     if (this.variants.length === 1) return 0;
-    return this.variants[this.variants.length - 1].getTargetAmount(targetType);
+    return this.variants[this.variants.length - 1].getTargetAmount(targetType, context);
   }
 
   // getSlugTextInLanguage(lang: LanguageType): string {
@@ -113,17 +115,27 @@ export class Variant {
   }
 
   ambitionLevel: number = 1;
-  targets: Target[] = [];
   costInitial: number = 0;
   costPerYearFixed: number = 0;
   costPerYearVariable?: { [year: number]: number };
+
+  targets: Target[] = [];
+  regionalTargets?: { [region in Context]: Target[] };
+
   impacts: Impact[] = [];
 
   selected: boolean = false;
 
   proposal?: Proposal;
 
-  getTargetAmount = (type: TargetType) => this.targets.find(t => t.type === type)?.amount || 0;
+  getTargetAmount(type: TargetType, context: Context) {
+    if (this.regionalTargets && this.regionalTargets[context]) {
+      return this.regionalTargets[context].find(t => t.type === type)?.amount || 0;
+    }
+
+    return this.targets.find(t => t.type === type)?.amount || 0;
+  }
+
   getTotalCost = () => this.costInitial + (this.costPerYearFixed * 7) +
     (Object.values(this.costPerYearVariable || {}).reduce((a, b) => a + b, 0) || 0);
 }
