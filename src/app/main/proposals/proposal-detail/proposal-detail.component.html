@@ -59,43 +59,45 @@
     </mat-card>
   </div>
 
-  <h2 class="detail-section-header">
-    {{ 'Political party stances' | translate }}
-    <!-- <small class="all-parties-checkbox">
-      <mat-checkbox [(ngModel)]="allParties">{{ 'Show all parties' | translate }}</mat-checkbox>
-    </small> -->
-  </h2>
+  <ng-container *ngIf="!proposal.committed">
+    <h2 class="detail-section-header">
+      {{ 'Political party stances' | translate }}
+      <!-- <small class="all-parties-checkbox">
+        <mat-checkbox [(ngModel)]="allParties">{{ 'Show all parties' | translate }}</mat-checkbox>
+      </small> -->
+    </h2>
 
-  <div class="party-opinions">
-    <div *ngFor="let partyId of contextService.partyIds$ | async" class="party-opinion" ngClass.xs="party-opinion-xs">
-      <mat-expansion-panel class="party-opinion-panel">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <span class="party-opinion-title">
-              <app-party-logo-or-name [partyId]="partyId"></app-party-logo-or-name>
+    <div class="party-opinions">
+      <div *ngFor="let partyId of contextService.partyIds$ | async" class="party-opinion" ngClass.xs="party-opinion-xs">
+        <mat-expansion-panel class="party-opinion-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="party-opinion-title">
+                <app-party-logo-or-name [partyId]="partyId"></app-party-logo-or-name>
 
-              <ng-container *ngIf="partyOpinions?.[partyId]; let opinion">
-                <mat-icon *ngIf="opinion.selected" class="success">check_circle</mat-icon>
-                <mat-icon *ngIf="!opinion.selected" class="danger">cancel</mat-icon>
-              </ng-container>
-              <ng-container *ngIf="!partyOpinions?.[partyId]">
-                <mat-icon class="warning">help</mat-icon>
-              </ng-container>
-            </span>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
+                <ng-container *ngIf="partyOpinions?.[partyId]; let opinion">
+                  <mat-icon *ngIf="opinion.selected" class="success">check_circle</mat-icon>
+                  <mat-icon *ngIf="!opinion.selected" class="danger">cancel</mat-icon>
+                </ng-container>
+                <ng-container *ngIf="!partyOpinions?.[partyId]">
+                  <mat-icon class="warning">help</mat-icon>
+                </ng-container>
+              </span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
 
-        <ng-container *ngIf="partyOpinions?.[partyId]; let opinion">
-          <p *ngIf="opinion.selected && proposal.variants.length > 1 && getVariant(opinion.variant || 0); let variant">{{ proposal | translateProp:'variant.title':variant.ambitionLevel| async }}</p>
+          <ng-container *ngIf="partyOpinions?.[partyId]; let opinion">
+            <p *ngIf="opinion.selected && proposal.variants.length > 1 && getVariant(opinion.variant || 0); let variant">{{ proposal | translateProp:'variant.title':variant.ambitionLevel| async }}</p>
 
-          <p [innerHTML]="('proposals.' + proposal.slugEn + '.partyOpinions.' + enums.PartyId[opinion.partyId]) | translate"></p>
-        </ng-container>
-        <ng-container *ngIf="!partyOpinions?.[partyId]">
-          {{ 'noPartyOpinion' | translate:{ partyName: ('parties.' + enums.PartyId[partyId]) | translate } }}
-        </ng-container>
-      </mat-expansion-panel>
+            <p [innerHTML]="('proposals.' + proposal.slugEn + '.partyOpinions.' + enums.PartyId[opinion.partyId]) | translate"></p>
+          </ng-container>
+          <ng-container *ngIf="!partyOpinions?.[partyId]">
+            {{ 'noPartyOpinion' | translate:{ partyName: ('parties.' + enums.PartyId[partyId]) | translate } }}
+          </ng-container>
+        </mat-expansion-panel>
+      </div>
     </div>
-  </div>
+  </ng-container>
 
   <h2 class="detail-section-header">{{ 'Links' | translate }}</h2>
 

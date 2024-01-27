@@ -245,6 +245,9 @@
           "title": "Starting 2024",
           "summary": "In this scenario, it will be forbidden to sell vehicles with an gas and fuel oil boilers starting in 2024."
         }
+      },
+      "partyOpinions": {
+        "example": "The Example Party agrees with this measure and chooses the most ambitious level.<br /><br />This text would lay out in more detail the political party's stance on the measure, link to more background on their website, etc."
       }
     },
     "obligatory-display-of-carbon-footprint-on-products-and-services": {
@@ -263,6 +266,9 @@
           "title": "Starting 2024, complete, eco-score",
           "summary": "In this scenario, warehouses are required to start applying the eco-score starting in 2023, the footprint not only limited to CO2-emissions but also its exhaustive ecological and social impact. All products must be labeled (albeit with different starting dates as feasible for the sector)."
         }
+      },
+      "partyOpinions": {
+        "example": "The Example Party agrees with this measure and chooses the most ambitious level.<br /><br />This text would lay out in more detail the political party's stance on the measure, link to more background on their website, etc."
       }
     },
 
@@ -290,6 +296,9 @@
         "2": {
           "title": "60% reduction"
         }
+      },
+      "partyOpinions": {
+        "example": "The Example Party agrees with this measure and chooses the most ambitious level.<br /><br />This text would lay out in more detail the political party's stance on the measure, link to more background on their website, etc."
       }
     },
     "phase-out-carbon-intensive-industry": {
@@ -305,6 +314,9 @@
         "3": {
           "title": "30% reduction"
         }
+      },
+      "partyOpinions": {
+        "example": "The Example Party agrees with this measure and chooses the most ambitious level.<br /><br />This text would lay out in more detail the political party's stance on the measure, link to more background on their website, etc."
       }
     },
 
@@ -332,6 +344,9 @@
         "2": {
           "title": "60% reduction"
         }
+      },
+      "partyOpinions": {
+        "example": "The Example Party agrees with this measure and chooses the most ambitious level.<br /><br />This text would lay out in more detail the political party's stance on the measure, link to more background on their website, etc."
       }
     },
     "phase-out-carbon-intensive-industry-bxl": {
@@ -347,6 +362,9 @@
         "3": {
           "title": "30% reduction"
         }
+      },
+      "partyOpinions": {
+        "example": "The Example Party agrees with this measure and chooses the most ambitious level.<br /><br />This text would lay out in more detail the political party's stance on the measure, link to more background on their website, etc."
       }
     },
 
@@ -374,6 +392,9 @@
         "2": {
           "title": "60% reduction"
         }
+      },
+      "partyOpinions": {
+        "example": "The Example Party agrees with this measure and chooses the most ambitious level.<br /><br />This text would lay out in more detail the political party's stance on the measure, link to more background on their website, etc."
       }
     },
     "phase-out-carbon-intensive-industry-wal": {
@@ -389,6 +410,9 @@
         "3": {
           "title": "30% reduction"
         }
+      },
+      "partyOpinions": {
+        "example": "The Example Party agrees with this measure and chooses the most ambitious level.<br /><br />This text would lay out in more detail the political party's stance on the measure, link to more background on their website, etc."
       }
     }
   }

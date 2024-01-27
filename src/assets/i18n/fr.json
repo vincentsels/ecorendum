@@ -229,6 +229,9 @@
           "title": "À partir de 2024",
           "summary": "Dans ce scénario ambitieux, il sera interdit de vendre des véhicules avec un moteur à combustion interne à partir de 2024."
         }
+      },
+      "partyOpinions" : {
+        "example" : "Le parti de l'exemple est d'accord avec cette mesure et choisit le niveau le plus ambitieux.<br /><br />Ce texte exposerait plus en détail la position du parti politique sur la mesure, renverrait à plus d'informations sur son site web, etc."
       }
     },
     "phase-out-gas-fuel-oil-boilers": {
@@ -247,6 +250,9 @@
           "title": "À partir de 2024",
           "summary": "Dans ce scénario, il sera interdit de vendre des véhicules avec des chaudières à gaz et à mazout à partir de 2024."
         }
+      },
+      "partyOpinions" : {
+        "example" : "Le parti de l'exemple est d'accord avec cette mesure et choisit le niveau le plus ambitieux.<br /><br />Ce texte exposerait plus en détail la position du parti politique sur la mesure, renverrait à plus d'informations sur son site web, etc."
       }
     },
     "reduction-cattle-pig-herds": {
@@ -259,6 +265,9 @@
         "2": {
           "title": "Réduction de 60%"
         }
+      },
+      "partyOpinions" : {
+        "example" : "Le parti de l'exemple est d'accord avec cette mesure et choisit le niveau le plus ambitieux.<br /><br />Ce texte exposerait plus en détail la position du parti politique sur la mesure, renverrait à plus d'informations sur son site web, etc."
       }
     },
     "phase-out-carbon-intensive-industry": {
@@ -274,6 +283,9 @@
         "3": {
           "title": "Réduction de 30%"
         }
+      },
+      "partyOpinions" : {
+        "example" : "Le parti de l'exemple est d'accord avec cette mesure et choisit le niveau le plus ambitieux.<br /><br />Ce texte exposerait plus en détail la position du parti politique sur la mesure, renverrait à plus d'informations sur son site web, etc."
       }
     },
     "obligatory-display-of-carbon-footprint-on-products-and-services": {
@@ -292,6 +304,9 @@
           "title": "À partir de 2024, complet, éco-score",
           "summary": "Dans ce scénario, les entrepôts sont tenus de commencer à appliquer l'éco-score à partir de 2023, l'empreinte ne se limitant pas uniquement aux émissions de CO2 mais aussi à son impact écologique et social exhaustif. Tous les produits doivent être étiquetés (bien que avec des dates de début différentes selon la faisabilité pour le secteur)."
         }
+      },
+      "partyOpinions" : {
+        "example" : "Le parti de l'exemple est d'accord avec cette mesure et choisit le niveau le plus ambitieux.<br /><br />Ce texte exposerait plus en détail la position du parti politique sur la mesure, renverrait à plus d'informations sur son site web, etc."
       }
     }
   }

@@ -708,3 +708,7 @@ mat-card > :last-child:not(mat-card-footer) {
 .dark-dialog .mat-mdc-dialog-container .mdc-dialog__content {
   color: inherit;
 }
+
+.mdc-button {
+  min-width: unset !important;
+}

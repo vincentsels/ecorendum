@@ -119,7 +119,7 @@
   "emissionGapMultiplierParamDescription": "Bij het berekenen van de emissiehandelsprijs gaan we er eenvoudig van uit dat het totale, cumulatieve tekort of overschot een veelvoud is van het tekort of overschot voor 2030. De 2030-waarde wordt met deze waarde vermenigvuldigd.",
   "Reset to default: ": "Standaardwaarde herstellen: ",
   "Reset all to defaults": "Alle standaardwaarden herstellen",
-  "noPartyOpinion": "{{ partijnaam }} heeft nog geen mening over deze maatregel ingediend. Neem contact op met uw vertegenwoordigers om hen te vragen deel te nemen aan de discussie!",
+  "noPartyOpinion": "{{ partyName }} heeft nog geen mening over deze maatregel ingediend. Neem contact op met uw vertegenwoordigers om hen te vragen deel te nemen aan de discussie!",
 
   "allTargetsMet": "Gefeliciteerd! Met de maatregelen die je hebt geselecteerd, kan België alle doelstellingen opgelegd door de klimaatzaak en Europa behalen.",
   "profitMessage": "Hierdoor zal België naar schatting € {{ profit }} bijverdienen",
@@ -227,6 +227,9 @@
           "title": "Vanaf 2024",
           "summary": "In dit ambitieuze scenario is het verboden om voertuigen met een verbrandingsmotor te verkopen vanaf 2024."
         }
+      },
+      "partijOpinies": {
+        "example": "De Voorbeeldpartij is het eens met deze maatregel en kiest voor het meest ambitieuze niveau.<br /><br />Deze tekst zou in meer detail het standpunt van de politieke partij over de maatregel uiteenzetten, linken naar meer achtergrond op hun website, enz."
       }
     },
     "phase-out-gas-fuel-oil-boilers": {
@@ -245,6 +248,9 @@
           "title": "Vanaf 2024",
           "summary": "In dit scenario is het verboden om voertuigen met gas- en stookolieketels te verkopen vanaf 2024."
         }
+      },
+      "partijOpinies": {
+        "example": "De Voorbeeldpartij is het eens met deze maatregel en kiest voor het meest ambitieuze niveau.<br /><br />Deze tekst zou in meer detail het standpunt van de politieke partij over de maatregel uiteenzetten, linken naar meer achtergrond op hun website, enz."
       }
     },
     "reduction-cattle-pig-herds": {
@@ -257,6 +263,9 @@
         "2": {
           "title": "60% afbouw"
         }
+      },
+      "partijOpinies": {
+        "example": "De Voorbeeldpartij is het eens met deze maatregel en kiest voor het meest ambitieuze niveau.<br /><br />Deze tekst zou in meer detail het standpunt van de politieke partij over de maatregel uiteenzetten, linken naar meer achtergrond op hun website, enz."
       }
     },
     "phase-out-carbon-intensive-industry": {
@@ -272,6 +281,9 @@
         "3": {
           "title": "30% afbouw"
         }
+      },
+      "partijOpinies": {
+        "example": "De Voorbeeldpartij is het eens met deze maatregel en kiest voor het meest ambitieuze niveau.<br /><br />Deze tekst zou in meer detail het standpunt van de politieke partij over de maatregel uiteenzetten, linken naar meer achtergrond op hun website, enz."
       }
     },
     "obligatory-display-of-carbon-footprint-on-products-and-services": {
@@ -290,6 +302,9 @@
           "title": "Vanaf 2024, compleet, eco-score",
           "summary": "In dit scenario zijn magazijnen verplicht om de eco-score vanaf 2023 toe te passen, de voetafdruk is niet alleen beperkt tot CO2-uitstoot maar ook de uitgebreide ecologische en sociale impact. Alle producten moeten worden gelabeld (hoewel met verschillende startdata haalbaar voor de sector)."
         }
+      },
+      "partijOpinies": {
+        "example": "De Voorbeeldpartij is het eens met deze maatregel en kiest voor het meest ambitieuze niveau.<br /><br />Deze tekst zou in meer detail het standpunt van de politieke partij over de maatregel uiteenzetten, linken naar meer achtergrond op hun website, enz."
       }
     }
   }
