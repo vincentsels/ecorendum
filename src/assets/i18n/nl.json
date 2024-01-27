@@ -8,7 +8,7 @@
   "local": "Lokaal",
   "provincial": "Provinciaal",
   "flemish": "Vlaams",
-  "walonian": "Waals",
+  "wallonian": "Waals",
   "brusselian": "Brussels",
   "federal": "Federaal",
 
@@ -29,6 +29,13 @@
   "electricityProduction": "Elektriciteitsproductie",
   "general": "Algemeen",
   "other": "Andere",
+
+  "federalGovernment": "Federale regering",
+  "flemishGovernment": "Vlaamse regering",
+  "brusselianGovernment": "Brusselse regering",
+  "wallonianGovernment": "Waalse regering",
+  "veka": "VEKA",
+  "unknown": "Niet bekend",
 
   "ghgReduction": "Broeikasgasreductie",
   "energyEfficiency": "Energie efficientie",

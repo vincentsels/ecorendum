@@ -146,7 +146,6 @@ export class Target {
   }
 
   type?: TargetType;
-  year?: number;
   amount: number = 0;
 }
 

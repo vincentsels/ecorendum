@@ -8,7 +8,7 @@
   "local": "Local",
   "provincial": "Provincial",
   "flemish": "Flamand",
-  "walonian": "Wallon",
+  "wallonian": "Wallon",
   "brusselian": "Bruxelles",
   "federal": "Fédéral",
 
@@ -29,6 +29,13 @@
   "electricityProduction": "Production d'électricité",
   "general": "Général",
   "other": "Autre",
+
+  "federalGovernment": "Gouvernement fédéral",
+  "FlemishGovernment" : "Gouvernement flamand",
+  "brusselianGovernment" : "Gouvernement bruxellois",
+  "wallonianGovernment" : "Gouvernement wallon",
+  "veka" : "VEKA",
+  "unknown" : "Pas connu",
 
   "ghgReduction": "Réduction des gaz à effet de serre",
   "energyEfficiency": "Efficacité énergétique",

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PartyId } from '../main/party';
-import { ImpactAmount, ImpactDomain, PolicyLevel, Sector, TargetType } from '../main/proposals/proposal';
+import { ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, TargetType } from '../main/proposals/proposal';
 
 @Injectable()
 export class EnumsService {
@@ -10,4 +10,5 @@ export class EnumsService {
   ImpactAmount = ImpactAmount;
   PartyId = PartyId;
   PolicyLevel = PolicyLevel;
+  ProposalOrigin = ProposalOrigin;
 }

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, ProposalOrigin, Sector, Target, Variant } from '../proposal';
+import { EnumsService } from '../../../common/enums.service';
 
 @Component({
   selector: 'app-proposal-editor',
@@ -9,9 +10,14 @@ import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, ProposalOrig
 export class ProposalEditorComponent {
   @Input() proposal: Proposal = new Proposal();
 
-  policyLevels = Object.values(PolicyLevel);
-  sectors = Object.values(Sector);
-  proposalOrigins = Object.values(ProposalOrigin);
+  // Initialize with a default variant
+  constructor(public enums: EnumsService) {
+    this.addVariant();
+  }
+
+  policyLevels = Object.keys(PolicyLevel).filter(Number).map(Number);
+  sectors = Object.keys(Sector).filter(Number).map(Number);
+  proposalOrigins = Object.keys(ProposalOrigin).filter(Number).map(Number);
 
   addVariant() {
     this.proposal.variants.push(new Variant());
@@ -37,10 +43,5 @@ export class ProposalEditorComponent {
 
   addImpact(variant: Variant) {
     variant.impacts.push(new Impact(ImpactDomain.aerosols, ImpactAmount.neutral));
-  }
-
-  // Initialize with a default variant
-  constructor() {
-    this.addVariant();
   }
 }
