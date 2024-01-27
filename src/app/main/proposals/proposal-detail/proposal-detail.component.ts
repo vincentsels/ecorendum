@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { EnumsService } from '../../../common/enums.service';
-import { PARTIES_WITH_LOGOS } from '../../party';
 import { Variant } from '../proposal';
-import { ProposalDetail } from '../proposal-details';
+import { PartyOpinion, ProposalDetail } from '../proposal-details';
 import { ProposalService } from '../proposal.service';
 import { LanguageService } from '../../../common/language.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import { ContextService } from '../../context/context.service';
+import { PartyId } from '../../party';
 
 @Component({
   selector: 'app-proposal-detail',
@@ -17,16 +18,30 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./proposal-detail.component.scss']
 })
 export class ProposalDetailComponent implements OnInit {
-  @Input() proposal?: ProposalDetail;
+  private _proposal?: ProposalDetail | undefined;
+  public get proposal(): ProposalDetail | undefined {
+    return this._proposal;
+  }
+  @Input()
+  public set proposal(value: ProposalDetail | undefined) {
+    this._proposal = value;
+    this.partyOpinions = (value?.partyOpinions || []).reduce((o, po) => {
+      o[po.partyId] = po;
+      return o;
+    }, {} as any)
+  }
+
   @Input() dialog: boolean = false;
 
   @Output('closeDialog') closeDialogEmitter = new EventEmitter();
 
   hasDetails = true;
   allParties: boolean = false;
+  partyOpinions?: { [id: number]: PartyOpinion };
 
   constructor(public enums: EnumsService, public service: ProposalService, public languageService: LanguageService,
-    private route: ActivatedRoute, private snackBar: MatSnackBar, private translate: TranslateService) {}
+    public contextService: ContextService,  private route: ActivatedRoute, private snackBar: MatSnackBar,
+    private translate: TranslateService) {}
 
   ngOnInit() {
     if (!this.dialog) {
@@ -63,8 +78,4 @@ export class ProposalDetailComponent implements OnInit {
   getVariant = (variantId: number) => this.proposal?.variants.find(v => v.ambitionLevel === variantId);
 
   closeDialog = () => this.closeDialogEmitter.emit();
-
-  getOpinions = () => this.allParties
-    ? this.proposal?.partyOpinions
-    : this.proposal?.partyOpinions?.filter(p => PARTIES_WITH_LOGOS.includes(p.partyId))
 }

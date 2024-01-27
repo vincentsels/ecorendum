@@ -1,5 +1,6 @@
+import { PartyId } from '../../party';
 import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
-import { ProposalDetail } from '../proposal-details';
+import { PartyOpinion, ProposalDetail } from '../proposal-details';
 
 export const PROPOSALS_FLANDERS: ProposalDetail[] = [
   new ProposalDetail({
@@ -31,7 +32,10 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: 2000 }),
         ]
       }),
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 1),
+    ],
   }),
   new ProposalDetail({
     id: 102,
@@ -66,7 +70,10 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: -1000 }),
         ]
       })
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 1),
+    ],
   }),
   new ProposalDetail({
     id: 103,
@@ -96,7 +103,10 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
           new Target({ type: TargetType.ghgReduction, amount: 2000 }),
         ]
       })
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 1),
+    ],
   }),
   new ProposalDetail({
     id: 104,
@@ -147,7 +157,10 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
         ]
       }),
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 2),
+    ],
   }),
   new ProposalDetail({
     id: 105,
@@ -218,6 +231,9 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: 3000 }),
         ]
       }),
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 3),
+    ],
   }),
 ]

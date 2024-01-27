@@ -1,5 +1,6 @@
+import { PartyId } from '../../party';
 import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
-import { ProposalDetail } from '../proposal-details';
+import { PartyOpinion, ProposalDetail } from '../proposal-details';
 
 export const PROPOSALS_FEDERAL: ProposalDetail[] = [
   new ProposalDetail({
@@ -66,7 +67,10 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: 3000 }),
         ]
       })
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 3),
+    ],
   }),
   new ProposalDetail({
     id: 2,
@@ -123,7 +127,10 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: -1500 }),
         ]
       }),
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 3),
+    ],
   }),
   new ProposalDetail({
     id: 3,
@@ -188,6 +195,9 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
           new Target({ type: TargetType.ghgReduction, amount: 1500 }),
         ]
       })
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 3),
+    ],
   }),
 ]

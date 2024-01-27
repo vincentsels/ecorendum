@@ -7,8 +7,6 @@ export class ProposalDetail extends Proposal {
     Object.assign(this, init);
   }
 
-  description?: TranslatedText[] = [];
-
   partyOpinions?: PartyOpinion[] = [];
 
   linksToMediaArticles: Link[] = [];
@@ -23,8 +21,8 @@ export class ProposalDetail extends Proposal {
 export class PartyOpinion {
   constructor(
     public partyId: PartyId,
-    public proposalId: number,
-    public opinion: TranslatedText[] = [],
+    // public proposalId: number,
+    // public opinion: TranslatedText[] = [],
     public selected: boolean,
     public variant?: number,
   ) {}
@@ -32,7 +30,7 @@ export class PartyOpinion {
 
 export class Link {
   constructor(
-    public proposalId: number,
+    // public proposalId: number,
     public url: string,
     public title: string,
     public language: LanguageType) {}
@@ -41,7 +39,7 @@ export class Link {
 export class Faq {
   constructor(
     public id: string,
-    public proposalId: number,
+    // public proposalId: number,
     public question: TranslatedText[] = [],
     public slug: TranslatedText[] = [],
     public shortAnswer: TranslatedText[] = [],

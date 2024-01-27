@@ -119,6 +119,7 @@
   "emissionGapMultiplierParamDescription": "While calculating the emission trading price, we make the simple assumption that the total, cumulative deficit or surplus is a multiple of the 2030 gap or surplus. The 2030 value is multiplied by this value.",
   "Reset to default: ": "Reset to default: ",
   "Reset all to defaults": "Reset all to defaults",
+  "noPartyOpinion": "{{ partyName }} has not yet submitted their opinion on this measure. Contact your representatives to ask them to participate in the discussion!",
 
   "allTargetsMet": "Congratulations! The measures you selected allow Belgium to meet all the targets set by the climate case and by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated € {{ profit }}",
@@ -223,6 +224,9 @@
           "title": "Starting 2024",
           "summary": "In this ambitious scenario, it will be forbidden to sell vehicles with an internal combustion engine starting in 2024."
         }
+      },
+      "partyOpinions": {
+        "example": "The Example Party agrees with this measure and chooses the most ambitious level.<br /><br />This text would lay out in more detail the political party's stance on the measure, link to more background on their website, etc."
       }
     },
     "phase-out-gas-fuel-oil-boilers": {

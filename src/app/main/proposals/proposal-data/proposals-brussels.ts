@@ -1,5 +1,6 @@
+import { PartyId } from '../../party';
 import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
-import { ProposalDetail } from '../proposal-details';
+import { PartyOpinion, ProposalDetail } from '../proposal-details';
 
 export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
   new ProposalDetail({
@@ -31,7 +32,10 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: 200 }),
         ]
       }),
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 1),
+    ],
   }),
   new ProposalDetail({
     id: 202,
@@ -66,7 +70,10 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: -100 }),
         ]
       })
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 1),
+    ],
   }),
   new ProposalDetail({
     id: 203,
@@ -96,7 +103,10 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
           new Target({ type: TargetType.ghgReduction, amount: 200 }),
         ]
       })
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 1),
+    ],
   }),
   new ProposalDetail({
     id: 204,
@@ -147,7 +157,10 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: 100 }),
         ]
       }),
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 2),
+    ],
   }),
   new ProposalDetail({
     id: 205,
@@ -218,6 +231,9 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: 300 }),
         ]
       }),
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 3),
+    ],
   }),
 ]

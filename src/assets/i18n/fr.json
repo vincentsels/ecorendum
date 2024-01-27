@@ -119,6 +119,7 @@
   "emissionGapMultiplierParamDescription" : "Lors du calcul du prix des échanges de quotas d'émission, nous partons de l'hypothèse simple que le déficit ou l'excédent total et cumulé est un multiple de l'écart ou de l'excédent de 2030. La valeur de 2030 est multipliée par cette valeur",
   "Reset to default: ": "Réinitialiser par défaut : ",
   "Reset all to defaults": "Réinitialiser tous les paramètres par défaut",
+  "noPartyOpinion" : "{{ partyName }} n'a pas encore donné son avis sur cette mesure. Contactez vos représentants pour leur demander de participer à la discussion !",
 
   "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'affaire climat et par l'Europe.",
   "profitMessage": "Cela permettra à la Belgique de recevoir une estimation de € {{ profit }}",

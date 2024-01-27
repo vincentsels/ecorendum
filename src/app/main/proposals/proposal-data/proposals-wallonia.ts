@@ -1,5 +1,6 @@
+import { PartyId } from '../../party';
 import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
-import { ProposalDetail } from '../proposal-details';
+import { PartyOpinion, ProposalDetail } from '../proposal-details';
 
 export const PROPOSALS_WALLONIA: ProposalDetail[] = [
   new ProposalDetail({
@@ -31,7 +32,10 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
         ]
       }),
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 1),
+    ],
   }),
   new ProposalDetail({
     id: 302,
@@ -66,7 +70,10 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: -500 }),
         ]
       })
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 1),
+    ],
   }),
   new ProposalDetail({
     id: 303,
@@ -96,7 +103,10 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
           new Target({ type: TargetType.ghgReduction, amount: 1000 }),
         ]
       })
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 1),
+    ],
   }),
   new ProposalDetail({
     id: 304,
@@ -147,7 +157,10 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: 500 }),
         ]
       }),
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 2),
+    ],
   }),
   new ProposalDetail({
     id: 305,
@@ -218,6 +231,9 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
           new Target({ type: TargetType.energyEfficiency, amount: 1500 }),
         ]
       }),
-    ]
+    ],
+    partyOpinions: [
+      new PartyOpinion(PartyId.example, true, 3),
+    ],
   }),
 ]

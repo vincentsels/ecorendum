@@ -119,6 +119,7 @@
   "emissionGapMultiplierParamDescription": "Bij het berekenen van de emissiehandelsprijs gaan we er eenvoudig van uit dat het totale, cumulatieve tekort of overschot een veelvoud is van het tekort of overschot voor 2030. De 2030-waarde wordt met deze waarde vermenigvuldigd.",
   "Reset to default: ": "Standaardwaarde herstellen: ",
   "Reset all to defaults": "Alle standaardwaarden herstellen",
+  "noPartyOpinion": "{{ partijnaam }} heeft nog geen mening over deze maatregel ingediend. Neem contact op met uw vertegenwoordigers om hen te vragen deel te nemen aan de discussie!",
 
   "allTargetsMet": "Gefeliciteerd! Met de maatregelen die je hebt geselecteerd, kan België alle doelstellingen opgelegd door de klimaatzaak en Europa behalen.",
   "profitMessage": "Hierdoor zal België naar schatting € {{ profit }} bijverdienen",

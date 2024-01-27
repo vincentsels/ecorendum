@@ -11,34 +11,6 @@ export class DummyProposalDataGeneratorService {
 
   public initializeDummyData(proposals: ProposalDetail[]) {
     for (let proposal of proposals) {
-      // Random descriptions
-      proposal.description = [
-        new TranslatedText('nl', this.loremIpsumService.generateParagraphs()),
-        new TranslatedText('fr', this.loremIpsumService.generateParagraphs()),
-        new TranslatedText('en', this.loremIpsumService.generateParagraphs()),
-      ];
-
-      // Random party opinions
-      for (let partyId of PARTY_IDS) {
-        if (toss()) {
-          proposal.partyOpinions?.push(
-            new PartyOpinion(partyId, proposal.id, [
-              new TranslatedText('nl', this.loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('fr', this.loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('en', this.loremIpsumService.generateParagraphs(1)),
-            ], true, rnd(1, proposal.variants.length))
-          );
-        } else {
-          proposal.partyOpinions?.push(
-            new PartyOpinion(partyId, proposal.id, [
-              new TranslatedText('nl', this.loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('fr', this.loremIpsumService.generateParagraphs(1)),
-              new TranslatedText('en', this.loremIpsumService.generateParagraphs(1)),
-            ], false)
-          );
-        }
-      }
-
       // Random links
       for (let i = 0; i < rnd(1, 3); i++) proposal.linksToDebates?.push(this.generateRandomLink(proposal.id));
       for (let i = 0; i < rnd(0, 2); i++) proposal.linksToExamplesAbroad?.push(this.generateRandomLink(proposal.id));
@@ -48,7 +20,7 @@ export class DummyProposalDataGeneratorService {
 
       // Random faqs
       for (let i = 0; i < rnd(0, 8); i++) {
-        proposal.faqs?.push(new Faq(proposal.id + '-' + i, proposal.id, [
+        proposal.faqs?.push(new Faq(proposal.id + '-' + i, [
           new TranslatedText('nl', this.loremIpsumService.generateWords(rnd(4, 12)) + '?'),
           new TranslatedText('fr', this.loremIpsumService.generateWords(rnd(4, 12)) + ' ?'),
           new TranslatedText('en', this.loremIpsumService.generateWords(rnd(4, 12)) + '?')
@@ -72,6 +44,6 @@ export class DummyProposalDataGeneratorService {
     }
   }
 
-  public generateRandomLink = (proposalId: number) => new Link(proposalId, 'https://ecorendum.be',
+  public generateRandomLink = (proposalId: number) => new Link('https://ecorendum.be',
     this.loremIpsumService.generateWords(rnd(2, 8)), toss() ? 'nl' : toss() ? 'fr' : 'en');
 }
