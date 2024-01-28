@@ -42,12 +42,26 @@ export class ProposalEditorComponent {
   impactDomains = Object.values(ImpactDomain).filter(Number).map(Number);
   impactAmounts = Object.values(ImpactAmount).filter(Number).map(Number);
 
+  selectedVariant = 0;
+
   load(selectedProposal: ProposalDetail) {
     this.proposal = selectedProposal;
   }
 
   addVariant() {
-    this.proposal.variants.push(new Variant());
+    const variant = new Variant();
+    variant.ambitionLevel = this.proposal.variants.length + 1;
+    variant.proposal = this.proposal;
+    this.proposal.variants.push(variant);
+    this.selectedVariant = variant.ambitionLevel - 1;
+  }
+
+  copyVariant(origVariant: Variant) {
+    const variant = new Variant(origVariant);
+    variant.ambitionLevel = this.proposal.variants.length + 1;
+    variant.proposal = this.proposal;
+    this.proposal.variants.push(variant);
+    this.selectedVariant = variant.ambitionLevel - 1;
   }
 
   removeVariant(i: number) {
