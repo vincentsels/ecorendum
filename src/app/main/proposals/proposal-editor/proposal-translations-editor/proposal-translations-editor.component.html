@@ -16,7 +16,13 @@
 
         <div *ngFor="let proposalVariant of proposal.variants; let i = index;">
           <div *ngIf="data[lang]?.variants?.[proposalVariant.ambitionLevel]; let variant;">
-            <h3>{{ 'Variant ' + proposalVariant.ambitionLevel }}</h3>
+            <h3>{{ 'Variant ' + proposalVariant.ambitionLevel }}
+              <small *ngIf="i !== 0">
+                <button mat-icon-button matTooltip="Copy from previous" (click)="copyFromPrevious(lang, proposalVariant.ambitionLevel)">
+                  <mat-icon class="inline" style="font-size: 100%;">download_2</mat-icon>
+                </button>
+              </small>
+            </h3>
 
             <div class="row-form">
               <mat-form-field appearance="fill">

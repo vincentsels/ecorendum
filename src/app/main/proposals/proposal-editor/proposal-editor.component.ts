@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 import { PolicyLevel, Proposal, Variant } from '../proposal';
 import { EnumsService } from '../../../common/enums.service';
@@ -9,6 +9,7 @@ import { PROPOSALS_FLANDERS } from '../proposal-data/proposals-flanders';
 import { ContextType } from '../../context/context.service';
 import { PROPOSALS_BRUSSELS } from '../proposal-data/proposals-brussels';
 import { PROPOSALS_WALLONIA } from '../proposal-data/proposals-wallonia';
+import { ProposalTranslationsEditorComponent } from './proposal-translations-editor/proposal-translations-editor.component';
 
 type AllRegionsType = ContextType | 'federal';
 
@@ -19,6 +20,8 @@ type AllRegionsType = ContextType | 'federal';
 })
 export class ProposalEditorComponent {
   proposal: Proposal = new Proposal();
+
+  @ViewChild('translationsEditor') translationsEditor?: ProposalTranslationsEditorComponent;
 
   // Initialize with a default variant
   constructor(public enums: EnumsService, public proposalService: ProposalService) {
@@ -58,10 +61,14 @@ export class ProposalEditorComponent {
 
   download() {
     const serialized = this.proposal.serialize();
-
     const fileName = this.proposal.id + '-' + this.proposal.slugEn + '.json';
-
     this.downloadFile(serialized, fileName);
+
+    if (this.translationsEditor) {
+      const translationsSerialized = this.translationsEditor.exportData();
+      const translationsFileName = this.proposal.id + '-' + this.proposal.slugEn + '-translations.json';
+      this.downloadFile(translationsSerialized, translationsFileName);
+    }
   }
 
   private downloadFile(data: string, fileName: string): void {

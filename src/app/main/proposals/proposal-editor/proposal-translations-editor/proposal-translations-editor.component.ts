@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 import { LanguageType, Proposal } from '../../proposal';
 import { EnumsService } from '../../../../common/enums.service';
-import { ProposalTranslations, TranslationsContainer, VariantTranslations, VariantsContainer } from './translation-data';
+import { ProposalTranslations, TranslationsContainer, TranslationsContainerForExport, VariantTranslations, VariantsContainer } from './translation-data';
 
 @Component({
   selector: 'app-proposal-translations-editor',
@@ -24,7 +24,6 @@ export class ProposalTranslationsEditorComponent {
       nl: this.generateProposalTranslations(),
       fr: this.generateProposalTranslations(),
     };
-
   }
 
   constructor(public enums: EnumsService) {
@@ -41,5 +40,22 @@ export class ProposalTranslationsEditorComponent {
     }, {} as VariantsContainer)
 
     return trans;
+  }
+
+  copyFromPrevious(lang: LanguageType, variantId: number) {
+    if (!this.data?.[lang]?.variants?.[variantId]) return;
+
+    this.data[lang].variants![variantId].title = this.data[lang].variants![variantId - 1].title;
+    this.data[lang].variants![variantId].summary = this.data[lang].variants![variantId - 1].summary;
+  }
+
+  exportData() {
+    const containerForExport = {
+      en: { [this.proposal.slugEn]: this.data!.en, },
+      nl: { [this.proposal.slugEn]: this.data!.nl, },
+      fr: { [this.proposal.slugEn]: this.data!.fr, }
+    } as TranslationsContainerForExport
+
+    return JSON.stringify(containerForExport);
   }
 }
