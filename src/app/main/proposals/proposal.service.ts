@@ -5,7 +5,7 @@ import { PROPOSALS_FEDERAL } from './proposal-data/proposals-federal';
 import { PROPOSALS_FLANDERS } from './proposal-data/proposals-flanders';
 import { PROPOSALS_BRUSSELS } from './proposal-data/proposals-brussels';
 import { PROPOSALS_WALLONIA } from './proposal-data/proposals-wallonia';
-import { ProposalSet, SelectedProposal, Variant } from './proposal';
+import { ProposalSet, SelectedProposalType, Variant } from './proposal';
 import { ProposalDetail } from './proposal-details';
 import { ContextService } from '../context/context.service';
 import { DummyProposalDataGeneratorService } from './dummy-proposal-data-generator.service';
@@ -88,7 +88,7 @@ export class ProposalService {
     const proposals = this.getAllProposalsForSelectedContext();
     return proposals
       .filter(p => p.committed)
-      .map(p => ({ id: p.id, variant: p.variants.find(v => v.selected)?.ambitionLevel } as SelectedProposal))
+      .map(p => ({ id: p.id, variant: p.variants.find(v => v.selected)?.ambitionLevel } as SelectedProposalType))
       .filter(s => s.variant);
   }
 
@@ -257,7 +257,7 @@ export class ProposalService {
   private getSetFromSelectedProposals(proposals: ProposalDetail[]): ProposalSet {
     return proposals
       .filter(p => !p.committed)
-      .map(p => ({ id: p.id, variant: p.variants.find(v => v.selected)?.ambitionLevel } as SelectedProposal))
+      .map(p => ({ id: p.id, variant: p.variants.find(v => v.selected)?.ambitionLevel } as SelectedProposalType))
       .filter(s => s.variant);
   }
 

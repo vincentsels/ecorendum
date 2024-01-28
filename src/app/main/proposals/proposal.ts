@@ -1,4 +1,4 @@
-import { Context } from "../context/context.service";
+import { ContextType } from "../context/context.service";
 
 export class Proposal {
   constructor(props: Partial<Proposal> = {}) {
@@ -42,15 +42,15 @@ export class Proposal {
     return this.variants[this.variants.length - 1].getTotalCost();
   }
 
-  getSingleOrMinTargetAmount(targetType: TargetType, context: Context) {
+  getSingleOrMinTargetAmount(targetType: TargetType, context: ContextType) {
     return this.variants[0].getTargetAmount(targetType, context);
   }
 
-  getSelectedTargetAmount(targetType: TargetType, context: Context) {
+  getSelectedTargetAmount(targetType: TargetType, context: ContextType) {
     return this.getSelectedVariant()?.getTargetAmount(targetType, context) || 0;
   }
 
-  getMaxTargetAmount(targetType: TargetType, ignore: boolean, context: Context) {
+  getMaxTargetAmount(targetType: TargetType, ignore: boolean, context: ContextType) {
     if (ignore) return 0;
     if (this.variants.length === 1) return 0;
     return this.variants[this.variants.length - 1].getTargetAmount(targetType, context);
@@ -120,7 +120,7 @@ export class Variant {
   costPerYearVariable?: { [year: number]: number };
 
   targets: Target[] = [];
-  regionalTargets?: { [region in Context]: Target[] };
+  regionalTargets?: { [region in ContextType]: Target[] };
 
   impacts: Impact[] = [];
 
@@ -128,7 +128,7 @@ export class Variant {
 
   proposal?: Proposal;
 
-  getTargetAmount(type: TargetType, context: Context) {
+  getTargetAmount(type: TargetType, context: ContextType) {
     if (this.regionalTargets && this.regionalTargets[context]) {
       return this.regionalTargets[context].find(t => t.type === type)?.amount || 0;
     }
@@ -239,9 +239,9 @@ export class TranslatedText {
 
 export type LanguageType = 'en' | 'nl' | 'fr';
 
-export type SelectedProposal = {
+export type SelectedProposalType = {
   id: number,
   variant: number,
 };
 
-export type ProposalSet = SelectedProposal[];
+export type ProposalSet = SelectedProposalType[];

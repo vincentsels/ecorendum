@@ -6,11 +6,11 @@ import { PARTIES_BRUSSELS, PARTIES_FLANDERS, PARTIES_WALLONIA, PartyId } from ".
 const LS_KEY_SELECTED_CONTEXT = 'ecorendum.context';
 const DEFAULT_CONTEXT = 'flanders'; // TODO: based on lang/region
 
-export type Context = 'flanders' | 'brussels' | 'wallonia';
+export type ContextType = 'flanders' | 'brussels' | 'wallonia';
 
 @Injectable()
 export class ContextService {
-  context$: BehaviorSubject<Context>;
+  context$: BehaviorSubject<ContextType>;
 
   proposalSets$: Observable<ProposalSetType[]>;
   partyIds$: Observable<PartyId[]>;
@@ -20,7 +20,7 @@ export class ContextService {
   isWallonianContext$: Observable<boolean>;
 
   constructor() {
-    this.context$ = new BehaviorSubject<Context>(localStorage.getItem(LS_KEY_SELECTED_CONTEXT) as Context ?? DEFAULT_CONTEXT);
+    this.context$ = new BehaviorSubject<ContextType>(localStorage.getItem(LS_KEY_SELECTED_CONTEXT) as ContextType ?? DEFAULT_CONTEXT);
 
     this.proposalSets$ = this.context$.pipe(map(c => this.getProposalSetTypesForContext(c)));
     this.partyIds$ = this.context$.pipe(map(c => this.getPartiesForContext(c)));
@@ -30,12 +30,12 @@ export class ContextService {
     this.isWallonianContext$ = this.context$.pipe(map(c => c === 'wallonia'));
   }
 
-  public setContext(context: Context) {
+  public setContext(context: ContextType) {
     this.context$.next(context);
     localStorage.setItem(LS_KEY_SELECTED_CONTEXT, context);
   }
 
-  private getProposalSetTypesForContext(context: Context) {
+  private getProposalSetTypesForContext(context: ContextType) {
     switch (context) {
       case 'flanders': return PROPOSAL_SETS_FLANDERS;
       case 'brussels': return PROPOSAL_SETS_BRUSSELS;
@@ -43,7 +43,7 @@ export class ContextService {
     }
   }
 
-  public getPartiesForContext(context: Context) {
+  public getPartiesForContext(context: ContextType) {
     switch (context) {
       case 'flanders': return PARTIES_FLANDERS;
       case 'brussels': return PARTIES_BRUSSELS;

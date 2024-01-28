@@ -1,4 +1,16 @@
 <form #proposalForm="ngForm" class="responsive-page-container column-form">
+  <!-- Load existing -->
+  <mat-form-field appearance="fill" style="flex: 1">
+    <mat-label>Selected proposal</mat-label>
+    <mat-select name="selectedProposal" #selectedProposal (selectionChange)="load($event.value)">
+      <mat-optgroup *ngFor="let region of allRegions">{{ region | translate }}
+        <mat-option *ngFor="let proposal of allProposals[region]" [value]="proposal">
+          {{ 'proposals.' + proposal.slugEn + '.title' | translate }}
+        </mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+
   <!-- ID (Read-only) -->
   <mat-form-field appearance="fill">
     <mat-label>ID</mat-label>
@@ -71,7 +83,6 @@
     <input matInput type="text" name="icon" [(ngModel)]="proposal.icon">
   </mat-form-field>
 
-
   <div *ngFor="let variant of proposal.variants; let variantIndex = index" class="column-form subform">
     <h3>Variant {{variantIndex + 1}}</h3>
 
@@ -104,50 +115,81 @@
     </div>
 
     <!-- Add Year Cost Button -->
-    <button mat-button type="button" (click)="addYearCost(variant)">Add Year Cost</button>
+    <button mat-raised-button type="button" (click)="addYearCost(variant)">Add Year Cost</button>
 
-    <!-- Targets -->
-    <div *ngFor="let target of variant.targets; let targetIndex = index" class="card subform">
-      <div class="row-form">
-        <mat-form-field appearance="fill">
-          <mat-label>Target Type</mat-label>
-          <input matInput type="text" name="targetType{{variantIndex}}_{{targetIndex}}" [(ngModel)]="target.type">
-        </mat-form-field>
+    <ng-container *ngIf="proposal.policyLevel !== enums.PolicyLevel.federal">
+      <!-- Targets -->
+      <div *ngFor="let target of variant.targets; let targetIndex = index" class="card subform">
+        <div class="row-form">
+          <mat-form-field appearance="fill">
+            <mat-label>Target Type</mat-label>
+            <mat-select name="targetType{{variantIndex}}_{{targetIndex}}" [(ngModel)]="target.type">
+              <mat-option *ngFor="let targetType of targetTypes" [value]="targetType">{{ enums.TargetType[targetType] | translate }}</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Target Amount</mat-label>
-          <input matInput type="number" name="targetAmount{{variantIndex}}_{{targetIndex}}" [(ngModel)]="target.amount">
-        </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Target Amount</mat-label>
+            <input matInput type="number" name="targetAmount{{variantIndex}}_{{targetIndex}}" [(ngModel)]="target.amount">
+          </mat-form-field>
+        </div>
       </div>
-    </div>
 
-    <!-- Add Target Button -->
-    <button mat-button type="button" (click)="addTarget(variant)">Add Target</button>
+      <!-- Add Target Button -->
+      <button mat-raised-button type="button" (click)="addTarget(variant)">Add Target</button>
+    </ng-container>
+
+    <ng-container *ngIf="proposal.policyLevel === enums.PolicyLevel.federal">
+      <!-- Regional Targets -->
+      <div *ngFor="let region of allContexts; let regionIndex = index" class="subform">
+        <h4>Regional Targets for {{region}}</h4>
+        <div *ngFor="let target of getRegionalTargets(variant, region); let targetIndex = index" class="row-form">
+          <mat-form-field appearance="fill">
+            <mat-label>Target Type</mat-label>
+            <mat-select name="regionalTargetType{{variantIndex}}_{{regionIndex}}_{{targetIndex}}" [(ngModel)]="target.type">
+              <mat-option *ngFor="let targetType of targetTypes" [value]="targetType">{{ enums.TargetType[targetType] | translate }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Target Amount</mat-label>
+            <input matInput type="number" name="regionalTargetAmount{{variantIndex}}_{{regionIndex}}_{{targetIndex}}" [(ngModel)]="target.amount">
+          </mat-form-field>
+        </div>
+
+        <!-- Add Regional Target Button -->
+        <button mat-raised-button type="button" (click)="addRegionalTarget(variant, region)">Add Regional Target for {{region}}</button>
+      </div>
+    </ng-container>
 
     <!-- Impacts -->
-    <div *ngFor="let impact of variant.impacts; let impactIndex = index" class="subform">
+    <div *ngFor="let impact of variant.impacts; let impactIndex = index">
       <div class="row-form">
         <mat-form-field appearance="fill">
           <mat-label>Impact Domain</mat-label>
-          <input matInput type="text" name="impactDomain{{variantIndex}}_{{impactIndex}}" [(ngModel)]="impact.domain">
+          <mat-select name="impactDomain{{variantIndex}}_{{impactIndex}}" [(ngModel)]="impact.domain">
+            <mat-option *ngFor="let impactDomain of impactDomains" [value]="impactDomain">{{ enums.ImpactDomain[impactDomain] | translate }}</mat-option>
+          </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
           <mat-label>Impact Amount</mat-label>
-          <input matInput type="number" name="impactAmount{{variantIndex}}_{{impactIndex}}" [(ngModel)]="impact.amount">
+          <mat-select name="impactAmount{{variantIndex}}_{{impactIndex}}" [(ngModel)]="impact.amount">
+            <mat-option *ngFor="let impactAmount of impactAmounts" [value]="impactAmount">{{ enums.ImpactAmount[impactAmount] | translate }}</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
     </div>
 
     <!-- Add Impact Button -->
-    <button mat-button type="button" (click)="addImpact(variant)">Add Impact</button>
+    <button mat-raised-button type="button" (click)="addImpact(variant)">Add Impact</button>
 
     <!-- Remove Variant Button -->
-    <button mat-button type="button" (click)="removeVariant(variantIndex)">Remove Variant</button>
+    <button mat-raised-button type="button" (click)="removeVariant(variantIndex)">Remove Variant</button>
   </div>
 
   <!-- Add Variant Button -->
-  <button mat-button type="button" (click)="addVariant()">Add Variant</button>
+  <button mat-raised-button type="button" (click)="addVariant()">Add Variant</button>
 
   <!-- Submit Button -->
   <button mat-raised-button color="primary" type="submit" [disabled]="!proposalForm.valid">Submit</button>

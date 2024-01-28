@@ -1,7 +1,7 @@
 import { PartyId } from '../../party';
 import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
 import { PartyOpinion, ProposalDetail } from '../proposal-details';
-import { Context } from '../../context/context.service'
+import { ContextType } from '../../context/context.service'
 
 export const PROPOSALS_FEDERAL: ProposalDetail[] = [
   new ProposalDetail({

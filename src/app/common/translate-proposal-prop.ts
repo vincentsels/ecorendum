@@ -11,7 +11,7 @@ import { Proposal } from '../main/proposals/proposal';
 export class TranslateProposalProp implements PipeTransform {
   constructor(private translateService: TranslateService) {}
 
-  transform(proposal?: Proposal | ProposalDetail, propertyName?: TranslatableProperty, variantNumber?: number): Observable<string> {
+  transform(proposal?: Proposal | ProposalDetail, propertyName?: TranslatablePropertyType, variantNumber?: number): Observable<string> {
     if (!proposal) return from('');
     if (!propertyName) return from('');
 
@@ -37,4 +37,4 @@ export class TranslateProposalProp implements PipeTransform {
   }
 }
 
-export type TranslatableProperty = 'title' | 'summary' | 'description' | 'variant.title' | 'variant.summary'
+export type TranslatablePropertyType = 'title' | 'summary' | 'description' | 'variant.title' | 'variant.summary'

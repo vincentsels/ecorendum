@@ -7,7 +7,7 @@ import { TargetsService } from '../targets/targets.service';
 import { ParametersService } from '../parameters/parameters.service';
 import { ProposalService } from '../proposals/proposal.service';
 import { ProposalDetail } from '../proposals/proposal-details';
-import { Context, ContextService } from '../context/context.service';
+import { ContextType, ContextService } from '../context/context.service';
 
 @Injectable()
 export class ResultsService {
@@ -125,7 +125,7 @@ export class ResultsService {
     );
   }
 
-  private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean, context: Context) {
+  private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean, context: ContextType) {
     const singleRegionAmount = selectedVariants
       .filter(v => includeEts || v.proposal?.ets === false)
       .flatMap(v => v.targets?.filter(t => t.type === targetType).map(t => t?.amount || 0))

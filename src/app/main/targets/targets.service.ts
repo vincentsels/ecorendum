@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
 import { Targets } from "./targets";
-import { Context, ContextService } from "../context/context.service";
+import { ContextType, ContextService } from "../context/context.service";
 
 @Injectable()
 export class TargetsService {
@@ -14,7 +14,7 @@ export class TargetsService {
     contextService.context$.subscribe(c => this.targets$.next(this.getTargetsByContext(c)));
   }
 
-  getTargetsByContext(context: Context): Targets {
+  getTargetsByContext(context: ContextType): Targets {
     if (context === 'flanders') {
       return new Targets(
         34300, // Number VEKA
