@@ -12,10 +12,9 @@ type AllRegionsType = ContextType | 'federal';
   styleUrls: ['../proposal-editor.component.scss']
 })
 export class ProposalDataEditorComponent {
-  @Input() proposal: Proposal = new Proposal();
+  @Input({ required: true }) proposal: Proposal = new Proposal();
 
   constructor(public enums: EnumsService) {
-
   }
 
   allContexts: ContextType[] = ['flanders', 'brussels', 'wallonia'];
