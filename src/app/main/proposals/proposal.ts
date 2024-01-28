@@ -3,7 +3,11 @@ import { ContextType } from "../context/context.service";
 export class Proposal {
   constructor(props: Partial<Proposal> = {}) {
     Object.assign(this, props);
-    this.variants = props.variants?.map(v => new Variant(v)) || [];
+    this.variants = props.variants?.map(v => {
+      const variant = new Variant(v);
+      variant.proposal = this;
+      return variant;
+    }) || [];
   }
 
   id: number = 0;
@@ -64,6 +68,12 @@ export class Proposal {
 
   //   return slug.text;
   // }
+
+  serialize() {
+    const clone = new Proposal(this);
+    clone.variants.forEach(v => v.proposal = undefined);
+    return JSON.stringify(clone);
+  }
 }
 
 export enum ProposalOrigin {
@@ -134,6 +144,7 @@ export class Variant {
 
   selected: boolean = false;
 
+  /** Reference the parent proposal. Should be set manually after creating a new variant. Should be set to undefined before serializing. */
   proposal?: Proposal;
 
   getTargetAmount(type: TargetType, context: ContextType) {

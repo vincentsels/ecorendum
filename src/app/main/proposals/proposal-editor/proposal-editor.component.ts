@@ -140,11 +140,7 @@ export class ProposalEditorComponent {
   }
 
   download() {
-    // Unset circular references before stringify
-    const cloneForDownload = new ProposalDetail(this.proposal);
-    cloneForDownload.variants.forEach(v => v.proposal = undefined);
-
-    const serialized = JSON.stringify(cloneForDownload);
+    const serialized = this.proposal.serialize();
 
     const fileName = this.proposal.id + '-' + this.proposal.slugEn + '.json';
 
