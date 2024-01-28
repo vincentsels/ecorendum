@@ -13,6 +13,16 @@
   }
 }
 
+.row-form-with-button {
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
+
+  & > *:not(:last-child) {
+    flex: 1;
+  }
+}
+
 .variable-form {
   display: flex;
   flex-direction: row;
@@ -45,4 +55,8 @@ button {
 
 mat-checkbox {
   margin-bottom: 12px;
+}
+
+.sample-image {
+  margin-bottom: 24px;
 }

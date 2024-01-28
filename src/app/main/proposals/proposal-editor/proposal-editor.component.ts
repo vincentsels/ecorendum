@@ -62,6 +62,12 @@ export class ProposalEditorComponent {
     variant.costPerYearVariable = { ...variant.costPerYearVariable, [newYear]: 0 };
   }
 
+  removeYearCost(variant: Variant, year: number) {
+    if (variant.costPerYearVariable && variant.costPerYearVariable.hasOwnProperty(year)) {
+      delete variant.costPerYearVariable[year];
+    }
+  }
+
   getCostPerYearVariableKeys(variant: Variant) {
     return Object.keys(variant.costPerYearVariable || {}).map(y => Number(y));
   }
@@ -70,6 +76,9 @@ export class ProposalEditorComponent {
     variant.targets.push(new Target());
   }
 
+  removeTarget(variant: Variant, targetIndex: number) {
+    variant.targets.splice(targetIndex, 1);
+  }
 
   getRegionalTargets(variant: Variant, region: ContextType): Target[] {
     return variant.regionalTargets?.[region] || [];
@@ -89,7 +98,71 @@ export class ProposalEditorComponent {
     variant.regionalTargets[region].push(new Target());
   }
 
+  removeRegionalTarget(variant: Variant, region: ContextType, targetIndex: number) {
+    if (variant.regionalTargets && variant.regionalTargets![region]) {
+      variant.regionalTargets[region].splice(targetIndex, 1);
+    }
+  }
+
   addImpact(variant: Variant) {
     variant.impacts.push(new Impact(ImpactDomain.aerosols, ImpactAmount.neutral));
+  }
+
+  removeImpact(variant: Variant, impactIndex: number) {
+    variant.impacts.splice(impactIndex, 1);
+  }
+
+  clone() {
+    this.proposal = new ProposalDetail(this.proposal);
+    if (this.proposal.policyLevel === PolicyLevel.federal) {
+      this.proposal.id = Math.max(...PROPOSALS_FEDERAL.map(p => p.id)) + 1;
+    } else if (this.proposal.policyLevel === PolicyLevel.flemish) {
+      this.proposal.id = Math.max(...PROPOSALS_FLANDERS.map(p => p.id)) + 1;
+    } else if (this.proposal.policyLevel === PolicyLevel.brusselian) {
+      this.proposal.id = Math.max(...PROPOSALS_BRUSSELS.map(p => p.id)) + 1;
+    } else if (this.proposal.policyLevel === PolicyLevel.wallonian) {
+      this.proposal.id = Math.max(...PROPOSALS_WALLONIA.map(p => p.id)) + 1;
+    } else throw new Error('Unknown policy level');
+  }
+
+  download() {
+    // Unset circular references before stringify
+    const cloneForDownload = new ProposalDetail(this.proposal);
+    cloneForDownload.variants.forEach(v => v.proposal = undefined);
+
+    const serialized = JSON.stringify(cloneForDownload);
+
+    const fileName = this.proposal.id + '-' + this.proposal.slugEn + '.json';
+
+    this.downloadFile(serialized, fileName);
+  }
+
+  private downloadFile(data: string, fileName: string): void {
+    // Step 1: Convert string to Blob
+    const blob = new Blob([data], { type: 'application/json' });
+
+    // Step 2: Create Blob URL
+    const url = window.URL.createObjectURL(blob);
+
+    // Step 3: Create a new anchor element
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+
+    // Append anchor to the body
+    document.body.appendChild(a);
+
+    // Step 4: Trigger the download
+    a.click();
+
+    // Step 5: Clean up
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+  }
+
+  getBackgroundImage() {
+    return this.proposal.pictureThumb
+      ? 'background-image: linear-gradient(145deg, rgba(48, 48, 48, 1) 40%, rgba(48, 48, 48, 0.9) 60%, rgba(48, 48, 48, 0.1) 100%), url(' + this.proposal.pictureThumb + ')'
+      : null;
   }
 }

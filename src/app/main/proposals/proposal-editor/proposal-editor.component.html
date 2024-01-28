@@ -1,15 +1,22 @@
-<form #proposalForm="ngForm" class="responsive-page-container column-form">
-  <!-- Load existing -->
-  <mat-form-field appearance="fill" style="flex: 1">
-    <mat-label>Selected proposal</mat-label>
-    <mat-select name="selectedProposal" #selectedProposal (selectionChange)="load($event.value)">
-      <mat-optgroup *ngFor="let region of allRegions">{{ region | translate }}
-        <mat-option *ngFor="let proposal of allProposals[region]" [value]="proposal">
-          {{ 'proposals.' + proposal.slugEn + '.title' | translate }}
-        </mat-option>
-      </mat-optgroup>
-    </mat-select>
-  </mat-form-field>
+<form #proposalForm="ngForm" class="responsive-page-container column-form form-content">
+  <div class="row-form">
+    <!-- Load existing -->
+    <mat-form-field appearance="fill" style="flex: 1">
+      <mat-label>Selected proposal</mat-label>
+      <mat-select name="selectedProposal" #selectedProposal (selectionChange)="load($event.value)">
+        <mat-optgroup *ngFor="let region of allRegions">{{ region | translate }}
+          <mat-option *ngFor="let proposal of allProposals[region]" [value]="proposal">
+            {{ 'proposals.' + proposal.slugEn + '.title' | translate }}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
+
+    <button type="button" mat-raised-button (click)="clone()" style="flex: unset">
+      <mat-icon>content_copy</mat-icon>
+      Clone
+    </button>
+  </div>
 
   <!-- ID (Read-only) -->
   <mat-form-field appearance="fill">
@@ -77,11 +84,18 @@
     <input matInput type="text" name="pictureThumb" [(ngModel)]="proposal.pictureThumb">
   </mat-form-field>
 
-  <!-- Icon (Input or File Upload) -->
-  <mat-form-field appearance="fill">
-    <mat-label>Icon</mat-label>
-    <input matInput type="text" name="icon" [(ngModel)]="proposal.icon">
-  </mat-form-field>
+  <img class="sample-image" *ngIf="proposal.pictureThumb" [src]="proposal.pictureThumb" alt="No image found at specified url." />
+
+  <div class="row-form-with-button">
+    <!-- Icon (Input or File Upload) -->
+    <mat-form-field appearance="fill">
+      <mat-label>Icon</mat-label>
+      <mat-icon matSuffix>{{ proposal.icon }}</mat-icon>
+      <input matInput type="text" name="icon" [(ngModel)]="proposal.icon">
+    </mat-form-field>
+
+    <a mat-icon-button href="https://fonts.google.com/icons" target="_blank"><mat-icon>travel_explore</mat-icon></a>
+  </div>
 
   <div *ngFor="let variant of proposal.variants; let variantIndex = index" class="column-form subform">
     <h3>Variant {{variantIndex + 1}}</h3>
@@ -106,21 +120,25 @@
       </mat-form-field>
     </div>
 
-    <div class="variable-form">
-      <!-- Cost Per Year Variable -->
-      <mat-form-field *ngFor="let yearCost of getCostPerYearVariableKeys(variant); let yearIndex = index" appearance="fill">
-        <mat-label>Cost for Year {{yearCost}}</mat-label>
-        <input matInput type="number" name="costPerYearVariable{{variantIndex}}_{{yearIndex}}" [(ngModel)]="variant.costPerYearVariable![yearCost]">
-      </mat-form-field>
+    <div class="column-form">
+      <div *ngFor="let yearCost of getCostPerYearVariableKeys(variant); let yearIndex = index" class="row-form-with-button">
+        <!-- Cost Per Year Variable -->
+        <mat-form-field appearance="fill">
+          <mat-label>Cost for Year {{yearCost}}</mat-label>
+          <input matInput type="number" name="costPerYearVariable{{variantIndex}}_{{yearIndex}}" [(ngModel)]="variant.costPerYearVariable![yearCost]">
+        </mat-form-field>
+
+        <button mat-icon-button type="button" (click)="removeYearCost(variant, yearCost)"><mat-icon>delete</mat-icon></button>
+      </div>
     </div>
 
     <!-- Add Year Cost Button -->
-    <button mat-raised-button type="button" (click)="addYearCost(variant)">Add Year Cost</button>
+    <button mat-raised-button type="button" (click)="addYearCost(variant)"><mat-icon>add</mat-icon> Add Year Cost</button>
 
     <ng-container *ngIf="proposal.policyLevel !== enums.PolicyLevel.federal">
       <!-- Targets -->
-      <div *ngFor="let target of variant.targets; let targetIndex = index" class="card subform">
-        <div class="row-form">
+      <div *ngFor="let target of variant.targets; let targetIndex = index" class="card">
+        <div class="row-form-with-button">
           <mat-form-field appearance="fill">
             <mat-label>Target Type</mat-label>
             <mat-select name="targetType{{variantIndex}}_{{targetIndex}}" [(ngModel)]="target.type">
@@ -132,18 +150,20 @@
             <mat-label>Target Amount</mat-label>
             <input matInput type="number" name="targetAmount{{variantIndex}}_{{targetIndex}}" [(ngModel)]="target.amount">
           </mat-form-field>
+
+          <button mat-icon-button type="button" (click)="removeTarget(variant, targetIndex)"><mat-icon>delete</mat-icon></button>
         </div>
       </div>
 
       <!-- Add Target Button -->
-      <button mat-raised-button type="button" (click)="addTarget(variant)">Add Target</button>
+      <button mat-raised-button type="button" (click)="addTarget(variant)"><mat-icon>add</mat-icon> Add Target</button>
     </ng-container>
 
     <ng-container *ngIf="proposal.policyLevel === enums.PolicyLevel.federal">
       <!-- Regional Targets -->
       <div *ngFor="let region of allContexts; let regionIndex = index" class="subform">
         <h4>Regional Targets for {{region}}</h4>
-        <div *ngFor="let target of getRegionalTargets(variant, region); let targetIndex = index" class="row-form">
+        <div *ngFor="let target of getRegionalTargets(variant, region); let targetIndex = index" class="row-form-with-button">
           <mat-form-field appearance="fill">
             <mat-label>Target Type</mat-label>
             <mat-select name="regionalTargetType{{variantIndex}}_{{regionIndex}}_{{targetIndex}}" [(ngModel)]="target.type">
@@ -155,16 +175,18 @@
             <mat-label>Target Amount</mat-label>
             <input matInput type="number" name="regionalTargetAmount{{variantIndex}}_{{regionIndex}}_{{targetIndex}}" [(ngModel)]="target.amount">
           </mat-form-field>
+
+          <button mat-icon-button type="button" (click)="removeRegionalTarget(variant, region, targetIndex)"><mat-icon>delete</mat-icon></button>
         </div>
 
         <!-- Add Regional Target Button -->
-        <button mat-raised-button type="button" (click)="addRegionalTarget(variant, region)">Add Regional Target for {{region}}</button>
+        <button mat-raised-button type="button" (click)="addRegionalTarget(variant, region)"><mat-icon>add</mat-icon> Add Regional Target for {{region}}</button>
       </div>
     </ng-container>
 
     <!-- Impacts -->
     <div *ngFor="let impact of variant.impacts; let impactIndex = index">
-      <div class="row-form">
+      <div class="row-form-with-button">
         <mat-form-field appearance="fill">
           <mat-label>Impact Domain</mat-label>
           <mat-select name="impactDomain{{variantIndex}}_{{impactIndex}}" [(ngModel)]="impact.domain">
@@ -178,19 +200,21 @@
             <mat-option *ngFor="let impactAmount of impactAmounts" [value]="impactAmount">{{ enums.ImpactAmount[impactAmount] | translate }}</mat-option>
           </mat-select>
         </mat-form-field>
+
+        <button mat-icon-button type="button" (click)="removeImpact(variant, impactIndex)"><mat-icon>delete</mat-icon></button>
       </div>
     </div>
 
     <!-- Add Impact Button -->
-    <button mat-raised-button type="button" (click)="addImpact(variant)">Add Impact</button>
+    <button mat-raised-button type="button" (click)="addImpact(variant)"><mat-icon>add</mat-icon> Add Impact</button>
 
     <!-- Remove Variant Button -->
-    <button mat-raised-button type="button" (click)="removeVariant(variantIndex)">Remove Variant</button>
+    <button mat-raised-button type="button" (click)="removeVariant(variantIndex)"><mat-icon>delete</mat-icon> Remove Variant</button>
   </div>
 
   <!-- Add Variant Button -->
-  <button mat-raised-button type="button" (click)="addVariant()">Add Variant</button>
+  <button mat-raised-button type="button" (click)="addVariant()"><mat-icon>add</mat-icon> Add Variant</button>
 
   <!-- Submit Button -->
-  <button mat-raised-button color="primary" type="submit" [disabled]="!proposalForm.valid">Submit</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!proposalForm.valid" (click)="download()"><mat-icon>download</mat-icon> Download</button>
 </form>

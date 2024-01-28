@@ -3,8 +3,19 @@ import { LanguageType, Proposal, TranslatedText } from './proposal';
 
 export class ProposalDetail extends Proposal {
   constructor(init: Partial<Proposal | ProposalDetail>) {
-    super();
+    super(init);
     Object.assign(this, init);
+    this.partyOpinions = (init as ProposalDetail).partyOpinions?.map(p => new PartyOpinion(p.partyId, p.selected, p.variant)) || [];
+    this.linksToMediaArticles = (init as ProposalDetail).linksToMediaArticles?.map(l => new Link(l.url, l.title, l.language)) || [];
+    this.linksToPapers = (init as ProposalDetail).linksToPapers?.map(l => new Link(l.url, l.title, l.language)) || [];
+    this.linksToExplainers = (init as ProposalDetail).linksToExplainers?.map(l => new Link(l.url, l.title, l.language)) || [];
+    this.linksToDebates = (init as ProposalDetail).linksToDebates?.map(l => new Link(l.url, l.title, l.language)) || [];
+    this.linksToExamplesAbroad = (init as ProposalDetail).linksToExamplesAbroad?.map(l => new Link(l.url, l.title, l.language)) || [];
+    this.faqs = (init as ProposalDetail).faqs?.map(f => new Faq(f.id,
+      f.question.map(t => new TranslatedText(t.lang, t.text)),
+      f.slug.map(t => new TranslatedText(t.lang, t.text)),
+      f.shortAnswer.map(t => new TranslatedText(t.lang, t.text)),
+      f.detailedAnswer.map(t => new TranslatedText(t.lang, t.text)))) || [];
   }
 
   partyOpinions?: PartyOpinion[] = [];

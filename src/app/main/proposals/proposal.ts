@@ -3,6 +3,7 @@ import { ContextType } from "../context/context.service";
 export class Proposal {
   constructor(props: Partial<Proposal> = {}) {
     Object.assign(this, props);
+    this.variants = props.variants?.map(v => new Variant(v)) || [];
   }
 
   id: number = 0;
@@ -112,6 +113,13 @@ export const SectorMap = {
 export class Variant {
   constructor(props: Partial<Variant> = {}) {
     Object.assign(this, props);
+    this.targets = props?.targets?.map(t => new Target(t)) || [];
+    this.regionalTargets = props?.regionalTargets ? {
+      flanders: props?.regionalTargets?.flanders,
+      brussels: props?.regionalTargets?.brussels,
+      wallonia: props?.regionalTargets?.wallonia,
+    } : undefined;
+    this.impacts = props?.impacts?.map(i => new Impact(i.domain, i.amount)) || [];
   }
 
   ambitionLevel: number = 1;
