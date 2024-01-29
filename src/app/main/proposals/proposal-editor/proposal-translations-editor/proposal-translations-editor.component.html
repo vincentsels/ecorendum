@@ -6,49 +6,33 @@
       <div class="tab-body column-form" *ngIf="data && data[lang]">
         <mat-form-field appearance="fill">
           <mat-label>Title</mat-label>
-          <input matInput name="proposal_title" [(ngModel)]="data[lang].title">
+          <input matInput name="proposal_title_{{lang}}" [(ngModel)]="data[lang].title">
         </mat-form-field>
 
         <mat-form-field appearance="fill">
           <mat-label>Summary</mat-label>
-          <textarea matInput name="proposal_summary" [(ngModel)]="data[lang].summary"></textarea>
+          <textarea rows=3 matInput name="proposal_summary_{{lang}}" [(ngModel)]="data[lang].summary"></textarea>
         </mat-form-field>
 
-        <div *ngFor="let proposalVariant of proposal.variants; let i = index;">
-          <div *ngIf="data[lang]?.variants?.[proposalVariant.ambitionLevel]; let variant;">
-            <h3>{{ 'Variant ' + proposalVariant.ambitionLevel }}
-              <small *ngIf="i !== 0">
-                <button mat-icon-button matTooltip="Copy from previous" (click)="copyFromPrevious(lang, proposalVariant.ambitionLevel)">
-                  <mat-icon class="inline" style="font-size: 100%;">download_2</mat-icon>
-                </button>
-              </small>
-            </h3>
-
-            <div class="row-form">
-              <mat-form-field appearance="fill">
+        <div *ngFor="let variant of data[lang].variants; let i = index;">
+          <div class="row-form" style="align-items: flex-start;">
+            <div class="column-form">
+              <mat-form-field appearance="fill" style="flex: 1">
                 <mat-label>Title</mat-label>
                 <input matInput name="variant_title_{{lang}}_{{i}}" [(ngModel)]="variant.title">
-              </mat-form-field>
 
-              <mat-form-field appearance="fill">
-                <mat-label>Summary</mat-label>
-                <input matInput name="variant_summary_{{lang}}_{{i}}" [(ngModel)]="variant.summary">
+                <button matSuffix mat-icon-button matTooltip="Copy from previous" (click)="copyFromPrevious(lang, i)" *ngIf="i !== 0">
+                  <mat-icon class="inline" style="font-size: 100%;">download_2</mat-icon>
+                </button>
               </mat-form-field>
             </div>
+
+            <mat-form-field appearance="fill" style="flex: 2">
+              <mat-label>Summary</mat-label>
+              <textarea rows=3 matInput name="variant_summary_{{lang}}_{{i}}" [(ngModel)]="variant.summary"></textarea>
+            </mat-form-field>
           </div>
         </div>
-
-        <mat-tab-group>
-          <mat-tab *ngFor="let partyId of partiesForRegion$ | async">
-            <ng-template mat-tab-label><app-party-logo-or-name [partyId]="partyId"></app-party-logo-or-name></ng-template>
-
-            {{ partiesForRegion$ | async }}
-            -------
-            {{ data[lang].partyOpinions | json }}
-
-
-          </mat-tab>
-        </mat-tab-group>
       </div>
     </mat-tab>
   </mat-tab-group>

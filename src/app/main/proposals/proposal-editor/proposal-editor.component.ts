@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
-import { PolicyLevel, Proposal, Variant } from '../proposal';
+import { LanguageType, PolicyLevel, Proposal, Variant } from '../proposal';
 import { EnumsService } from '../../../common/enums.service';
 import { ProposalService } from '../proposal.service';
 import { ProposalDetail } from '../proposal-details';
@@ -10,6 +11,9 @@ import { ContextType } from '../../context/context.service';
 import { PROPOSALS_BRUSSELS } from '../proposal-data/proposals-brussels';
 import { PROPOSALS_WALLONIA } from '../proposal-data/proposals-wallonia';
 import { ProposalTranslationsEditorComponent } from './proposal-translations-editor/proposal-translations-editor.component';
+import { ProposalTranslations, ProposalTranslationsContainer, VariantTranslation } from './translation-data';
+import { first } from 'rxjs';
+import { ProposalTranslationsForExport, TranslationsContainerForExport, VariantTranslationForExport, VariantsContainerForExport } from './translation-data-for-export';
 
 type AllRegionsType = ContextType | 'federal';
 
@@ -19,16 +23,22 @@ type AllRegionsType = ContextType | 'federal';
   styleUrls: ['./proposal-editor.component.scss']
 })
 export class ProposalEditorComponent {
-  proposal: Proposal = new Proposal();
+  proposal = new Proposal();
+  translationData = new ProposalTranslationsContainer();
+
+  en: any;
+  nl: any;
+  fr: any;
 
   @ViewChild('translationsEditor') translationsEditor?: ProposalTranslationsEditorComponent;
 
   // Initialize with a default variant
-  constructor(public enums: EnumsService, public proposalService: ProposalService) {
+  constructor(public enums: EnumsService, public proposalService: ProposalService, translate: TranslateService) {
     this.proposal = new Proposal();
     const variant = new Variant();
     variant.proposal = this.proposal;
     this.proposal.variants.push(variant);
+    this.translationData.addVariant(variant.ambitionLevel);
 
     this.allProposals = {
       federal: [...PROPOSALS_FEDERAL],
@@ -36,6 +46,13 @@ export class ProposalEditorComponent {
       brussels: [...PROPOSALS_BRUSSELS],
       wallonia: [...PROPOSALS_WALLONIA],
     }
+
+    // This seems to actually change the language; so we need to store the current language and reset it
+    const currLang = translate.currentLang;
+    translate.getTranslation('en').pipe(first()).subscribe(t => this.en = t);
+    translate.getTranslation('nl').pipe(first()).subscribe(t => this.nl = t);
+    translate.getTranslation('fr').pipe(first()).subscribe(t => this.fr = t);
+    translate.getTranslation(currLang);
   }
 
   allRegions: AllRegionsType[] = ['federal', 'flanders', 'brussels', 'wallonia'];
@@ -44,6 +61,27 @@ export class ProposalEditorComponent {
 
   load(selectedProposal: ProposalDetail) {
     this.proposal = selectedProposal;
+    this.fillTranslations();
+  }
+
+  private fillTranslations() {
+    this.translationData = new ProposalTranslationsContainer();
+    this.fillTranslationsForLang(this.translationData.en, this.en.proposals[this.proposal.slugEn], this.en.proposals[this.proposal.slugEn]);
+    this.fillTranslationsForLang(this.translationData.nl, this.nl.proposals[this.proposal.slugEn], this.en.proposals[this.proposal.slugEn]);
+    this.fillTranslationsForLang(this.translationData.fr, this.fr.proposals[this.proposal.slugEn], this.en.proposals[this.proposal.slugEn]);
+  }
+
+  private fillTranslationsForLang(proposalTrans: ProposalTranslations, translations: any, bckTranslations: any) {
+    proposalTrans.title = translations?.title || bckTranslations.title;
+    proposalTrans.summary = translations?.summary || bckTranslations.summary;
+
+    for (let variant of this.proposal.variants) {
+      const id = variant.ambitionLevel;
+      const v = new VariantTranslation(id);
+      v.summary = translations?.variants[id]?.summary || bckTranslations?.variants[id]?.summary;
+      v.title = translations?.variants[id]?.title || bckTranslations?.variants[id]?.title;
+      proposalTrans.variants.push(v);
+    }
   }
 
   clone() {
@@ -59,13 +97,36 @@ export class ProposalEditorComponent {
     } else throw new Error('Unknown policy level');
   }
 
+  getTranslationData() {
+    const en = this.getTranslationDataForLang('en');
+    const nl = this.getTranslationDataForLang('nl');
+    const fr = this.getTranslationDataForLang('fr');
+
+    const containerForExport = { en, nl, fr } as TranslationsContainerForExport
+
+    return JSON.stringify(containerForExport);
+  }
+
+  private getTranslationDataForLang(lang: LanguageType) {
+    return {
+      [this.proposal.slugEn]: {
+        summary: this.translationData[lang].summary,
+        title: this.translationData[lang].title,
+        variants: this.translationData[lang].variants.reduce((o, v) => {
+          o[v.variantId] = { title: v.title, summary: v.summary } as VariantTranslationForExport;
+          return o;
+        }, {} as VariantsContainerForExport)
+      } as ProposalTranslationsForExport
+    };
+  }
+
   download() {
     const serialized = this.proposal.serialize();
     const fileName = this.proposal.id + '-' + this.proposal.slugEn + '.json';
     this.downloadFile(serialized, fileName);
 
     if (this.translationsEditor) {
-      const translationsSerialized = this.translationsEditor.exportData();
+      const translationsSerialized = this.getTranslationData();
       const translationsFileName = this.proposal.id + '-' + this.proposal.slugEn + '-translations.json';
       this.downloadFile(translationsSerialized, translationsFileName);
     }

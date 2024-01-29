@@ -20,11 +20,11 @@
 
   <mat-tab-group>
     <mat-tab label="Proposal data">
-      <app-proposal-data-editor [proposal]="proposal" class="tab-body column-form"></app-proposal-data-editor>
+      <app-proposal-data-editor [proposal]="proposal" [translationData]="translationData" class="tab-body column-form"></app-proposal-data-editor>
     </mat-tab>
 
     <mat-tab label="Translations">
-      <app-proposal-translations-editor [proposal]="proposal" class="tab-body column-form" #translationsEditor></app-proposal-translations-editor>
+      <app-proposal-translations-editor [proposal]="proposal" [data]="translationData" class="tab-body column-form" #translationsEditor></app-proposal-translations-editor>
     </mat-tab>
   </mat-tab-group>
 

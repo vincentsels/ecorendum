@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, ProposalOrigin, Sector, Target, TargetType, Variant } from '../../proposal';
 import { ContextType } from '../../../context/context.service';
 import { EnumsService } from '../../../../common/enums.service';
+import { ProposalTranslationsContainer } from '../translation-data';
 
 type AllRegionsType = ContextType | 'federal';
 
@@ -12,7 +13,8 @@ type AllRegionsType = ContextType | 'federal';
   styleUrls: ['../proposal-editor.component.scss']
 })
 export class ProposalDataEditorComponent {
-  @Input({ required: true }) proposal: Proposal = new Proposal();
+  @Input({ required: true }) proposal!: Proposal;
+  @Input({ required: true }) translationData!: ProposalTranslationsContainer;
 
   constructor(public enums: EnumsService) {
   }
@@ -35,6 +37,7 @@ export class ProposalDataEditorComponent {
     variant.proposal = this.proposal;
     this.proposal.variants.push(variant);
     this.selectedVariant = variant.ambitionLevel - 1;
+    this.translationData.addVariant(variant.ambitionLevel);
   }
 
   copyVariant(origVariant: Variant) {
@@ -43,10 +46,12 @@ export class ProposalDataEditorComponent {
     variant.proposal = this.proposal;
     this.proposal.variants.push(variant);
     this.selectedVariant = variant.ambitionLevel - 1;
+    this.translationData.addVariant(variant.ambitionLevel);
   }
 
   removeVariant(i: number) {
     this.proposal.variants.splice(i, 1);
+    this.translationData.removeVariant(i + 1); // Id is one larger than index
   }
 
   addYearCost(variant: Variant) {
