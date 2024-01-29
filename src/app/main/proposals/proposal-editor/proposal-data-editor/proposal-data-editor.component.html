@@ -85,12 +85,14 @@
             <!-- Initial Cost -->
             <mat-form-field appearance="fill">
               <mat-label>Initial Cost</mat-label>
+              <span matTextPrefix>€&nbsp;</span>
               <input matInput type="number" name="costInitial{{variantIndex}}" [(ngModel)]="variant.costInitial">
             </mat-form-field>
 
             <!-- Cost Per Year Fixed -->
             <mat-form-field appearance="fill">
               <mat-label>Cost Per Year Fixed</mat-label>
+              <span matTextPrefix>€&nbsp;</span>
               <input matInput type="number" name="costPerYearFixed{{variantIndex}}" [(ngModel)]="variant.costPerYearFixed">
             </mat-form-field>
           </div>
@@ -100,6 +102,7 @@
               <!-- Cost Per Year Variable -->
               <mat-form-field appearance="fill">
                 <mat-label>Cost for Year {{yearCost}}</mat-label>
+                <span matTextPrefix>€&nbsp;</span>
                 <input matInput type="number" name="costPerYearVariable{{variantIndex}}_{{yearIndex}}" [(ngModel)]="variant.costPerYearVariable![yearCost]">
               </mat-form-field>
 
@@ -123,6 +126,7 @@
 
                 <mat-form-field appearance="fill">
                   <mat-label>Target Amount</mat-label>
+                  <span matTextSuffix>&nbsp;{{ targetTypeToUnitMap[target.type!] }}</span>
                   <input matInput type="number" name="targetAmount{{variantIndex}}_{{targetIndex}}" [(ngModel)]="target.amount">
                 </mat-form-field>
 

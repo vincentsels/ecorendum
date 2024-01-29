@@ -204,6 +204,10 @@
 
   <p>{{ 'contributeText' | translate }}</p>
 
-  <button mat-raised-button color="primary" (click)="contribute()" class="submit-button-lg">{{ 'Ask a question or contribute' | translate }}</button>
+  <div class="action-buttons">
+    <button mat-raised-button color="primary" (click)="contribute()" class="submit-button-lg">{{ 'Ask a question or contribute' | translate }}</button>
+
+    <a mat-raised-button [routerLink]="['edit', proposal.slugEn]" class="submit-button-lg" (click)="closeDialog()">{{ 'Edit' | translate }}</a>
+  </div>
 
 </div>

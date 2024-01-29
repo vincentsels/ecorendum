@@ -1,5 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, first, forkJoin, withLatestFrom } from 'rxjs';
 
 import { LanguageType, PolicyLevel, Proposal, Variant } from '../proposal';
 import { EnumsService } from '../../../common/enums.service';
@@ -12,7 +14,6 @@ import { PROPOSALS_BRUSSELS } from '../proposal-data/proposals-brussels';
 import { PROPOSALS_WALLONIA } from '../proposal-data/proposals-wallonia';
 import { ProposalTranslationsEditorComponent } from './proposal-translations-editor/proposal-translations-editor.component';
 import { ProposalTranslations, ProposalTranslationsContainer, VariantTranslation } from './translation-data';
-import { first } from 'rxjs';
 import { ProposalTranslationsForExport, TranslationsContainerForExport, VariantTranslationForExport, VariantsContainerForExport } from './translation-data-for-export';
 
 type AllRegionsType = ContextType | 'federal';
@@ -22,7 +23,7 @@ type AllRegionsType = ContextType | 'federal';
   templateUrl: './proposal-editor.component.html',
   styleUrls: ['./proposal-editor.component.scss']
 })
-export class ProposalEditorComponent {
+export class ProposalEditorComponent implements OnInit {
   proposal = new Proposal();
   translationData = new ProposalTranslationsContainer();
 
@@ -30,10 +31,13 @@ export class ProposalEditorComponent {
   nl: any;
   fr: any;
 
+  translationsLoaded$: Observable<any>;
+
   @ViewChild('translationsEditor') translationsEditor?: ProposalTranslationsEditorComponent;
 
   // Initialize with a default variant
-  constructor(public enums: EnumsService, public proposalService: ProposalService, translate: TranslateService) {
+  constructor(public enums: EnumsService, public proposalService: ProposalService,
+    private route: ActivatedRoute, translate: TranslateService) {
     this.proposal = new Proposal();
     const variant = new Variant();
     variant.proposal = this.proposal;
@@ -49,15 +53,37 @@ export class ProposalEditorComponent {
 
     // This seems to actually change the language; so we need to store the current language and reset it
     const currLang = translate.currentLang;
-    translate.getTranslation('en').pipe(first()).subscribe(t => this.en = t);
-    translate.getTranslation('nl').pipe(first()).subscribe(t => this.nl = t);
-    translate.getTranslation('fr').pipe(first()).subscribe(t => this.fr = t);
+
+    const enTranslations$ = translate.getTranslation('en').pipe(first());
+    const nlTranslations$ = translate.getTranslation('nl').pipe(first());
+    const frTranslations$ = translate.getTranslation('fr').pipe(first());
+
+    this.translationsLoaded$ = forkJoin([enTranslations$, nlTranslations$, frTranslations$]);
+
+    this.translationsLoaded$.pipe(first()).subscribe(
+      ([en, nl, fr]) => {
+        this.en = en;
+        this.nl = nl;
+        this.fr = fr;
+      }
+    );
+
     translate.getTranslation(currLang);
   }
 
   allRegions: AllRegionsType[] = ['federal', 'flanders', 'brussels', 'wallonia'];
 
   allProposals: { [policyLevel in AllRegionsType]: ProposalDetail[] };
+
+  ngOnInit() {
+    this.translationsLoaded$.pipe(withLatestFrom(this.route.paramMap)).subscribe(([_, paramMap]) => {
+      const idOrSlug = paramMap.get('idorslug');
+      const foundProposal = this.proposalService.allProposals.find(p =>
+        (!isNaN(Number(idOrSlug)) && p.id === Number(idOrSlug)) ||
+        (p.slugNl === idOrSlug || p.slugFr === idOrSlug ||p.slugEn === idOrSlug));
+      if (foundProposal) this.load(foundProposal);
+    });
+  }
 
   load(selectedProposal: ProposalDetail) {
     this.proposal = selectedProposal;
@@ -78,8 +104,8 @@ export class ProposalEditorComponent {
     for (let variant of this.proposal.variants) {
       const id = variant.ambitionLevel;
       const v = new VariantTranslation(id);
-      v.summary = translations?.variants[id]?.summary || bckTranslations?.variants[id]?.summary;
-      v.title = translations?.variants[id]?.title || bckTranslations?.variants[id]?.title;
+      v.summary = translations?.variants?.[id]?.summary || bckTranslations?.variants?.[id]?.summary;
+      v.title = translations?.variants?.[id]?.title || bckTranslations?.variants?.[id]?.title;
       proposalTrans.variants.push(v);
     }
   }
@@ -121,7 +147,7 @@ export class ProposalEditorComponent {
   }
 
   download() {
-    const serialized = this.proposal.serialize();
+    const serialized = this.proposal.serialize(false);
     const fileName = this.proposal.id + '-' + this.proposal.slugEn + '.json';
     this.downloadFile(serialized, fileName);
 

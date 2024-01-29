@@ -31,6 +31,13 @@ export class ProposalDataEditorComponent {
 
   selectedVariant = 0;
 
+  targetTypeToUnitMap = {
+    [TargetType.energyEfficiency]: 'GWh',
+    [TargetType.ghgReduction]: 'Kt',
+    [TargetType.renewableEnergy]: 'GWh',
+    [TargetType.none]: '',
+  }
+
   addVariant() {
     const variant = new Variant();
     variant.ambitionLevel = this.proposal.variants.length + 1;

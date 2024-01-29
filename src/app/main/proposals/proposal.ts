@@ -1,4 +1,5 @@
 import { ContextType } from "../context/context.service";
+import { ProposalDetail } from "./proposal-details";
 
 export class Proposal {
   constructor(props: Partial<Proposal> = {}) {
@@ -69,8 +70,19 @@ export class Proposal {
   //   return slug.text;
   // }
 
-  serialize() {
+  serialize(includeDetails: boolean) {
     const clone = new Proposal(this);
+    if (!includeDetails) {
+      const details = clone as any;
+      delete details.partyOpinions;
+      delete details.linksToMediaArticles;
+      delete details.linksToPapers;
+      delete details.linksToExplainers;
+      delete details.linksToDebates;
+      delete details.linksToExamplesAbroad;
+      delete details.faqs;
+    }
+
     clone.variants.forEach(v => v.proposal = undefined);
     return JSON.stringify(clone);
   }

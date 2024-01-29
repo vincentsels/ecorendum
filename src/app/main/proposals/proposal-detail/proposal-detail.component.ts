@@ -10,7 +10,6 @@ import { PartyOpinion, ProposalDetail } from '../proposal-details';
 import { ProposalService } from '../proposal.service';
 import { LanguageService } from '../../../common/language.service';
 import { ContextService } from '../../context/context.service';
-import { PartyId } from '../../party';
 
 @Component({
   selector: 'app-proposal-detail',
@@ -47,7 +46,7 @@ export class ProposalDetailComponent implements OnInit {
     if (!this.dialog) {
       this.route.paramMap.subscribe((paramMap) => {
         const idOrSlug = paramMap.get('idorslug');
-        const foundProposal = this.service.activeProposals$.value.find(p =>
+        const foundProposal = this.service.allProposals.find(p =>
           (!isNaN(Number(idOrSlug)) && p.id === Number(idOrSlug)) ||
           (p.slugNl === idOrSlug || p.slugFr === idOrSlug ||p.slugEn === idOrSlug));
         if (foundProposal) this.proposal = new ProposalDetail(foundProposal);

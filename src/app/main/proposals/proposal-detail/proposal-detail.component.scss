@@ -77,3 +77,10 @@
 .faq-list {
   margin-bottom: 12px;
 }
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}

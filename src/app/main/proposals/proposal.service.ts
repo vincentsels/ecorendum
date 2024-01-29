@@ -28,6 +28,8 @@ export class ProposalService {
 
   selectionKey = '';
 
+  allProposals = [...PROPOSALS_FEDERAL, ...PROPOSALS_FLANDERS, ...PROPOSALS_BRUSSELS, ...PROPOSALS_WALLONIA];
+
   constructor(private contextService: ContextService,
     private proposalSerializerService: ProposalSetSerializerService,
     private dummyProposalDataGeneratorService: DummyProposalDataGeneratorService) {

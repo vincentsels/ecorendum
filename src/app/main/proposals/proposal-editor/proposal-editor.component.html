@@ -3,7 +3,7 @@
     <!-- Load existing -->
     <mat-form-field appearance="fill" style="flex: 1">
       <mat-label>Selected proposal</mat-label>
-      <mat-select name="selectedProposal" #selectedProposal (selectionChange)="load($event.value)">
+      <mat-select name="selectedProposal" #selectedProposal (selectionChange)="load($event.value)" [(value)]="proposal">
         <mat-optgroup *ngFor="let region of allRegions">{{ region | translate }}
           <mat-option *ngFor="let proposal of allProposals[region]" [value]="proposal">
             {{ 'proposals.' + proposal.slugEn + '.title' | translate }}

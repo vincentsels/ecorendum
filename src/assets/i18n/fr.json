@@ -127,6 +127,7 @@
   "Reset to default: ": "Réinitialiser par défaut : ",
   "Reset all to defaults": "Réinitialiser tous les paramètres par défaut",
   "noPartyOpinion" : "{{ partyName }} n'a pas encore donné son avis sur cette mesure. Contactez vos représentants pour leur demander de participer à la discussion !",
+  "Edit": "Modifier",
 
   "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'affaire climat et par l'Europe.",
   "profitMessage": "Cela permettra à la Belgique de recevoir une estimation de € {{ profit }}",
