@@ -1,8 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-import { LanguageType, Proposal } from '../../proposal';
+import { LanguageType, PolicyLevel, Proposal } from '../../proposal';
 import { EnumsService } from '../../../../common/enums.service';
-import { ProposalTranslations, TranslationsContainer, TranslationsContainerForExport, VariantTranslations, VariantsContainer } from './translation-data';
+import { PartyOpinionsContainer, ProposalTranslations, TranslationsContainer, TranslationsContainerForExport, VariantTranslations, VariantsContainer } from './translation-data';
+import { ContextService } from '../../../context/context.service';
+import { PARTIES_WITH_LOGOS, PartyId } from '../../../party';
 
 @Component({
   selector: 'app-proposal-translations-editor',
@@ -19,6 +22,14 @@ export class ProposalTranslationsEditorComponent {
 
   public set proposal(value: Proposal) {
     this._proposal = value;
+
+    this.partiesForRegion$.next(
+      value.policyLevel === PolicyLevel.brusselian ? this.contextService.getPartiesForContext('brussels')
+      : value.policyLevel === PolicyLevel.federal ? PARTIES_WITH_LOGOS
+      : value.policyLevel === PolicyLevel.flemish ? this.contextService.getPartiesForContext('flanders')
+      : value.policyLevel === PolicyLevel.wallonian ? this.contextService.getPartiesForContext('wallonia')
+      : PARTIES_WITH_LOGOS);
+
     this.data = {
       en: this.generateProposalTranslations(),
       nl: this.generateProposalTranslations(),
@@ -26,18 +37,26 @@ export class ProposalTranslationsEditorComponent {
     };
   }
 
-  constructor(public enums: EnumsService) {
+  constructor(public enums: EnumsService, public contextService: ContextService) {
   }
+
+  partiesForRegion$ = new BehaviorSubject<PartyId[]>([]);
 
   allLanguages: LanguageType[] = ['en', 'nl', 'fr'];
   data?: TranslationsContainer;
 
   generateProposalTranslations(): ProposalTranslations {
     const trans = new ProposalTranslations();
+
     trans.variants = this._proposal.variants.reduce((o, v) => {
       o[v.ambitionLevel] = new VariantTranslations();
       return o;
-    }, {} as VariantsContainer)
+    }, {} as VariantsContainer);
+
+    trans.partyOpinions = this.partiesForRegion$.value.reduce((o, partyId) => {
+      o[partyId] = '';
+      return o;
+    }, {} as PartyOpinionsContainer);
 
     return trans;
   }

@@ -37,6 +37,18 @@
             </div>
           </div>
         </div>
+
+        <mat-tab-group>
+          <mat-tab *ngFor="let partyId of partiesForRegion$ | async">
+            <ng-template mat-tab-label><app-party-logo-or-name [partyId]="partyId"></app-party-logo-or-name></ng-template>
+
+            {{ partiesForRegion$ | async }}
+            -------
+            {{ data[lang].partyOpinions | json }}
+
+
+          </mat-tab>
+        </mat-tab-group>
       </div>
     </mat-tab>
   </mat-tab-group>
