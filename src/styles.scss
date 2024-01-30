@@ -1,4 +1,3 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -45,7 +44,7 @@ $typography: mat.define-legacy-typography-config();
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-/////////////////////////////////////////////////////////////////////////////////////@at-root
+/////////////////////////////////////////////////////////////////////////////////////
 
 $margin-default: 16px;
 $margin-small: 8px;
@@ -83,10 +82,15 @@ $margin-inline: 4px;
   background-color: rgba(mat.get-color-from-palette($ecorendum-warn), 0.4) !important;
 }
 
+.accent { color: mat.get-color-from-palette($ecorendum-accent, A200) }
+
 .success { color: #46f8cf }
 .neutral { color: #ffffff }
 .warning { color: #f8837b }
 .danger { color: #fa4c40 }
+
+.bg-color-danger { background-color: #f4433614!important }
+.bg-color-success { background-color: #1de9b617!important }
 
 .impact-extremely-positive { color: #00ffc3 }
 .impact-very-positive { color: #46f8cf }
@@ -97,6 +101,8 @@ $margin-inline: 4px;
 .impact-moderately-negative { color: #f8837b }
 .impact-very-negative { color: #fa4c40 }
 .impact-extremely-negative { color: #ff1d0d }
+
+/* Fix links */
 
 a {
   color: mat.get-color-from-palette($ecorendum-primary, 200);
@@ -118,39 +124,13 @@ a.unstyled-link {
   color: inherit;
 }
 
+/* General improvements */
+
 label {
   font-weight: 500;
 }
 
-.help-widget-tooltip {
-  .mdc-tooltip__surface {
-    padding: 8px;
-  }
-
-  :after {
-    display: block;
-    margin-top: 8px;
-    opacity: 0.6;
-  }
-}
-
-.help-widget-tooltip-en {
-  :after {
-    content: ' (click for more info)';
-  }
-}
-
-.help-widget-tooltip-nl {
-  :after {
-    content: ' (klik voor meer info)';
-  }
-}
-
-.help-widget-tooltip-fr {
-  :after {
-    content: ' (cliquez pour plus d''informations)';
-  }
-}
+/* Commonly used inline icon styles. The inline attribute of Material itself doesn't work */
 
 .mat-icon.inline {
   font-size: 120%;
@@ -164,31 +144,25 @@ label {
   }
 }
 
+/* Material helper classes */
+
 .card-side-padding {
   padding-left: 16px;
   padding-right: 16px;
 }
 
-.accent {
-  color: mat.get-color-from-palette($ecorendum-accent, A200);
-}
-
-.pull-right {
-  float: right;
-  margin-left: $margin-small;
-}
-
-.clear {
-  clear: both;
-}
-
-.bg-color-danger {
-  background-color: #f4433614!important;
-}
+/* General helper classes */
 
 .info {
   opacity: 0.8;
   font-style: italic;
+}
+
+/* Page layouts */
+
+.page-container {
+  margin: $margin-default;
+  padding-bottom: 24px;
 }
 
 .responsive-page-container {
@@ -292,48 +266,9 @@ label {
   }
 }
 
-.page-container {
-  margin: $margin-default;
-  padding-bottom: 24px;
-}
-
-mat-button-toggle-group {
-  // Strange that this is necessary...
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
-  border: none !important;
-  height: 36px;
-  margin: 8px;
-}
-
-mat-button-toggle {
-  // Strange that this is necessary...
-  background-color: unset !important;
-
-  &.mat-button-toggle-checked {
-    background-color: rgba(0, 0, 0, 0.2) !important;
-  }
-}
-
-mat-button-toggle.img-button > button > .mat-button-toggle-label-content {
-  padding: 0 8px !important;
-  line-height: 36px !important;
-  padding-bottom: 2px !important;
-}
-
-mat-button-toggle-group.inline-buttons button > .mat-button-toggle-label-content  {
-  padding: 0 6px !important;
-  line-height: unset !important;
-}
-
-.mat-checkbox {
-  margin-bottom: $margin-default; // Other form components are 1.25em; but this seems better
-  margin-right: $margin-small;
-}
-
-::ng-deep .mat-checkbox .mat-checkbox-inner-container {
-  width: 18px;
-  height: 18px;
-}
+/***************************/
+/* General Markdown styles */
+/***************************/
 
 markdown {
   img {
@@ -370,7 +305,9 @@ markdown {
   }
 }
 
-/* Fixes introduced by mdc components */
+/***************************************************/
+/* Fixes to Material, introduced by mdc components */
+/***************************************************/
 
 mat-card {
   padding: 16px;
@@ -379,13 +316,6 @@ mat-card {
 mat-card > :last-child:not(mat-card-footer) {
   margin-bottom: 0;
 }
-
-// .mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
-//   border-left: none!important;
-//   border-right: none!important;
-//   border-top: none!important;
-//   border-radius: 0!important;
-// }
 
 .dark-dialog .mat-mdc-dialog-container,
 .dark-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
@@ -396,6 +326,63 @@ mat-card > :last-child:not(mat-card-footer) {
   color: inherit;
 }
 
+/* Buttons with small content, like just a logo, shouldn't be artificially large */
+
 .mdc-button {
   min-width: unset !important;
+}
+
+/* This is old, nicer styling of toggle button groups */
+
+mat-button-toggle-group {
+  // Strange that this is necessary...
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
+  border: none !important;
+  height: 36px;
+  margin: 8px;
+}
+
+mat-button-toggle {
+  // Strange that this is necessary...
+  background-color: unset !important;
+
+  &.mat-button-toggle-checked {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+  }
+}
+
+/***********************************/
+/** Styles for specific components */
+/***********************************/
+
+/* Strangely enough, this has to be here, can't be in help widget itself :/ */
+
+.help-widget-tooltip {
+  .mdc-tooltip__surface {
+    padding: 8px;
+  }
+
+  :after {
+    display: block;
+    margin-top: 8px;
+    opacity: 0.6;
+  }
+}
+
+.help-widget-tooltip-en {
+  :after {
+    content: ' (click for more info)';
+  }
+}
+
+.help-widget-tooltip-nl {
+  :after {
+    content: ' (klik voor meer info)';
+  }
+}
+
+.help-widget-tooltip-fr {
+  :after {
+    content: ' (cliquez pour plus d''informations)';
+  }
 }

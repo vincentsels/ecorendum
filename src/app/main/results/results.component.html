@@ -95,9 +95,9 @@
   </mat-card>
 
   <mat-card class="result-section">
-    <h3 *ngIf="expandedTotalCost">
-      <mat-icon class="inline">sell</mat-icon> {{ 'Total cost' | translate }}
-      <a [routerLink]="" class="unstyled-link pull-right" (click)="toggleTotalCost()" *ngIf="!this.dialog">
+    <h3 *ngIf="expandedTotalCost" class="header-with-collapse-icon">
+      <span><mat-icon class="inline">sell</mat-icon> {{ 'Total cost' | translate }}</span>
+      <a [routerLink]="" class="unstyled-link" (click)="toggleTotalCost()" *ngIf="!this.dialog">
         <mat-icon class="inline">
           {{ expandedTotalCost ? 'expand_more' : 'chevron_left' }}
         </mat-icon>
@@ -148,9 +148,9 @@
   </mat-card>
 
   <mat-card class="result-section">
-    <h3 *ngIf="expandedTotalImpact">
-      <mat-icon class="inline">public</mat-icon> {{ 'Total impact' | translate }}
-      <a [routerLink]="" class="unstyled-link pull-right" (click)="toggleTotalImpact()" *ngIf="!this.dialog">
+    <h3 *ngIf="expandedTotalImpact" class="header-with-collapse-icon">
+      <span><mat-icon class="inline">public</mat-icon> {{ 'Total impact' | translate }}</span>
+      <a [routerLink]="" class="unstyled-link" (click)="toggleTotalImpact()" *ngIf="!this.dialog">
         <mat-icon class="inline">
           {{ expandedTotalImpact ? 'expand_more' : 'chevron_left' }}
         </mat-icon>

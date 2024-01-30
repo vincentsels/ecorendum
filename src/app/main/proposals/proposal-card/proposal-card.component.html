@@ -6,7 +6,7 @@
       <div class="proposal-header">
         <app-proposal-header [proposal]="proposal" [card]="true"></app-proposal-header>
 
-        <div style="clear: both" *ngIf="proposal.selected && proposal.variants.length > 1">
+        <div *ngIf="proposal.selected && proposal.variants.length > 1">
           <mat-button-toggle-group class="variants" name="variant">
             <mat-button-toggle *ngFor="let variant of proposal.variants" [checked]="variant.selected"
               (click)="updateSelected(variant); $event.stopPropagation()">

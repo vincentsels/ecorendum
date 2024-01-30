@@ -1,18 +1,18 @@
 <div *ngIf="proposal" [class.page-container]="!dialog">
   <app-proposal-header [proposal]="proposal" [dialog]="dialog" (closeDialog)="closeDialog()"></app-proposal-header>
 
-  <h2 class="clear detail-section-header">{{ 'Summary' | translate }}</h2>
+  <h2 class="detail-section-header">{{ 'Summary' | translate }}</h2>
 
   <p> {{ proposal | translateProp:'summary' | async }}</p>
 
   <div *ngIf="hasDetails">
-    <h2 class="clear detail-section-header">{{ 'Description' | translate }}</h2>
+    <h2 class="detail-section-header">{{ 'Description' | translate }}</h2>
 
     <markdown [src]="'/assets/md/proposals/' + proposal.slugEn + '/' + (languageService.language | async) + '.md'"
       (error)="errorLoadingMarkdown($event)"></markdown>
   </div>
 
-  <h2 *ngIf="proposal.variants.length > 1" class="clear detail-section-header">{{ 'Variants' | translate }}</h2>
+  <h2 *ngIf="proposal.variants.length > 1" class="detail-section-header">{{ 'Variants' | translate }}</h2>
 
   <div class="variant-list">
     <mat-card class="variant" *ngFor="let variant of proposal.variants">
