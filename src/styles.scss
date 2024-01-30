@@ -122,17 +122,6 @@ label {
   font-weight: 500;
 }
 
-fieldset {
-  border: 0;
-  padding: 0.01em 0 0 0;
-  margin: 0;
-  min-width: 0;
-}
-
-body:not(:-moz-handler-blocked) fieldset {
-  display: table-cell;
-}
-
 .help-widget-tooltip {
   .mdc-tooltip__surface {
     padding: 8px;
@@ -163,6 +152,18 @@ body:not(:-moz-handler-blocked) fieldset {
   }
 }
 
+.mat-icon.inline {
+  font-size: 120%;
+  vertical-align: text-bottom;
+  margin-right: $margin-inline;
+  height: unset;
+  width: unset;
+
+  &.form {
+    padding-right: 8px;
+  }
+}
+
 .card-side-padding {
   padding-left: 16px;
   padding-right: 16px;
@@ -181,78 +182,8 @@ body:not(:-moz-handler-blocked) fieldset {
   clear: both;
 }
 
-.alert {
-  padding: $margin-default;
-  border: 1px solid rgba(0,0,0,.03);
-  box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
-}
-
 .bg-color-danger {
   background-color: #f4433614!important;
-}
-
-.bg-color-success {
-  background-color: #1de9b617!important;
-}
-
-.alert-code {
-  background-color: #fcc3bf;
-}
-
-.success-bg {
-  background-color: #d2f8ef;
-}
-
-.snackbar-success {
-  background-color: #d2f8ef;
-  color: #00ffc3;
-
-  .mat-mdc-simple-snackbar-action {
-    color: #00ffc3;
-  }
-}
-
-.snackbar-warning {
-  background-color: #fcc3bf;
-  color: #fa4c40;
-
-  .mat-mdc-simple-snackbar-action {
-    color: #fa4c40;
-  }
-}
-
-.warn-bg {
-  background-color: #fcc3bf;
-}
-
-.danger-bg {
-  background-color: #fcc3bf;
-}
-
-.error {
-  background-color: mat.get-color-from-palette($ecorendum-warn);
-  color: white;
-  padding: 10px;
-
-  .mat-simple-snackbar-action {
-    color: white;
-  }
-}
-
-.obsolete {
-  opacity: 0.8;
-}
-
-.requested, .planned, .decommissioned {
-  opacity: 0.8;
-}
-
-.commissioned {
-  color: #155724;
-}
-
-.retiring, .decommissioned {
-  color: #721c24;
 }
 
 .info {
@@ -366,62 +297,6 @@ body:not(:-moz-handler-blocked) fieldset {
   padding-bottom: 24px;
 }
 
-.width50 {
-  max-width: 50px;
-}
-
-.width60 {
-  max-width: 60px;
-}
-
-.width80 {
-  max-width: 80px;
-}
-
-.width100 {
-  max-width: 100px;
-}
-
-.width120 {
-  max-width: 120px;
-}
-
-.width160 {
-  max-width: 160px;
-}
-
-.width220 {
-  max-width: 220px;
-}
-
-.mat-icon-button.inline, .mat-icon-button mat-icon.inline {
-  width: inherit;
-  height: inherit;
-  line-height: inherit;
-}
-
-table, li, mat-table {
-  button.mat-icon-button {
-    opacity: 0.5;
-  }
-
-  button.mat-icon-button:hover {
-    opacity: 1;
-  }
-}
-
-.mat-icon.inline {
-  font-size: 120%;
-  vertical-align: text-bottom;
-  margin-right: $margin-inline;
-  height: unset;
-  width: unset;
-
-  &.form {
-    padding-right: 8px;
-  }
-}
-
 mat-button-toggle-group {
   // Strange that this is necessary...
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
@@ -450,91 +325,9 @@ mat-button-toggle-group.inline-buttons button > .mat-button-toggle-label-content
   line-height: unset !important;
 }
 
-.mat-toolbar.mat-primary {
-  .mat-button-toggle {
-    color: white;
-  }
-
-  .mat-button-toggle-checked {
-    background-color: rgba(0, 0, 0, 0.2);
-    cursor: default;
-  }
-
-  .mat-button-toggle-label-content {
-    padding-bottom: 2px;
-  }
-}
-
-.mat-button-toggle+.mat-button-toggle {
-  border-left: 1px solid rgba(0,0,0,.12);
-}
-
-.mat-form-field-suffix {
-  color: rgba(0, 0, 0, 0.54);
-}
-
-.border-right-cell {
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-right-color: rgba(0, 0, 0, 0.12);
-}
-
-button.icon-button {
-  margin-right: 8px;
-  padding: 0;
-  min-width: 36px;
-}
-
-.inverted-form {
-  .mat-hint, .mat-form-field-label, .mat-input-element:disabled {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-
-  .mat-input-element, .mat-datepicker-toggle-default-icon, .mat-form-field-suffix {
-    color: white;
-  }
-
-  .mat-checkbox {
-    margin-top: 10px;
-    margin-bottom: 0px;
-  }
-
-  .mat-checkbox-frame {
-    border-color: white;
-  }
-}
-
 .mat-checkbox {
   margin-bottom: $margin-default; // Other form components are 1.25em; but this seems better
   margin-right: $margin-small;
-}
-
-.mat-checkbox.wrap {
-  .mat-checkbox-layout {
-    white-space: normal !important;
-  }
-}
-
-div[fxlayout] > mat-form-field+mat-checkbox {
-  margin-top: 20px;
-}
-
-.checkbox-inline {
-  margin-top: 0px; margin-bottom: 0px; margin-left: 12px;
-
-  label {
-    font-weight: normal;
-  }
-}
-
-mat-button-toggle-group.img-buttons > mat-button-toggle > button > div {
-  padding: 0 8px !important;
-  line-height: 36px !important;
-}
-
-mat-divider.vertical-spaced {
-  margin-top: $margin-default;
-  margin-bottom: $margin-default;
 }
 
 ::ng-deep .mat-checkbox .mat-checkbox-inner-container {
@@ -542,85 +335,9 @@ mat-divider.vertical-spaced {
   height: 18px;
 }
 
-.mat-table.condensed {
-  .mat-header-row, .mat-footer-row, .mat-row {
-    min-height: 36px;
-  }
-}
-
-.full-tooltip {
-  word-break: break-all !important;
-  white-space: normal !important;
-}
-
 markdown {
   img {
     max-width: 100%;
-  }
-}
-
-// This mostly doesn't work :s
-// https://stackoverflow.com/questions/53700373/how-to-customize-the-css-for-angular-material-paginator
-// https://stackoverflow.com/questions/53755894/styling-angular-material-paginator
-::ng-deep.mat-paginator .mat-paginator-container{
-  min-height: 36px;
-}
-
-.mat-table.selectable-rows .mat-row {
-  cursor: pointer;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.03);
-  }
-}
-
-@media print {
-  .mat-select-arrow-wrapper {
-    visibility: collapse;
-  }
-}
-
-// Source: https://github.com/angular/components/issues/8494#issuecomment-359607760
-
-// By default, the mobile label shouldn't show
-.mobile-label {
-  display: none;
-}
-
-@media(max-width: 720px) {
-  // Custom header label that shows in each column, with a set width and bold font
-  .mobile-label {
-    margin-right: 6px;
-    display: inline-block;
-    font-weight: 500;
-  }
-
-  // Remove the header row altogether
-  .mat-header-row {
-    display: none;
-  }
-
-  // The row cells should display as a column, justified left, with a bit of extra padding
-  .mat-row {
-    flex-direction: column;
-    align-items: start;
-    padding: 8px 16px;
-    min-height: unset; // Tweak for Angular Material 8
-  }
-
-  // Tweaks for Angular Material 8
-  .mat-cell:first-of-type, .mat-footer-cell:first-of-type, .mat-header-cell:first-of-type {
-    padding-left: unset;
-  }
-
-  .mat-cell {
-    align-items: unset;
-    min-height: unset;
-    max-width: unset!important;
-  }
-
-  mat-footer-row::after, mat-header-row::after, mat-row::after {
-    content: unset!important;
   }
 }
 
@@ -630,36 +347,6 @@ hr {
   background-color: #cccccc73;
   color: #cccccc73;
   height: 1px;
-}
-
-.releasenotes {
-  img {
-    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
-    max-width: 100%;
-  }
-
-  hr {
-    margin: 24px 0px;
-    border: none;
-    background-color: #ccc;
-    color: #ccc;
-    height: 1px;
-  }
-
-  h1, h1+p {
-    display: inline-block;
-  }
-
-  blockquote {
-    opacity: 0.7;
-    padding: 8px 24px;
-    margin: 16px 0;
-    border-left: 3px solid #eaeaea;
-
-    p:last-child {
-      margin-bottom: 0px;
-    }
-  }
 }
 
 markdown {
