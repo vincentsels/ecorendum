@@ -13,9 +13,6 @@ type AllRegionsType = ContextType | 'federal';
   styleUrls: ['../proposal-editor.component.scss']
 })
 export class ProposalDataEditorComponent {
-  @Input({ required: true }) proposal!: Proposal;
-  @Input({ required: true }) translationData!: ProposalTranslationsContainer;
-
   constructor(public enums: EnumsService) {
   }
 
@@ -30,6 +27,9 @@ export class ProposalDataEditorComponent {
   impactAmounts = Object.values(ImpactAmount).filter(Number).map(Number);
 
   selectedVariant = 0;
+
+  @Input({ required: true }) proposal!: Proposal;
+  @Input({ required: true }) translationData!: ProposalTranslationsContainer;
 
   targetTypeToUnitMap = {
     [TargetType.energyEfficiency]: 'GWh',

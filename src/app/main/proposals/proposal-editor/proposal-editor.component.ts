@@ -31,19 +31,17 @@ export class ProposalEditorComponent implements OnInit {
   nl: any;
   fr: any;
 
-  translationsLoaded$: Observable<any>;
+  translationsLoaded$!: Observable<any>;
+
+  allRegions: AllRegionsType[] = ['federal', 'flanders', 'brussels', 'wallonia'];
+
+  allProposals: { [policyLevel in AllRegionsType]: ProposalDetail[] };
 
   @ViewChild('translationsEditor') translationsEditor?: ProposalTranslationsEditorComponent;
 
   // Initialize with a default variant
   constructor(public enums: EnumsService, public proposalService: ProposalService,
-    private route: ActivatedRoute, translate: TranslateService) {
-    this.proposal = new Proposal();
-    const variant = new Variant();
-    variant.proposal = this.proposal;
-    this.proposal.variants.push(variant);
-    this.translationData.addVariant(variant.ambitionLevel);
-
+    private route: ActivatedRoute, private translate: TranslateService) {
     this.allProposals = {
       federal: [...PROPOSALS_FEDERAL],
       flanders: [...PROPOSALS_FLANDERS],
@@ -51,12 +49,24 @@ export class ProposalEditorComponent implements OnInit {
       wallonia: [...PROPOSALS_WALLONIA],
     }
 
-    // This seems to actually change the language; so we need to store the current language and reset it
-    const currLang = translate.currentLang;
+    this.createNewProposal();
+  }
 
-    const enTranslations$ = translate.getTranslation('en').pipe(first());
-    const nlTranslations$ = translate.getTranslation('nl').pipe(first());
-    const frTranslations$ = translate.getTranslation('fr').pipe(first());
+  private createNewProposal() {
+    this.proposal = new Proposal();
+    const variant = new Variant();
+    variant.proposal = this.proposal;
+    this.proposal.variants.push(variant);
+    this.translationData.addVariant(variant.ambitionLevel);
+  }
+
+  private preloadTranslations() {
+    // This seems to actually change the language; so we need to store the current language and reset it
+    const currLang = this.translate.currentLang;
+
+    const enTranslations$ = this.translate.getTranslation('en').pipe(first());
+    const nlTranslations$ = this.translate.getTranslation('nl').pipe(first());
+    const frTranslations$ = this.translate.getTranslation('fr').pipe(first());
 
     this.translationsLoaded$ = forkJoin([enTranslations$, nlTranslations$, frTranslations$]);
 
@@ -68,26 +78,29 @@ export class ProposalEditorComponent implements OnInit {
       }
     );
 
-    translate.getTranslation(currLang);
+    this.translate.getTranslation(currLang);
   }
 
-  allRegions: AllRegionsType[] = ['federal', 'flanders', 'brussels', 'wallonia'];
-
-  allProposals: { [policyLevel in AllRegionsType]: ProposalDetail[] };
-
   ngOnInit() {
+    this.preloadTranslations();
+
     this.translationsLoaded$.pipe(withLatestFrom(this.route.paramMap)).subscribe(([_, paramMap]) => {
       const idOrSlug = paramMap.get('idorslug');
       const foundProposal = this.proposalService.allProposals.find(p =>
         (!isNaN(Number(idOrSlug)) && p.id === Number(idOrSlug)) ||
         (p.slugNl === idOrSlug || p.slugFr === idOrSlug ||p.slugEn === idOrSlug));
-      if (foundProposal) this.load(foundProposal);
+      if (foundProposal) {
+        this.load(foundProposal);
+      }
     });
   }
 
   load(selectedProposal: ProposalDetail) {
-    this.proposal = selectedProposal;
-    this.fillTranslations();
+    // Really don't know why I have to do this; but otherwise some comboboxes aren't translated :(
+    setTimeout(() => {
+      this.proposal = selectedProposal;
+      this.fillTranslations();
+    });
   }
 
   private fillTranslations() {

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -40,7 +40,7 @@ export class ProposalDetailComponent implements OnInit {
 
   constructor(public enums: EnumsService, public service: ProposalService, public languageService: LanguageService,
     public contextService: ContextService,  private route: ActivatedRoute, private snackBar: MatSnackBar,
-    private translate: TranslateService) {}
+    private translate: TranslateService, private router: Router) {}
 
   ngOnInit() {
     if (!this.dialog) {
@@ -72,6 +72,11 @@ export class ProposalDetailComponent implements OnInit {
   contribute() {
     this.snackBar.open(this.translate.instant(
       'This would direct to a separate website, where any registered Belgian citizen can contribute and, with a sufficiently high reputation or credentials, moderate.'), 'OK');
+  }
+
+  edit() {
+    this.closeDialog();
+    this.router.navigate(['edit', this.proposal?.slugEn]);
   }
 
   getVariant = (variantId: number) => this.proposal?.variants.find(v => v.ambitionLevel === variantId);
