@@ -143,7 +143,8 @@
   "helpResults": "Alle kwantificeerbare doelstellingen die {{ region }} moet bereiken tegen 2030, opgelegd door de rechter in de Klimaatzaak en door Europa; de kosten van geselecteerde maatregelen; en hun bredere impact. Momenteel zijn alleen de effecten op broeikasgassen gekwantificeerd.",
   "helpLegalReductionTarget": "{{ region }} moet de uitstoot van broeikasgassen met 55% verminderen, zoals bepaald door een rechter in de Klimaatzaak.",
   "helpCo2reductionTarget": "{{ region }} moet de uitstoot van broeikasgassen met 47% verminderen in de sectoren transport, gebouwen, landbouw, afvalbeheer en kleine industrie, om te voldoen aan Europese doelstellingen.",
-  "helpCarbonTax": "EU-lidstaten die niet voldoen aan CO2-doelstellingen betalen een belasting gebaseerd op ETS-prijzen, geschat op € {{ carbonTax }} per ton CO2.",
+  "helpEnergySavingsTarget": "De hoeveelheid energie {{ region }} die minder moet verbruiken tegen 2030. WAARSCHUWING: Dit doel is niet correct en slechts een voorbeeld. We onderzoeken nog wat het werkelijke aantal is.",
+  "helpRenewableEnergyTarget": "De hoeveelheid groene elektriciteit die {{ region }} extra moet produceren in 2030. WAARSCHUWING: Dit doel is niet correct en slechts een voorbeeld. We onderzoeken het werkelijke aantal nog.",  "helpCarbonTax": "EU-lidstaten die niet voldoen aan CO2-doelstellingen betalen een belasting gebaseerd op ETS-prijzen, geschat op € {{ carbonTax }} per ton CO2.",
   "helpCarbonIncome": "EU-lidstaten die minder uitstoten dan hun doelstelling kunnen overtollige emissierechten verkopen voor een geschatte € {{ carbonTax }} per ton CO2.",
   "helpLegalPenalty": "Als de overheid de wettelijke doelstelling na een evaluatieperiode niet haalt, moet een dwangsom van € {{ legalPenalty }} per maand worden betaald.",
 

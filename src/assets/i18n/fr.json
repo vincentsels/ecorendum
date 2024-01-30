@@ -145,7 +145,8 @@
   "helpResults": "Tous les objectifs quantifiables que {{ region }} doit atteindre d'ici 2030, imposés par le juge de Klimaatzaak et par l'Europe ; le coût des mesures sélectionnées ; et leur impact plus large. Actuellement, seuls les impacts des gaz à effet de serre sont quantifiés.",
   "helpLegalReductionTarget": "{{ region }} doit réduire les gaz à effet de serre de 55 %, comme statué par un juge dans l'affaire Klimaatzaak.",
   "helpCo2reductionTarget": "{{ region }} doit réduire les gaz à effet de serre de 47 % dans les secteurs des transports, des bâtiments, de l'agriculture, de la gestion des déchets et de la petite industrie, pour atteindre les objectifs européens.",
-  "helpCarbonTax": "Les États de l'UE qui ne respectent pas les objectifs de CO2 paient une taxe basée sur les prix du système ETS, estimée à {{ carbonTax }} € par tonne de CO2.",
+  "helpEnergySavingsTarget" : "La quantité d'énergie que {{ region }} doit consommer en moins d'ici 2030. ATTENTION : Cet objectif n'est pas correct et n'est qu'un exemple. Nous sommes toujours en train d'étudier le chiffre réel.",
+  "helpRenewableEnergyTarget" : "La quantité d'électricité verte que {{ region }} doit produire en plus d'ici 2030. ATTENTION : Cet objectif n'est pas correct et n'est qu'un exemple. Nous sommes toujours en train d'étudier les chiffres réels.",  "helpCarbonTax": "Les États de l'UE qui ne respectent pas les objectifs de CO2 paient une taxe basée sur les prix du système ETS, estimée à {{ carbonTax }} € par tonne de CO2.",
   "helpCarbonIncome": "Les États de l'UE émettant moins que leur objectif peuvent vendre des droits d'émission excédentaires à un prix estimé à {{ carbonTax }} € par tonne de CO2.",
   "helpLegalPenalty": "Si le gouvernement n'atteint pas l'objectif légal, après une période d'évaluation, une pénalité légale de {{ legalPenalty }} € par mois doit être payée.",
 

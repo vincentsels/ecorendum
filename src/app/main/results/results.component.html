@@ -77,8 +77,8 @@
 
     <h3 class="result-section-collapsed">
       <span class="collapsed-header">
-        <mat-icon class="inline">energy_savings_leaf</mat-icon>
-        {{ 'Energy efficiency' | translate }}
+        <mat-icon class="inline">energy_savings_leaf</mat-icon>&nbsp;<app-help-widget
+          tooltipKey="helpEnergySavingsTarget" textKey="Energy efficiency"></app-help-widget>
       </span>
 
       <app-result-progress [target]="results.euEeTarget"></app-result-progress>
@@ -86,8 +86,8 @@
 
     <h3 class="result-section-collapsed">
       <span class="collapsed-header">
-        <mat-icon class="inline">solar_power</mat-icon>
-        {{ 'Renewable energy' | translate }}
+        <mat-icon class="inline">solar_power</mat-icon>&nbsp;<app-help-widget
+          tooltipKey="helpRenewableEnergyTarget" textKey="Renewable energy"></app-help-widget>
       </span>
 
       <app-result-progress [target]="results.euReTarget"></app-result-progress>

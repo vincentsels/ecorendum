@@ -145,6 +145,8 @@
   "helpResults": "All quantifiable targets {{ region }} must reach by 2030, imposed by the Klimaatzaak judge and by Europe; the cost of selected measures; and their broader impact. Currently, only greenhouse gas impacts are quantified.",
   "helpLegalReductionTarget": "{{ region }} must reduce greenhouse gases by 55%, as ruled by a Judge in the Klimaatzaak.",
   "helpCo2reductionTarget": "{{ region }} must reduce greenhouse gases by 47% in the sectors of transport, buildings, agriculture, waste management and small industry, to meet European targets.",
+  "helpEnergySavingsTarget": "The amount of energy {{ region }} has to consume less by 2030. WARNING: This target is not correct, and only an example. We are still looking into the actual number.",
+  "helpRenewableEnergyTarget": "The amount of green electricity {{ region }} has to produce extra by 2030. WARNING: This target is not correct, and only an example. We are still looking into the actual number.",
   "helpCarbonTax": "EU states failing to meet CO2 targets pay a tax based on ETS system prices, estimated at € {{ carbonTax }} per ton of CO2.",
   "helpCarbonIncome": "EU states emitting less than their target can sell excess emission rights at an estimated € {{ carbonTax }} per ton of CO2.",
   "helpLegalPenalty": "If the government does not meet the legal target, after an evaluation period, a legal penalty of € {{ legalPenalty }} per month must be paid.",
