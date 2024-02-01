@@ -1,0 +1,107 @@
+@use './parameters' as params;
+
+.page-container {
+  margin: params.$margin-default;
+  padding-bottom: 24px;
+}
+
+.responsive-page-container {
+  padding-right: params.$margin-default;
+  padding-left: params.$margin-default;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.responsive-page-content-with-toc {
+  display: flex;
+  scroll-behavior: smooth;
+
+  .responsive-page-toc-container {
+    position: relative;
+    min-width: 250px;
+    display: none;
+
+    .responsive-page-toc-box {
+      position: sticky;
+      top: 12px;
+      border-right: 1px solid;
+      border-color: var(--mdc-elevated-card-container-color);
+      margin-right: 32px;
+      padding-right: 16px;
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li.H1 {
+          margin-top: 8px;
+          list-style-type: disc;
+        }
+
+        li.H2 {
+          margin-left: 4px;
+          margin-top: 4px;
+        }
+
+        li.H3 {
+          margin-left: 8px;
+          font-size: 90%;
+        }
+
+        li.H4 {
+          margin-left: 12px;
+          font-size: 90%;
+        }
+
+        li.H5 {
+          margin-left: 16px;
+          font-size: 90%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .responsive-page-container { max-width: 500px; }
+}
+
+@media (min-width: 768px) {
+  .responsive-page-container { max-width: 600px; }
+}
+
+@media (min-width: 992px) {
+  .responsive-page-container { max-width: 600px; }
+  .responsive-page-container.responsive-page-content-with-toc {
+    max-width: 850px;
+    .responsive-page-toc-container {
+      min-width: 250px;
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .responsive-page-container { max-width: 700px; }
+  .responsive-page-container.responsive-page-content-with-toc {
+    max-width: 1000px;
+    .responsive-page-toc-container {
+      min-width: 280px;
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .responsive-page-container {  max-width: 800px; }
+  .responsive-page-container.responsive-page-content-with-toc {
+    max-width: 1200px;
+    .responsive-page-toc-container {
+      min-width: 300px;
+      display: block;
+    }
+  }
+}

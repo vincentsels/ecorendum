@@ -1,0 +1,31 @@
+/* Strangely enough, this has to be here, can't be in help widget itself :/ */
+
+.help-widget-tooltip {
+  .mdc-tooltip__surface {
+    padding: 8px;
+  }
+
+  :after {
+    display: block;
+    margin-top: 8px;
+    opacity: 0.6;
+  }
+}
+
+.help-widget-tooltip-en {
+  :after {
+    content: ' (click for more info)';
+  }
+}
+
+.help-widget-tooltip-nl {
+  :after {
+    content: ' (klik voor meer info)';
+  }
+}
+
+.help-widget-tooltip-fr {
+  :after {
+    content: ' (cliquez pour plus d''informations)';
+  }
+}

@@ -1,0 +1,104 @@
+@use '@angular/material' as mat;
+@use './parameters' as params;
+
+/* Color styles */
+
+.color-primary { color: mat.get-color-from-palette(params.$ecorendum-primary) !important }
+.color-accent { color: mat.get-color-from-palette(params.$ecorendum-accent) !important }
+.color-warn { color: mat.get-color-from-palette(params.$ecorendum-warn) !important }
+
+// This should move just to the component that uses it, but lots of work :)
+.bg-color-accent-semi-transparent {
+  background-color: rgba(mat.get-color-from-palette(params.$ecorendum-accent), 0.8) !important;
+}
+
+// This should move just to the component that uses it, but lots of work :)
+.bg-color-accent-transparent {
+  background-color: rgba(mat.get-color-from-palette(params.$ecorendum-accent), 0.4) !important;
+}
+
+// This should move just to the component that uses it, but lots of work :)
+.bg-color-warn-semi-transparent {
+  background-color: rgba(mat.get-color-from-palette(params.$ecorendum-warn), 0.8) !important;
+}
+
+// This should move just to the component that uses it, but lots of work :)
+.bg-color-warn-transparent {
+  background-color: rgba(mat.get-color-from-palette(params.$ecorendum-warn), 0.4) !important;
+}
+
+.accent { color: mat.get-color-from-palette(params.$ecorendum-accent, A200) }
+
+.success { color: #46f8cf }
+.neutral { color: #ffffff }
+.warning { color: #f8837b }
+.danger { color: #fa4c40 }
+
+.bg-color-danger { background-color: #f4433614!important }
+.bg-color-success { background-color: #1de9b617!important }
+
+.impact-extremely-positive { color: #00ffc3 }
+.impact-very-positive { color: #46f8cf }
+.impact-moderately-positive { color: #86fadf }
+.impact-somewhat-positive { color: #d2f8ef }
+.impact-neutral { color: #ffffff }
+.impact-somewhat-negative { color: #fcc3bf }
+.impact-moderately-negative { color: #f8837b }
+.impact-very-negative { color: #fa4c40 }
+.impact-extremely-negative { color: #ff1d0d }
+
+/* Fix links */
+
+a {
+  color: mat.get-color-from-palette(params.$ecorendum-primary, 200);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: mat.get-color-from-palette(params.$ecorendum-primary, 300);
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  a {
+    color: inherit;
+  }
+}
+
+a.unstyled-link {
+  color: inherit;
+}
+
+/* General improvements */
+
+label {
+  font-weight: 500;
+}
+
+/* Commonly used inline icon styles. The inline attribute of Material itself doesn't work */
+
+.mat-icon.inline {
+  font-size: 120%;
+  vertical-align: text-bottom;
+  margin-right: params.$margin-inline;
+  height: unset;
+  width: unset;
+
+  &.form {
+    padding-right: 8px;
+  }
+}
+
+/* Material helper classes */
+
+.card-side-padding {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* General helper classes */
+
+.info {
+  opacity: 0.8;
+  font-style: italic;
+}
