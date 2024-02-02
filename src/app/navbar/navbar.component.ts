@@ -6,6 +6,8 @@ import { LanguageType } from '../main/proposals/proposal';
 import { LanguageService } from '../common/language.service';
 import { ContextService } from '../main/context/context.service';
 
+const STYLE_NAME_LIGHT_MODE = 'light-mode';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -18,6 +20,7 @@ export class NavbarComponent {
   }
 
   version = '0.1';
+  lightMode = false;
 
   languages = ['en', 'fr', 'nl'];
   language: string | null = null;
@@ -32,5 +35,11 @@ export class NavbarComponent {
 
   changeContext() {
     this.matDialog.open(SelectContextDialogComponent);
+  }
+
+  toggleLightMode() {
+    this.lightMode = !this.lightMode;
+    if (this.lightMode) document.body.classList.add(STYLE_NAME_LIGHT_MODE);
+    else document.body.classList.remove(STYLE_NAME_LIGHT_MODE);
   }
 }

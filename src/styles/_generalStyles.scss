@@ -1,0 +1,52 @@
+@use './parameters' as params;
+
+/* Link styles */
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5 {
+  a {
+    color: inherit;
+  }
+}
+
+a.unstyled-link {
+  color: inherit;
+}
+
+/* General improvements */
+
+label {
+  font-weight: 500;
+}
+
+/* Commonly used inline icon styles. The inline attribute of Material itself doesn't work */
+
+.mat-icon.inline {
+  font-size: 120%;
+  vertical-align: text-bottom;
+  margin-right: params.$margin-inline;
+  height: unset;
+  width: unset;
+
+  &.form {
+    padding-right: params.$margin-small;
+  }
+}
+
+/* Material helper classes */
+
+.card-side-padding {
+  padding-left: params.$margin-default;
+  padding-right: params.$margin-default;
+}
+
+/* General helper classes */
+
+.info {
+  opacity: 0.8;
+  font-style: italic;
+}

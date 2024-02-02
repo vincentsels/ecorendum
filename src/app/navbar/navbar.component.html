@@ -36,6 +36,11 @@
 
   <div fxHide.xs class="flex-spacer"></div>
 
+  <button mat-icon-button (click)="toggleLightMode()">
+    <mat-icon *ngIf="!lightMode">light_mode</mat-icon>
+    <mat-icon *ngIf="lightMode">dark_mode</mat-icon>
+  </button>
+
   <button mat-button class="menu-button" [matMenuTriggerFor]="langMenu">
     {{ toUpper(language) }}
   </button>

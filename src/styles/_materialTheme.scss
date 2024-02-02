@@ -15,17 +15,17 @@
 // theming systems such as "color" or "typography".
 $ecorendum-theme: mat.define-dark-theme((
   color: (
-    primary: params.$ecorendum-primary,
-    accent: params.$ecorendum-accent,
-    warn: params.$ecorendum-warn,
+    primary: params.$ecorendum-dark-primary,
+    accent: params.$ecorendum-dark-accent,
+    warn: params.$ecorendum-dark-warn,
   )
 ));
 
 $light-theme: mat.define-light-theme((
   color: (
-    primary: params.$ecorendum-primary,
-    accent: params.$ecorendum-accent,
-    warn: params.$ecorendum-warn
+    primary: params.$ecorendum-light-primary,
+    accent: params.$ecorendum-light-accent,
+    warn: params.$ecorendum-light-warn
   )
 ));
 
@@ -38,7 +38,7 @@ $typography: mat.define-legacy-typography-config();
 @include mat.all-component-themes($ecorendum-theme);
 @include proposal.theme($ecorendum-theme);
 
-.lightMode {
+.light-mode {
   @include mat.all-component-colors($light-theme);
   @include proposal.theme($light-theme);
 }

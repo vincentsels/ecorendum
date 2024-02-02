@@ -4,11 +4,20 @@ $margin-default: 16px;
 $margin-small: 8px;
 $margin-inline: 4px;
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$ecorendum-primary: mat.define-palette(mat.$purple-palette);
-$ecorendum-accent: mat.define-palette(mat.$teal-palette, A400, A200, A100);
+$ecorendum-dark-primary: mat.define-palette(mat.$purple-palette);
+$ecorendum-dark-accent: mat.define-palette(mat.$teal-palette, A400, A200, A100);
+$ecorendum-dark-warn: mat.define-palette(mat.$red-palette);
 
-// The warn palette is optional (defaults to red).
-$ecorendum-warn: mat.define-palette(mat.$red-palette);
+$ecorendum-light-primary: mat.define-palette(mat.$deep-purple-palette);
+$ecorendum-light-accent: mat.define-palette(mat.$teal-palette);
+$ecorendum-light-warn: mat.define-palette(mat.$red-palette);
+
+$ecorendum-primary: $ecorendum-dark-primary;
+$ecorendum-accent: $ecorendum-dark-accent;
+$ecorendum-warn: $ecorendum-dark-warn;
+
+.light-mode {
+  $ecorendum-primary: $ecorendum-light-primary;
+  $ecorendum-accent: $ecorendum-light-accent;
+  $ecorendum-warn: $ecorendum-light-warn;
+}
