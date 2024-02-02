@@ -39,6 +39,6 @@ $typography: mat.define-legacy-typography-config();
 @include proposal.theme($ecorendum-theme);
 
 .lightMode {
-  @include mat.all-component-themes($light-theme);
+  @include mat.all-component-colors($light-theme);
   @include proposal.theme($light-theme);
 }
