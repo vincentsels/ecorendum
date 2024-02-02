@@ -38,53 +38,43 @@
 a { color: mat.get-color-from-palette(params.$ecorendum-dark-primary, 200) }
 a:hover { color: mat.get-color-from-palette(params.$ecorendum-dark-primary, 300) }
 
-/* Link styles */
+.light-mode {
 
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
+/* Color styles */
 
-h1, h2, h3, h4, h5 {
-  a {
-    color: inherit;
-  }
-}
+.color-primary { color: mat.get-color-from-palette(params.$ecorendum-light-primary) !important }
+.color-accent { color: mat.get-color-from-palette(params.$ecorendum-light-accent) !important }
+.color-warn { color: mat.get-color-from-palette(params.$ecorendum-light-warn) !important }
 
-a.unstyled-link {
-  color: inherit;
-}
+// This should move just to the component that uses it, but lots of work :)
+.bg-color-accent-semi-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-accent), 0.8) !important }
+.bg-color-accent-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-accent), 0.4) !important }
+.bg-color-warn-semi-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-warn), 0.8) !important }
+.bg-color-warn-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-warn), 0.4) !important }
 
-/* General improvements */
+.accent { color: mat.get-color-from-palette(params.$ecorendum-light-accent, A200) }
 
-label {
-  font-weight: 500;
-}
+.success { color: mat.get-color-from-palette(params.$ecorendum-light-accent, A400) }
+.neutral { color: #ffffff }
+.warning { color: mat.get-color-from-palette(params.$ecorendum-light-warn, A100) }
+.danger { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 600) }
 
-/* Commonly used inline icon styles. The inline attribute of Material itself doesn't work */
+.bg-color-danger { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-warn), 0.15) !important }
+.bg-color-success { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-accent), 0.15) !important }
 
-.mat-icon.inline {
-  font-size: 120%;
-  vertical-align: text-bottom;
-  margin-right: params.$margin-inline;
-  height: unset;
-  width: unset;
+.impact-extremely-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 400) }
+.impact-very-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 300) }
+.impact-moderately-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 200) }
+.impact-somewhat-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 100) }
+.impact-neutral { color: #ffffff }
+.impact-somewhat-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 100) }
+.impact-moderately-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 200) }
+.impact-very-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 300) }
+.impact-extremely-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 400) }
 
-  &.form {
-    padding-right: params.$margin-small;
-  }
-}
+/* Link color styles */
 
-/* Material helper classes */
+a { color: mat.get-color-from-palette(params.$ecorendum-light-primary, 200) }
+a:hover { color: mat.get-color-from-palette(params.$ecorendum-light-primary, 300) }
 
-.card-side-padding {
-  padding-left: params.$margin-default;
-  padding-right: params.$margin-default;
-}
-
-/* General helper classes */
-
-.info {
-  opacity: 0.8;
-  font-style: italic;
 }
