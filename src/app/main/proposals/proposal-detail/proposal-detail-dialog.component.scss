@@ -1,0 +1,48 @@
+@use '@angular/material' as mat;
+@use 'parameters' as params;
+
+.dialog-detail {
+  max-height: 100%
+}
+
+.close-button { float: right; }
+
+.link-button {
+  opacity: 0.3;
+  margin-left: 6px;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.dialog-content {
+  background-size: cover;
+  background-position: left, right;
+  background-repeat: no-repeat, no-repeat;
+  padding: 0px;
+}
+
+.dialog-content-overlay {
+  padding: 0px 24px 20px 24px; /* From .mdc-dialog .mdc-dialog__content */
+
+  background: linear-gradient(
+    165deg,
+    rgba(mat.get-theme-color(params.$ecorendum-theme, 'background', 'card'), 1) 40%,
+    rgba(mat.get-theme-color(params.$ecorendum-theme, 'background', 'card'), 0.8) 60%,
+    rgba(mat.get-theme-color(params.$ecorendum-theme, 'background', 'card'), 0.2) 90%);
+
+  background-attachment: fixed; /* This has to be after the background */
+}
+
+::ng-deep.light-mode {
+  .dialog-content-overlay {
+    background: linear-gradient(
+      165deg,
+      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'card'), 1) 40%,
+      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'card'), 0.8) 60%,
+      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'card'), 0.2) 90%) !important;
+
+      background-attachment: fixed !important; /* This has to be after the background */
+  }
+}

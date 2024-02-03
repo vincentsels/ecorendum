@@ -60,6 +60,20 @@
   opacity: 0.4;
 }
 
+::ng-deep .light-mode {
+  .proposal-target-summary-secondary {
+    opacity: 0.6;;
+  }
+
+  .proposal-target-summary {
+    opacity: 0.8;
+  }
+
+  .committed h2 {
+    opacity: 0.8;
+  }
+}
+
 @media (max-width: 576px) {
   .proposal-target-summary {
     display: block;
