@@ -54,35 +54,35 @@ a:hover { color: mat.get-color-from-palette(params.$ecorendum-dark-primary, 300)
   .color-warn { color: mat.get-color-from-palette(params.$ecorendum-light-warn) !important }
 
   // This should move just to the component that uses it, but lots of work :)
-  .bg-color-accent-semi-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-accent), 0.8) !important }
-  .bg-color-accent-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-accent), 0.4) !important }
-  .bg-color-warn-semi-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-warn), 0.8) !important }
-  .bg-color-warn-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-warn), 0.4) !important }
+  .bg-color-accent-semi-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent, 800) !important }
+  .bg-color-accent-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent, 400) !important }
+  .bg-color-warn-semi-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 800) !important }
+  .bg-color-warn-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 400) !important }
 
   .accent { color: mat.get-color-from-palette(params.$ecorendum-light-accent, A200) }
 
   .success { color: mat.get-color-from-palette(params.$ecorendum-light-accent, A400) }
-  .neutral { color: #ffffff }
+  .neutral { color: var(--mat-icon-color); opacity: 0.4; }
   .warning { color: mat.get-color-from-palette(params.$ecorendum-light-warn, A100) }
   .danger { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 600) }
 
   .bg-color-danger { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-warn), 0.15) !important }
   .bg-color-success { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-accent), 0.15) !important }
 
-  .impact-extremely-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 400) }
-  .impact-very-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 300) }
-  .impact-moderately-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 200) }
-  .impact-somewhat-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 100) }
-  .impact-neutral { color: #ffffff }
-  .impact-somewhat-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 100) }
-  .impact-moderately-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 200) }
-  .impact-very-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 300) }
-  .impact-extremely-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 400) }
+  .impact-extremely-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 800) }
+  .impact-very-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 600) }
+  .impact-moderately-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 400) }
+  .impact-somewhat-positive { color: mat.get-color-from-palette(params.$ecorendum-light-accent, 200) }
+  .impact-neutral { color: var(--mat-icon-color); opacity: 0.4; }
+  .impact-somewhat-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 200) }
+  .impact-moderately-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 400) }
+  .impact-very-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 600) }
+  .impact-extremely-negative { color: mat.get-color-from-palette(params.$ecorendum-light-warn, 800) }
 
   /* Link color styles */
 
-  a { color: mat.get-color-from-palette(params.$ecorendum-light-primary, 200) }
-  a:hover { color: mat.get-color-from-palette(params.$ecorendum-light-primary, 300) }
+  a { color: mat.get-color-from-palette(params.$ecorendum-light-primary, 600) }
+  a:hover { color: mat.get-color-from-palette(params.$ecorendum-light-primary, 800) }
 
   /* Dialog */
 

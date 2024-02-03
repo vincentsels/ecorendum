@@ -12,6 +12,14 @@
   }
 }
 
+.title-button {
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
 .flex-spacer {
   flex-grow: 1;
 }
