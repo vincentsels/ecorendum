@@ -12,6 +12,24 @@ $ecorendum-light-primary: mat.define-palette(mat.$deep-purple-palette);
 $ecorendum-light-accent: mat.define-palette(mat.$teal-palette);
 $ecorendum-light-warn: mat.define-palette(mat.$red-palette);
 
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ecorendum-theme: mat.define-dark-theme((
+  color: (
+    primary: $ecorendum-dark-primary,
+    accent: $ecorendum-dark-accent,
+    warn: $ecorendum-dark-warn,
+  )
+));
+
+$ecorendum-light-theme: mat.define-light-theme((
+  color: (
+    primary: $ecorendum-light-primary,
+    accent: $ecorendum-light-accent,
+    warn: $ecorendum-light-warn
+  )
+));
+
 $ecorendum-primary: $ecorendum-dark-primary;
 $ecorendum-accent: $ecorendum-dark-accent;
 $ecorendum-warn: $ecorendum-dark-warn;

@@ -1,12 +1,15 @@
+@use '@angular/material' as mat;
+@use 'parameters' as params;
+
 .proposal {
   margin-bottom: 24px;
   width: 100%;
-}
 
-.proposal.committed {
-  border-width: 2px;
-  border-style: dashed;
-  border-color: var(--mdc-elevated-card-container-color);
+  &.committed {
+    border-width: 2px;
+    border-style: dashed;
+    border-color: var(--mdc-outlined-card-outline-color);
+  }
 }
 
 .proposal-card {
@@ -14,22 +17,48 @@
   background-size: cover;
   background-position: left, right;
   background-repeat: no-repeat, no-repeat;
+  padding: 0px; /* Will be set by the overlay with the gradient */
+
+  &.committed {
+    background-color: inherit;
+    box-shadow: none;
+  }
 }
 
-.proposal-card.committed {
-  background-color: inherit;
-  box-shadow: none;
+.proposal-card-background-overlay {
+  padding: 16px;
+  background: linear-gradient(
+    145deg,
+    rgba(mat.get-theme-color(params.$ecorendum-theme, 'background', 'card'), 1) 40%,
+    rgba(mat.get-theme-color(params.$ecorendum-theme, 'background', 'card'), 0.9) 60%,
+    rgba(mat.get-theme-color(params.$ecorendum-theme, 'background', 'card'), 0.1) 100%);
+
+  &.committed {
+    background: linear-gradient(
+      145deg,
+      rgba(mat.get-theme-color(params.$ecorendum-theme, 'background', 'background'), 1) 40%,
+      rgba(mat.get-theme-color(params.$ecorendum-theme, 'background', 'background'), 0.9) 60%,
+      rgba(mat.get-theme-color(params.$ecorendum-theme, 'background', 'background'), 0.1) 100%);
+  }
 }
 
-.proposal-thumb {
-  float: left;
-  margin-right: 12px;
-  margin-bottom: 12px;
-  width: 160px;
-}
+::ng-deep.light-mode {
+  .proposal-card-background-overlay {
+    padding: 16px;
+    background: linear-gradient(
+      145deg,
+      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'card'), 1) 40%,
+      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'card'), 0.9) 60%,
+      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'card'), 0.1) 100%) !important;
 
-.proposal-thumb-xs {
-  width: 100%;
+    &.committed {
+      background: linear-gradient(
+        145deg,
+        rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'background'), 1) 40%,
+        rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'background'), 0.9) 60%,
+        rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'background'), 0.1) 100%) !important;
+    }
+  }
 }
 
 .checkbox-and-header {
@@ -48,58 +77,9 @@
   flex-grow: 1;
 }
 
-.gt-xs-proposal-extra-info {
-  text-align: right;
-}
-
 .variants {
   height: unset;
   flex-wrap: wrap;
   margin: unset;
   margin-top: 12px;
-}
-
-.ambition-level {
-  display: flex;
-  flex-direction: row;
-  padding: 6px;
-}
-
-.ambition-level-title {
-  font-size: 300%;
-}
-
-.ambition-level-body {
-  margin-left: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  align-self: center;
-  line-height: normal;
-}
-
-.ambition-level-body-text {
-  font-weight: 500;
-}
-
-.variant-body {
-  margin-top: 12px;
-}
-
-.icon-list-item {
-  margin-right: 12px;
-}
-
-.impact-xs {
-  display: inline;
-}
-
-.more-variant-info {
-  margin-left: 12px;
-  cursor: pointer;
-}
-
-.variant-header-sm {
-  margin-top: 12px;
-  margin-bottom: 0px;
 }

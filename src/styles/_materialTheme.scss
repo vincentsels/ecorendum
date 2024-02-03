@@ -1,9 +1,6 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-// Plus imports for other components in your app.
-@use '../app/main/proposals/proposal-card/proposal-card-theme' as proposal;
-
 @use './parameters' as params;
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -11,34 +8,14 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$ecorendum-theme: mat.define-dark-theme((
-  color: (
-    primary: params.$ecorendum-dark-primary,
-    accent: params.$ecorendum-dark-accent,
-    warn: params.$ecorendum-dark-warn,
-  )
-));
-
-$light-theme: mat.define-light-theme((
-  color: (
-    primary: params.$ecorendum-light-primary,
-    accent: params.$ecorendum-light-accent,
-    warn: params.$ecorendum-light-warn
-  )
-));
-
 $typography: mat.define-legacy-typography-config();
 @include mat.all-component-typographies($typography);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($ecorendum-theme);
-@include proposal.theme($ecorendum-theme);
+@include mat.all-component-themes(params.$ecorendum-theme);
 
 .light-mode {
-  @include mat.all-component-colors($light-theme);
-  @include proposal.theme($light-theme);
+  @include mat.all-component-colors(params.$ecorendum-light-theme);
 }

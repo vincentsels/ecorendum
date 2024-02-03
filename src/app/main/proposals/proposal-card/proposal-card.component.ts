@@ -18,14 +18,6 @@ export class ProposalComponent {
 
   constructor(public enums: EnumsService, public service: ProposalService) {}
 
-  getBackgroundImage(proposal: Proposal) {
-    const gradient = proposal.committed
-      ? '145deg, rgba(48, 48, 48, 1) 40%, rgba(48, 48, 48, 0.9) 60%, rgba(48, 48, 48, 0.1) 100%'
-      : '145deg, rgba(66, 66, 66, 1) 40%, rgba(66, 66, 66, 0.9) 60%, rgba(66, 66, 66, 0.1) 100%';
-
-    return 'background-image: linear-gradient(' + gradient + '), url(' + proposal.pictureThumb + ')'
-  }
-
   getSelectedVariant() {
     if (!this.proposal) return;
     if (!this.proposal.selected) return;

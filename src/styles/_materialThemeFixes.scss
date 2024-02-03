@@ -6,10 +6,7 @@ mat-card > :last-child:not(mat-card-footer) {
   margin-bottom: 0;
 }
 
-.dark-dialog .mat-mdc-dialog-container,
-.dark-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
-  background-color: #303030;
-}
+/* Dialog */
 
 .dark-dialog .mat-mdc-dialog-container .mdc-dialog__content {
   color: inherit;

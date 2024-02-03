@@ -1,20 +1,22 @@
 <div *ngIf="proposal" class="proposal" [class.committed]="proposal.committed">
-  <mat-card class="proposal-card" [class.committed]="proposal.committed" [style]="getBackgroundImage(proposal)">
-    <div class="checkbox-and-header">
-      <mat-checkbox class="proposal-checkbox" [checked]="proposal.selected"
-        [disabled]="proposal.committed" (change)="selectProposal($event)"></mat-checkbox>
-      <div class="proposal-header">
-        <app-proposal-header [proposal]="proposal" [card]="true"></app-proposal-header>
+  <mat-card class="proposal-card" [class.committed]="proposal.committed" [style]="'background-image: url(' + proposal.pictureThumb + ')'">
+    <div class="proposal-card-background-overlay" [class.committed]="proposal.committed">
+      <div class="checkbox-and-header">
+        <mat-checkbox class="proposal-checkbox" [checked]="proposal.selected"
+          [disabled]="proposal.committed" (change)="selectProposal($event)"></mat-checkbox>
+        <div class="proposal-header">
+          <app-proposal-header [proposal]="proposal" [card]="true"></app-proposal-header>
 
-        <div *ngIf="proposal.selected && proposal.variants.length > 1">
-          <mat-button-toggle-group class="variants" name="variant">
-            <mat-button-toggle *ngFor="let variant of proposal.variants" [checked]="variant.selected"
-              (click)="updateSelected(variant); $event.stopPropagation()">
-              <div>
-                {{ variant.proposal| translateProp:'variant.title':variant.ambitionLevel | async }}
-              </div>
-            </mat-button-toggle>
-          </mat-button-toggle-group>
+          <div *ngIf="proposal.selected && proposal.variants.length > 1">
+            <mat-button-toggle-group class="variants" name="variant">
+              <mat-button-toggle *ngFor="let variant of proposal.variants" [checked]="variant.selected"
+                (click)="updateSelected(variant); $event.stopPropagation()">
+                <div>
+                  {{ variant.proposal| translateProp:'variant.title':variant.ambitionLevel | async }}
+                </div>
+              </mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
         </div>
       </div>
     </div>
