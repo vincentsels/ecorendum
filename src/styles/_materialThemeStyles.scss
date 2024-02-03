@@ -54,10 +54,10 @@ a:hover { color: mat.get-color-from-palette(params.$ecorendum-dark-primary, 300)
   .color-warn { color: mat.get-color-from-palette(params.$ecorendum-light-warn) !important }
 
   // This should move just to the component that uses it, but lots of work :)
-  .bg-color-accent-semi-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent, 800) !important }
-  .bg-color-accent-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent, 400) !important }
-  .bg-color-warn-semi-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 800) !important }
-  .bg-color-warn-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 400) !important }
+  .bg-color-accent-semi-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent, 600) !important }
+  .bg-color-accent-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent, 300) !important }
+  .bg-color-warn-semi-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 600) !important }
+  .bg-color-warn-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 300) !important }
 
   .accent { color: mat.get-color-from-palette(params.$ecorendum-light-accent, A200) }
 

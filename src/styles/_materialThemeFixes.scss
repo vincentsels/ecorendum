@@ -6,12 +6,6 @@ mat-card > :last-child:not(mat-card-footer) {
   margin-bottom: 0;
 }
 
-/* Dialog */
-
-.dark-dialog .mat-mdc-dialog-container .mdc-dialog__content {
-  color: inherit;
-}
-
 /* Buttons with small content, like just a logo, shouldn't be artificially large */
 
 .mdc-button {

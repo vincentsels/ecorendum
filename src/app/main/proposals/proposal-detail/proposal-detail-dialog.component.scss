@@ -39,9 +39,9 @@
   .dialog-content-overlay {
     background: linear-gradient(
       165deg,
-      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'card'), 1) 40%,
-      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'card'), 0.8) 60%,
-      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'card'), 0.2) 90%) !important;
+      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'background'), 1) 40%,
+      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'background'), 0.8) 60%,
+      rgba(mat.get-theme-color(params.$ecorendum-light-theme, 'background', 'background'), 0.2) 90%) !important;
 
       background-attachment: fixed !important; /* This has to be after the background */
   }
