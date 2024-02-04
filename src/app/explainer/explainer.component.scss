@@ -4,6 +4,13 @@
   height: 420px;
 }
 
+.close-container-link {
+  display: block;
+  margin-top: 24px;
+  position: absolute;
+  right: 24px;
+}
+
 .docs-header-section {
   width: 90%;
   position: absolute;
@@ -46,6 +53,15 @@
   padding-bottom: 48px;
 }
 
+.explainer-section {
+  position: relative;
+  overflow: hidden;
+
+  mat-icon.background-icon {
+    display: none;
+  }
+}
+
 @media (min-width: 768px) {
   .explainer {
     gap: 48px;
@@ -53,10 +69,27 @@
 
   .explainer-section {
     max-width: 300px;
+
+    mat-icon.background-icon {
+      z-index: 0;
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      opacity: 0.05;
+      font-size: 250px;
+      width: 250px;
+      height: 250px;
+      margin-right: -20px;
+      margin-top: -20px;
+      margin-top: auto;
+    }
   }
 }
 
 .explainer-explanation-short {
+  z-index: 1;
+  position: relative;
   font-size: 110%;
 }
 
@@ -69,5 +102,11 @@
 }
 
 .hidden {
-  display: none;
+  display: none !important;
+}
+
+.inset {
+  display: block;
+  margin: 12px;
+  opacity: 0.8;
 }

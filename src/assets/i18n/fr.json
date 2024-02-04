@@ -158,6 +158,15 @@
   "ecorendum": "Exemples VEKA",
   "own": "Propre",
 
+  "explainers" : {
+    "insets" : {
+      "worst-consequences" : {
+        "link" : "pire effects",
+        "text" : "Quoi qu'il en soit, le monde sera différent avec une augmentation de 1,5° ou de 2°C. Mais plus la température augmente, plus les risques sont grands. À une température de 2°, certaines parties de la planète deviennent déjà <a href=\"https://www.earth.com/news/unbearable-heat-could-make-some-parts-of-the-world-uninhabitable/\" target=\"_blank\">inhabitables pour les humains</a>, ce qui entraînerait des migrations massives.<br /><br />Plus la température est élevée, plus la probabilité d'<a href=\"https://www.carbonbrief.org/explainer-nine-tipping-points-that-could-be-triggered-by-climate-change/\" target=\"_blank\">effets d'auto-renforcement</a> est grande, ce qui pourrait entraîner un réchauffement encore plus important. <br /><br />Pour un aperçu de la différence entre 1,5°, 2° et 3° C, voir <a href=\"https://interactive.carbonbrief.org/impacts-climate-change-one-point-five-degrees-two-degrees/\" target=\"_blank\">cette page interactive de Climate Brief</a>."
+      }
+    }
+  },
+
   "parties": {
     "nva": "N-VA",
     "ps": "PS",

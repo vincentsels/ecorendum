@@ -159,6 +159,15 @@
   "ecorendum": "Examples VEKA",
   "own": "Own",
 
+  "explainers": {
+    "insets": {
+      "worst-consequences": {
+        "link": "worst consequences",
+        "text": "Either way, the world will look different with a 1.5° or 2°C rise. But the higher the temperature rise, the greater the risks. At a temperature of 2°, some parts of the planet already become <a href=\"https://www.earth.com/news/unbearable-heat-could-make-some-parts-of-the-world-uninhabitable/\" target=\"_blank\">uninhabitable for humans</a>, which would cause mass migration.<br /><br />The higher the temperature, the greater the likelihood of <a href=\"https://www.carbonbrief.org/explainer-nine-tipping-points-that-could-be-triggered-by-climate-change/\" target=\"_blank\">self-enforcing effects</a>, which could cause even more warming. <br /><br />For an overview of the difference between 1.5°, 2° and 3° C, see <a href=\"https://interactive.carbonbrief.org/impacts-climate-change-one-point-five-degrees-two-degrees/\" target=\"_blank\">this interactive page from Climate Brief</a>."
+      }
+    }
+  },
+
   "parties": {
     "nva": "N-VA",
     "ps": "PS",

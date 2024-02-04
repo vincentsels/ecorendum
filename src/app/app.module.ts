@@ -60,6 +60,7 @@ import { ProposalEditorComponent } from './main/proposals/proposal-editor/propos
 import { ProposalDataEditorComponent } from './main/proposals/proposal-editor/proposal-data-editor/proposal-data-editor.component';
 import { ProposalTranslationsEditorComponent } from './main/proposals/proposal-editor/proposal-translations-editor/proposal-translations-editor.component';
 import { ExplainerComponent } from './explainer/explainer.component';
+import { InsetLinkComponent } from './explainer/inset-link.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -102,6 +103,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProposalDataEditorComponent,
     ProposalTranslationsEditorComponent,
     ExplainerComponent,
+    InsetLinkComponent,
   ],
   imports: [
     BrowserModule,

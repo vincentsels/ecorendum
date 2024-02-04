@@ -156,6 +156,15 @@
   "ecorendum": "Voorbeelden VEKA",
   "own": "Eigen",
 
+  "explainers": {
+    "insets": {
+      "worst-consequences": {
+        "link": "ergste gevolgen",
+        "text": "Sowieso zal de wereld er anders uit zien bij een stijging van 1,5° of 2°C. Maar hoe hoger de temperatuurstijging, hoe groter de risico's. Bij een temperatuur van 2° worden sommige delen van de planeet al <a href=\"https://www.earth.com/news/unbearable-heat-could-make-some-parts-of-the-world-uninhabitable/\" target=\"_blank\">onbewoonbaar voor mensen</a>, wat massamigratie zou veroorzaken.<br /><br />Hoe hoger de temperatuur, hoe groter de kans op <a href=\"https://www.carbonbrief.org/explainer-nine-tipping-points-that-could-be-triggered-by-climate-change/\" target=\"_blank\">zichzelf versterkende effecten</a>, hetgeen nog meer opwarming kan veroorzaken. <br /><br />Voor een overzicht van het verschil tussen 1,5°, 2° en 3° C, zie <a href=\"https://interactive.carbonbrief.org/impacts-climate-change-one-point-five-degrees-two-degrees/\" target=\"_blank\">deze interactieve pagina van Climate Brief</a>."
+      }
+    }
+  },
+
   "parties": {
     "nva": "N-VA",
     "ps": "PS",

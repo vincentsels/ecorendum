@@ -1,11 +1,16 @@
+<div [class.hidden]="explainerHidden">
 <header class="docs-header-background bg-color-primary">
+  <a class="close-container-link" (click)="closeExplainer()">
+    <mat-icon class="inline">close</mat-icon>
+    Hide this explainer
+  </a>
   <div class="docs-header-section">
     <div class="docs-header-headline">
       <h1>Cards on the table</h1>
       <h2>You decide the energy and climate policy by 2030</h2>
     </div>
     <div class="docs-header-start">
-      <a mat-raised-button color="primary" routerlink="#tool">To the tool</a>
+      <a mat-raised-button color="primary" routerLink="." fragment="tool">To the tool</a>
     </div>
   </div>
 </header>
@@ -13,105 +18,72 @@
 <div class="explainer-container">
   <div class="explainer responsive-page-container responsive-page-container-wide">
     <div class="explainer-section">
+      <mat-icon class="background-icon">public</mat-icon>
+
       <h1>De globale context</h1>
 
       <p class="explainer-explanation-short">
-        De klimaatcrisis vereist wereldwijde actie. Landen over de hele wereld stellen ambitieuze doelen om de opwarming van de aarde te beperken, maar de voortgang is traag. Internationale samenwerking en innovatieve benaderingen zijn essentieel om deze mondiale uitdaging aan te gaan.
+        Om de <app-inset-link insetTranslationKey="worst-consequences"></app-inset-link> van klimaatverandering te voorkomen, ondertekenden bijna alle landen ter wereld het Klimaatakkoord van Parijs, waarin overeengekomen wordt om de opwarming van de aarde ruim onder de 2°C te houden, en te streven naar minder dan 1,5°C.
       </p>
-
-      <p class="explainer-explanation-long" [class.hidden]="!globalContextExpanded">
-        We staan voor een ongekende globale uitdaging: klimaatverandering. Landen wereldwijd hebben zich gecommitteerd aan ambitieuze doelstellingen om de opwarming van de aarde tegen te gaan, zoals vastgelegd in het Akkoord van Parijs. Echter, de realiteit toont aan dat de voortgang in het beperken van broeikasgasemissies achterblijft bij wat nodig is. Deze situatie benadrukt de noodzaak voor dringende, gecoördineerde internationale actie en de implementatie van innovatieve oplossingen die verder gaan dan traditionele benaderingen van milieubeleid.
-      </p>
-
-      <a class="more-button" (click)="globalContextExpanded = !globalContextExpanded">
-        <span *ngIf="!globalContextExpanded">Lees meer...</span>
-        <span *ngIf="globalContextExpanded">Lees minder</span>
-      </a>
     </div>
 
     <div class="explainer-section">
-      <h1>De Vlaamse doelstellingen</h1>
+      <mat-icon class="background-icon">star</mat-icon>
+
+      <h1>De Europese doelstellingen</h1>
 
       <p class="explainer-explanation-short">
-        Vlaanderen heeft zichzelf specifieke ecologische doelstellingen gesteld, zoals CO2-reductie en het verhogen van hernieuwbare energie, om bij te dragen aan de globale klimaatinspanningen.
+        Elk land moet haar steentje bijdragen. Rijke landen meer dan andere. België volgt de Europese doelstellingen. Bedrijven in de zware industrie en energieproductie kopen uitstootrechten op de ETS markt. Voor de overige sectoren moeten Belgische overheden de emissies tegen 2030 doen dalen met 47% t.o.v. 2005.
       </p>
-
+<!--
       <p class="explainer-explanation-long" [class.hidden]="!flemishTargetsExpanded">
-        In lijn met Europese en internationale verplichtingen heeft Vlaanderen ambitieuze ecologische doelstellingen vastgesteld. Deze omvatten significante CO2-reducties en het vergroten van het aandeel hernieuwbare energie in de energiemix. Het bereiken van deze doelen is cruciaal voor Vlaanderen om zijn deel van de verantwoordelijkheid te nemen in de globale strijd tegen klimaatverandering en om te voldoen aan de juridische en morele verplichtingen die voortvloeien uit internationale overeenkomsten.
       </p>
 
       <a class="more-button" (click)="flemishTargetsExpanded = !flemishTargetsExpanded">
         <span *ngIf="!flemishTargetsExpanded">Lees meer...</span>
         <span *ngIf="flemishTargetsExpanded">Lees minder</span>
-      </a>
+      </a> -->
     </div>
 
     <div class="explainer-section">
-      <h1>De huidige ambitie</h1>
+      <mat-icon class="background-icon">gavel</mat-icon>
+
+      <h1>De klimaatzaak</h1>
 
       <p class="explainer-explanation-short">
-        Ondanks vastgestelde doelstellingen, blijft de huidige ambitie en uitvoering van klimaatbeleid in Vlaanderen achter bij wat nodig is om echte impact te maken.
+        België en vooral Vlaanderen halen de door Europa opgelegde doelstellingen niet. Dat bedreigt de mensenrechten van toekomstige generaties. Daarom spanden tienduizenden bezorgde burgers een Klimaatzaak aan tegen de Belgische overheden. De rechter gaf hen gelijk, en legt België tegen 2030 een reductie van zelfs 55% op t.o.v. 1990.
       </p>
-
-      <p class="explainer-explanation-long" [class.hidden]="!currentAmbitionExpanded">
-        De vastgestelde doelstellingen ten spijt, toont de huidige inzet en implementatie van klimaatmaatregelen in Vlaanderen dat er een significant verschil is tussen ambitie en realiteit. De noodzaak voor urgentie en effectieve actie is duidelijk, maar het tempo en de schaal van veranderingen zijn niet toereikend om de gestelde ecologische doelen te halen. Dit wijst op een kloof tussen beleidsvoornemens en daadwerkelijke uitvoeringskracht.
-      </p>
-
-      <a class="more-button" (click)="currentAmbitionExpanded = !currentAmbitionExpanded">
-        <span *ngIf="!currentAmbitionExpanded">Lees meer...</span>
-        <span *ngIf="currentAmbitionExpanded">Lees minder</span>
-      </a>
     </div>
 
     <div class="explainer-section">
-      <h1>Het probleem: partijpolitiek</h1>
+      <mat-icon class="background-icon">receipt_long</mat-icon>
+
+      <h1>De impact</h1>
 
       <p class="explainer-explanation-short">
-        Partijpolitieke belangen en kortetermijndenken hinderen vaak de vooruitgang in effectief ecologisch beleid.
+        Als reactie op de klimaatzaak liet Vlaams minister van Klimaat en Energie Zuhal Demir het Vlaams Energie- en Klimaatagentschap (VEKA) becijferen wat de impact van de opgelegde doelstellingen is. Die is duidelijk erg groot. Hoog tijd dat we op een democratische manier bepalen hoe we dat gaan klaarspelen.
       </p>
-
-      <p class="explainer-explanation-long" [class.hidden]="!partyPoliticsExpanded">
-        Een kernprobleem in de aanpak van klimaatverandering is de invloed van partijpolitiek, waarbij de nadruk op kortetermijnwinsten en electorale overwegingen vaak ten koste gaat van langetermijnduurzaamheid. Politieke partijen zijn geneigd tot compromissen die hun herverkiezing veiligstellen, ten koste van de noodzakelijke, maar soms onpopulaire, maatregelen voor effectieve klimaatactie.
-      </p>
-
-      <a class="more-button" (click)="partyPoliticsExpanded = !partyPoliticsExpanded">
-        <span *ngIf="!partyPoliticsExpanded">Lees meer...</span>
-        <span *ngIf="partyPoliticsExpanded">Lees minder</span>
-      </a>
     </div>
 
     <div class="explainer-section">
-      <h1>De alternatieven</h1>
+      <mat-icon class="background-icon">volunteer_activism</mat-icon>
+
+      <h1>De randvoorwaarden</h1>
 
       <p class="explainer-explanation-short">
-        Burgerinitiatieven en niet-traditionele democratische processen bieden nieuwe wegen voor klimaatactie buiten de beperkingen van partijpolitiek.
+        De transitie wordt niet eenvoudig, en we zullen maatschappelijke keuzes moeten maken. Hoeveel willen we betalen? Hoeveel risico kunnen we nemen? Veroorzaken maatregelen andere, misschien nog grotere milieuproblemen? Verloopt de transitie rechtvaardig? En wat is de prijs van niets doen?
       </p>
-
-      <p class="explainer-explanation-long" [class.hidden]="!alternativesExpanded">
-        Om de impasse veroorzaakt door partijpolitiek te doorbreken, komen burgerinitiatieven en innovatieve democratische processen naar voren als veelbelovende alternatieven. Deze benaderingen stellen burgers in staat direct bij te dragen aan beleidsvorming, waardoor de focus verschuift van politieke spelletjes naar daadwerkelijke klimaatactie. Door directe betrokkenheid wordt een breder draagvlak voor ecologische maatregelen gecreëerd, wat essentieel is voor duurzame verandering.
-      </p>
-
-      <a class="more-button" (click)="alternativesExpanded = !alternativesExpanded">
-        <span *ngIf="!alternativesExpanded">Lees meer...</span>
-        <span *ngIf="alternativesExpanded">Lees minder</span>
-      </a>
     </div>
 
     <div class="explainer-section">
-      <h1>De oplossing: het preferendum</h1>
+      <mat-icon class="background-icon">how_to_vote</mat-icon>
+
+      <h1>Het preferendum</h1>
 
       <p class="explainer-explanation-short">
-        Het preferendum is een vernieuwende manier om burgers direct te betrekken bij het bepalen van klimaatbeleid, buiten de traditionele partijpolitiek om.
+        Dit wordt de grootste uitdaging waar we ooit voor stonden. Iedereen zal de gevolgen er op één of andere manier van ondervinden. Daarom vinden wij dat iedereen betrokken moet worden bij de keuze van het klimaatbeleid. Hoe zou jij het aanpakken? Binnenkort zijn het verkiezingen. Wat stellen de politieke partijen voor?
       </p>
-
-      <p class="explainer-explanation-long" [class.hidden]="!preferendumExpanded">
-        Het preferendum biedt een revolutionaire benadering door burgers direct te betrekken bij de vorming van klimaatbeleid, waardoor de invloed van partijpolitiek wordt geminimaliseerd. Dit democratische instrument stelt burgers in staat om voorkeuren uit te spreken over voorgestelde milieumaatregelen, waardoor een meer inclusieve en representatieve besluitvorming ontstaat. Het preferendum faciliteert een breed gedragen consensus over noodzakelijke acties en strategieën om ecologische doelstellingen te bereiken, en belichaamt de noodzaak voor directe burgerparticipatie in het tijdperk van klimaatcrisis.
-      </p>
-
-      <a class="more-button" (click)="preferendumExpanded = !preferendumExpanded">
-        <span *ngIf="!preferendumExpanded">Lees meer...</span>
-        <span *ngIf="preferendumExpanded">Lees minder</span>
-      </a>
     </div>
   </div>
+</div>
 </div>
