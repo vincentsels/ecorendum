@@ -36,7 +36,7 @@
 
   <div fxHide.xs class="flex-spacer"></div>
 
-  <button mat-button (click)="toggleLightMode()">
+  <button mat-button (click)="toggleLightMode(!this.lightMode)">
     <mat-icon *ngIf="!lightMode">light_mode</mat-icon>
     <mat-icon *ngIf="lightMode">dark_mode</mat-icon>
   </button>

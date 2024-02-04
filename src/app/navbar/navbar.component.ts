@@ -6,6 +6,7 @@ import { LanguageType } from '../main/proposals/proposal';
 import { LanguageService } from '../common/language.service';
 import { ContextService } from '../main/context/context.service';
 
+const LS_KEY_LIGHTMODE = 'ecorendum.lightmode';
 const STYLE_NAME_LIGHT_MODE = 'light-mode';
 
 @Component({
@@ -17,6 +18,7 @@ export class NavbarComponent {
   constructor(public proposalService: ProposalService, public contextService: ContextService,
     private matDialog: MatDialog, private languageService: LanguageService) {
     this.language = languageService.language.value;
+    this.toggleLightMode(localStorage.getItem(LS_KEY_LIGHTMODE) === 'true');
   }
 
   version = '0.1';
@@ -37,9 +39,15 @@ export class NavbarComponent {
     this.matDialog.open(SelectContextDialogComponent);
   }
 
-  toggleLightMode() {
-    this.lightMode = !this.lightMode;
-    if (this.lightMode) document.body.classList.add(STYLE_NAME_LIGHT_MODE);
-    else document.body.classList.remove(STYLE_NAME_LIGHT_MODE);
+  toggleLightMode(lightMode: boolean) {
+    this.lightMode = lightMode;
+    if (this.lightMode) {
+      document.body.classList.add(STYLE_NAME_LIGHT_MODE);
+      localStorage.setItem(LS_KEY_LIGHTMODE, 'true');
+    }
+    else {
+      document.body.classList.remove(STYLE_NAME_LIGHT_MODE);
+      localStorage.removeItem(LS_KEY_LIGHTMODE);
+    }
   }
 }

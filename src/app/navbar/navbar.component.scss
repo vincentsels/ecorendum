@@ -24,28 +24,6 @@
   flex-grow: 1;
 }
 
-.navbar-logo {
-  height: 26px;
-  margin: 0 4px 3px 0;
-  vertical-align: middle;
-}
-
-.navbar-link {
-  text-decoration: inherit;
-  flex: 1;
-}
-
-.navbar {
-  display: none;
-}
-
-.search-room-form {
-  min-width: 150px;
-  max-width: 300px;
-  width: 100%;
-  font-size: small;
-}
-
 .env-info {
   display: inline-block;
   font-size: 50%;
