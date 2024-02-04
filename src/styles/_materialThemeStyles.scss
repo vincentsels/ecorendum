@@ -7,6 +7,10 @@
 .color-accent { color: mat.get-color-from-palette(params.$ecorendum-dark-accent) !important }
 .color-warn { color: mat.get-color-from-palette(params.$ecorendum-dark-warn) !important }
 
+.bg-color-primary { background-color: mat.get-color-from-palette(params.$ecorendum-dark-primary) !important; color: white; }
+.bg-color-accent { background-color: mat.get-color-from-palette(params.$ecorendum-dark-accent) !important; color: white; }
+.bg-color-warn { background-color: mat.get-color-from-palette(params.$ecorendum-dark-warn) !important; color: white; }
+
 // This should move just to the component that uses it, but lots of work :)
 .bg-color-accent-semi-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-dark-accent), 0.8) !important }
 .bg-color-accent-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-dark-accent), 0.4) !important }
@@ -52,6 +56,10 @@ a:hover { color: mat.get-color-from-palette(params.$ecorendum-dark-primary, 300)
   .color-primary { color: mat.get-color-from-palette(params.$ecorendum-light-primary) !important }
   .color-accent { color: mat.get-color-from-palette(params.$ecorendum-light-accent) !important }
   .color-warn { color: mat.get-color-from-palette(params.$ecorendum-light-warn) !important }
+
+  .bg-color-primary { background-color: mat.get-color-from-palette(params.$ecorendum-light-primary) !important; color: white; }
+  .bg-color-accent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent) !important; color: white; }
+  .bg-color-warn { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn) !important; color: white; }
 
   // This should move just to the component that uses it, but lots of work :)
   .bg-color-accent-semi-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent, 600) !important }
