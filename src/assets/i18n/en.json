@@ -153,7 +153,7 @@
   "helpRenewableEnergyTarget": "The amount of green electricity {{ region }} has to produce extra by 2030. WARNING: This target is not correct, and only an example. We are still looking into the actual number.",
   "helpCarbonTax": "EU states failing to meet CO2 targets pay a tax based on ETS system prices, estimated at € {{ carbonTax }} per ton of CO2.",
   "helpCarbonIncome": "EU states emitting less than their target can sell excess emission rights at an estimated € {{ carbonTax }} per ton of CO2.",
-  "helpLegalPenalty": "If the government does not meet the legal target, after an evaluation period, a legal penalty of € {{ legalPenalty }} per month must be paid.",
+  "helpLegalPenalty": "If the government does not meet the legal target, after an evaluation period, a legal penalty of {{ legalPenalty }} per month must be paid.",
 
   "helpDialogProposals": "Sets of measures between now and 2030, to try to achieve the CO2 reduction and other goals imposed in the Climate Affair (Klimaatzaak) or by the EU. View the current plans, example sets of additional measures, the plans of political parties, or compile your own set of plans.",
   "helpDialogResults": "All quantifiable targets {{ region }} must reach by 2030, imposed by both the Klimaatzaak judge (CO2 emissions) and by Europe (CO2 emissions, energy efficiency and renewable energy); the cost of selected measures; and their broader impact. Currently, only greenhouse gas impacts are quantified.",

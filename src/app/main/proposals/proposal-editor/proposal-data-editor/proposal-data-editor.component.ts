@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, ProposalOrigin, Sector, Target, TargetType, Variant } from '../../proposal';
+import { Cost, Impact, ImpactAmount, ImpactDomain, PolicyLevel, Proposal, ProposalOrigin, Sector, Target, TargetType, Variant } from '../../proposal';
 import { ContextType } from '../../../context/context.service';
 import { EnumsService } from '../../../../common/enums.service';
 import { ProposalTranslationsContainer } from '../translation-data';
@@ -66,7 +66,7 @@ export class ProposalDataEditorComponent {
     date.setFullYear(date.getFullYear() + Object.keys(variant.costPerYearVariable || {}).length);
 
     const newYear = date.getFullYear();
-    variant.costPerYearVariable = { ...variant.costPerYearVariable, [newYear]: 0 };
+    variant.costPerYearVariable = { ...variant.costPerYearVariable, [newYear]: new Cost() };
   }
 
   removeYearCost(variant: Variant, year: number) {

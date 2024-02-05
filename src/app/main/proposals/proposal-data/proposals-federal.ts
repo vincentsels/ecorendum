@@ -1,5 +1,5 @@
 import { PartyId } from '../../party';
-import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
+import { Cost, Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
 import { PartyOpinion, ProposalDetail } from '../proposal-details';
 import { ContextType } from '../../context/context.service'
 
@@ -17,8 +17,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 100000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(100000, 500000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -45,8 +44,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: 100000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(100000, 500000),
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
@@ -73,7 +71,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 3,
-        costInitial: 200000,
+        costInitial: new Cost(200000, 1000000),
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
@@ -116,8 +114,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 100000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(100000, 500000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -141,8 +138,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: 100000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(100000, 500000),
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
@@ -166,7 +162,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 3,
-        costInitial: 200000,
+        costInitial: new Cost(200000, 1000000),
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
@@ -207,8 +203,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 100000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(100000, 500000),
         impacts: [
           new Impact(ImpactDomain.redistributionLocal, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
@@ -227,8 +222,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: 100000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(100000, 500000),
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.somewhatPositive),
@@ -255,7 +249,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 3,
-        costInitial: 200000,
+        costInitial: new Cost(200000, 1000000),
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),

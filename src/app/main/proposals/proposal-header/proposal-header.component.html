@@ -19,8 +19,9 @@
           {{ 'Committed' | translate }}
         </span>
         <span class="proposal-target-summary-item" *ngIf="proposal.getSelectedCost(); let selectedCost">
-          <app-impact-scale [singleOrMin]="proposal.getSingleOrMinCost()" [selected]="selectedCost" [max]="proposal.getMaxCost(set)"
-            [scale]="25000000" [isCost]="true" [style]="'warn'"></app-impact-scale>
+          <!-- TODO -->
+          <!-- <app-impact-scale [singleOrMin]="proposal.getSingleOrMinCost()" [selected]="selectedCost" [max]="proposal.getMaxCost(set)"
+            [scale]="25000000" [isCost]="true" [style]="'warn'"></app-impact-scale> -->
         </span>
         <span class="proposal-target-summary-item" *ngIf="proposal.getSelectedTargetAmount(enums.TargetType.ghgReduction, contextService.context$.value); let selectedAmt">
           <app-impact-scale [singleOrMin]="proposal.getSingleOrMinTargetAmount(enums.TargetType.ghgReduction, contextService.context$.value)"

@@ -1,5 +1,5 @@
 import { PartyId } from '../../party';
-import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
+import { Cost, Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
 import { PartyOpinion, ProposalDetail } from '../proposal-details';
 
 export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
@@ -20,8 +20,8 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
       new Variant({
         ambitionLevel: 1,
         selected: true,
-        costInitial: 2000000,
-        costPerYearVariable: { 2024: 200000, 2025: 200000, 2026: 200000, 2027: 200000, 2028: 200000 },
+        costInitial: new Cost(2000000),
+        costPerYearFixed: new Cost(200000),
         impacts: [
           new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
@@ -55,8 +55,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
       new Variant({
         ambitionLevel: 1,
         selected: true,
-        costInitial: 110000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(110000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -93,8 +92,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
       new Variant({
         ambitionLevel: 1,
         selected: true,
-        costInitial: 110000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(110000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -121,8 +119,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 50000000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(50000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -140,8 +137,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: 100000000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(100000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
@@ -176,8 +172,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 50000000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(50000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -195,8 +190,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: 100000000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(100000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -214,8 +208,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 3,
-        costInitial: 150000000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(150000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.veryPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),

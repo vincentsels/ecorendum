@@ -24,9 +24,9 @@
         <div class="variant-body-numbers" fxLayout fxLayoutGap="12px">
           <div>
             <h3>{{ 'Cost' | translate }}</h3>
-            <div>{{ 'Initial' | translate }}: €&nbsp;{{ variant.costInitial | number }}</div>
-            <div *ngIf="variant.costPerYearFixed">{{ 'Yearly' | translate }}: €&nbsp;{{ variant.costPerYearFixed | number }}</div>
-            <div><label>{{ 'Total' | translate }}: €&nbsp;{{ variant.getTotalCost() | number }}</label></div>
+            <div>{{ 'Initial' | translate }}: {{ variant.costInitial | cost }}</div>
+            <div *ngIf="variant.costPerYearFixed">{{ 'Yearly' | translate }}: {{ variant.costPerYearFixed | cost }}</div>
+            <div><label>{{ 'Total' | translate }}: {{ variant.getTotalCost() | cost }}</label></div>
           </div>
 
           <div>

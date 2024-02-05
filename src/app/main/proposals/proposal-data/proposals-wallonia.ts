@@ -1,5 +1,5 @@
 import { PartyId } from '../../party';
-import { Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
+import { Cost, Impact, ImpactAmount, ImpactDomain, PolicyLevel, ProposalOrigin, Sector, Target, TargetType, Variant } from '../proposal';
 import { PartyOpinion, ProposalDetail } from '../proposal-details';
 
 export const PROPOSALS_WALLONIA: ProposalDetail[] = [
@@ -20,8 +20,8 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
       new Variant({
         ambitionLevel: 1,
         selected: true,
-        costInitial: 10000000,
-        costPerYearVariable: { 2024: 1000000, 2025: 1000000, 2026: 1000000, 2027: 1000000, 2028: 1000000 },
+        costInitial: new Cost(10000000),
+        costPerYearFixed: new Cost(1000000),
         impacts: [
           new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
@@ -55,8 +55,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
       new Variant({
         ambitionLevel: 1,
         selected: true,
-        costInitial: 550000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(550000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -93,8 +92,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
       new Variant({
         ambitionLevel: 1,
         selected: true,
-        costInitial: 550000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(550000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -121,8 +119,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 250000000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(250000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -140,8 +137,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: 1000000000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(1000000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
@@ -176,8 +172,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
     variants: [
       new Variant({
         ambitionLevel: 1,
-        costInitial: 250000000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(250000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -195,8 +190,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: 500000000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(500000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -214,8 +208,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 3,
-        costInitial: 750000000,
-        costPerYearFixed: 0,
+        costInitial: new Cost(750000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.veryPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),

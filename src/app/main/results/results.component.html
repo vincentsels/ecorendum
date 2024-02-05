@@ -107,11 +107,13 @@
     <h3 *ngIf="!expandedTotalCost" class="result-section-collapsed">
       <span class="collapsed-header">
         <mat-icon class="inline">sell</mat-icon>
-        {{ (results.totalCostIncludingTax < 0 ? 'Total profit' : 'Total cost') | translate }}
+        {{ (results.totalCostIncludingTax.isNegative() ? 'Total profit' : 'Total cost') | translate }}
       </span>
 
-      <span class="collapsed-header-summary" [class.color-accent]="results.totalCostIncludingTax < 0">
-        €&nbsp;{{ (results.totalCostIncludingTax < 0 ? -results.totalCostIncludingTax : results.totalCostIncludingTax) | number }}
+      <span class="collapsed-header-summary" [class.color-accent]="results.totalCostIncludingTax.isNegative()">
+        {{ (results.totalCostIncludingTax.isNegative()
+          ? results.totalCostIncludingTax.multiply(-1)
+          : results.totalCostIncludingTax) | cost }}
       </span>
 
       <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalCost()">
@@ -125,23 +127,25 @@
       <div class="calc-table" *ngIf="parametersService.parameters$ | async; let parameters">
         <div class="calc-line">
           <span class="calc-line-header">{{ 'Total measures cost' | translate }}</span>
-          <span class="calc-line-number">€&nbsp;{{ results.totalMeasurementCost | number }}</span>
+          <span class="calc-line-number">{{ results.totalMeasurementCost | cost }}</span>
         </div>
         <div class="calc-line">
           <span class="calc-line-header"><app-help-widget [tooltipKey]="(results.totalEuGhgTax > 0 ? 'helpCarbonTax' : 'helpCarbonIncome')" [tooltipParameters]="{ carbonTax: parameters.pricePerTonGhg | number }"
             [textKey]="results.totalEuGhgTax > 0 ? 'Emissions trading cost' : 'Emissions trading profit'"></app-help-widget></span>
-          <span class="calc-line-number" [class.color-accent]="results.totalEuGhgTax < 0"> €&nbsp;{{ (results.totalEuGhgTax > 0 ? results.totalEuGhgTax : -results.totalEuGhgTax) | number }}</span>
+          <span class="calc-line-number" [class.color-accent]="results.totalEuGhgTax < 0"> {{ (results.totalEuGhgTax > 0 ? results.totalEuGhgTax : -results.totalEuGhgTax) | cost }}</span>
         </div>
         <div class="calc-line">
-          <span class="calc-line-header"><app-help-widget tooltipKey="helpLegalPenalty" textKey="Legal penalty" [tooltipParameters]="{ legalPenalty: parameters.monthlyLegalPenalty| number }"></app-help-widget></span>
-          <span class="calc-line-number" [class.color-accent]="results.totalLegalPenalty === 0"> €&nbsp;{{ results.totalLegalPenalty | number }}</span>
+          <span class="calc-line-header"><app-help-widget tooltipKey="helpLegalPenalty" textKey="Legal penalty" [tooltipParameters]="{ legalPenalty: parameters.monthlyLegalPenalty | cost }"></app-help-widget></span>
+          <span class="calc-line-number" [class.color-accent]="results.totalLegalPenalty === 0"> {{ results.totalLegalPenalty | cost }}</span>
         </div>
         <div class="calc-line total-line">
           <span class="calc-line-header">{{ 'Including emission trading' | translate }}</span>
-          <span class="calc-line-number" [class.color-accent]="results.totalCostIncludingTax < 0"> €&nbsp;{{ (results.totalCostIncludingTax < 0 ? -results.totalCostIncludingTax : results.totalCostIncludingTax) | number }}</span>
+          <span class="calc-line-number" [class.color-accent]="results.totalCostIncludingTax.isNegative()"> {{ (results.totalCostIncludingTax.isNegative()
+            ? results.totalCostIncludingTax.multiply(-1)
+            : results.totalCostIncludingTax) | cost }}</span>
         </div>
       </div>
-      <p *ngIf="results.totalCostIncludingTax > 0" style="margin-top: 12px">
+      <p *ngIf="results.totalCostIncludingTax.isPositive()" style="margin-top: 12px">
         <a [href]="" (click)="showCostComparisonDialog()">{{ 'Find out what could be done with this budget instead' | translate }}</a>
       </p>
     </div>

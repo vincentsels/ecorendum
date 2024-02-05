@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { ImpactAmount, ImpactAmountMap, PolicyLevel, TargetType, Variant } from '../proposals/proposal';
+import { Cost, ImpactAmount, ImpactAmountMap, PolicyLevel, TargetType, Variant } from '../proposals/proposal';
 import { Results, TargetResult, TotalImpact } from './results';
 import { TargetsService } from '../targets/targets.service';
 import { ParametersService } from '../parameters/parameters.service';
@@ -72,10 +72,10 @@ export class ResultsService {
     const euReTarget = new TargetResult(targets.euTargetGapReGwh, 'GWh', 0, reAddedGwh,
       renewableEnergyAddedColor, reAddedPercentage);
 
-    const totalMeasurementCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a + b, 0);
+    const totalMeasurementCost = selectedVariants.map(v => v.getTotalCost()).reduce((a, b) => a.add(b), new Cost());
     const totalEuGhgTax = euGhgTax;
     const totalLegalPenalty = legalGhgReductionPercentage >= 100 ? 0 : parameters.monthlyLegalPenalty * 12 * 5;
-    const totalCostIncludingTax = totalMeasurementCost + totalEuGhgTax + totalLegalPenalty;
+    const totalCostIncludingTax = totalMeasurementCost.add(totalEuGhgTax).add(totalLegalPenalty);
 
     const totalImpact: TotalImpact[] = [];
 

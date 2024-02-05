@@ -1,4 +1,4 @@
-import { ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap } from '../proposals/proposal';
+import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap } from '../proposals/proposal';
 
 export class Results {
   constructor(
@@ -6,10 +6,10 @@ export class Results {
     public euGhgTarget: TargetResult,
     public euEeTarget: TargetResult,
     public euReTarget: TargetResult,
-    public totalMeasurementCost: number,
+    public totalMeasurementCost: Cost,
     public totalEuGhgTax: number,
     public totalLegalPenalty: number,
-    public totalCostIncludingTax: number,
+    public totalCostIncludingTax: Cost,
     public totalImpact?: TotalImpact[],
     public image?: string,
     ) {

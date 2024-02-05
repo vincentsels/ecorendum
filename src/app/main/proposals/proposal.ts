@@ -32,7 +32,6 @@ export class Proposal {
 
   getSectorIcon = () => SectorMap[this.sector || Sector.other];
   getSelectedVariant = () => (this.variants || []).find(v => v.selected);
-  getAverageCost = () => this.variants.map(v => v.getTotalCost()).reduce((total, curr) => total + curr, 0) / this.variants.length;
 
   getSingleOrMinCost() {
     return this.variants[0].getTotalCost();
@@ -145,9 +144,9 @@ export class Variant {
   }
 
   ambitionLevel: number = 1;
-  costInitial: number = 0;
-  costPerYearFixed: number = 0;
-  costPerYearVariable?: { [year: number]: number };
+  costInitial: Cost = new Cost();
+  costPerYearFixed: Cost = new Cost();
+  costPerYearVariable?: { [year: number]: Cost };
 
   targets: Target[] = [];
   regionalTargets?: { [region in ContextType]: Target[] };
@@ -167,8 +166,54 @@ export class Variant {
     return this.targets.find(t => t.type === type)?.amount || 0;
   }
 
-  getTotalCost = () => this.costInitial + (this.costPerYearFixed * 7) +
-    (Object.values(this.costPerYearVariable || {}).reduce((a, b) => a + b, 0) || 0);
+  getTotalCost() {
+    const remainingYears = 2030 - new Date().getFullYear();
+    const yearlyCostFixed = this.costPerYearFixed.multiply(remainingYears);
+
+    const yearlyCostVariable = Object.values(this.costPerYearVariable || {}).reduce((a, b) => a.add(b), new Cost()) || new Cost();
+
+    const totalCost = new Cost(this.costInitial).add(yearlyCostFixed).add(yearlyCostVariable);
+
+    return totalCost;
+  };
+}
+
+export class Cost {
+  constructor (props: number | Partial<Cost> = {}, max?: number) {
+    if (max && typeof props === 'number') {
+      this.min = props;
+      this.max = max;
+    } else if (typeof props === 'number') {
+      this.estimate = props;
+    } else {
+      Object.assign(this, props);
+    }
+  }
+
+  min?: number;
+  max?: number;
+  estimate?: number;
+
+  add(other: Cost | number) {
+    return new Cost({
+      min: (this.min || this.estimate || 0) + (typeof other === 'number' ? other : (other.min || other.estimate || 0)),
+      max: (this.max || this.estimate || 0) + (typeof other === 'number' ? other : (other.max || other.estimate || 0)),
+    });
+  }
+
+  multiply(amt: number) {
+    return new Cost({
+      min: (this.min || this.estimate || 0 * amt),
+      max: (this.max || this.estimate || 0 * amt),
+    });
+  }
+
+  isPositive() {
+    if (this.estimate) return this.estimate > 0;
+    else return this.min! > 0;
+  }
+
+  isNegative = () => !this.isPositive();
 }
 
 export class Target {

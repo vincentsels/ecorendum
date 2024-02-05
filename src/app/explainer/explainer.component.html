@@ -1,23 +1,23 @@
 <div [class.hidden]="explainerHidden">
-<header class="docs-header-background bg-color-primary">
-  <a class="close-container-link" (click)="closeExplainer()">
-    <mat-icon class="inline">close</mat-icon>
-    {{ 'Hide this explainer' | translate }}
-  </a>
-  <div class="docs-header-section">
-    <div class="docs-header-headline">
-      <h1>{{ 'Ecorendum' | translate }}</h1>
-      <h2>{{ 'You decide the energy and climate policy by 2030' | translate }}</h2>
+  <header class="docs-header-background bg-color-primary">
+    <a class="close-container-link" (click)="closeExplainer()">
+      <mat-icon class="inline">close</mat-icon>
+      {{ 'Hide this explainer' | translate }}
+    </a>
+    <div class="docs-header-section">
+      <div class="docs-header-headline">
+        <h1>{{ 'Ecorendum' | translate }}</h1>
+        <h2>{{ 'You decide the energy and climate policy by 2030' | translate }}</h2>
+      </div>
+      <div class="docs-header-start">
+        <a mat-raised-button color="primary" routerLink="." fragment="tool">{{ 'To the tool' | translate }}</a>
+      </div>
     </div>
-    <div class="docs-header-start">
-      <a mat-raised-button color="primary" routerLink="." fragment="tool">{{ 'To the tool' | translate }}</a>
-    </div>
-  </div>
-</header>
+  </header>
 
-<div class="explainer-container">
-  <app-explainer-content-nl *ngIf="(languageService.isNl$ | async) "></app-explainer-content-nl>
-  <app-explainer-content-en *ngIf="(languageService.isEn$ | async) "></app-explainer-content-en>
-  <app-explainer-content-fr *ngIf="(languageService.isFr$ | async) "></app-explainer-content-fr>
-</div>
+  <div class="explainer-container">
+    <app-explainer-content-nl *ngIf="(languageService.isNl$ | async) "></app-explainer-content-nl>
+    <app-explainer-content-en *ngIf="(languageService.isEn$ | async) "></app-explainer-content-en>
+    <app-explainer-content-fr *ngIf="(languageService.isFr$ | async) "></app-explainer-content-fr>
+  </div>
 </div>
