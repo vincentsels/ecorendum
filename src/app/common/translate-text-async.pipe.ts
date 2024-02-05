@@ -12,7 +12,7 @@ export class TranslateTextAsyncPipe implements PipeTransform {
   transform(value: TranslatedText[] | undefined): Observable<string> {
     if (!value || value.length === 0) return of('');
 
-    return this.translate.language.pipe(map((l) => {
+    return this.translate.language$.pipe(map((l) => {
       const translatedText = value.find(t => t.lang === l);
       if (translatedText) return translatedText.text;
 

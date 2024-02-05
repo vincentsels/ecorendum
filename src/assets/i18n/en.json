@@ -128,6 +128,10 @@
   "Reset all to defaults": "Reset all to defaults",
   "noPartyOpinion": "{{ partyName }} has not yet submitted their opinion on this measure. Contact your representatives to ask them to participate in the discussion!",
   "Edit": "Edit",
+  "Hide this explainer": "Hide this explainer",
+  "Ecorendum": "Ecorendum",
+  "You decide the energy and climate policy by 2030": "You decide the energy and climate policy by 2030",
+  "To the tool": "To the tool",
 
   "allTargetsMet": "Congratulations! The measures you selected allow Belgium to meet all the targets set by the climate case and by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated € {{ profit }}",

@@ -128,6 +128,10 @@
   "Reset all to defaults": "Réinitialiser tous les paramètres par défaut",
   "noPartyOpinion" : "{{ partyName }} n'a pas encore donné son avis sur cette mesure. Contactez vos représentants pour leur demander de participer à la discussion !",
   "Edit": "Modifier",
+  "Hide this explainer": "Cacher cette explication",
+  "Ecorendum": "Ecorendum",
+  "You decide the energy and climate policy by 2030": "Vous décidez de la politique énergétique et climatique d'ici 2030",
+  "To the tool": "Vers l'outil",
 
   "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'affaire climat et par l'Europe.",
   "profitMessage": "Cela permettra à la Belgique de recevoir une estimation de € {{ profit }}",
@@ -161,7 +165,7 @@
   "explainers" : {
     "insets" : {
       "worst-consequences" : {
-        "link" : "pire effects",
+        "link" : "pires effects",
         "text" : "Quoi qu'il en soit, le monde sera différent avec une augmentation de 1,5° ou de 2°C. Mais plus la température augmente, plus les risques sont grands. À une température de 2°, certaines parties de la planète deviennent déjà <a href=\"https://www.earth.com/news/unbearable-heat-could-make-some-parts-of-the-world-uninhabitable/\" target=\"_blank\">inhabitables pour les humains</a>, ce qui entraînerait des migrations massives.<br /><br />Plus la température est élevée, plus la probabilité d'<a href=\"https://www.carbonbrief.org/explainer-nine-tipping-points-that-could-be-triggered-by-climate-change/\" target=\"_blank\">effets d'auto-renforcement</a> est grande, ce qui pourrait entraîner un réchauffement encore plus important. <br /><br />Pour un aperçu de la différence entre 1,5°, 2° et 3° C, voir <a href=\"https://interactive.carbonbrief.org/impacts-climate-change-one-point-five-degrees-two-degrees/\" target=\"_blank\">cette page interactive de Climate Brief</a>."
       }
     }

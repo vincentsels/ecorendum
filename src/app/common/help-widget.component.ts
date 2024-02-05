@@ -49,7 +49,7 @@ span:hover {
 export class HelpWidgetComponent {
   constructor(private dialogService: CommonDialogService, private translate: TranslateService,
     public contextService: ContextService, languageService: LanguageService) {
-    this.lang = languageService.language;
+    this.lang = languageService.language$;
   }
 
   lang = new Observable<LanguageType>();

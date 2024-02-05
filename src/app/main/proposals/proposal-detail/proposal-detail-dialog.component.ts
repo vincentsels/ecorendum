@@ -35,7 +35,7 @@ export class ProposalDetailsDialogComponent {
   closeDialog = () => this.dialogRef.close();
 
   getSlugInSelectedLanguage() {
-    const lang = this.languageService.language.value;
+    const lang = this.languageService.language$.value;
     return lang === 'en' ? this.data.proposal.slugEn
       : lang === 'fr' ? this.data.proposal.slugFr
       : this.data.proposal.slugNl;

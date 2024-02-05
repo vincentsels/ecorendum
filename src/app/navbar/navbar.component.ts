@@ -17,7 +17,7 @@ const STYLE_NAME_LIGHT_MODE = 'light-mode';
 export class NavbarComponent {
   constructor(public proposalService: ProposalService, public contextService: ContextService,
     private matDialog: MatDialog, private languageService: LanguageService) {
-    this.language = languageService.language.value;
+    this.language = languageService.language$.value;
     this.toggleLightMode(localStorage.getItem(LS_KEY_LIGHTMODE) === 'true');
   }
 

@@ -8,7 +8,7 @@
   <div *ngIf="hasDetails">
     <h2 class="detail-section-header">{{ 'Description' | translate }}</h2>
 
-    <markdown [src]="'/assets/md/proposals/' + proposal.slugEn + '/' + (languageService.language | async) + '.md'"
+    <markdown [src]="'/assets/md/proposals/' + proposal.slugEn + '/' + (languageService.language$ | async) + '.md'"
       (error)="errorLoadingMarkdown($event)"></markdown>
   </div>
 

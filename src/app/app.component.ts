@@ -21,7 +21,7 @@ export class AppComponent {
     const lang = <LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || DEFAULT_LANG;
     translate.setDefaultLang(DEFAULT_LANG);
     languageService.setLanguage(lang);
-    languageService.language.subscribe({
+    languageService.language$.subscribe({
       next: lang => setTimeout(() => titleService.setTitle(translate.instant('siteTitle')))
     });
 

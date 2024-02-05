@@ -2,88 +2,22 @@
 <header class="docs-header-background bg-color-primary">
   <a class="close-container-link" (click)="closeExplainer()">
     <mat-icon class="inline">close</mat-icon>
-    Hide this explainer
+    {{ 'Hide this explainer' | translate }}
   </a>
   <div class="docs-header-section">
     <div class="docs-header-headline">
-      <h1>Cards on the table</h1>
-      <h2>You decide the energy and climate policy by 2030</h2>
+      <h1>{{ 'Ecorendum' | translate }}</h1>
+      <h2>{{ 'You decide the energy and climate policy by 2030' | translate }}</h2>
     </div>
     <div class="docs-header-start">
-      <a mat-raised-button color="primary" routerLink="." fragment="tool">To the tool</a>
+      <a mat-raised-button color="primary" routerLink="." fragment="tool">{{ 'To the tool' | translate }}</a>
     </div>
   </div>
 </header>
 
 <div class="explainer-container">
-  <div class="explainer responsive-page-container responsive-page-container-wide">
-    <div class="explainer-section">
-      <mat-icon class="background-icon">public</mat-icon>
-
-      <h1>De globale context</h1>
-
-      <p class="explainer-explanation-short">
-        Om de <app-inset-link insetTranslationKey="worst-consequences"></app-inset-link> van klimaatverandering te voorkomen, ondertekenden bijna alle landen ter wereld het Klimaatakkoord van Parijs, waarin overeengekomen wordt om de opwarming van de aarde ruim onder de 2°C te houden, en te streven naar minder dan 1,5°C.
-      </p>
-    </div>
-
-    <div class="explainer-section">
-      <mat-icon class="background-icon">star</mat-icon>
-
-      <h1>De Europese doelstellingen</h1>
-
-      <p class="explainer-explanation-short">
-        Elk land moet haar steentje bijdragen. Rijke landen meer dan andere. België volgt de Europese doelstellingen. Bedrijven in de zware industrie en energieproductie kopen uitstootrechten op de ETS markt. Voor de overige sectoren moeten Belgische overheden de emissies tegen 2030 doen dalen met 47% t.o.v. 2005.
-      </p>
-<!--
-      <p class="explainer-explanation-long" [class.hidden]="!flemishTargetsExpanded">
-      </p>
-
-      <a class="more-button" (click)="flemishTargetsExpanded = !flemishTargetsExpanded">
-        <span *ngIf="!flemishTargetsExpanded">Lees meer...</span>
-        <span *ngIf="flemishTargetsExpanded">Lees minder</span>
-      </a> -->
-    </div>
-
-    <div class="explainer-section">
-      <mat-icon class="background-icon">gavel</mat-icon>
-
-      <h1>De klimaatzaak</h1>
-
-      <p class="explainer-explanation-short">
-        België en vooral Vlaanderen halen de door Europa opgelegde doelstellingen niet. Dat bedreigt de mensenrechten van toekomstige generaties. Daarom spanden tienduizenden bezorgde burgers een Klimaatzaak aan tegen de Belgische overheden. De rechter gaf hen gelijk, en legt België tegen 2030 een reductie van zelfs 55% op t.o.v. 1990.
-      </p>
-    </div>
-
-    <div class="explainer-section">
-      <mat-icon class="background-icon">receipt_long</mat-icon>
-
-      <h1>De impact</h1>
-
-      <p class="explainer-explanation-short">
-        Als reactie op de klimaatzaak liet Vlaams minister van Klimaat en Energie Zuhal Demir het Vlaams Energie- en Klimaatagentschap (VEKA) becijferen wat de impact van de opgelegde doelstellingen is. Die is duidelijk erg groot. Hoog tijd dat we op een democratische manier bepalen hoe we dat gaan klaarspelen.
-      </p>
-    </div>
-
-    <div class="explainer-section">
-      <mat-icon class="background-icon">volunteer_activism</mat-icon>
-
-      <h1>De randvoorwaarden</h1>
-
-      <p class="explainer-explanation-short">
-        De transitie wordt niet eenvoudig, en we zullen maatschappelijke keuzes moeten maken. Hoeveel willen we betalen? Hoeveel risico kunnen we nemen? Veroorzaken maatregelen andere, misschien nog grotere milieuproblemen? Verloopt de transitie rechtvaardig? En wat is de prijs van niets doen?
-      </p>
-    </div>
-
-    <div class="explainer-section">
-      <mat-icon class="background-icon">how_to_vote</mat-icon>
-
-      <h1>Het preferendum</h1>
-
-      <p class="explainer-explanation-short">
-        Dit wordt de grootste uitdaging waar we ooit voor stonden. Iedereen zal de gevolgen er op één of andere manier van ondervinden. Daarom vinden wij dat iedereen betrokken moet worden bij de keuze van het klimaatbeleid. Hoe zou jij het aanpakken? Binnenkort zijn het verkiezingen. Wat stellen de politieke partijen voor?
-      </p>
-    </div>
-  </div>
+  <app-explainer-content-nl *ngIf="(languageService.isNl$ | async) "></app-explainer-content-nl>
+  <app-explainer-content-en *ngIf="(languageService.isEn$ | async) "></app-explainer-content-en>
+  <app-explainer-content-fr *ngIf="(languageService.isFr$ | async) "></app-explainer-content-fr>
 </div>
 </div>

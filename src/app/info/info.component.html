@@ -3,13 +3,13 @@
     <div class="responsive-page-toc-box">
       <h3>Content</h3>
       <ul *ngIf="headings">
-        <li *ngFor="let heading of headings"  [ngClass]="heading.tagName">
+        <li *ngFor="let heading of headings" [ngClass]="heading.tagName">
           <a routerLink="." fragment="{{heading.id}}">{{ heading.innerHTML }}</a>
         </li>
       </ul>
     </div>
   </div>
   <div class="responsive-page-content">
-    <markdown [src]="'/assets/md/info/' + (languageService.language | async) + '.md'" (load)="markdownLoaded()"></markdown>
+    <markdown [src]="'/assets/md/info/' + (languageService.language$ | async) + '.md'" (load)="markdownLoaded()"></markdown>
   </div>
 </div>

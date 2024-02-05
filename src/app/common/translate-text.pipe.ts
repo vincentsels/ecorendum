@@ -11,7 +11,7 @@ export class TranslateTextPipe implements PipeTransform {
   transform(value: TranslatedText[] | undefined): string {
     if (!value || value.length === 0) return '';
 
-    const lang = this.translate.language.value;
+    const lang = this.translate.language$.value;
 
     const translatedText = value.find(t => t.lang === lang);
     if (translatedText) return translatedText.text;
