@@ -2,6 +2,44 @@
   overflow: hidden;
   position: relative;
   height: 420px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    background-image: url(/assets/img/logo_bw.png);
+    background-size: 600px;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: 80% 20px;
+    opacity: .2;
+  }
+
+
+}
+
+@media (max-width: 1200px) {
+  .docs-header-background:before {
+      background-image: none;
+  }
+}
+
+.close-container-link {
+  color: white !important;
+  opacity: 0.4;
+
+  mat-icon {
+    vertical-align: middle;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.header-logo {
+  mix-blend-mode: multiply;
+  width: 25%;
+  position: absolute;
 }
 
 .close-container-link {
