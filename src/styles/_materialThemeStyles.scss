@@ -10,6 +10,8 @@
 .bg-color-primary { background-color: mat.get-color-from-palette(params.$ecorendum-dark-primary) !important; color: white; }
 .bg-color-accent { background-color: mat.get-color-from-palette(params.$ecorendum-dark-accent) !important; color: white; }
 .bg-color-warn { background-color: mat.get-color-from-palette(params.$ecorendum-dark-warn) !important; color: white; }
+.bg-color-warn a { color: mat.get-color-from-palette(params.$ecorendum-dark-warn, 100) !important }
+.bg-color-warn a:hover { color: mat.get-color-from-palette(params.$ecorendum-dark-warn, 200) !important }
 
 // This should move just to the component that uses it, but lots of work :)
 .bg-color-accent-semi-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-dark-accent), 0.8) !important }
@@ -24,8 +26,8 @@
 .warning { color: mat.get-color-from-palette(params.$ecorendum-dark-warn, A100) }
 .danger { color: mat.get-color-from-palette(params.$ecorendum-dark-warn, 600) }
 
-.bg-color-danger { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-dark-warn), 0.15) !important }
-.bg-color-success { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-dark-accent), 0.15) !important }
+.bg-color-danger { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-dark-warn), 0.20) !important }
+.bg-color-success { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-dark-accent), 0.20) !important }
 
 .impact-extremely-positive { color: mat.get-color-from-palette(params.$ecorendum-dark-accent, 400) }
 .impact-very-positive { color: mat.get-color-from-palette(params.$ecorendum-dark-accent, 300) }
@@ -59,7 +61,8 @@ a:hover { color: mat.get-color-from-palette(params.$ecorendum-dark-primary, 300)
 
   .bg-color-primary { background-color: mat.get-color-from-palette(params.$ecorendum-light-primary) !important; color: white; }
   .bg-color-accent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent) !important; color: white; }
-  .bg-color-warn { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn) !important; color: white; }
+  .bg-color-error { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 800) !important; color: white; }
+  .bg-color-warn { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 400) !important; color: white; }
 
   // This should move just to the component that uses it, but lots of work :)
   .bg-color-accent-semi-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent, 600) !important }

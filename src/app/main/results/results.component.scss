@@ -98,33 +98,3 @@ app-result-progress {
 .condensed-section {
   margin-bottom: 16px;
 }
-
-.icon-button {
-  cursor: pointer;
-  opacity: 0.6;
-  margin-left: 12px;
-
-  &:first-child {
-    margin-left: 0px;
-  }
-
-  &:hover {
-    opacity: 1;
-  }
-}
-
-.icon-with-icon-badge {
-  position: relative;
-  margin-right: 6px;
-
-  .icon-badge {
-    font-size: 75%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    border-radius: 50%;
-    background-color: #6f6f6f;
-    padding: 2px;
-  }
-}

@@ -62,6 +62,7 @@ import { ProposalTranslationsEditorComponent } from './main/proposals/proposal-e
 import { ExplainerComponent } from './explainer/explainer.component';
 import { InsetLinkComponent } from './explainer/inset-link.component';
 import { ExplainerContentEnComponent, ExplainerContentFrComponent, ExplainerContentNlComponent } from './explainer/explainer-content.component';
+import { MessageBarComponent } from './message-bar/message-bar.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -108,6 +109,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ExplainerContentEnComponent,
     ExplainerContentFrComponent,
     InsetLinkComponent,
+    MessageBarComponent,
   ],
   imports: [
     BrowserModule,

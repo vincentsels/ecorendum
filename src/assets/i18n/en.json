@@ -163,6 +163,10 @@
   "ecorendum": "Examples VEKA",
   "own": "Own",
 
+  "messages": {
+    "data-warning": "<strong>Warning! This is only a demo website.</strong> The data is not entirely accurate. Read more about this on the <a href=\"info\">info page</a>."
+  },
+
   "explainers": {
     "insets": {
       "worst-consequences": {
