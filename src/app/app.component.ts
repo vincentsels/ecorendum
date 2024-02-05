@@ -5,7 +5,7 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { HelpWidgetComponent } from './common/help-widget.component';
 
-import { LanguageService, LOCAL_STORAGE_KEY_LANGUAGE } from './common/language.service';
+import { LanguageService, LS_KEY_LANGUAGE } from './common/language.service';
 import { LanguageType } from './main/proposals/proposal';
 
 const DEFAULT_LANG: LanguageType = 'en'; // TODO: retrieve from browser language
@@ -18,7 +18,7 @@ const DEFAULT_LANG: LanguageType = 'en'; // TODO: retrieve from browser language
 export class AppComponent {
   constructor(languageService: LanguageService, titleService: Title, translate: TranslateService,
     matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer, injector: Injector) {
-    const lang = <LanguageType>localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE) || DEFAULT_LANG;
+    const lang = <LanguageType>localStorage.getItem(LS_KEY_LANGUAGE) || DEFAULT_LANG;
     translate.setDefaultLang(DEFAULT_LANG);
     languageService.setLanguage(lang);
     languageService.language$.subscribe({
