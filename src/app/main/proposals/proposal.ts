@@ -214,6 +214,8 @@ export class Cost {
   }
 
   isNegative = () => !this.isPositive();
+
+  any = () => this.min || this.max || this.estimate;
 }
 
 export class Target {

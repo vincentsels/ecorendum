@@ -1,50 +1,42 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
 import { Cost } from '../main/proposals/proposal';
 
 @Pipe({ name: 'cost' })
 export class CostPipe implements PipeTransform {
+  constructor(private numberPipe: DecimalPipe) {}
+
   transform(value?: Cost | number, full: boolean = false): string {
     if (!value) return '';
 
     const cost = typeof value === 'number' ? new Cost({ estimate: value }) : new Cost(value);
+    const avg = cost.estimate || (((cost.min || 0) + (cost.max || 0)) / 2);
+    const suffix = getAmtSuffix(avg);
+
+    let amt;
+
+    if (cost.estimate) {
+      amt = this.numberPipe.transform(getAmt(cost.estimate, full, suffix));
+    } else {
+      const min = this.numberPipe.transform(getAmt(cost.min || 0, full, suffix));
+      const max = this.numberPipe.transform(getAmt(cost.max || 0, full, suffix));
+      amt = (min === max) ? '' + min : min + ' à ' + max;
+    }
 
     let ret = '€\u00A0';
+    if (full) return ret + amt;
+    else return ret + amt + '\u00A0' + suffix;
+  }
+}
 
-    const avg = cost.estimate || (((cost.min || 0) + (cost.max || 0)) / 2);
+export function getAmtSuffix(amt: number) {
+  return Math.abs(amt) > 100000000 ? 'B' : Math.abs(amt) > 500000 ? 'M' : 'k';
+}
 
-    if (Math.abs(avg) > 100000000) {
-      // Larger than: 100.000.000: show as billion
-      let amt = '';
-      if (cost.estimate) {
-        amt = '' + Math.round(cost.estimate / 1000000000 * 100) / 100;
-      } else {
-        const min = Math.round((cost.min || 0) / 1000000000 * 100) / 100;
-        const max = Math.round((cost.max || 0) / 1000000000 * 100) / 100;
-        amt = (min === max) ? '' + min : min + '-' + max;
-      }
-      return ret + amt + '\u00A0' + 'B';
-    } else if (Math.abs(avg) > 500000) {
-      // Larger than: 500.000: show as million
-      let amt = '';
-      if (cost.estimate) {
-        amt = '' + Math.round(cost.estimate / 1000000 * 100) / 100;
-      } else {
-        const min = Math.round((cost.min || 0) / 1000000 * 100) / 100;
-        const max = Math.round((cost.max || 0) / 1000000 * 100) / 100;
-        amt = (min === max) ? '' + min : min + '-' + max;
-      }
-      return ret + amt + '\u00A0' + 'M';
-    } else {
-      // Else: show as k
-      let amt = '';
-      if (cost.estimate) {
-        amt = '' + Math.round(cost.estimate / 1000 * 100) / 100;
-      } else {
-        const min = Math.round((cost.min || 0) / 1000 * 100) / 100;
-        const max = Math.round((cost.max || 0) / 1000 * 100) / 100;
-        amt = (min === max) ? '' + min : min + '-' + max;
-      }
-      return ret + amt + '\u00A0' + 'k';
-    }
+export function getAmt(cost: number, full: boolean, suffix: 'B' | 'M' | 'k'): number {
+  if (full) return cost;
+  else {
+    const divider = suffix === 'B' ? 1000000000 : suffix === 'M' ? 1000000 : 1000;
+    return Math.round((cost || 0) / divider * 100) / 100;
   }
 }

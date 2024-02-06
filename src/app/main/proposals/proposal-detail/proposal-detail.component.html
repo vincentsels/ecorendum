@@ -25,7 +25,7 @@
           <div>
             <h3>{{ 'Cost' | translate }}</h3>
             <div>{{ 'Initial' | translate }}: {{ variant.costInitial | cost }}</div>
-            <div *ngIf="variant.costPerYearFixed">{{ 'Yearly' | translate }}: {{ variant.costPerYearFixed | cost }}</div>
+            <div *ngIf="variant.costPerYearFixed.any()">{{ 'Yearly' | translate }}: {{ variant.costPerYearFixed | cost }}</div>
             <div><label>{{ 'Total' | translate }}: {{ variant.getTotalCost() | cost }}</label></div>
           </div>
 
@@ -35,7 +35,7 @@
               <mat-icon class="inline">cloud_download</mat-icon> {{ amount | number }} kt
             </div>
             <div *ngIf="variant.getTargetAmount(enums.TargetType.energyEfficiency, contextService.context$.value); let amount;">
-              <mat-icon class="inline">savings</mat-icon> {{ amount | number }} GWh
+              <mat-icon class="inline">energy_savings_leaf</mat-icon> {{ amount | number }} GWh
             </div>
             <div *ngIf="variant.getTargetAmount(enums.TargetType.renewableEnergy, contextService.context$.value); let amount;">
               <mat-icon class="inline">solar_power</mat-icon> {{ amount | number }} GWh

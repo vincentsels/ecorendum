@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { CostPipe } from './cost.pipe';
 import { DecimalPipe } from '@angular/common';
+import { CostPipe } from './cost.pipe';
 
 @Component({
   selector: 'app-impact-scale',
