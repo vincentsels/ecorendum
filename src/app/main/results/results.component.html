@@ -111,7 +111,7 @@
       </span>
 
       <span class="collapsed-header-summary" [class.color-accent]="results.totalCostIncludingTax.isNegative()">
-        <app-cost [cost]="results.totalCostIncludingTax" value="avg"></app-cost>
+        <app-cost [cost]="results.totalCostIncludingTax" valueType="avg"></app-cost>
       </span>
 
       <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalCost()">
