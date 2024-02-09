@@ -116,14 +116,13 @@
           </span>
         </div>
         <div class="cost-risk">
-          {{ 'Risk' | translate}} <small *ngIf="risk$ | async; let risk;"
+          {{ 'Risk' | translate}} <span class="risk-value" *ngIf="risk$ | async; let risk;"
             [class.danger]="risk === 'high-risk'"
-            [class.warn]="risk === 'medium-risk'"
+            [class.warning]="risk === 'medium-risk'"
             [class.success]="risk === 'low-risk'"
-            >{{ risk | translate }}</small>
+            >{{ risk | translate }}</span>
         </div>
       </div>
-
 
       <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalCost()">
         <mat-icon class="inline">

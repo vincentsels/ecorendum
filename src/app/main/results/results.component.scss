@@ -97,6 +97,15 @@ app-result-progress {
 
 .result-section-collapsed-cost {
   display: flex;
+
+  .cost-icon {
+    margin-top: 4px; // Not easy to align with text next to it otherwise
+    margin-right: 8px; // Replace space character in other sections
+  }
+
+  .cost-content {
+    flex-grow: 1;
+  }
 }
 
 .condensed-section {

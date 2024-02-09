@@ -132,6 +132,10 @@
   "Ecorendum": "Ecorendum",
   "You decide the energy and climate policy by 2030": "Vous décidez de la politique énergétique et climatique d'ici 2030",
   "To the tool": "Vers l'outil",
+  "Risk": "Risque",
+  "high-risk": "élevé",
+  "medium-risk": "moyen",
+  "low-risk": "faible",
 
   "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'affaire climat et par l'Europe.",
   "profitMessage": "Cela permettra à la Belgique de recevoir une estimation de € {{ profit }}",

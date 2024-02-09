@@ -132,6 +132,10 @@
   "Ecorendum": "Ecorendum",
   "You decide the energy and climate policy by 2030": "Jij bepaalt het klimaatbeleid tegen 2030",
   "To the tool": "Naar de tool",
+  "Risk": "Risico",
+  "high-risk": "hoog",
+  "medium-risk": "gemiddeld",
+  "low-risk": "laag",
 
   "allTargetsMet": "Gefeliciteerd! Met de maatregelen die je hebt geselecteerd, kan België alle doelstellingen opgelegd door de klimaatzaak en Europa behalen.",
   "profitMessage": "Hierdoor zal België naar schatting € {{ profit }} bijverdienen",

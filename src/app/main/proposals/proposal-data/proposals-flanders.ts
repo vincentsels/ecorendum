@@ -20,8 +20,8 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
       new Variant({
         ambitionLevel: 1,
         selected: true,
-        costInitial: new Cost(20000000, 50000000),
-        costPerYearFixed: new Cost(1000000, 5000000),
+        costInitial: new Cost(500000000, 600000000),
+        costPerYearFixed: new Cost(20000000, 30000000),
         impacts: [
           new Impact(ImpactDomain.waterConsumption, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.biodiversityLoss, ImpactAmount.moderatelyNegative),
