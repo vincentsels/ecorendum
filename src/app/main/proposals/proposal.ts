@@ -208,8 +208,8 @@ export class Cost {
     });
   }
 
-  avg = () => this.estimate || ((this.max! - this.min!) / 2);
-  isPositive = () => this.avg() > 0;
+  avg = () => this.estimate || ((this.max! + this.min!) / 2);
+  isPositive = () => this.avg() >= 0;
   isNegative = () => this.avg() < 0;
   any = () => this.min || this.max || this.estimate;
 }
