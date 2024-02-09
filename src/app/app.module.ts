@@ -64,6 +64,7 @@ import { InsetLinkComponent } from './explainer/inset-link.component';
 import { ExplainerContentEnComponent, ExplainerContentFrComponent, ExplainerContentNlComponent } from './explainer/explainer-content.component';
 import { MessageBarComponent } from './message-bar/message-bar.component';
 import { CostComponent } from './common/cost.component';
+import { CostScaleComponent } from './common/cost-scale.component';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -102,6 +103,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SelectPartySetDialogComponent,
     ConfigureParametersDialogComponent,
     ImpactScaleComponent,
+    CostScaleComponent,
     ProposalEditorComponent,
     ProposalDataEditorComponent,
     ProposalTranslationsEditorComponent,

@@ -25,7 +25,7 @@
           <div>
             <h3>{{ 'Cost' | translate }}</h3>
             <div>{{ 'Initial' | translate }}: {{ variant.costInitial | cost }}</div>
-            <div *ngIf="variant.costPerYearFixed.any()">{{ 'Yearly' | translate }}: {{ variant.costPerYearFixed | cost }}</div>
+            <div *ngIf="variant.costPerYearFixed.isNotNull()">{{ 'Yearly' | translate }}: {{ variant.costPerYearFixed | cost }}</div>
             <div><label>{{ 'Total' | translate }}: {{ variant.getTotalCost() | cost }}</label></div>
           </div>
 

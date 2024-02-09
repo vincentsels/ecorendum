@@ -208,7 +208,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 3,
-        costInitial: new Cost(500000000, 500000000),
+        costInitial: new Cost(500000000, 1500000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.veryPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),

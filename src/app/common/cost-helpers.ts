@@ -2,7 +2,7 @@ import { DecimalPipe } from "@angular/common";
 import { Cost } from "../main/proposals/proposal";
 
 export function getAmtSuffix(amt: number) {
-  return Math.abs(amt) > 100000000 ? 'B' : Math.abs(amt) > 500000 ? 'M' : 'k';
+  return Math.abs(amt) >= 1000000000 ? 'B' : Math.abs(amt) >= 1000000 ? 'M' : 'k';
 }
 
 export function getAmt(cost: number, full: boolean, suffix: 'B' | 'M' | 'k'): number {

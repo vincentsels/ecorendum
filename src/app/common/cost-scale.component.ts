@@ -1,16 +1,18 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { CostPipe } from './cost.pipe';
+import { Cost } from '../main/proposals/proposal';
 
 @Component({
-  selector: 'app-impact-scale',
+  selector: 'app-cost-scale',
   template: `
   <div *ngIf="initialized" class="impact-scale-container" [matTooltip]="tooltip!">
-    <mat-icon class="inline" *ngIf="icon">{{ icon }}</mat-icon>
+    <mat-icon class="inline">euro</mat-icon>
     <div class="impact-scale" [style.width]="totalWidth! + 'px'">
-      <div *ngFor="let square of squares" class="impact-square bg-color-{{ style }}-semi-transparent"></div>
+      <div *ngFor="let square of selectedMinSquares" class="impact-square bg-color-{{ style }}-semi-transparent"></div>
       <!-- <div *ngIf="truncated()" class="impact-truncated">•••</div> -->
-      <div *ngFor="let square of maxSquares" class="impact-square bg-color-neutral-transparent"></div>
+      <div *ngFor="let square of selectedMaxSquares" class="impact-square bg-color-{{ style }}-transparent"></div>
+      <div *ngFor="let square of potentialSquares" class="impact-square bg-color-neutral-transparent"></div>
       <!-- <div *ngIf="maxTruncated()" class="impact-truncated">•••</div> -->
     </div>
   </div>
@@ -40,22 +42,20 @@ import { CostPipe } from './cost.pipe';
 `
   ],
 })
-export class ImpactScaleComponent implements OnInit, OnChanges {
+export class CostScaleComponent implements OnInit, OnChanges {
   constructor(private numberPipe: DecimalPipe, private costPipe: CostPipe) {
   }
 
-  @Input({ required: true }) singleOrMin!: number;
-  @Input({ required: true }) selected!: number;
-  @Input() max?: number;
+  @Input({ required: true }) min!: Cost;
+  @Input({ required: true }) selected!: Cost;
+  @Input() potential?: Cost;
   @Input({ required: true }) scale!: number;
-
-  @Input() unit?: string;
-  @Input() icon?: string;
 
   @Input() style?: 'accent' | 'warn' = 'accent';
 
-  squares?: any[];
-  maxSquares?: any[];
+  selectedMinSquares?: any[];
+  selectedMaxSquares?: any[];
+  potentialSquares?: any[];
   totalWidth?: number;
   tooltip?: string;
 
@@ -71,13 +71,16 @@ export class ImpactScaleComponent implements OnInit, OnChanges {
   }
 
   private initialize() {
-    const squareCount = Math.ceil(this.selected / this.scale);
-    this.squares = !this.selected ? [] : new Array(squareCount);
+    const minSquareCount = Math.ceil(this.selected.getMin() / this.scale);
+    this.selectedMinSquares = !minSquareCount ? [] : new Array(minSquareCount);
 
-    const maxSquareCount = !this.max ? 0 : Math.ceil(this.max / this.scale) - Math.ceil(this.selected / this.scale);
-    this.maxSquares = !this.max ? [] : new Array(maxSquareCount);
+    const maxSquareCount = Math.ceil(this.selected.getMax() / this.scale) - Math.ceil(this.selected.getMin() / this.scale);
+    this.selectedMaxSquares = !maxSquareCount ? [] : new Array(maxSquareCount);
 
-    this.totalWidth = (Math.ceil((squareCount + maxSquareCount) / 2) * 2) * 3;
+    const potentialSquareCount = this.potential ? Math.ceil(this.potential.getMax() / this.scale) - Math.ceil(this.selected.getMax() / this.scale) : 0;
+    this.potentialSquares = (!potentialSquareCount || potentialSquareCount < 0) ? [] : new Array(potentialSquareCount);
+
+    this.totalWidth = (Math.ceil((minSquareCount + maxSquareCount + potentialSquareCount) / 2) * 2) * 3;
     // this.totalWidth + (this.truncated() ? 15 : 0) + (this.maxTruncated() ? 15 : 0)
     this.tooltip = this.getTooltip();
 
@@ -91,19 +94,7 @@ export class ImpactScaleComponent implements OnInit, OnChanges {
   // getTruncatedMaxSquareCount = () => Math.min(this.getMaxSquareCount(), 20);
 
   getTooltip() {
-    const suffix = this.unit ? (' ' + this.unit) : '';
-
-    const selected = this.numberPipe.transform(this.selected);
-    let text = selected + suffix;
-
-    // const min = this.numberPipe.transform(this.singleOrMin);
-    // let text = min + suffix;
-
-    // if (this.max) {
-    //   const max = this.numberPipe.transform(this.max);
-    //   text += ' - ' + max + ' ' + suffix;
-    // }
-
-    return text;
+    const selected = this.costPipe.transform(this.selected, true);
+    return selected;
   }
 }

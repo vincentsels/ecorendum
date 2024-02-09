@@ -38,12 +38,12 @@ export class Proposal {
   }
 
   getSelectedCost() {
-    return this.getSelectedVariant()?.getTotalCost() || 0;
+    return this.getSelectedVariant()?.getTotalCost() || undefined;
   }
 
   getMaxCost(ignore: boolean) {
-    if (ignore) return 0;
-    if (this.variants.length === 1) return 0;
+    if (ignore) return undefined;
+    if (this.variants.length === 1) return undefined;
     return this.variants[this.variants.length - 1].getTotalCost();
   }
 
@@ -208,10 +208,12 @@ export class Cost {
     });
   }
 
-  avg = () => this.estimate || ((this.max! + this.min!) / 2);
-  isPositive = () => this.avg() >= 0;
-  isNegative = () => this.avg() < 0;
-  any = () => this.min || this.max || this.estimate;
+  getMin = () => this.estimate || this.min || 0;
+  getMax = () => this.estimate || this.max || 0;
+  getAvg = () => this.estimate || ((this.max! + this.min!) / 2);
+  isPositive = () => this.getAvg() >= 0;
+  isNegative = () => this.getAvg() < 0;
+  isNotNull = () => this.min || this.max || this.estimate;
 }
 
 export class Target {

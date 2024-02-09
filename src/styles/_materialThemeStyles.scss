@@ -9,7 +9,8 @@
 
 .bg-color-primary { background-color: mat.get-color-from-palette(params.$ecorendum-dark-primary) !important; color: white; }
 .bg-color-accent { background-color: mat.get-color-from-palette(params.$ecorendum-dark-accent) !important; color: white; }
-.bg-color-warn { background-color: mat.get-color-from-palette(params.$ecorendum-dark-warn) !important; color: white; }
+.bg-color-error { background-color: mat.get-color-from-palette(params.$ecorendum-dark-warn, 800) !important; color: white; }
+.bg-color-warn { background-color: mat.get-color-from-palette(params.$ecorendum-dark-warn, 400) !important; color: white; }
 .bg-color-warn a { color: mat.get-color-from-palette(params.$ecorendum-dark-warn, 100) !important }
 .bg-color-warn a:hover { color: mat.get-color-from-palette(params.$ecorendum-dark-warn, 200) !important }
 
@@ -18,6 +19,7 @@
 .bg-color-accent-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-dark-accent), 0.4) !important }
 .bg-color-warn-semi-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-dark-warn), 0.8) !important }
 .bg-color-warn-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-dark-warn), 0.4) !important }
+.bg-color-neutral-transparent { background-color: rgba(#7d7d7d, 0.5) !important }
 
 .accent { color: mat.get-color-from-palette(params.$ecorendum-dark-accent, A200) }
 
@@ -65,10 +67,11 @@ a:hover { color: mat.get-color-from-palette(params.$ecorendum-dark-primary, 300)
   .bg-color-warn { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 400) !important; color: white; }
 
   // This should move just to the component that uses it, but lots of work :)
-  .bg-color-accent-semi-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent, 600) !important }
-  .bg-color-accent-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-accent, 300) !important }
-  .bg-color-warn-semi-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 600) !important }
-  .bg-color-warn-transparent { background-color: mat.get-color-from-palette(params.$ecorendum-light-warn, 300) !important }
+  .bg-color-accent-semi-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-accent), 0.8) !important }
+  .bg-color-accent-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-accent), 0.4) !important }
+  .bg-color-warn-semi-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-warn), 0.8) !important }
+  .bg-color-warn-transparent { background-color: rgba(mat.get-color-from-palette(params.$ecorendum-light-warn), 0.5) !important }
+  .bg-color-neutral-transparent { background-color: rgba(#7d7d7d, 0.5) !important }
 
   .accent { color: mat.get-color-from-palette(params.$ecorendum-light-accent, A200) }
 

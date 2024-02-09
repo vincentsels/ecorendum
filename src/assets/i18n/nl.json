@@ -278,10 +278,12 @@
       "summary": "Vermindering van de rund- en varkensstapels tegen 2030 in vergelijking met 2021. Voor de varkensstapel moet het huidige verminderingstempo licht versnellen, voor vleesrund moet het tempo verdrievoudigen, en voor melkvee moet de stijgende trend volledig omgekeerd worden. Vlaanderen zou tegen 2030 ongeveer 400.000 minder runderen hebben. Ingrijpen in de pluimveepopulatie heeft weinig effect.",
       "variants": {
         "1": {
-          "title": "30% afbouw"
+          "title": "30% afbouw",
+          "summary": ""
         },
         "2": {
-          "title": "60% afbouw"
+          "title": "60% afbouw",
+          "summary": ""
         }
       },
       "partijOpinies": {
@@ -293,13 +295,16 @@
       "summary": "Uitfasering van koolstofintensieve industrie, bijvoorbeeld in de haven van Antwerpen door het intrekken van vergunningen of fiscale ontmoediging.",
       "variants": {
         "1": {
-          "title": "10% afbouw"
+          "title": "10% afbouw",
+          "summary": ""
         },
         "2": {
-          "title": "20% afbouw"
+          "title": "20% afbouw",
+          "summary": ""
         },
         "3": {
-          "title": "30% afbouw"
+          "title": "30% afbouw",
+          "summary": ""
         }
       },
       "partijOpinies": {

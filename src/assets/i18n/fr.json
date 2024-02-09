@@ -280,10 +280,12 @@
       "summary": "Réduction des troupeaux de bovins et de porcs d'ici 2030 par rapport à 2021. Pour le troupeau de porcs, le taux actuel de réduction devrait légèrement s'accélérer, pour les bovins de boucherie, le taux devrait tripler, et pour les bovins laitiers, la tendance à la hausse devrait être complètement inversée. La Flandre aurait environ 400 000 bovins de moins d'ici 2030. L'intervention dans la population de volailles a peu d'effet.",
       "variants": {
         "1": {
-          "title": "Réduction de 30%"
+          "title": "Réduction de 30%",
+          "summary": ""
         },
         "2": {
-          "title": "Réduction de 60%"
+          "title": "Réduction de 60%",
+          "summary": ""
         }
       },
       "partyOpinions" : {
@@ -295,13 +297,16 @@
       "summary": "Arrêt de l'industrie à forte intensité de carbone, par exemple dans le port d'Anvers en révoquant les autorisations ou en décourageant fiscalement.",
       "variants": {
         "1": {
-          "title": "Réduction de 10%"
+          "title": "Réduction de 10%",
+          "summary": ""
         },
         "2": {
-          "title": "Réduction de 20%"
+          "title": "Réduction de 20%",
+          "summary": ""
         },
         "3": {
-          "title": "Réduction de 30%"
+          "title": "Réduction de 30%",
+          "summary": ""
         }
       },
       "partyOpinions" : {

@@ -316,10 +316,12 @@
       "summary": "Reduction in cattle and pig herds by 2030 compared to 2021. For the pig herd, the current rate of reduction should accelerate slightly, for beef cattle the rate should triple, and for dairy cattle the upward trend should be completely reversed. Flanders would have about 400,000 fewer cattle by 2030. Intervention in the poultry population has little effect.",
       "variants": {
         "1": {
-          "title": "30% reduction"
+          "title": "30% reduction",
+          "summary": ""
         },
         "2": {
-          "title": "60% reduction"
+          "title": "60% reduction",
+          "summary": ""
         }
       },
       "partyOpinions": {
@@ -331,13 +333,16 @@
       "summary": "Phase-out of carbon-intensive industry, e.g. in the port of Antwerp though revoking permissions or fiscal discouragement.",
       "variants": {
         "1": {
-          "title": "10% reduction"
+          "title": "10% reduction",
+          "summary": ""
         },
         "2": {
-          "title": "20% reduction"
+          "title": "20% reduction",
+          "summary": ""
         },
         "3": {
-          "title": "30% reduction"
+          "title": "30% reduction",
+          "summary": ""
         }
       },
       "partyOpinions": {
@@ -364,10 +369,12 @@
       "summary": "Reduction in cattle and pig herds by 2030 compared to 2021. For the pig herd, the current rate of reduction should accelerate slightly, for beef cattle the rate should triple, and for dairy cattle the upward trend should be completely reversed. Wallonia would have about 400,000 fewer cattle by 2030. Intervention in the poultry population has little effect.",
       "variants": {
         "1": {
-          "title": "30% reduction"
+          "title": "30% reduction",
+          "summary": ""
         },
         "2": {
-          "title": "60% reduction"
+          "title": "60% reduction",
+          "summary": ""
         }
       },
       "partyOpinions": {
@@ -379,13 +386,16 @@
       "summary": "Phase-out of Brussels carbon-intensive industry though revoking permissions or fiscal discouragement.",
       "variants": {
         "1": {
-          "title": "10% reduction"
+          "title": "10% reduction",
+          "summary": ""
         },
         "2": {
-          "title": "20% reduction"
+          "title": "20% reduction",
+          "summary": ""
         },
         "3": {
-          "title": "30% reduction"
+          "title": "30% reduction",
+          "summary": ""
         }
       },
       "partyOpinions": {
@@ -412,10 +422,12 @@
       "summary": "Reduction in cattle and pig herds by 2030 compared to 2021. For the pig herd, the current rate of reduction should accelerate slightly, for beef cattle the rate should triple, and for dairy cattle the upward trend should be completely reversed. wallonia would have about 400,000 fewer cattle by 2030. Intervention in the poultry population has little effect.",
       "variants": {
         "1": {
-          "title": "30% reduction"
+          "title": "30% reduction",
+          "summary": ""
         },
         "2": {
-          "title": "60% reduction"
+          "title": "60% reduction",
+          "summary": ""
         }
       },
       "partyOpinions": {
@@ -427,13 +439,16 @@
       "summary": "Phase-out of Wallonian carbon-intensive industry though revoking permissions or fiscal discouragement.",
       "variants": {
         "1": {
-          "title": "10% reduction"
+          "title": "10% reduction",
+          "summary": ""
         },
         "2": {
-          "title": "20% reduction"
+          "title": "20% reduction",
+          "summary": ""
         },
         "3": {
-          "title": "30% reduction"
+          "title": "30% reduction",
+          "summary": ""
         }
       },
       "partyOpinions": {
