@@ -104,15 +104,26 @@
       </a>
     </h3>
 
-    <h3 *ngIf="!expandedTotalCost" class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">sell</mat-icon>
-        {{ (results.totalCostIncludingTax.isNegative() ? 'Total profit' : 'Total cost') | translate }}
-      </span>
+    <h3 *ngIf="!expandedTotalCost" class="result-section-collapsed-cost">
+      <mat-icon class="cost-icon inline">sell</mat-icon>
 
-      <span class="collapsed-header-summary" [class.color-accent]="results.totalCostIncludingTax.isNegative()">
-        <app-cost [cost]="results.totalCostIncludingTax" valueType="avg"></app-cost>
-      </span>
+      <div class="cost-content">
+        <div class="cost-amount">
+          {{ (results.totalCostIncludingTax.isNegative() ? 'Total profit' : 'Total cost') | translate }}
+
+          <span [class.color-accent]="results.totalCostIncludingTax.isNegative()">
+            <app-cost [cost]="results.totalCostIncludingTax" valueType="avg"></app-cost>
+          </span>
+        </div>
+        <div class="cost-risk">
+          {{ 'Risk' | translate}} <small *ngIf="risk$ | async; let risk;"
+            [class.danger]="risk === 'high-risk'"
+            [class.warn]="risk === 'medium-risk'"
+            [class.success]="risk === 'low-risk'"
+            >{{ risk | translate }}</small>
+        </div>
+      </div>
+
 
       <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalCost()">
         <mat-icon class="inline">
