@@ -19,9 +19,9 @@ export class CostPipe implements PipeTransform {
     amt = formatAmt(cost, amt, full, suffix, valueType, this.numberPipe);
 
     const prefix = '€\u00A0';
-    // const avgPrefix = ((valueType === 'avg') && cost.min && cost.min != cost.max) ? '±\u00A0' : ''
+    const avgPrefix = ((valueType === 'avg') && cost.min && cost.min != cost.max) ? '±\u00A0' : ''
     const suffixFormatted = full ? '' : '\u00A0' + suffix;
 
-    return  prefix + amt + suffixFormatted;
+    return avgPrefix + prefix + amt + suffixFormatted;
   }
 }

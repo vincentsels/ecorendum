@@ -190,7 +190,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 2,
-        costInitial: new Cost(500000000, 1500000000),
+        costInitial: new Cost(250000000, 1500000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
@@ -208,7 +208,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
       }),
       new Variant({
         ambitionLevel: 3,
-        costInitial: new Cost(1000000000, 2000000000),
+        costInitial: new Cost(500000000, 2000000000),
         impacts: [
           new Impact(ImpactDomain.nitrogenPollution, ImpactAmount.veryPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),

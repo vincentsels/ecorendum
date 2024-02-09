@@ -203,18 +203,14 @@ export class Cost {
 
   multiply(amt: number) {
     return new Cost({
-      min: (this.min || this.estimate || 0 * amt),
-      max: (this.max || this.estimate || 0 * amt),
+      min: ((this.min || this.estimate || 0) * amt),
+      max: ((this.max || this.estimate || 0) * amt),
     });
   }
 
-  isPositive() {
-    if (this.estimate) return this.estimate > 0;
-    else return this.min! > 0;
-  }
-
-  isNegative = () => !this.isPositive();
-
+  avg = () => this.estimate || ((this.max! - this.min!) / 2);
+  isPositive = () => this.avg() > 0;
+  isNegative = () => this.avg() < 0;
   any = () => this.min || this.max || this.estimate;
 }
 
