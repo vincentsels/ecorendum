@@ -95,15 +95,6 @@
   </mat-card>
 
   <mat-card class="result-section">
-    <h3 *ngIf="expandedTotalCost" class="header-with-collapse-icon">
-      <span><mat-icon class="inline">sell</mat-icon> {{ 'Total cost' | translate }}</span>
-      <a [routerLink]="" class="unstyled-link" (click)="toggleTotalCost()" *ngIf="!this.dialog">
-        <mat-icon class="inline">
-          {{ expandedTotalCost ? 'expand_more' : 'chevron_left' }}
-        </mat-icon>
-      </a>
-    </h3>
-
     <h3 *ngIf="!expandedTotalCost" class="result-section-collapsed-cost">
       <mat-icon class="cost-icon inline">sell</mat-icon>
 
@@ -112,7 +103,8 @@
           {{ (results.totalCostIncludingTax.isNegative() ? 'Total profit' : 'Total cost') | translate }}
 
           <span [class.color-accent]="results.totalCostIncludingTax.isNegative()">
-            <app-cost [cost]="results.totalCostIncludingTax" valueType="avg"></app-cost>
+            <app-cost *ngIf="results.totalCostIncludingTax.isNegative()" [cost]="results.totalCostIncludingTax.multiply(-1)" valueType="avg"></app-cost>
+            <app-cost *ngIf="results.totalCostIncludingTax.isPositive()" [cost]="results.totalCostIncludingTax" valueType="avg"></app-cost>
           </span>
         </div>
         <div class="cost-risk">
@@ -125,6 +117,15 @@
       </div>
 
       <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalCost()">
+        <mat-icon class="inline">
+          {{ expandedTotalCost ? 'expand_more' : 'chevron_left' }}
+        </mat-icon>
+      </a>
+    </h3>
+
+    <h3 *ngIf="expandedTotalCost" class="header-with-collapse-icon">
+      <span><mat-icon class="inline">sell</mat-icon> {{ 'Total cost' | translate }}</span>
+      <a [routerLink]="" class="unstyled-link" (click)="toggleTotalCost()" *ngIf="!this.dialog">
         <mat-icon class="inline">
           {{ expandedTotalCost ? 'expand_more' : 'chevron_left' }}
         </mat-icon>

@@ -1,23 +1,23 @@
 <div class="cost-editor">
-  <mat-form-field appearance="fill" *ngIf="!minMax">
-    <mat-label>{{ label }}</mat-label>
-    <span matTextPrefix>€&nbsp;</span>
-    <input matInput type="number" name="{{name}}" [(ngModel)]="cost.estimate">
-  </mat-form-field>
-  <div *ngIf="minMax">
-    <mat-form-field appearance="fill">
+  <div class="cost-editor-inputs">
+    <mat-form-field appearance="fill" *ngIf="!minMax" class="cost-editor-field">
+      <mat-label>{{ label }}</mat-label>
+      <span matTextPrefix>€&nbsp;</span>
+      <input matInput type="number" name="{{name}}" [(ngModel)]="cost.estimate">
+    </mat-form-field>
+    <mat-form-field appearance="fill" *ngIf="minMax"  class="cost-editor-field">
       <mat-label>{{ label }} - min</mat-label>
       <span matTextPrefix>€&nbsp;</span>
       <input matInput type="number" name="{{name}}" [(ngModel)]="cost.min">
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" *ngIf="minMax"  class="cost-editor-field">
       <mat-label>{{ label }} - max</mat-label>
       <span matTextPrefix>€&nbsp;</span>
       <input matInput type="number" name="{{name}}" [(ngModel)]="cost.max">
     </mat-form-field>
   </div>
 
-  <mat-button-toggle (click)="toggleMinmax()" [checked]="minMax" class="button">
+  <mat-button-toggle (click)="toggleMinmax()" [checked]="minMax" class="cost-editor-button">
     ±
   </mat-button-toggle>
 </div>

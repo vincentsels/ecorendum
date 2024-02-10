@@ -1,4 +1,14 @@
 .cost-editor {
   display: flex;
   align-items: flex-start;
+  gap: 12px;
+}
+
+.cost-editor-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.cost-editor-field {
+  flex: 1;
 }

@@ -21,15 +21,15 @@
     </mat-progress-bar>
   </div>
 
-  <div class="result-section-mobile" fxFlex="33%" fxLayoutAlign="center center" matTooltip="{{ 'Total cost' | translate }}">
+  <div class="result-section-mobile" fxFlex="33%" fxLayoutAlign="center center">
     <span class="result-section-mobile-title-icon">
       <mat-icon class="inline">sell</mat-icon>
     </span>
 
-    <div class="numerical" [class.color-accent]="results.totalCostIncludingTax.isNegative()">
-      {{ (results.totalCostIncludingTax.isNegative() ? -results.totalCostIncludingTax : results.totalCostIncludingTax) | cost }}
-      <!-- <span [class.color-accent]="results.totalCost + results.ghgTarget.tax < 0"> {{ results.totalCost + results.ghgTarget.tax | cost }}</span> -->
-    </div>
+    <span [class.color-accent]="results.totalCostIncludingTax.isNegative()">
+      <app-cost *ngIf="results.totalCostIncludingTax.isNegative()" [cost]="results.totalCostIncludingTax.multiply(-1)" valueType="avg"></app-cost>
+      <app-cost *ngIf="results.totalCostIncludingTax.isPositive()" [cost]="results.totalCostIncludingTax" valueType="avg"></app-cost>
+    </span>
   </div>
 
 </mat-card>

@@ -213,6 +213,7 @@ export class Cost {
   getAvg = () => this.estimate || ((this.max! + this.min!) / 2);
   isPositive = () => this.getAvg() >= 0;
   isNegative = () => this.getAvg() < 0;
+  isNull = () => !this.isNotNull();
   isNotNull = () => this.min || this.max || this.estimate;
 }
 
