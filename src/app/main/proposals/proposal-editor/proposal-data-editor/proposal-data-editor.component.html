@@ -83,28 +83,16 @@
         <div class="column-form tab-body">
           <div class="row-form">
             <!-- Initial Cost -->
-            <mat-form-field appearance="fill">
-              <mat-label>Initial Cost</mat-label>
-              <span matTextPrefix>€&nbsp;</span>
-              <input matInput type="number" name="costInitial{{variantIndex}}" [(ngModel)]="variant.costInitial">
-            </mat-form-field>
+            <app-cost-editor [cost]="variant.costInitial" label="Initial cost" name="costInitial{{variantIndex}}"></app-cost-editor>
 
             <!-- Cost Per Year Fixed -->
-            <mat-form-field appearance="fill">
-              <mat-label>Cost Per Year Fixed</mat-label>
-              <span matTextPrefix>€&nbsp;</span>
-              <input matInput type="number" name="costPerYearFixed{{variantIndex}}" [(ngModel)]="variant.costPerYearFixed">
-            </mat-form-field>
+            <app-cost-editor [cost]="variant.costPerYearFixed" label="Cost Per Year Fixed" name="costPerYearFixed{{variantIndex}}"></app-cost-editor>
           </div>
 
           <div class="column-form">
             <div *ngFor="let yearCost of getCostPerYearVariableKeys(variant); let yearIndex = index" class="row-form-with-button">
               <!-- Cost Per Year Variable -->
-              <mat-form-field appearance="fill">
-                <mat-label>Cost for Year {{yearCost}}</mat-label>
-                <span matTextPrefix>€&nbsp;</span>
-                <input matInput type="number" name="costPerYearVariable{{variantIndex}}_{{yearIndex}}" [(ngModel)]="variant.costPerYearVariable![yearCost]">
-              </mat-form-field>
+              <app-cost-editor [cost]="variant.costPerYearVariable![yearCost]" label="Cost for Year {{yearCost}}" name="costPerYearVariable{{variantIndex}}_{{yearIndex}}"></app-cost-editor>
 
               <button mat-icon-button type="button" (click)="removeYearCost(variant, yearCost)"><mat-icon>delete</mat-icon></button>
             </div>
