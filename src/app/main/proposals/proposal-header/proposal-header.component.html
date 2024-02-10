@@ -30,8 +30,8 @@
         </span>
       </div>
       <div class="proposal-target-summary-secondary" *ngIf="set">
-        <span class="proposal-target-summary-item">{{ 'enums.policyLevel.' + enums.PolicyLevel[proposal.policyLevel || enums.PolicyLevel.unknown] | translate }}</span>
-        <span class="proposal-target-summary-item">{{ 'enums.sector.' + enums.Sector[proposal.sector || enums.Sector.unknown] | translate }}</span>
+        <span class="proposal-target-summary-item">{{ (proposal.policyLevel || enums.PolicyLevel.unknown) | enumtranslate:'PolicyLevel' | async }}</span>
+        <span class="proposal-target-summary-item">{{ (proposal.sector || enums.Sector.unknown) | enumtranslate:'Sector' | async }}</span>
         <span class="proposal-target-summary-item" *ngIf="proposal.ets">ETS</span>
       </div>
     </div>
@@ -39,16 +39,16 @@
   <div *ngIf="!set" ngClass.gt-xs="gt-xs-proposal-extra-info" fxHide.lt-sm>
     <div class="proposal-icons">
       <span *ngIf="proposal.ets" class="ets-icon" matTooltip="{{ 'eu-ets' | translate }}">ETS</span>
-      <mat-icon *ngIf="proposal.sector && proposal.hasKnownSector()" matTooltip="{{ 'enums.sector.' + enums.Sector[proposal.sector] | translate }}">
+      <mat-icon *ngIf="proposal.sector && proposal.hasKnownSector()" matTooltip="{{ proposal.sector | enumtranslate:'Sector' | async }}">
         {{ proposal.getSectorIcon() }}
       </mat-icon>
-      <mat-icon *ngIf="proposal.policyLevel === enums.PolicyLevel.federal" matTooltip="{{ 'enums.policyLevel.' + 'federal' | translate }}"
+      <mat-icon *ngIf="proposal.policyLevel === enums.PolicyLevel.federal" matTooltip="{{ 'enums.PolicyLevel.federal' | translate }}"
         svgIcon="belgium">
       </mat-icon>
-      <mat-icon *ngIf="proposal.policyLevel === enums.PolicyLevel.flemish" matTooltip="{{ 'enums.policyLevel.' + 'flemish' | translate }}"
+      <mat-icon *ngIf="proposal.policyLevel === enums.PolicyLevel.flemish" matTooltip="{{ 'enums.PolicyLevel.flemish' | translate }}"
         svgIcon="flanders">
       </mat-icon>
-      <mat-icon *ngIf="proposal.policyLevel === enums.PolicyLevel.wallonian" matTooltip="{{ 'enums.policyLevel.' + 'wallonian' | translate }}"
+      <mat-icon *ngIf="proposal.policyLevel === enums.PolicyLevel.wallonian" matTooltip="{{ 'enums.PolicyLevel.wallonian' | translate }}"
         svgIcon="wallonia">
       </mat-icon>
     </div>

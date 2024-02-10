@@ -1,11 +1,11 @@
 ﻿{
   "enums": {
-    "language": {
+    "Language": {
       "en": "Anglais",
       "fr": "Français",
       "nl": "Néerlandais"
     },
-    "policyLevel": {
+    "PolicyLevel": {
       "local": "Local",
       "provincial": "Provincial",
       "flemish": "Flamand",
@@ -13,7 +13,7 @@
       "brussels": "Bruxelles",
       "federal": "Fédéral"
     },
-    "proposalOrigin": {
+    "ProposalOrigin": {
       "federalGovernment": "Gouvernement fédéral",
       "FlemishGovernment" : "Gouvernement flamand",
       "brusselsGovernment" : "Gouvernement bruxellois",
@@ -21,7 +21,7 @@
       "veka" : "VEKA",
       "unknown" : "Pas connu"
     },
-    "sector": {
+    "Sector": {
       "transport": "Transport",
       "buildings": "Bâtiments",
       "agriculture": "Agriculture",
@@ -31,12 +31,12 @@
       "general": "Général",
       "other": "Autre"
     },
-    "targetType": {
+    "TargetType": {
       "ghgReduction": "Réduction des gaz à effet de serre",
       "energyEfficiency": "Efficacité énergétique",
       "renewableEnergy": "Énergie renouvelable"
     },
-    "impactDomain": {
+    "ImpactDomain": {
       "biodiversityLoss": "Perte de biodiversité",
       "nitrogenPollution": "Pollution par l'azote",
       "phosphorusPollution": "Pollution par le phosphore",
@@ -51,7 +51,7 @@
       "humanRightsLocal": "Droits de l'homme locaux",
       "humanRightsGlobal": "Droits de l'homme globaux"
     },
-    "impactAmount": {
+    "ImpactAmount": {
       "extremelyPositive": "++++",
       "veryPositive": "+++",
       "moderatelyPositive": "++",
