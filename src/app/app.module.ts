@@ -60,7 +60,7 @@ import { ProposalEditorComponent } from './main/proposals/proposal-editor/propos
 import { ProposalDataEditorComponent } from './main/proposals/proposal-editor/proposal-data-editor/proposal-data-editor.component';
 import { ProposalTranslationsEditorComponent } from './main/proposals/proposal-editor/proposal-translations-editor/proposal-translations-editor.component';
 import { ExplainerComponent } from './explainer/explainer.component';
-import { InsetLinkComponent } from './explainer/inset-link.component';
+import { InsetLinkComponent } from './common/inset-link.component';
 import { ExplainerContentEnComponent, ExplainerContentFrComponent, ExplainerContentNlComponent } from './explainer/explainer-content.component';
 import { MessageBarComponent } from './message-bar/message-bar.component';
 import { CostComponent } from './common/cost.component';
