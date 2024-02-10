@@ -71,7 +71,7 @@ An additional measure, 'Obligatory display of carbon footprint on products and s
 
 ### Measure impact
 
-- All **measure cost estimates** are largely made-up, intuitive guesses, where possible loosely based on similar measures in other countries. The tool supports both an 'initial cost' and a 'yearly cost'. Ideally, this should be changed into a minimum and maximum value, to account for uncertainty. Certain measures will have a larger spread than others.
+- All **measure cost estimates** are largely made-up, intuitive guesses, where possible loosely based on similar measures in other countries. The tool supports both an 'initial cost' (CAPEX) and a 'yearly cost' (OPEX). The tool allows specifying a single value, or a minimum and maximum amount. If the total minimum and maximum measure cost are far apart, this results in a high risk.
 
 - The **ecological, redistributive and human rights impact** are currently also largely made-up, intuitive guesses.
 
@@ -81,7 +81,7 @@ Clicking on a measure shows much more information about each measure such as a l
 
 In this demo-version, all of this data is entirely made-up, even using randomly generated '[lorem ipsum](https://nl.wikipedia.org/wiki/Lorem_ipsum)' texts.
 
-## Calculations
+## Calculation model
 
 Currently, straightforward formulas are used to calculate the effect of measures on each of the targets: the estimted CO2-equivalent emissions saved, energy saved, and new renewable power generation added for each selected measure/variant are added up. Same for the cost and broader imapct. Diminishing returns, overlap between measures, mutually exclusive measures, or the timing at which or a degree in which a measure takes effect, are currently not taken into account. A real-world tool would use an advanced [System Dynamics](https://systemdynamics.org/what-is-system-dynamics/) model, such as used in the MIT [En-ROADS](https://www.climateinteractive.org/en-roads/) project, or the [2050 Pathway Explorer](https://becalc.netzero2050.be), in the Belgian context.
 

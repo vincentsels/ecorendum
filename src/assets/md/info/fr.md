@@ -73,7 +73,7 @@ Une mesure supplémentaire, 'Affichage obligatoire de l'empreinte carbone sur le
 
 ### Impact des mesures
 
-- Toutes les **estimations des coûts de mesure** sont largement inventées, des suppositions intuitives, où possible vaguement basées sur des mesures similaires dans d'autres pays. L'outil prend en charge à la fois un « coût initial » et un « coût annuel ». Idéalement, cela devrait être modifié en valeurs minimale et maximale, pour tenir compte de l'incertitude. Certaines mesures auront une portée plus large que d’autres.
+- Toutes les **estimations des coûts de mesure** sont largement inventées, des suppositions intuitives, où possible vaguement basées sur des mesures similaires dans d'autres pays. L'outil prend en charge à la fois un « coût initial » (CAPEX) et un « coût annuel » (OPEX). L'outil permet de spécifier un montant unique, ou un montant minimum et maximum. Si les coûts totaux minimum et maximum des mesures sont très éloignés, cela est montré comme un risque élevé.
 
 - Les **impacts écologiques, redistributifs et sur les droits de l'homme** sont également des suppositions intuitives largement inventées.
 
@@ -83,7 +83,7 @@ Cliquer sur une mesure affiche beaucoup plus d'informations sur chaque mesure, c
 
 Dans cette version de démonstration, toutes ces données sont entièrement inventées, même en utilisant des textes '[lorem ipsum](https://nl.wikipedia.org/wiki/Lorem_ipsum)' générés aléatoirement.
 
-## Calculs
+## Modèle de calcul
 
 Actuellement, des formules simples sont utilisées pour calculer l'effet des mesures sur chacun des objectifs : les émissions estimées de CO2-équivalent économisées, l'énergie économisée et la nouvelle production d'énergie renouvelable ajoutée pour chaque mesure/variante sélectionnée sont additionnées. De même pour le coût et l'impact plus large. Actuellement, les rendements décroissants, la chevauchement entre les mesures, les mesures mutuellement exclusives, ou le moment auquel ou le degré auquel une mesure prend effet, ne sont pas pris en compte. Un outil du monde réel utiliserait un modèle [System Dynamics](https://systemdynamics.org/what-is-system-dynamics/) avancé, tel que celui utilisé dans le projet [En-ROADS](https://www.climateinteractive.org/en-roads/) du MIT, ou le [2050 Pathway Explorer](https://becalc.netzero2050.be), dans le contexte belge.
 

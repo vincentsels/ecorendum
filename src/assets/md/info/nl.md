@@ -67,13 +67,13 @@ Deze twee doelstellingen zijn op dit moment nog volledig verzonnen (maar zouden 
 
 ### Maatregelen
 
-De meerderheid van de set maatregelen komt voort uit een verzameling voorbeeldmaatregelen die op 1 december 2023 zijn samengesteld door het '[Vlaams Energie- en Klimaatagentschap](https://www.vlaanderen.be/veka)' (VEKA), op bevel van de Vlaamse minister van Milieu en Energie, Zuhal Demir, als reactie op de eerdergenoemde uitspraak in de Klimaatzaak, om een idee te krijgen van de omvang van maatregelen die nodig zijn om aan het opgelegde doel te voldoen. Dit resulteerde in een Word-document van 4 pagina's dat ze met ons deelden. We hebben deze maatregelen vertaald naar het formaat van onze tool, wat natuurlijk een ruwe benadering is.
+De meerderheid van de set maatregelen komt voort uit een verzameling voorbeeldmaatregelen die op 1 december 2023 zijn samengesteld door het '[Vlaams Energie- en Klimaatagentschap](https://www.vlaanderen.be/veka)' (VEKA), op vraag van de Vlaamse minister van Milieu en Energie, Zuhal Demir, als reactie op de eerdergenoemde uitspraak in de Klimaatzaak, om een idee te krijgen van de omvang van maatregelen die nodig zijn om aan het opgelegde doel te voldoen. Dit resulteerde in een Word-document van 4 pagina's dat ze met ons deelden. We hebben deze maatregelen vertaald naar het formaat van onze tool, wat natuurlijk een ruwe benadering is.
 
 Een extra maatregel, 'Verplichte weergave van de koolstofvoetafdruk op producten en diensten', is volledig door ons verzonnen en toegevoegd om een verschil in de maatregelen te hebben tussen voorgeconfigureerde 'sets' en wanneer je je eigen set samenstelt.
 
-### Impact van de maatregel
+### Impact van de maatregels
 
-- Alle **schattingen van de kosten van de maatregelen** zijn grotendeels verzonnen, intuïtieve schattingen, waar mogelijk losjes gebaseerd op vergelijkbare maatregelen in andere landen. De tool ondersteunt zowel 'initiële kosten' als 'jaarlijkse kosten'. Idealiter zou dit moeten worden veranderd in een minimum- en maximumwaarde, om rekening te houden met de onzekerheid. Bepaalde maatregelen zullen een grotere spreiding hebben dan andere.
+- Alle **schattingen van de kosten van de maatregelen** zijn grotendeels verzonnen, intuïtieve schattingen, waar mogelijk losjes gebaseerd op vergelijkbare maatregelen in andere landen. De tool ondersteunt zowel 'initiële kosten' (CAPEX) als 'jaarlijkse kosten' (OPEX). De tool ondersteunt per bedrag zowel een 'gemiddelde schatting', als een minimum- en maximumbedrag. Een groot verschil tussen het totale minimum en maximumbedrag weerspiegelt zich in een hoog risico.
 
 - De **ecologische, herverdelings- en mensenrechtenimpact** zijn momenteel ook grotendeels verzonnen, intuïtieve schattingen.
 
@@ -83,7 +83,7 @@ Door op een maatregel te klikken, zie je veel meer informatie over elke maatrege
 
 In deze demoversie zijn al deze gegevens volledig verzonnen, zelfs met willekeurig gegenereerde '[lorem ipsum](https://nl.wikipedia.org/wiki/Lorem_ipsum)' teksten.
 
-## Berekeningen
+## Berekeningsmodel
 
 Momenteel worden eenvoudige formules gebruikt om het effect van maatregelen op elk van de doelstellingen te berekenen: de geschatte CO2-equivalente emissiereducties, energiebesparing en toegevoegde nieuwe hernieuwbare energieopwekking voor elke geselecteerde maatregel/variant worden opgeteld. Hetzelfde geldt voor de kosten en bredere impact. Momenteel worden afnemende meeropbrengsten, overlapping tussen maatregelen, onderling uitsluitende maatregelen, of de timing waarop of de mate waarin een maatregel effect heeft, niet meegenomen. Een real-world tool zou gebruik maken van een geavanceerd [System Dynamics](https://systemdynamics.org/what-is-system-dynamics/) model, zoals gebruikt in het MIT [En-ROADS](https://www.climateinteractive.org/en-roads/) project, of de [2050 Pathway Explorer](https://becalc.netzero2050.be), in de Belgische context.
 
