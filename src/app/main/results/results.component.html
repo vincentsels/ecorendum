@@ -197,7 +197,7 @@
           <span class="impact-header">{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}</span>
           <div class="impact-gauge">
             <mat-progress-bar class="progress" mode="determinate" dir="rtl"
-              color="warn" [value]="impactItem.amount > 0 ? (impactItem.amount * 20) : 0">
+              color="warn" [value]="impactItem.amount > 0 ? (impactItem.amount * 8) : 0">
             </mat-progress-bar>
             <span>
               <mat-icon class="inline impact-icon" [class]="impactItem.class" matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">
@@ -205,7 +205,7 @@
               </mat-icon>
             </span>
             <mat-progress-bar class="progress" mode="determinate"
-              color="accent" [value]="impactItem.amount < 0 ? (impactItem.amount * -20) : 0">
+              color="accent" [value]="impactItem.amount < 0 ? (impactItem.amount * -8) : 0">
             </mat-progress-bar>
           </div>
         </div>
