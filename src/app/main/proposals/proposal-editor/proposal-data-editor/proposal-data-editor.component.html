@@ -10,7 +10,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Policy Level</mat-label>
         <mat-select name="policyLevel" [(ngModel)]="proposal.policyLevel">
-          <mat-option *ngFor="let level of policyLevels" [value]="level">{{ enums.PolicyLevel[level] | translate }}</mat-option>
+          <mat-option *ngFor="let level of policyLevels" [value]="level">{{ 'enums.policyLevel.' + enums.PolicyLevel[level] | translate }}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -18,7 +18,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Sector</mat-label>
         <mat-select name="sector" [(ngModel)]="proposal.sector">
-          <mat-option *ngFor="let sector of sectors" [value]="sector">{{ enums.Sector[sector] | translate }}</mat-option>
+          <mat-option *ngFor="let sector of sectors" [value]="sector">{{ 'enums.sector.' + enums.Sector[sector] | translate }}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -26,7 +26,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Origin</mat-label>
         <mat-select name="origin" [(ngModel)]="proposal.origin">
-          <mat-option *ngFor="let origin of proposalOrigins" [value]="origin">{{ enums.ProposalOrigin[origin] | translate }}</mat-option>
+          <mat-option *ngFor="let origin of proposalOrigins" [value]="origin">{{ 'enums.proposalOrigin.' + enums.ProposalOrigin[origin] | translate }}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -108,7 +108,7 @@
                 <mat-form-field appearance="fill">
                   <mat-label>Target Type</mat-label>
                   <mat-select name="targetType{{variantIndex}}_{{targetIndex}}" [(ngModel)]="target.type">
-                    <mat-option *ngFor="let targetType of targetTypes" [value]="targetType">{{ enums.TargetType[targetType] | translate }}</mat-option>
+                    <mat-option *ngFor="let targetType of targetTypes" [value]="targetType">{{ 'enums.targetType.' + enums.TargetType[targetType] | translate }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -134,7 +134,7 @@
                 <mat-form-field appearance="fill">
                   <mat-label>Target Type</mat-label>
                   <mat-select name="regionalTargetType{{variantIndex}}_{{regionIndex}}_{{targetIndex}}" [(ngModel)]="target.type">
-                    <mat-option *ngFor="let targetType of targetTypes" [value]="targetType">{{ enums.TargetType[targetType] | translate }}</mat-option>
+                    <mat-option *ngFor="let targetType of targetTypes" [value]="targetType">{{ 'enums.targetType.' + enums.TargetType[targetType] | translate }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -157,14 +157,14 @@
               <mat-form-field appearance="fill">
                 <mat-label>Impact Domain</mat-label>
                 <mat-select name="impactDomain{{variantIndex}}_{{impactIndex}}" [(ngModel)]="impact.domain">
-                  <mat-option *ngFor="let impactDomain of impactDomains" [value]="impactDomain">{{ enums.ImpactDomain[impactDomain] | translate }}</mat-option>
+                  <mat-option *ngFor="let impactDomain of impactDomains" [value]="impactDomain">{{ 'enums.impactDomain.' + enums.ImpactDomain[impactDomain] | translate }}</mat-option>
                 </mat-select>
               </mat-form-field>
 
               <mat-form-field appearance="fill">
                 <mat-label>Impact Amount</mat-label>
                 <mat-select name="impactAmount{{variantIndex}}_{{impactIndex}}" [(ngModel)]="impact.amount">
-                  <mat-option *ngFor="let impactAmount of impactAmounts" [value]="impactAmount">{{ enums.ImpactAmount[impactAmount] | translate }}</mat-option>
+                  <mat-option *ngFor="let impactAmount of impactAmounts" [value]="impactAmount">{{ 'enums.impactAmount.' + enums.ImpactAmount[impactAmount] | translate }}</mat-option>
                 </mat-select>
               </mat-form-field>
 

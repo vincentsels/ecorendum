@@ -25,7 +25,7 @@ export class ProposalTranslationsEditorComponent {
     this._proposal = value;
 
     this.partiesForRegion$.next(
-      value.policyLevel === PolicyLevel.brusselian ? this.contextService.getPartiesForContext('brussels')
+      value.policyLevel === PolicyLevel.brussels ? this.contextService.getPartiesForContext('brussels')
       : value.policyLevel === PolicyLevel.federal ? PARTIES_WITH_LOGOS
       : value.policyLevel === PolicyLevel.flemish ? this.contextService.getPartiesForContext('flanders')
       : value.policyLevel === PolicyLevel.wallonian ? this.contextService.getPartiesForContext('wallonia')

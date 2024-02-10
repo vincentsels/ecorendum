@@ -1,70 +1,80 @@
 ﻿{
-  "siteTitle": "Ecorendum - Vous décidez de la politique climatique",
+  "enums": {
+    "language": {
+      "en": "Anglais",
+      "fr": "Français",
+      "nl": "Néerlandais"
+    },
+    "policyLevel": {
+      "local": "Local",
+      "provincial": "Provincial",
+      "flemish": "Flamand",
+      "wallonian": "Wallon",
+      "brussels": "Bruxelles",
+      "federal": "Fédéral"
+    },
+    "proposalOrigin": {
+      "federalGovernment": "Gouvernement fédéral",
+      "FlemishGovernment" : "Gouvernement flamand",
+      "brusselsGovernment" : "Gouvernement bruxellois",
+      "wallonianGovernment" : "Gouvernement wallon",
+      "veka" : "VEKA",
+      "unknown" : "Pas connu"
+    },
+    "sector": {
+      "transport": "Transport",
+      "buildings": "Bâtiments",
+      "agriculture": "Agriculture",
+      "industry": "Industrie",
+      "wasteManagement": "Gestion des déchets",
+      "electricityProduction": "Production d'électricité",
+      "general": "Général",
+      "other": "Autre"
+    },
+    "targetType": {
+      "ghgReduction": "Réduction des gaz à effet de serre",
+      "energyEfficiency": "Efficacité énergétique",
+      "renewableEnergy": "Énergie renouvelable"
+    },
+    "impactDomain": {
+      "biodiversityLoss": "Perte de biodiversité",
+      "nitrogenPollution": "Pollution par l'azote",
+      "phosphorusPollution": "Pollution par le phosphore",
+      "oceanAcidification": "Acidification des océans",
+      "luLuCf": "LULUCF",
+      "waterConsumption": "Consommation d'eau",
+      "ozoneDepletion": "Appauvrissement de l'ozone",
+      "aerosols": "Aérosols",
+      "chemicalPollution": "Pollution chimique",
+      "redistributionLocal": "Redistribution locale",
+      "redistributionGlobal": "Redistribution globale",
+      "humanRightsLocal": "Droits de l'homme locaux",
+      "humanRightsGlobal": "Droits de l'homme globaux"
+    },
+    "impactAmount": {
+      "extremelyPositive": "++++",
+      "veryPositive": "+++",
+      "moderatelyPositive": "++",
+      "somewhatPositive": "+",
+      "neutral": "+-",
+      "somewhatNegative": "-",
+      "moderatelyNegative": "- -",
+      "veryNegative": "- - -",
+      "extremelyNegative": "- - - -"
+    }
+  },
 
-  "en": "Anglais",
-  "fr": "Français",
-  "nl": "Néerlandais",
-
-  "local": "Local",
-  "provincial": "Provincial",
-  "flemish": "Flamand",
-  "wallonian": "Wallon",
-  "brusselian": "Bruxelles",
-  "federal": "Fédéral",
-
+  "Federal": "Fédéral",
   "Flanders": "Flandres",
   "Wallonia": "Wallonie",
   "Brussels": "Bruxelles",
+  "federal": "Fédéral",
   "flanders": "Flandres",
   "wallonia": "Wallonie",
   "brussels": "Bruxelles",
 
   "eu-ets": "Système d'échange de quotas d'émission européen",
-
-  "transport": "Transport",
-  "buildings": "Bâtiments",
-  "agriculture": "Agriculture",
-  "industry": "Industrie",
-  "wasteManagement": "Gestion des déchets",
-  "electricityProduction": "Production d'électricité",
-  "general": "Général",
-  "other": "Autre",
-
-  "federalGovernment": "Gouvernement fédéral",
-  "FlemishGovernment" : "Gouvernement flamand",
-  "brusselianGovernment" : "Gouvernement bruxellois",
-  "wallonianGovernment" : "Gouvernement wallon",
-  "veka" : "VEKA",
-  "unknown" : "Pas connu",
-
-  "ghgReduction": "Réduction des gaz à effet de serre",
-  "energyEfficiency": "Efficacité énergétique",
-  "renewableEnergy": "Énergie renouvelable",
-
-  "biodiversityLoss": "Perte de biodiversité",
-  "nitrogenPollution": "Pollution par l'azote",
-  "phosphorusPollution": "Pollution par le phosphore",
-  "oceanAcidification": "Acidification des océans",
-  "luLuCf": "LULUCF",
-  "waterConsumption": "Consommation d'eau",
-  "ozoneDepletion": "Appauvrissement de l'ozone",
-  "aerosols": "Aérosols",
-  "chemicalPollution": "Pollution chimique",
-  "redistributionLocal": "Redistribution locale",
-  "redistributionGlobal": "Redistribution globale",
-  "humanRightsLocal": "Droits de l'homme locaux",
-  "humanRightsGlobal": "Droits de l'homme globaux",
-
-  "extremelyPositive": "++++",
-  "veryPositive": "+++",
-  "moderatelyPositive": "++",
-  "somewhatPositive": "+",
-  "neutral": "+-",
-  "somewhatNegative": "-",
-  "moderatelyNegative": "- -",
-  "veryNegative": "- - -",
-  "extremelyNegative": "- - - -",
-
+  "siteTitle": "Ecorendum - Vous décidez de la politique climatique",
   "Legal reduction": "Réduction CO2 légale",
   "GHG reduction": "Réduction CO2 EU",
   "Energy efficiency": "Efficacité énergétique",
@@ -137,6 +147,8 @@
   "medium-risk": "moyen",
   "low-risk": "faible",
 
+  "costComparisonExplanation": "Cela donnerait quelques exemples de projets qui totalisent ce montant.",
+  "contributeText": "Avez-vous une question sur cette proposition qui n'est pas encore répondue dans la Foire aux Questions ? Souhaitez-vous ajouter un lien vers un article, un document scientifique ou autre chose ? Travaillez-vous dans le domaine et souhaitez-vous contribuer avec vos connaissances ? Cliquez sur le bouton ci-dessous pour accéder au site web avec les propositions, connectez-vous ou créez un compte, et commencez à contribuer !",
   "allTargetsMet": "Félicitations ! Les mesures que vous avez sélectionnées permettent à la Belgique de respecter tous les objectifs fixés par l'affaire climat et par l'Europe.",
   "profitMessage": "Cela permettra à la Belgique de recevoir une estimation de € {{ profit }}",
   "warningGhgNotMet": "Votre sélection de mesures n'a pas atteint l'objectif européen de réduction des gaz à effet de serre. Cela a plusieurs implications très négatives : <ul><li>La Belgique devra payer d'autres États membres européens € {{ tax }}. En sélectionnant plus de mesures, la Belgique pourrait recevoir un financement supplémentaire à la place.</li><li>Si la Belgique ne réduit pas suffisamment ses émissions de gaz à effet de serre, cela signifie que d'autres États membres européens devront compenser - et ils peuvent être dans une position beaucoup plus difficile pour le faire. Nous ne pouvons atteindre les objectifs que si tout le monde fait sa part.</li><li>Il n'y a aucune garantie que d'autres États membres pourront compenser. Ne pas atteindre les objectifs de réduction des gaz à effet de serre garantit presque que le monde va aller à vau-l'eau. Oui, cela doit être un peu reformulé. À faire.</li></ul>",
@@ -145,16 +157,13 @@
   "warningCost": "Étant donné que votre sélection de mesures ne répond pas à l'objectif européen de réduction des gaz à effet de serre, la Belgique devra payer d'autres États membres européens € {{ tax }}. Il s'agit d'un budget qui ne peut pas être dépensé pour d'autres politiques ou qui doit être levé par des taxes supplémentaires.",
   "agreeWithNotAllTargetsMet": "J'ai lu ce qui précède et comprends les conséquences potentiellement dangereuses de ne pas respecter les objectifs européens.",
 
-  "costComparisonExplanation": "Cela donnerait quelques exemples de projets qui totalisent ce montant.",
-
-  "contributeText": "Avez-vous une question sur cette proposition qui n'est pas encore répondue dans la Foire aux Questions ? Souhaitez-vous ajouter un lien vers un article, un document scientifique ou autre chose ? Travaillez-vous dans le domaine et souhaitez-vous contribuer avec vos connaissances ? Cliquez sur le bouton ci-dessous pour accéder au site web avec les propositions, connectez-vous ou créez un compte, et commencez à contribuer !",
-
   "helpProposals": "Ensemble de mesures à prendre d'ici à 2030 pour tenter d'atteindre l'objectif de réduction des émissions de CO2 imposé dans le cadre de l'affaire climatique (Klimaatzaak) ou par l'UE. Parcourez les ensembles déjà constitués ou compilez les vôtres !",
   "helpResults": "Tous les objectifs quantifiables que {{ region }} doit atteindre d'ici 2030, imposés par le juge de Klimaatzaak et par l'Europe ; le coût des mesures sélectionnées ; et leur impact plus large. Actuellement, seuls les impacts des gaz à effet de serre sont quantifiés.",
   "helpLegalReductionTarget": "{{ region }} doit réduire les gaz à effet de serre de 55 %, comme statué par un juge dans l'affaire Klimaatzaak.",
   "helpCo2reductionTarget": "{{ region }} doit réduire les gaz à effet de serre de 47 % dans les secteurs des transports, des bâtiments, de l'agriculture, de la gestion des déchets et de la petite industrie, pour atteindre les objectifs européens.",
   "helpEnergySavingsTarget" : "La quantité d'énergie que {{ region }} doit consommer en moins d'ici 2030. ATTENTION : Cet objectif n'est pas correct et n'est qu'un exemple. Nous sommes toujours en train d'étudier le chiffre réel.",
-  "helpRenewableEnergyTarget" : "La quantité d'électricité verte que {{ region }} doit produire en plus d'ici 2030. ATTENTION : Cet objectif n'est pas correct et n'est qu'un exemple. Nous sommes toujours en train d'étudier les chiffres réels.",  "helpCarbonTax": "Les États de l'UE qui ne respectent pas les objectifs de CO2 paient une taxe basée sur les prix du système ETS, estimée à {{ carbonTax }} € par tonne de CO2.",
+  "helpRenewableEnergyTarget" : "La quantité d'électricité verte que {{ region }} doit produire en plus d'ici 2030. ATTENTION : Cet objectif n'est pas correct et n'est qu'un exemple. Nous sommes toujours en train d'étudier les chiffres réels.",
+  "helpCarbonTax": "Les États de l'UE qui ne respectent pas les objectifs de CO2 paient une taxe basée sur les prix du système ETS, estimée à {{ carbonTax }} € par tonne de CO2.",
   "helpCarbonIncome": "Les États de l'UE émettant moins que leur objectif peuvent vendre des droits d'émission excédentaires à un prix estimé à {{ carbonTax }} € par tonne de CO2.",
   "helpLegalPenalty": "Si le gouvernement n'atteint pas l'objectif légal, après une période d'évaluation, une pénalité légale de {{ legalPenalty }} par mois doit être payée.",
 
@@ -163,12 +172,13 @@
   "helpDialogCarbonTax": "Lorsqu'un État membre européen ne respecte pas son objectif de réduction de CO2, il doit payer annuellement une taxe égale à la quantité d'émissions en dessous de l'objectif de réduction requis. Le prix de ces réductions manquées est déterminé par le système ETS ; et ne peut être déterminé à l'avance. Une hypothèse réaliste est de 100 € par tonne de CO2.\n\nCela expliquerait tout en détail, et lierait à des estimations du prix moyen des émissions.",
   "helpDialogCarbonIncome": "Lorsqu'un État membre européen émet moins que son objectif, il peut vendre ses droits d'émission excédentaires à l'Europe. Une hypothèse de prix réaliste est de 100 € par tonne de CO2.\n\nCela expliquerait tout en détail, et lierait à des estimations du prix moyen des émissions.",
 
-  "ecorendum": "Exemples VEKA",
-  "own": "Propre",
+  "messages": {
+    "data-warning": "<strong>Avertissement ! Ce site n'est qu'un site de démonstration.</strong> Les données ne sont pas tout à fait exactes. Pour en savoir plus, consultez la page <a href=\"info\">info</a>."
+  },
 
-  "explainers" : {
-    "insets" : {
-      "worst-consequences" : {
+  "explainers": {
+    "insets": {
+      "worst-consequences": {
         "link" : "pires effects",
         "text" : "Quoi qu'il en soit, le monde sera différent avec une augmentation de 1,5° ou de 2°C. Mais plus la température augmente, plus les risques sont grands. À une température de 2°, certaines parties de la planète deviennent déjà <a href=\"https://www.earth.com/news/unbearable-heat-could-make-some-parts-of-the-world-uninhabitable/\" target=\"_blank\">inhabitables pour les humains</a>, ce qui entraînerait des migrations massives.<br /><br />Plus la température est élevée, plus la probabilité d'<a href=\"https://www.carbonbrief.org/explainer-nine-tipping-points-that-could-be-triggered-by-climate-change/\" target=\"_blank\">effets d'auto-renforcement</a> est grande, ce qui pourrait entraîner un réchauffement encore plus important. <br /><br />Pour un aperçu de la différence entre 1,5°, 2° et 3° C, voir <a href=\"https://interactive.carbonbrief.org/impacts-climate-change-one-point-five-degrees-two-degrees/\" target=\"_blank\">cette page interactive de Climate Brief</a>."
       }
@@ -205,20 +215,20 @@
     "example": "Partie exemple"
   },
 
-  "sets" : {
-    "wam" : {
+  "sets": {
+    "wam": {
       "title" : "Plans en cours",
       "description" : "Il s'agit de toutes les mesures politiques pertinentes déjà planifiées d'ici 2030 ; à la fois du plan régional et national pour l'énergie et le climat (EKP) ainsi que des plans à impact déjà engagés dans l'industrie."
     },
-    "veka" : {
+    "veka": {
       "title" : "Exemples VEKA",
       "description" : "Lorsque le juge a décidé que la Belgique devait réduire ses émissions de 55 %, le ministre Demir a demandé à l'Agence flamande de l'énergie et du climat (VEKA) de calculer quelques exemples de mesures qui permettraient d'atteindre cet objectif. L'Agence a choisi de répartir l'effort de manière égale entre tous les secteurs. Voici leur exemple de mesures."
     },
-    "beka" : {
+    "beka": {
       "title" : "Exemples BEKA (faux)",
       "description" : "Nous ne disposons actuellement d'aucune donnée d'exemple réelle pour Bruxelles. Ces données sont copiées à partir des données flamandes VEKA."
     },
-    "weka" : {
+    "weka": {
       "title" : "Exemples WEKA (faux)",
       "description" : "Nous ne disposons actuellement d'aucune donnée d'exemple réelle pour la Wallonie. Ces données sont copiées à partir des données flamandes de VEKA."
     }
@@ -254,7 +264,7 @@
           "summary": "Dans ce scénario ambitieux, il sera interdit de vendre des véhicules avec un moteur à combustion interne à partir de 2024."
         }
       },
-      "partyOpinions" : {
+      "partyOpinions": {
         "example" : "Le parti de l'exemple est d'accord avec cette mesure et choisit le niveau le plus ambitieux.<br /><br />Ce texte exposerait plus en détail la position du parti politique sur la mesure, renverrait à plus d'informations sur son site web, etc."
       }
     },
@@ -275,7 +285,7 @@
           "summary": "Dans ce scénario, il sera interdit de vendre des véhicules avec des chaudières à gaz et à mazout à partir de 2024."
         }
       },
-      "partyOpinions" : {
+      "partyOpinions": {
         "example" : "Le parti de l'exemple est d'accord avec cette mesure et choisit le niveau le plus ambitieux.<br /><br />Ce texte exposerait plus en détail la position du parti politique sur la mesure, renverrait à plus d'informations sur son site web, etc."
       }
     },
@@ -292,7 +302,7 @@
           "summary": ""
         }
       },
-      "partyOpinions" : {
+      "partyOpinions": {
         "example" : "Le parti de l'exemple est d'accord avec cette mesure et choisit le niveau le plus ambitieux.<br /><br />Ce texte exposerait plus en détail la position du parti politique sur la mesure, renverrait à plus d'informations sur son site web, etc."
       }
     },
@@ -313,7 +323,7 @@
           "summary": ""
         }
       },
-      "partyOpinions" : {
+      "partyOpinions": {
         "example" : "Le parti de l'exemple est d'accord avec cette mesure et choisit le niveau le plus ambitieux.<br /><br />Ce texte exposerait plus en détail la position du parti politique sur la mesure, renverrait à plus d'informations sur son site web, etc."
       }
     },
@@ -334,7 +344,7 @@
           "summary": "Dans ce scénario, les entrepôts sont tenus de commencer à appliquer l'éco-score à partir de 2023, l'empreinte ne se limitant pas uniquement aux émissions de CO2 mais aussi à son impact écologique et social exhaustif. Tous les produits doivent être étiquetés (bien que avec des dates de début différentes selon la faisabilité pour le secteur)."
         }
       },
-      "partyOpinions" : {
+      "partyOpinions": {
         "example" : "Le parti de l'exemple est d'accord avec cette mesure et choisit le niveau le plus ambitieux.<br /><br />Ce texte exposerait plus en détail la position du parti politique sur la mesure, renverrait à plus d'informations sur son site web, etc."
       }
     }

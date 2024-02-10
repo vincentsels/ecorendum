@@ -1,70 +1,80 @@
 {
-  "siteTitle": "Ecorendum - You decide the climate policy",
+  "enums": {
+    "language": {
+      "en": "English",
+      "fr": "Français",
+      "nl": "Nederlands"
+    },
+    "policyLevel": {
+      "local": "Local",
+      "provincial": "Provincial",
+      "flemish": "Flemish",
+      "wallonian": "Walonian",
+      "brussels": "Brussels",
+      "federal": "Federal"
+    },
+    "proposalOrigin": {
+      "federalGovernment": "Federal Government",
+      "flemishGovernment": "Flemish Government",
+      "brusselsGovernment": "Brusselian Government",
+      "wallonianGovernment": "Wallonian Government",
+      "veka": "VEKA",
+      "unknown": "Unknown"
+    },
+    "sector": {
+      "transport": "Transport",
+      "buildings": "Buildings",
+      "agriculture": "Agriculture",
+      "industry": "Industry",
+      "wasteManagement": "Waste management",
+      "electricityProduction": "Electricity production",
+      "general": "General",
+      "other": "Other"
+    },
+    "targetType": {
+      "ghgReduction": "Greenhouse gas reduction",
+      "energyEfficiency": "Energy efficiency",
+      "renewableEnergy": "Renewable energy"
+    },
+    "impactDomain": {
+      "biodiversityLoss": "Biodiversity loss",
+      "nitrogenPollution": "Nitrogen pollution",
+      "phosphorusPollution": "Phosphorus pollution",
+      "oceanAcidification": "Ocean acidification",
+      "luLuCf": "LULUCF",
+      "waterConsumption": "Water consumption",
+      "ozoneDepletion": "Ozone depletion",
+      "aerosols": "Aerosols",
+      "chemicalPollution": "Chemical pollution",
+      "redistributionLocal": "Redistribution local",
+      "redistributionGlobal": "Redistribution global",
+      "humanRightsLocal": "Human rights local",
+      "humanRightsGlobal": "Human rights global"
+    },
+    "impactAmount": {
+      "extremelyPositive": "++++",
+      "veryPositive": "+++",
+      "moderatelyPositive": "++",
+      "somewhatPositive": "+",
+      "neutral": "+-",
+      "somewhatNegative": "-",
+      "moderatelyNegative": "- -",
+      "veryNegative": "- - -",
+      "extremelyNegative": "- - - -"
+    }
+  },
 
-  "en": "English",
-  "fr": "Français",
-  "nl": "Nederlands",
-
-  "local": "Local",
-  "provincial": "Provincial",
-  "flemish": "Flemish",
-  "wallonian": "Walonian",
-  "brusselian": "Brussels",
-  "federal": "Federal",
-
+  "Federal": "Federal",
   "Flanders": "Flanders",
   "Wallonia": "Wallonia",
   "Brussels": "Brussels",
+  "federal": "Federal",
   "flanders": "Flanders",
   "wallonia": "Wallonia",
   "brussels": "Brussels",
 
+  "siteTitle": "Ecorendum - You decide the climate policy",
   "eu-ets": "European Emission Trading System",
-
-  "transport": "Transport",
-  "buildings": "Buildings",
-  "agriculture": "Agriculture",
-  "industry": "Industry",
-  "wasteManagement": "Waste management",
-  "electricityProduction": "Electricity production",
-  "general": "General",
-  "other": "Other",
-
-  "federalGovernment": "Federal Government",
-  "flemishGovernment": "Flemish Government",
-  "brusselianGovernment": "Brusselian Government",
-  "wallonianGovernment": "Wallonian Government",
-  "veka": "VEKA",
-  "unknown": "Unknown",
-
-  "ghgReduction": "Greenhouse gas reduction",
-  "energyEfficiency": "Energy efficiency",
-  "renewableEnergy": "Renewable energy",
-
-  "biodiversityLoss": "Biodiversity loss",
-  "nitrogenPollution": "Nitrogen pollution",
-  "phosphorusPollution": "Phosphorus pollution",
-  "oceanAcidification": "Ocean acidification",
-  "luLuCf": "LULUCF",
-  "waterConsumption": "Water consumption",
-  "ozoneDepletion": "Ozone depletion",
-  "aerosols": "Aerosols",
-  "chemicalPollution": "Chemical pollution",
-  "redistributionLocal": "Redistribution local",
-  "redistributionGlobal": "Redistribution global",
-  "humanRightsLocal": "Human rights local",
-  "humanRightsGlobal": "Human rights global",
-
-  "extremelyPositive": "++++",
-  "veryPositive": "+++",
-  "moderatelyPositive": "++",
-  "somewhatPositive": "+",
-  "neutral": "+-",
-  "somewhatNegative": "-",
-  "moderatelyNegative": "- -",
-  "veryNegative": "- - -",
-  "extremelyNegative": "- - - -",
-
   "Legal reduction": "Legal CO2 reduction",
   "GHG reduction": "EU CO2 reduction",
   "Energy efficiency": "Energy efficiency",
@@ -137,6 +147,8 @@
   "medium-risk": "medium",
   "low-risk": "low",
 
+  "costComparisonExplanation": "This would give some examples of projects which in total add up to this amount.",
+  "contributeText": "Do you have a question about this proposal which is not yet answered in the Frequently Asked Questions? Would you like to add a link to an article, scientific paper or anything else? Do you work in the field and would you like to contribute your knowledge? Click the button below to go to the website with proposals, login or create an account, and start contributing!",
   "allTargetsMet": "Congratulations! The measures you selected allow Belgium to meet all the targets set by the climate case and by Europe.",
   "profitMessage": "This will allow Belgium to receive an estimated € {{ profit }}",
   "warningGhgNotMet": "Your selection of measures did not meet the European greenhouse gas reduction target. This has several severely negative implications: <ul><li>Belgium will have to pay other European member states € {{ tax }}. By selecting more measures, Belgium might receive additional funding instead.</li><li>If Belgium doesn't reduce its greenhouse gas emissions sufficiently, this means that other European member states will have to compensate - and they may be in a much more difficult position to do so. We can only meet the goals if everyone does his part.</li><li>There is no guarantee that other member states will be able to compensate. Not meeting the greenhouse gas reduction targets almost ensures that the world will go to shits. Yes, this must be rephrased a bit still. TODO.</li></ul>",
@@ -144,10 +156,6 @@
   "warningReTargetNotMet": "Your selection of measures does not meet the European target for added renewable energy. Some more info on what that entails. TODO.",
   "warningCost": "Because your selection of measures does not meet the European greenhouse gas reduction target, Belgium will have to pay other European member states € {{ tax }}. This is budget that cannot be spent on other policy, or has to be raised through additional taxes.",
   "agreeWithNotAllTargetsMet": "I have read the above and understand the potentially dangerous consequences of not meeting European targets.",
-
-  "costComparisonExplanation": "This would give some examples of projects which in total add up to this amount.",
-
-  "contributeText": "Do you have a question about this proposal which is not yet answered in the Frequently Asked Questions? Would you like to add a link to an article, scientific paper or anything else? Do you work in the field and would you like to contribute your knowledge? Click the button below to go to the website with proposals, login or create an account, and start contributing!",
 
   "helpProposals": "Sets of measures between now and 2030, to try to achieve the CO2 reduction goal imposed in the Climate Affair (Klimaatzaak) or by the EU. Browse pre-made sets or compile your own!",
   "helpResults": "All quantifiable targets {{ region }} must reach by 2030, imposed by the Klimaatzaak judge and by Europe; the cost of selected measures; and their broader impact. Currently, only greenhouse gas impacts are quantified.",
@@ -163,9 +171,6 @@
   "helpDialogResults": "All quantifiable targets {{ region }} must reach by 2030, imposed by both the Klimaatzaak judge (CO2 emissions) and by Europe (CO2 emissions, energy efficiency and renewable energy); the cost of selected measures; and their broader impact. Currently, only greenhouse gas impacts are quantified.",
   "helpDialogCarbonTax": "When a European member state does not meet its CO2 reduction target, yearly, it must pay a tax equal to the amount of emissions it is below the target reduction requirement. The price of these missed reductions is determined by the ETS system; and cannot be determined beforehand. A realistic assumption is € 100 per ton of CO2. \n\nThis would explain everythig in more detail, and link to estimations of the average emissions price.",
   "helpDialogCarbonIncome": "When a European member state emits less than its target, it can sell its excess emission rights to Europe. A realistic price assumption is € 100 per ton of CO2.\n\nThis would explain everything in more detail, and link to estimations of the average emissions price.",
-
-  "ecorendum": "Examples VEKA",
-  "own": "Own",
 
   "messages": {
     "data-warning": "<strong>Warning! This is only a demo website.</strong> The data is not entirely accurate. Read more about this on the <a href=\"info\">info page</a>."

@@ -1,7 +1,7 @@
 <form #proposalTranslationsForm="ngForm" id="proposal-translations" class="column-form">
   <mat-tab-group>
     <mat-tab *ngFor="let lang of allLanguages">
-      <ng-template mat-tab-label>{{ lang | translate }}</ng-template>
+      <ng-template mat-tab-label>{{ 'enums.language.' + lang | translate }}</ng-template>
 
       <div class="tab-body column-form" *ngIf="data && data[lang]">
         <mat-form-field appearance="fill">

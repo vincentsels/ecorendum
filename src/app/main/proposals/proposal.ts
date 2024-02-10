@@ -91,7 +91,7 @@ export enum ProposalOrigin {
   general = 0,
   federalGovernment = 1,
   flemishGovernment = 2,
-  brusselianGovernment = 3,
+  brusselsGovernment = 3,
   wallonianGovernment = 4,
   veka = 5,
   unknown = 99,
@@ -103,7 +103,7 @@ export enum PolicyLevel {
   provincial = 2,
   flemish = 3,
   wallonian = 4,
-  brusselian = 5,
+  brussels = 5,
   federal = 6,
 }
 

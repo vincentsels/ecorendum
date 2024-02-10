@@ -178,7 +178,7 @@
 
       <span class="collapsed-header-summary">
         <span *ngFor="let impactItem of results.totalImpact">
-          <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ enums.ImpactDomain[impactItem.domain] | translate }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
+          <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ 'enums.impactDomain.' + enums.ImpactDomain[impactItem.domain] | translate }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
         </span>
       </span>
 
@@ -191,8 +191,8 @@
 
     <div *ngIf="expandedTotalImpact">
       <div *ngFor="let impactItem of results.totalImpact">
-        <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ enums.ImpactDomain[impactItem.domain] | translate }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
-        {{ enums.ImpactDomain[impactItem.domain] | translate }}: {{ displayImpact(impactItem.amount) }}
+        <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ 'enums.impactDomain.' + enums.ImpactDomain[impactItem.domain] | translate }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
+        {{ 'enums.impactDomain.' + enums.ImpactDomain[impactItem.domain] | translate }}: {{ displayImpact(impactItem.amount) }}
       </div>
     </div>
   </mat-card>

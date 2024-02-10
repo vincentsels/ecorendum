@@ -1,70 +1,80 @@
 {
-  "siteTitle": "Ecorendum - Jij bepaalt het klimaatbeleid",
+  "enums": {
+    "language": {
+      "en": "English",
+      "fr": "Français",
+      "nl": "Nederlands"
+    },
+    "policyLevel": {
+      "local": "Lokaal",
+      "provincial": "Provinciaal",
+      "flemish": "Vlaams",
+      "wallonian": "Waals",
+      "brussels": "Brussels",
+      "federal": "Federaal"
+    },
+    "proposalOrigin": {
+      "federalGovernment": "Federale regering",
+      "flemishGovernment": "Vlaamse regering",
+      "brusselsGovernment": "Brusselse regering",
+      "wallonianGovernment": "Waalse regering",
+      "veka": "VEKA",
+      "unknown": "Niet bekend"
+    },
+    "sector": {
+      "transport": "Transport",
+      "buildings": "Gebouwen",
+      "agriculture": "Agricultuur",
+      "industry": "Industrie",
+      "wasteManagement": "Afvalverwerking",
+      "electricityProduction": "Elektriciteitsproductie",
+      "general": "Algemeen",
+      "other": "Andere"
+    },
+    "targetType": {
+      "ghgReduction": "Broeikasgasreductie",
+      "energyEfficiency": "Energie efficientie",
+      "renewableEnergy": "Hernieuwbare energie"
+    },
+    "impactDomain": {
+      "biodiversityLoss": "Biodiversiteitsverlies",
+      "nitrogenPollution": "Stikstofvervuiling",
+      "phosphorusPollution": "Forsforvervuiling",
+      "oceanAcidification": "Acidificatie oceanen",
+      "luLuCf": "LULUCF",
+      "waterConsumption": "Waterverbruik",
+      "ozoneDepletion": "Ozonvermindering",
+      "aerosols": "Aerosolen",
+      "chemicalPollution": "Chemische vervuiling",
+      "redistributionLocal": "Lokale redistributie",
+      "redistributionGlobal": "Globale redistributie",
+      "humanRightsLocal": "Lokale mensenrechten",
+      "humanRightsGlobal": "Globale mensenrechten"
+    },
+    "impactAmount": {
+      "extremelyPositive": "++++",
+      "veryPositive": "+++",
+      "moderatelyPositive": "++",
+      "somewhatPositive": "+",
+      "neutral": "+-",
+      "somewhatNegative": "-",
+      "moderatelyNegative": "- -",
+      "veryNegative": "- - -",
+      "extremelyNegative": "- - - -"
+    }
+  },
 
-  "en": "English",
-  "fr": "Français",
-  "nl": "Nederlands",
-
-  "local": "Lokaal",
-  "provincial": "Provinciaal",
-  "flemish": "Vlaams",
-  "wallonian": "Waals",
-  "brusselian": "Brussels",
-  "federal": "Federaal",
-
+  "Federal": "Federaal",
   "Flanders": "Vlaanderen",
   "Wallonia": "Wallonië",
   "Brussels": "Brussel",
+  "federal": "Federaal",
   "flanders": "Vlaanderen",
   "wallonia": "Wallonië",
   "brussels": "Brussel",
 
   "eu-ets": "Europees emissiehandelsysteem",
-
-  "transport": "Transport",
-  "buildings": "Gebouwen",
-  "agriculture": "Agricultuur",
-  "industry": "Industrie",
-  "wasteManagement": "Afvalverwerking",
-  "electricityProduction": "Elektriciteitsproductie",
-  "general": "Algemeen",
-  "other": "Andere",
-
-  "federalGovernment": "Federale regering",
-  "flemishGovernment": "Vlaamse regering",
-  "brusselianGovernment": "Brusselse regering",
-  "wallonianGovernment": "Waalse regering",
-  "veka": "VEKA",
-  "unknown": "Niet bekend",
-
-  "ghgReduction": "Broeikasgasreductie",
-  "energyEfficiency": "Energie efficientie",
-  "renewableEnergy": "Hernieuwbare energie",
-
-  "biodiversityLoss": "Biodiversiteitsverlies",
-  "nitrogenPollution": "Stikstofvervuiling",
-  "phosphorusPollution": "Forsforvervuiling",
-  "oceanAcidification": "Acidificatie oceanen",
-  "luLuCf": "LULUCF",
-  "waterConsumption": "Waterverbruik",
-  "ozoneDepletion": "Ozonvermindering",
-  "aerosols": "Aerosolen",
-  "chemicalPollution": "Chemische vervuiling",
-  "redistributionLocal": "Lokale redistributie",
-  "redistributionGlobal": "Globale redistributie",
-  "humanRightsLocal": "Lokale mensenrechten",
-  "humanRightsGlobal": "Globale mensenrechten",
-
-  "extremelyPositive": "++++",
-  "veryPositive": "+++",
-  "moderatelyPositive": "++",
-  "somewhatPositive": "+",
-  "neutral": "+-",
-  "somewhatNegative": "-",
-  "moderatelyNegative": "- -",
-  "veryNegative": "- - -",
-  "extremelyNegative": "- - - -",
-
+  "siteTitle": "Ecorendum - Jij bepaalt het klimaatbeleid",
   "Legal reduction": "Wettelijke CO2 reductie",
   "GHG reduction": "EU CO2 reductie",
   "Energy efficiency": "Energieëfficientie",
@@ -137,6 +147,8 @@
   "medium-risk": "gemiddeld",
   "low-risk": "laag",
 
+  "costComparisonExplanation": "Dit geeft een aantal voorbeelden van projecten die in totaal tot dit bedrag oplopen.",
+  "contributeText": "Heb je een vraag over dit voorstel die nog niet is beantwoord in de veelgestelde vragen? Wil je een link toevoegen naar een artikel, wetenschappelijk artikel of iets anders? Werk je in het veld en wil je graag je kennis bijdragen? Klik op de knop hieronder om naar de website met voorstellen te gaan, log in of maak een account aan, en begin met bijdragen!",
   "allTargetsMet": "Gefeliciteerd! Met de maatregelen die je hebt geselecteerd, kan België alle doelstellingen opgelegd door de klimaatzaak en Europa behalen.",
   "profitMessage": "Hierdoor zal België naar schatting € {{ profit }} bijverdienen",
   "warningGhgNotMet": "Uw selectie van maatregelen voldeed niet aan de Europese doelstelling voor de vermindering van broeikasgassen. Dit heeft verschillende ernstig negatieve gevolgen: <ul><li>België zal andere Europese lidstaten € {{ tax }} moeten betalen. Door meer maatregelen te selecteren, zou België in plaats daarvan extra financiering kunnen ontvangen.</li> <li>Als België zijn broeikasgasemissies niet voldoende vermindert, betekent dit dat andere Europese lidstaten moeten compenseren - en zij kunnen zich in een veel moeilijkere positie bevinden om dat te doen. We kunnen de doelen alleen bereiken als iedereen zijn deel doet.</li> <li>Er is geen garantie dat andere lidstaten kunnen compenseren. Het niet halen van de doelstellingen voor de vermindering van broeikasgassen zorgt bijna zeker ervoor dat de wereld naar de knoppen gaat. Ja, dit moet nog een beetje herformuleerd worden. TODO.</li></ul>",
@@ -145,14 +157,13 @@
   "warningCost": "Omdat uw selectie van maatregelen niet voldoet aan de Europese doelstelling om broeikasgassen te reduceren, zal België andere Europese lidstaten € {{ tax }} moeten betalen. Dit is budget dat niet kan worden besteed aan ander beleid, of dat moet worden opgehaald via extra belastingen.",
   "agreeWithNotAllTargetsMet": "Ik heb het bovenstaande gelezen en begrijp de mogelijk gevaarlijke gevolgen van het niet halen van de Europese doelstellingen.",
 
-  "costComparisonExplanation": "Dit geeft een aantal voorbeelden van projecten die in totaal tot dit bedrag oplopen.",
-
   "helpProposals": "Reeksen maatregelen tussen nu en 2030 om de CO2-reductiedoelstelling te halen die is opgelegd in de Klimaatzaak of door de EU. Blader door kant-en-klare sets of stel je eigen set samen!",
   "helpResults": "Alle kwantificeerbare doelstellingen die {{ region }} moet bereiken tegen 2030, opgelegd door de rechter in de Klimaatzaak en door Europa; de kosten van geselecteerde maatregelen; en hun bredere impact. Momenteel zijn alleen de effecten op broeikasgassen gekwantificeerd.",
   "helpLegalReductionTarget": "{{ region }} moet de uitstoot van broeikasgassen met 55% verminderen, zoals bepaald door een rechter in de Klimaatzaak.",
   "helpCo2reductionTarget": "{{ region }} moet de uitstoot van broeikasgassen met 47% verminderen in de sectoren transport, gebouwen, landbouw, afvalbeheer en kleine industrie, om te voldoen aan Europese doelstellingen.",
   "helpEnergySavingsTarget": "De hoeveelheid energie {{ region }} die minder moet verbruiken tegen 2030. WAARSCHUWING: Dit doel is niet correct en slechts een voorbeeld. We onderzoeken nog wat het werkelijke aantal is.",
-  "helpRenewableEnergyTarget": "De hoeveelheid groene elektriciteit die {{ region }} extra moet produceren in 2030. WAARSCHUWING: Dit doel is niet correct en slechts een voorbeeld. We onderzoeken het werkelijke aantal nog.",  "helpCarbonTax": "EU-lidstaten die niet voldoen aan CO2-doelstellingen betalen een belasting gebaseerd op ETS-prijzen, geschat op € {{ carbonTax }} per ton CO2.",
+  "helpRenewableEnergyTarget": "De hoeveelheid groene elektriciteit die {{ region }} extra moet produceren in 2030. WAARSCHUWING: Dit doel is niet correct en slechts een voorbeeld. We onderzoeken het werkelijke aantal nog.",
+  "helpCarbonTax": "EU-lidstaten die niet voldoen aan CO2-doelstellingen betalen een belasting gebaseerd op ETS-prijzen, geschat op € {{ carbonTax }} per ton CO2.",
   "helpCarbonIncome": "EU-lidstaten die minder uitstoten dan hun doelstelling kunnen overtollige emissierechten verkopen voor een geschatte € {{ carbonTax }} per ton CO2.",
   "helpLegalPenalty": "Als de overheid de wettelijke doelstelling na een evaluatieperiode niet haalt, moet een dwangsom van {{ legalPenalty }} per maand worden betaald.",
 
@@ -161,8 +172,9 @@
   "helpDialogCarbonTax": "Wanneer een Europese lidstaat zijn CO2-reductiedoelstelling niet haalt, moet het jaarlijks een belasting betalen gelijk aan de hoeveelheid emissies waarmee het onder de vereiste reductiedoelstelling zit. De prijs van deze gemiste reducties wordt bepaald door het ETS-systeem; en kan niet van tevoren worden bepaald. Een realistische aanname is €100 per ton CO2. \n\nDit zou alles in meer detail uitleggen, en linken naar schattingen van de gemiddelde emissieprijs.",
   "helpDialogCarbonIncome": "Wanneer een Europese lidstaat minder uitstoot dan zijn doelstelling, kan het zijn overtollige emissierechten verkopen aan Europa. Een realistische prijsaanname is € 100 per ton CO2.\n\nDit zou alles in meer detail uitleggen, en linken naar schattingen van de gemiddelde emissieprijs.",
 
-  "ecorendum": "Voorbeelden VEKA",
-  "own": "Eigen",
+  "messages": {
+    "data-warning": "<strong>Waarschuwing! Dit is slechts een demowebsite.</strong> De gegevens zijn niet helemaal nauwkeurig. Lees hier meer over op de <a href=\"info\">info pagina</a>."
+  },
 
   "explainers": {
     "insets": {

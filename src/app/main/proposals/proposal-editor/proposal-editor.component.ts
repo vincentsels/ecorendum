@@ -129,7 +129,7 @@ export class ProposalEditorComponent implements OnInit {
       this.proposal.id = Math.max(...PROPOSALS_FEDERAL.map(p => p.id)) + 1;
     } else if (this.proposal.policyLevel === PolicyLevel.flemish) {
       this.proposal.id = Math.max(...PROPOSALS_FLANDERS.map(p => p.id)) + 1;
-    } else if (this.proposal.policyLevel === PolicyLevel.brusselian) {
+    } else if (this.proposal.policyLevel === PolicyLevel.brussels) {
       this.proposal.id = Math.max(...PROPOSALS_BRUSSELS.map(p => p.id)) + 1;
     } else if (this.proposal.policyLevel === PolicyLevel.wallonian) {
       this.proposal.id = Math.max(...PROPOSALS_WALLONIA.map(p => p.id)) + 1;
