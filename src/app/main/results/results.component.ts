@@ -24,7 +24,7 @@ export class ResultsComponent implements OnInit {
   risk$: Observable<'high-risk' | 'medium-risk' | 'low-risk'>;
 
   expandedTotalCost = false;
-  expandedTotalImpact = false;
+  expandedTotalImpact = true;
 
   @Input() dialog = false;
 

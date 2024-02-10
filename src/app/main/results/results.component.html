@@ -191,8 +191,24 @@
 
     <div *ngIf="expandedTotalImpact">
       <div *ngFor="let impactItem of results.totalImpact">
-        <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
-        {{ impactItem.domain | translateEnum:'ImpactDomain' | async }}: {{ displayImpact(impactItem.amount) }}
+        <!-- <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
+        {{ impactItem.domain | translateEnum:'ImpactDomain' | async }}: {{ displayImpact(impactItem.amount) }} -->
+        <div class="impact-item">
+          <span class="impact-header">{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}</span>
+          <div class="impact-gauge">
+            <mat-progress-bar class="progress" mode="determinate" dir="rtl"
+              color="warn" [value]="impactItem.amount > 0 ? (impactItem.amount * 20) : 0">
+            </mat-progress-bar>
+            <span>
+              <mat-icon class="inline impact-icon" [class]="impactItem.class" matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">
+                {{ impactItem.getImpactDomainIcon() }}
+              </mat-icon>
+            </span>
+            <mat-progress-bar class="progress" mode="determinate"
+              color="accent" [value]="impactItem.amount < 0 ? (impactItem.amount * -20) : 0">
+            </mat-progress-bar>
+          </div>
+        </div>
       </div>
     </div>
   </mat-card>
