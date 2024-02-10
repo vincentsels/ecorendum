@@ -45,8 +45,8 @@
           <div *ngIf="variant.impacts && variant.impacts.length > 1">
             <h3>{{ 'Impact' | translate }}</h3>
             <div *ngFor="let impact of variant.impacts" ngClass.xs="impact-xs">
-              <mat-icon class="inline icon-list-item" [class]="impact.getImpactAmountClass()" matTooltip="{{ impact.domain | enumtranslate:'ImpactDomain' | async }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
-              <span fxHide.lt-sm>{{ impact.domain | enumtranslate:'ImpactDomain' | async }}</span><span fxHide.lt-md>: {{ impact.amount | enumtranslate:'ImpactAmount' | async }}</span>
+              <mat-icon class="inline icon-list-item" [class]="impact.getImpactAmountClass()" matTooltip="{{ impact.domain | translateEnum:'ImpactDomain' | async }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
+              <span fxHide.lt-sm>{{ impact.domain | translateEnum:'ImpactDomain' | async }}</span><span fxHide.lt-md>: {{ impact.amount | translateEnum:'ImpactAmount' | async }}</span>
             </div>
           </div>
         </div>

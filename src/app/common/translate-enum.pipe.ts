@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { EnumsService } from './enums.service';
 
-@Pipe({ name: 'enumtranslate' })
+@Pipe({ name: 'translateEnum' })
 export class TranslateEnumPipe implements PipeTransform {
   constructor(private translate: TranslateService, private enums: EnumsService) {}
 
