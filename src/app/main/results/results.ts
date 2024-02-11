@@ -6,6 +6,7 @@ export class Results {
     public euGhgTarget: TargetResult,
     public euEeTarget: TargetResult,
     public euReTarget: TargetResult,
+    public sectorEmissionsResults: SectorEmissionsResults,
     public totalMeasurementCost: Cost,
     public totalEuGhgTax: number,
     public totalLegalPenalty: number,
@@ -32,14 +33,42 @@ export class Results {
 }
 
 export class TargetResult {
-  constructor(public target: number = 0, public unit: string = 'Gwh', public pricePerUnit: number = 0, public total: number = 0,
-    public color: string = 'warn', public percentage: number = 0) {}
+  constructor(
+    public target: number = 0,
+    public unit: string = 'Gwh',
+    public pricePerUnit: number = 0,
+    public total: number = 0,
+    public color: string = 'warn',
+    public percentage: number = 0
+  ) {}
 
   public toString = () => this.total + '/' + this.target + ' ' + this.unit + ' (' + this.percentage + '%)';
 }
 
+export class SectorEmissionsResults {
+  constructor(
+    public electricity: SectorEmissionsResult,
+    public industry: SectorEmissionsResult,
+    public buildings: SectorEmissionsResult,
+    public transport: SectorEmissionsResult,
+    public agriculture: SectorEmissionsResult,
+    public waste: SectorEmissionsResult,
+  ) {}
+}
+
+export class SectorEmissionsResult {
+  constructor(
+    public currentEmissions: number,
+    public resultingEmissions: number,
+    public colorClass: string,
+    public percentage: number,
+  ) {}
+}
+
 export class TotalImpact {
-  constructor(public domain: ImpactDomain, public amount: number) {}
+  constructor(
+    public domain: ImpactDomain,
+    public amount: number) {}
 
   class: string = ImpactAmountMap[ImpactAmount.neutral];
 

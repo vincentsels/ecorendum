@@ -1,15 +1,17 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
-import { Targets } from "./targets";
+import { SectorEmissions, Targets } from "./targets";
 import { ContextType, ContextService } from "../context/context.service";
 
 @Injectable()
 export class TargetsService {
   targets$: BehaviorSubject<Targets>;
+  sectorEmissions$: BehaviorSubject<SectorEmissions>;
 
   constructor(private contextService: ContextService) {
     this.targets$ = new BehaviorSubject<Targets>(this.getTargetsByContext(this.contextService.context$.value));
+    this.sectorEmissions$ = new BehaviorSubject<SectorEmissions>(this.getSectorEmissionsByContext(this.contextService.context$.value));
 
     contextService.context$.subscribe(c => this.targets$.next(this.getTargetsByContext(c)));
   }
@@ -35,6 +37,39 @@ export class TargetsService {
         1700 / 2, // TO DO
         5000 / 2, // TO DO
         4000 / 2, // TO DO
+      );
+    } else {
+      throw new Error('Unknown context');
+    }
+  }
+
+  getSectorEmissionsByContext(context: ContextType): SectorEmissions {
+    if (context === 'flanders') {
+      return new SectorEmissions(
+        8600, // electricity
+        26100, // industry
+        12600, // buildings
+        16100, // transport
+        7800, // agriculture
+        2300 // waste
+      );
+    } else if (context === 'brussels') {
+      return new SectorEmissions(
+        8600 / 10, // electricity
+        26100 / 10, // industry
+        12600 / 10, // buildings
+        16100 / 10, // transport
+        7800 / 10, // agriculture
+        2300 / 10 // waste
+      );
+    } else if (context === 'wallonia') {
+      return new SectorEmissions(
+        8600 / 2, // electricity
+        26100 / 2, // industry
+        12600 / 2, // buildings
+        16100 / 2, // transport
+        7800 / 2, // agriculture
+        2300 / 2 // waste
       );
     } else {
       throw new Error('Unknown context');

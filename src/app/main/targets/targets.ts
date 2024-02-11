@@ -18,3 +18,14 @@ export class Targets {
   //   { threshold: 99999999999999, image: './assets/img/putin/1_putin_toast.jpg' }
   // ]
 }
+
+export class SectorEmissions {
+  constructor(
+    public electricity: number, //Elektriciteits-productie	17,4	8,6
+    public industry: number, //Industrie	28,9	26,1
+    public buildings: number, //Gebouwen	14,2	12,6
+    public transport: number, //Transport	13,8	16,1
+    public agriculture: number, //Landbouw	9,2	7,8
+    public waste: number, //Afval	3,3	2,3
+  ) {}
+}

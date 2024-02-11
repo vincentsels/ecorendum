@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainType, ImpactDomainTypeMap, PolicyLevel, TargetType, Variant } from '../proposals/proposal';
-import { Results, TargetResult, TotalImpact } from './results';
+import { Results, SectorEmissionsResult, SectorEmissionsResults, TargetResult, TotalImpact } from './results';
 import { TargetsService } from '../targets/targets.service';
 import { ParametersService } from '../parameters/parameters.service';
 import { ProposalService } from '../proposals/proposal.service';
 import { ProposalDetail } from '../proposals/proposal-details';
 import { ContextType, ContextService } from '../context/context.service';
+import { SectorEmissions } from '../targets/targets';
 
 @Injectable()
 export class ResultsService {
@@ -36,12 +37,13 @@ export class ResultsService {
   calculateResults(forProposals?: ProposalDetail[]): Results {
     const proposals = forProposals || this.proposalService.activeProposals$.value;
     const targets = this.targetsService.targets$.value;
+    const sectorEmissions = this.targetsService.sectorEmissions$.value;
     const parameters = this.parametersService.parameters$.value;
     const context = this.contextService.context$.value;
 
     const selectedVariants = proposals.filter(p => p.selected).flatMap(p => p.variants).filter(v => v.selected);
 
-    const legalGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, true, context);
+    const legalGhgReducedKt = this.calculateTotalAmount(selectedVariants, TargetType.ghgReduction, true, context);
 
     const legalGhgReductionPercentage = legalGhgReducedKt / targets.legalTargetGapGhgKt * 100;
     const legalGhgReductionColor = legalGhgReductionPercentage >= 100 ? 'accent' : 'warn';
@@ -49,7 +51,7 @@ export class ResultsService {
     const legalGhgTarget = new TargetResult(targets.legalTargetGapGhgKt, 'Kt', parameters.pricePerTonGhg * 1000, legalGhgReducedKt,
       legalGhgReductionColor, legalGhgReductionPercentage);
 
-    const euGhgReducedKt = this.getTotalAmount(selectedVariants, TargetType.ghgReduction, false, context);
+    const euGhgReducedKt = this.calculateTotalAmount(selectedVariants, TargetType.ghgReduction, false, context);
 
     const euGhgReductionPercentage = euGhgReducedKt / targets.euTargetGapGhgKt * 100;
     const euGhgTax = (targets.euTargetGapGhgKt - euGhgReducedKt) * parameters.pricePerTonGhg * 1000 * parameters.emissionGapMultiplier;
@@ -58,14 +60,14 @@ export class ResultsService {
     const euGhgTarget = new TargetResult(targets.euTargetGapGhgKt, 'Kt', parameters.pricePerTonGhg * 1000, euGhgReducedKt,
       euGhgReductionColor, euGhgReductionPercentage);
 
-    const energySavedGwh = this.getTotalAmount(selectedVariants, TargetType.energyEfficiency, false, context);
+    const energySavedGwh = this.calculateTotalAmount(selectedVariants, TargetType.energyEfficiency, false, context);
     const energySavedPercentage = energySavedGwh / targets.euTargetGapEeGwh * 100;
     const energySavedColor = energySavedPercentage >= 100 ? 'accent' : 'warn';
 
     const euEeTarget = new TargetResult(targets.euTargetGapEeGwh, 'GWh', 0, energySavedGwh,
       energySavedColor, energySavedPercentage);
 
-    const reAddedGwh = this.getTotalAmount(selectedVariants, TargetType.renewableEnergy, false, context);
+    const reAddedGwh = this.calculateTotalAmount(selectedVariants, TargetType.renewableEnergy, false, context);
     const reAddedPercentage = reAddedGwh / targets.euTargetGapReGwh * 100;
     const renewableEnergyAddedColor = reAddedPercentage >= 100 ? 'accent' : 'warn';
 
@@ -76,6 +78,8 @@ export class ResultsService {
     const totalEuGhgTax = euGhgTax;
     const totalLegalPenalty = legalGhgReductionPercentage >= 100 ? 0 : parameters.monthlyLegalPenalty * 12 * 5;
     const totalCostIncludingTax = totalMeasurementCost.add(totalEuGhgTax).add(totalLegalPenalty);
+
+    const sectorEmissionsResults = this.calculateSectorEmissions(selectedVariants, sectorEmissions);
 
     const totalImpact: TotalImpact[] = [];
 
@@ -125,6 +129,7 @@ export class ResultsService {
       euGhgTarget,
       euEeTarget,
       euReTarget,
+      sectorEmissionsResults,
       totalMeasurementCost,
       totalEuGhgTax,
       totalLegalPenalty,
@@ -136,6 +141,45 @@ export class ResultsService {
       globalEnvironmentalImpact,
       globalJusticeImpact,
     );
+  }
+
+  calculateSectorEmissions(selectedVariants: Variant[], sectorEmissions: SectorEmissions) {
+    const totalElectricityReduction = this.getReductionForSector(selectedVariants, Sector.electricityProduction);
+    const totalIndustryReduction = this.getReductionForSector(selectedVariants, Sector.industry);
+    const totalBuildingsReduction = this.getReductionForSector(selectedVariants, Sector.buildings);
+    const totalTransportReduction = this.getReductionForSector(selectedVariants, Sector.transport);
+    const totalAgricultureReduction = this.getReductionForSector(selectedVariants, Sector.agriculture);
+    const totalWasteManagmentReduction = this.getReductionForSector(selectedVariants, Sector.wasteManagement);
+
+    const electricityReductionPercentage = 100 - totalElectricityReduction / sectorEmissions.electricity;
+    const industryReductionPercentage = 100 - totalIndustryReduction / sectorEmissions.industry;
+    const buildingsReductionPercentage = 100 - totalBuildingsReduction / sectorEmissions.buildings;
+    const transportReductionPercentage = 100 - totalTransportReduction / sectorEmissions.transport;
+    const agricultureReductionPercentage = 100 - totalAgricultureReduction / sectorEmissions.agriculture;
+    const wasteManagementReductionPercentage = 100 - totalWasteManagmentReduction / sectorEmissions.waste;
+
+    return new SectorEmissionsResults(
+      new SectorEmissionsResult(
+        sectorEmissions.electricity, sectorEmissions.electricity - totalElectricityReduction, 'warn', electricityReductionPercentage),
+      new SectorEmissionsResult(
+        sectorEmissions.industry, sectorEmissions.industry - totalIndustryReduction, 'warn', industryReductionPercentage),
+      new SectorEmissionsResult(
+        sectorEmissions.buildings, sectorEmissions.buildings - totalBuildingsReduction, 'warn', buildingsReductionPercentage),
+      new SectorEmissionsResult(
+        sectorEmissions.transport, sectorEmissions.transport - totalTransportReduction, 'warn', transportReductionPercentage),
+      new SectorEmissionsResult(
+        sectorEmissions.agriculture, sectorEmissions.agriculture - totalAgricultureReduction, 'warn', agricultureReductionPercentage),
+      new SectorEmissionsResult(
+        sectorEmissions.waste, sectorEmissions.waste - totalWasteManagmentReduction, 'warn', wasteManagementReductionPercentage),
+      );
+  }
+
+  getReductionForSector(selectedVariants: Variant[], sector: Sector) {
+    return selectedVariants
+      .filter(v => v.proposal!.sector === sector && v.targets.some(t => t.type === TargetType.ghgReduction))
+      .reduce((t, v) => {
+        return t + v.targets.find(t => t.type === TargetType.ghgReduction)!.amount
+      }, 0);
   }
 
   private getImpactForDomainType = (totalImpact: TotalImpact[], domainType: ImpactDomainType) => totalImpact.filter(i => ImpactDomainTypeMap[i.domain] === domainType)
