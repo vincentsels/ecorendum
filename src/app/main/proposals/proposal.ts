@@ -251,13 +251,13 @@ export class Impact {
 
 export enum ImpactDomain {
   unknown = 0,
-  biodiversityLoss = 1,
-  nitrogenPollution = 2,
-  phosphorusPollution = 3,
-  oceanAcidification = 4,
-  luLuCf = 5,
-  waterConsumption = 6,
-  ozoneDepletion = 7,
+  localBiodiversityLoss = 1,
+  localNitrogenPollution = 2,
+  localPhosphorusPollution = 3,
+  localOceanAcidification = 4,
+  localLandUseChange = 5,
+  localWaterConsumption = 6,
+  localOzoneDepletion = 7,
   aerosols = 8,
   chemicalPollution = 9,
   redistributionLocal = 10,
@@ -266,15 +266,40 @@ export enum ImpactDomain {
   humanRightsGlobal = 13,
 }
 
+export enum ImpactDomainType {
+  unknown = 0,
+  localEcological = 1,
+  localRedistributive = 2,
+  globalEcological = 3,
+  globalRedistributive = 4
+}
+
+export const ImpactDomainTypeMap = {
+  [ImpactDomain.unknown]: ImpactDomainType.unknown,
+  [ImpactDomain.localBiodiversityLoss]: ImpactDomainType.unknown,
+  [ImpactDomain.localNitrogenPollution]: ImpactDomainType.unknown,
+  [ImpactDomain.localPhosphorusPollution]: ImpactDomainType.unknown,
+  [ImpactDomain.localOceanAcidification]: ImpactDomainType.unknown,
+  [ImpactDomain.localLandUseChange]: ImpactDomainType.unknown,
+  [ImpactDomain.localWaterConsumption]: ImpactDomainType.unknown,
+  [ImpactDomain.localOzoneDepletion]: ImpactDomainType.unknown,
+  [ImpactDomain.aerosols]: ImpactDomainType.unknown,
+  [ImpactDomain.chemicalPollution]: ImpactDomainType.unknown,
+  [ImpactDomain.redistributionLocal]: ImpactDomainType.unknown,
+  [ImpactDomain.redistributionGlobal]: ImpactDomainType.unknown,
+  [ImpactDomain.humanRightsLocal]: ImpactDomainType.unknown,
+  [ImpactDomain.humanRightsGlobal]: ImpactDomainType.unknown,
+}
+
 export const ImpactDomainMap = {
   [ImpactDomain.unknown]: 'question_mark',
-  [ImpactDomain.biodiversityLoss]: 'grass',
-  [ImpactDomain.nitrogenPollution]: 'cloud_queue',
-  [ImpactDomain.phosphorusPollution]: 'cloud_queue',
-  [ImpactDomain.oceanAcidification]: 'waves',
-  [ImpactDomain.luLuCf]: 'forest',
-  [ImpactDomain.waterConsumption]: 'water_drop',
-  [ImpactDomain.ozoneDepletion]: 'public',
+  [ImpactDomain.localBiodiversityLoss]: 'grass',
+  [ImpactDomain.localNitrogenPollution]: 'cloud_queue',
+  [ImpactDomain.localPhosphorusPollution]: 'cloud_queue',
+  [ImpactDomain.localOceanAcidification]: 'waves',
+  [ImpactDomain.localLandUseChange]: 'forest',
+  [ImpactDomain.localWaterConsumption]: 'water_drop',
+  [ImpactDomain.localOzoneDepletion]: 'public',
   [ImpactDomain.aerosols]: 'ac_unit',
   [ImpactDomain.chemicalPollution]: 'science',
   [ImpactDomain.redistributionLocal]: 'balance',

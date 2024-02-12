@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { Cost, ImpactAmount, ImpactAmountMap, PolicyLevel, TargetType, Variant } from '../proposals/proposal';
+import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, PolicyLevel, TargetType, Variant } from '../proposals/proposal';
 import { Results, TargetResult, TotalImpact } from './results';
 import { TargetsService } from '../targets/targets.service';
 import { ParametersService } from '../parameters/parameters.service';
@@ -121,9 +121,11 @@ export class ResultsService {
       totalEuGhgTax,
       totalLegalPenalty,
       totalCostIncludingTax,
-      totalImpact,
+
     );
   }
+
+  private getImpact = (totalImpact: TotalImpact[], domain: ImpactDomain) => totalImpact.find(i => i.domain === domain)
 
   private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean, context: ContextType) {
     const singleRegionAmount = selectedVariants

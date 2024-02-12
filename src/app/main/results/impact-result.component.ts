@@ -52,7 +52,6 @@ import { TargetResult, TotalImpact } from './results';
   flex: 1;
   display: flex;
   align-items: center;
-  transition: 0.3s;
 }
 `
   ]
