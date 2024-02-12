@@ -38,14 +38,9 @@
       <app-impact-result [impactItem]="impactItem"></app-impact-result>
     </div>
 
-    <h3 class="header-with-collapse-icon">
+    <h3 style="margin-top: 16px">
       <span *ngIf="!global"><mat-icon class="inline">account_balance</mat-icon> {{ 'Local justice impact' | translate }}</span>
       <span *ngIf="global"><mat-icon class="inline">diversity_3</mat-icon> {{ 'Global justice impact' | translate }}</span>
-      <a [routerLink]="" class="unstyled-link" (click)="toggleTotalImpact()" *ngIf="!this.dialog">
-        <mat-icon class="inline">
-          {{ expand ? 'expand_more' : 'chevron_left' }}
-        </mat-icon>
-      </a>
     </h3>
 
     <div *ngFor="let impactItem of justiceImpact; trackBy: getTotalImpactId">
