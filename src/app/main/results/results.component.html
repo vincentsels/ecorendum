@@ -161,15 +161,6 @@
   </mat-card>
 
   <mat-card class="result-section">
-    <h3 *ngIf="expandedTotalImpact" class="header-with-collapse-icon">
-      <span><mat-icon class="inline">public</mat-icon> {{ 'Total impact' | translate }}</span>
-      <a [routerLink]="" class="unstyled-link" (click)="toggleTotalImpact()" *ngIf="!this.dialog">
-        <mat-icon class="inline">
-          {{ expandedTotalImpact ? 'expand_more' : 'chevron_left' }}
-        </mat-icon>
-      </a>
-    </h3>
-
     <h3 *ngIf="!expandedTotalImpact" class="result-section-collapsed">
       <span class="collapsed-header">
         <mat-icon class="inline">public</mat-icon>
@@ -189,29 +180,22 @@
       </a>
     </h3>
 
+    <h3 *ngIf="expandedTotalImpact" class="header-with-collapse-icon">
+      <span><mat-icon class="inline">public</mat-icon> {{ 'Total impact' | translate }}</span>
+      <a [routerLink]="" class="unstyled-link" (click)="toggleTotalImpact()" *ngIf="!this.dialog">
+        <mat-icon class="inline">
+          {{ expandedTotalImpact ? 'expand_more' : 'chevron_left' }}
+        </mat-icon>
+      </a>
+    </h3>
+
     <div *ngIf="expandedTotalImpact">
       <div *ngFor="let impactItem of results.totalImpact">
-        <!-- <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
-        {{ impactItem.domain | translateEnum:'ImpactDomain' | async }}: {{ displayImpact(impactItem.amount) }} -->
-        <div class="impact-item">
-          <span class="impact-header">{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}</span>
-          <div class="impact-gauge">
-            <mat-progress-bar class="progress" mode="determinate" dir="rtl"
-              color="warn" [value]="impactItem.amount > 0 ? (impactItem.amount * 8) : 0">
-            </mat-progress-bar>
-            <span>
-              <mat-icon class="inline impact-icon" [class]="impactItem.class" matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">
-                {{ impactItem.getImpactDomainIcon() }}
-              </mat-icon>
-            </span>
-            <mat-progress-bar class="progress" mode="determinate"
-              color="accent" [value]="impactItem.amount < 0 ? (impactItem.amount * -8) : 0">
-            </mat-progress-bar>
-          </div>
-        </div>
+        <app-impact-result [impactItem]="impactItem"></app-impact-result>
       </div>
     </div>
   </mat-card>
+
 </div>
 
 <button fxHide.lt-md mat-raised-button color="primary" (click)="submit()" class="submit-button-lg">{{ 'Publish results' | translate }}</button>
