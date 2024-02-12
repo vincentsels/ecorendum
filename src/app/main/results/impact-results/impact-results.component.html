@@ -6,11 +6,7 @@
     </span>
 
     <span class="collapsed-header-summary">
-      <span *ngFor="let impactItem of environmentalImpact">
-        <mat-icon class="inline icon-list-item" [class]="impactItem.class"
-          matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
-      </span>
-      <span *ngFor="let impactItem of justiceImpact">
+      <span *ngFor="let impactItem of allImpact">
         <mat-icon class="inline icon-list-item" [class]="impactItem.class"
           matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
       </span>

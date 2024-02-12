@@ -7,6 +7,7 @@ import { TotalImpact } from "../results";
   styleUrls: ['../results.component.scss']
 })
 export class ImpactResultsComponent implements OnInit {
+  @Input({ required: true }) allImpact!: TotalImpact[];
   @Input({ required: true }) environmentalImpact!: TotalImpact[];
   @Input({ required: true }) justiceImpact!: TotalImpact[];
   @Input({ required: true }) global!: boolean;

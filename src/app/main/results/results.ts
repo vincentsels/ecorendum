@@ -10,6 +10,8 @@ export class Results {
     public totalEuGhgTax: number,
     public totalLegalPenalty: number,
     public totalCostIncludingTax: Cost,
+    public allLocalImpact: TotalImpact[],
+    public allGlobalImpact: TotalImpact[],
     public localEnvironmentalImpact: TotalImpact[],
     public localJusticeImpact: TotalImpact[],
     public globalEnvironmentalImpact: TotalImpact[],

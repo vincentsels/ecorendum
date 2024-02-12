@@ -162,10 +162,10 @@
   </mat-card>
 
   <app-impact-results [dialog]="dialog" [global]="false" [environmentalImpact]="results.localEnvironmentalImpact"
-    [justiceImpact]="results.localJusticeImpact" ></app-impact-results>
+    [justiceImpact]="results.localJusticeImpact" [allImpact]="results.allLocalImpact"></app-impact-results>
 
   <app-impact-results [dialog]="dialog" [global]="true" [environmentalImpact]="results.globalEnvironmentalImpact"
-    [justiceImpact]="results.globalJusticeImpact" ></app-impact-results>
+    [justiceImpact]="results.globalJusticeImpact" [allImpact]="results.allGlobalImpact"></app-impact-results>
 
 </div>
 

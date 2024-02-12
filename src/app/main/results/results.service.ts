@@ -109,6 +109,9 @@ export class ResultsService {
     const globalEnvironmentalImpact = this.getImpactForDomainType(totalImpact, ImpactDomainType.globalEnvironmental);
     const globalJusticeImpact = this.getImpactForDomainType(totalImpact, ImpactDomainType.globalJustice);
 
+    const allLocalImpact = [...localEnvironmentalImpact, ...localJusticeImpact].sort((a, b) => b.amount - a.amount);
+    const allGlobalImpact = [...localEnvironmentalImpact, ...localJusticeImpact].sort((a, b) => b.amount - a.amount);
+
     //let image = '';
     //for (let threshold of Results.moneyImageMap) {
     //  if (totalMoneyToRussia <= threshold.threshold) {
@@ -126,6 +129,8 @@ export class ResultsService {
       totalEuGhgTax,
       totalLegalPenalty,
       totalCostIncludingTax,
+      allLocalImpact,
+      allGlobalImpact,
       localEnvironmentalImpact,
       localJusticeImpact,
       globalEnvironmentalImpact,
