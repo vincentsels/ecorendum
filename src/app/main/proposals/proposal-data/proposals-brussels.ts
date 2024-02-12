@@ -23,7 +23,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         costInitial: new Cost(2000000),
         costPerYearFixed: new Cost(200000),
         impacts: [
-          new Impact(ImpactDomain.localWaterConsumption, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.moderatelyNegative),
         ],
         targets: [
@@ -58,11 +58,11 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         costInitial: new Cost(110000),
         impacts: [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.globalAerosolLoading, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.globalHumanRights, ImpactAmount.moderatelyNegative),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 390 }),
@@ -95,7 +95,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         costInitial: new Cost(110000),
         impacts: [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 200 }),
@@ -122,13 +122,13 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         costInitial: new Cost(50000000),
         impacts: [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.globalAerosolLoading, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.localLandUseChange, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localLandSystemChange, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localPhosphorusPollution, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.localWaterConsumption, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 100 }),
@@ -140,13 +140,13 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         costInitial: new Cost(100000000),
         impacts: [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.globalAerosolLoading, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.localLandUseChange, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localLandSystemChange, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localPhosphorusPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.localWaterConsumption, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 200 }),
@@ -175,13 +175,13 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         costInitial: new Cost(50000000),
         impacts: [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.globalAerosolLoading, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.localLandUseChange, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localLandSystemChange, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localPhosphorusPollution, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.localWaterConsumption, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 250 }),
@@ -193,13 +193,13 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         costInitial: new Cost(100000000),
         impacts: [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.globalAerosolLoading, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.localLandUseChange, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localLandSystemChange, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localPhosphorusPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.localWaterConsumption, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 500 }),
@@ -211,13 +211,13 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         costInitial: new Cost(150000000),
         impacts: [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.veryPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.veryPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.globalAerosolLoading, ImpactAmount.veryPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.localLandUseChange, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localLandSystemChange, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localPhosphorusPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.localWaterConsumption, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 750 }),

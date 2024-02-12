@@ -20,12 +20,12 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         costInitial: new Cost(100000, 500000),
         impacts: [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
-          new Impact(ImpactDomain.redistributionLocal, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.globalHumanRights, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.localRedistribution, ImpactAmount.moderatelyNegative),
         ],
         regionalTargets: {
           flanders: [
@@ -46,13 +46,13 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         ambitionLevel: 2,
         costInitial: new Cost(100000, 500000),
         impacts: [
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
-          new Impact(ImpactDomain.redistributionLocal, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.globalHumanRights, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.localRedistribution, ImpactAmount.moderatelyNegative),
         ],
         regionalTargets: {
           flanders: [
@@ -73,13 +73,13 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         ambitionLevel: 3,
         costInitial: new Cost(200000, 1000000),
         impacts: [
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatNegative),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
-          new Impact(ImpactDomain.redistributionLocal, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.globalHumanRights, ImpactAmount.moderatelyNegative),
+          new Impact(ImpactDomain.localRedistribution, ImpactAmount.moderatelyNegative),
         ],
         regionalTargets: {
           flanders: [
@@ -117,8 +117,8 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         costInitial: new Cost(100000, 500000),
         impacts: [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
         ],
         regionalTargets: {
@@ -140,10 +140,10 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         ambitionLevel: 2,
         costInitial: new Cost(100000, 500000),
         impacts: [
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
         ],
         regionalTargets: {
           flanders: [
@@ -164,10 +164,10 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         ambitionLevel: 3,
         costInitial: new Cost(200000, 1000000),
         impacts: [
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
         ],
         regionalTargets: {
           flanders: [
@@ -205,8 +205,8 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         ambitionLevel: 1,
         costInitial: new Cost(100000, 500000),
         impacts: [
-          new Impact(ImpactDomain.redistributionLocal, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
+          new Impact(ImpactDomain.localRedistribution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.globalRedistribution, ImpactAmount.somewhatNegative),
         ],
         regionalTargets: {
           flanders: [
@@ -224,16 +224,16 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         ambitionLevel: 2,
         costInitial: new Cost(100000, 500000),
         impacts: [
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localPhosphorusPollution, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.localLandUseChange, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.redistributionLocal, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localLandSystemChange, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localRedistribution, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
+          new Impact(ImpactDomain.globalHumanRights, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.globalRedistribution, ImpactAmount.somewhatNegative),
         ],
         regionalTargets: {
           flanders: [
@@ -251,16 +251,16 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         ambitionLevel: 3,
         costInitial: new Cost(200000, 1000000),
         impacts: [
-          new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localPhosphorusPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.localLandUseChange, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.redistributionLocal, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localLandSystemChange, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localRedistribution, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localAirPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
+          new Impact(ImpactDomain.globalHumanRights, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.globalRedistribution, ImpactAmount.somewhatNegative),
         ],
         regionalTargets: {
           flanders: [
