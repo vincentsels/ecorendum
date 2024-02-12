@@ -11,15 +11,15 @@ export class Results {
     public totalLegalPenalty: number,
     public totalCostIncludingTax: Cost,
     public localEnvironmentalImpact: TotalImpact[],
-    public localRedistributiveImpact: TotalImpact[],
+    public localJusticeImpact: TotalImpact[],
     public globalEnvironmentalImpact: TotalImpact[],
-    public globalRedistributiveImpact: TotalImpact[],
+    public globalJusticeImpact: TotalImpact[],
     public image?: string,
     ) {
       this.localEnvironmentalImpact = localEnvironmentalImpact || [];
-      this.localRedistributiveImpact = localRedistributiveImpact || [];
+      this.localJusticeImpact = localJusticeImpact || [];
       this.globalEnvironmentalImpact = globalEnvironmentalImpact || [];
-      this.globalRedistributiveImpact = globalRedistributiveImpact || [];
+      this.globalJusticeImpact = globalJusticeImpact || [];
     }
 
   // legalGhgTarget = new TargetResult(Results.legalTargetGapGhgKt, 'Kt', Results.pricePerKtGhg);

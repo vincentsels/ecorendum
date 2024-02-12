@@ -22,7 +22,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.localOceanAcidification, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatNegative),
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
           new Impact(ImpactDomain.redistributionLocal, ImpactAmount.moderatelyNegative),
@@ -48,7 +48,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.localOceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatNegative),
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
@@ -75,7 +75,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.localOceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatNegative),
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.moderatelyNegative),
@@ -119,7 +119,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.localOceanAcidification, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
         ],
         regionalTargets: {
           flanders: [
@@ -142,7 +142,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.localOceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
         ],
         regionalTargets: {
@@ -166,7 +166,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         impacts: [
           new Impact(ImpactDomain.chemicalPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.localNitrogenPollution, ImpactAmount.moderatelyPositive),
-          new Impact(ImpactDomain.localOceanAcidification, ImpactAmount.moderatelyPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
         ],
         regionalTargets: {
@@ -230,7 +230,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
           new Impact(ImpactDomain.localLandUseChange, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.redistributionLocal, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.localOceanAcidification, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),
@@ -257,7 +257,7 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
           new Impact(ImpactDomain.localLandUseChange, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.redistributionLocal, ImpactAmount.moderatelyPositive),
           new Impact(ImpactDomain.aerosols, ImpactAmount.somewhatPositive),
-          new Impact(ImpactDomain.localOceanAcidification, ImpactAmount.somewhatPositive),
+          new Impact(ImpactDomain.localWaterPollution, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.humanRightsGlobal, ImpactAmount.somewhatPositive),
           new Impact(ImpactDomain.redistributionGlobal, ImpactAmount.somewhatNegative),

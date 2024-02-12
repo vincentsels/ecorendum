@@ -161,41 +161,11 @@
     </div>
   </mat-card>
 
-  <mat-card class="result-section">
-    <h3 *ngIf="!expandedTotalImpact" class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">flaky</mat-icon>
-        {{ 'Total impact' | translate }}
-      </span>
+  <app-impact-results [dialog]="dialog" [global]="false" [environmentalImpact]="results.localEnvironmentalImpact"
+    [justiceImpact]="results.localJusticeImpact" ></app-impact-results>
 
-      <span class="collapsed-header-summary">
-        <span *ngFor="let impactItem of results.totalImpact">
-          <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
-        </span>
-      </span>
-
-      <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalImpact()">
-        <mat-icon class="inline">
-          {{ expandedTotalImpact ? 'expand_more' : 'chevron_left' }}
-        </mat-icon>
-      </a>
-    </h3>
-
-    <div *ngIf="expandedTotalImpact">
-      <h3 class="header-with-collapse-icon">
-        <span><mat-icon class="inline">flaky</mat-icon> {{ 'Total impact' | translate }}</span>
-        <a [routerLink]="" class="unstyled-link" (click)="toggleTotalImpact()" *ngIf="!this.dialog">
-          <mat-icon class="inline">
-            {{ expandedTotalImpact ? 'expand_more' : 'chevron_left' }}
-          </mat-icon>
-        </a>
-      </h3>
-
-      <div *ngFor="let impactItem of results.totalImpact; trackBy: getTotalImpactId">
-        <app-impact-result [impactItem]="impactItem"></app-impact-result>
-      </div>
-    </div>
-  </mat-card>
+  <app-impact-results [dialog]="dialog" [global]="true" [environmentalImpact]="results.globalEnvironmentalImpact"
+    [justiceImpact]="results.globalJusticeImpact" ></app-impact-results>
 
 </div>
 

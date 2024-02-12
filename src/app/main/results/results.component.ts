@@ -55,10 +55,6 @@ export class ResultsComponent implements OnInit {
     this.expandedTotalCost = !this.expandedTotalCost;
   }
 
-  toggleTotalImpact() {
-    this.expandedTotalImpact = !this.expandedTotalImpact;
-  }
-
   showCostComparisonDialog() {
     this.commonDialog.show(
       this.translate.instant('Cost comparison'),
@@ -81,6 +77,4 @@ export class ResultsComponent implements OnInit {
     if (fraction > 0.5) return 'medium-risk'; // The measures can be more than 50% more expensive than the minimum
     return 'low-risk';
   }
-
-  getTotalImpactId = (_: any, item: TotalImpact) => item.domain;
 }
