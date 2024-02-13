@@ -123,16 +123,16 @@
       </a>
     </h3>
 
-    <h3 *ngIf="expandedTotalCost" class="header-with-collapse-icon">
-      <span><mat-icon class="inline">sell</mat-icon> {{ 'Total cost' | translate }}</span>
-      <a [routerLink]="" class="unstyled-link" (click)="toggleTotalCost()" *ngIf="!this.dialog">
-        <mat-icon class="inline">
-          {{ expandedTotalCost ? 'expand_more' : 'chevron_left' }}
-        </mat-icon>
-      </a>
-    </h3>
-
     <div *ngIf="expandedTotalCost">
+      <h3 class="header-with-collapse-icon">
+        <span><mat-icon class="inline">sell</mat-icon> {{ 'Total cost' | translate }}</span>
+        <a [routerLink]="" class="unstyled-link" (click)="toggleTotalCost()" *ngIf="!this.dialog">
+          <mat-icon class="inline">
+            {{ expandedTotalCost ? 'expand_more' : 'chevron_left' }}
+          </mat-icon>
+        </a>
+      </h3>
+
       <div class="calc-table" *ngIf="parametersService.parameters$ | async; let parameters">
         <div class="calc-line">
           <span class="calc-line-header">{{ 'Total measures cost' | translate }}</span>
@@ -154,48 +154,19 @@
             : results.totalCostIncludingTax) | cost }}</span>
         </div>
       </div>
+
       <p *ngIf="results.totalCostIncludingTax.isPositive()" style="margin-top: 12px">
         <a [href]="" (click)="showCostComparisonDialog()">{{ 'Find out what could be done with this budget instead' | translate }}</a>
       </p>
     </div>
   </mat-card>
 
-  <mat-card class="result-section">
-    <h3 *ngIf="expandedTotalImpact" class="header-with-collapse-icon">
-      <span><mat-icon class="inline">public</mat-icon> {{ 'Total impact' | translate }}</span>
-      <a [routerLink]="" class="unstyled-link" (click)="toggleTotalImpact()" *ngIf="!this.dialog">
-        <mat-icon class="inline">
-          {{ expandedTotalImpact ? 'expand_more' : 'chevron_left' }}
-        </mat-icon>
-      </a>
-    </h3>
+  <app-impact-results [dialog]="dialog" [global]="false" [environmentalImpact]="results.localEnvironmentalImpact"
+    [justiceImpact]="results.localJusticeImpact" [allImpact]="results.allLocalImpact"></app-impact-results>
 
-    <h3 *ngIf="!expandedTotalImpact" class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">public</mat-icon>
-        {{ 'Total impact' | translate }}
-      </span>
+  <app-impact-results [dialog]="dialog" [global]="true" [environmentalImpact]="results.globalEnvironmentalImpact"
+    [justiceImpact]="results.globalJusticeImpact" [allImpact]="results.allGlobalImpact"></app-impact-results>
 
-      <span class="collapsed-header-summary">
-        <span *ngFor="let impactItem of results.totalImpact">
-          <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
-        </span>
-      </span>
-
-      <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalImpact()">
-        <mat-icon class="inline">
-          {{ expandedTotalImpact ? 'expand_more' : 'chevron_left' }}
-        </mat-icon>
-      </a>
-    </h3>
-
-    <div *ngIf="expandedTotalImpact">
-      <div *ngFor="let impactItem of results.totalImpact">
-        <mat-icon class="inline icon-list-item" [class]="impactItem.class" matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
-        {{ impactItem.domain | translateEnum:'ImpactDomain' | async }}: {{ displayImpact(impactItem.amount) }}
-      </div>
-    </div>
-  </mat-card>
 </div>
 
 <button fxHide.lt-md mat-raised-button color="primary" (click)="submit()" class="submit-button-lg">{{ 'Publish results' | translate }}</button>

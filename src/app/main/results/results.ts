@@ -10,10 +10,18 @@ export class Results {
     public totalEuGhgTax: number,
     public totalLegalPenalty: number,
     public totalCostIncludingTax: Cost,
-    public totalImpact?: TotalImpact[],
+    public allLocalImpact: TotalImpact[],
+    public allGlobalImpact: TotalImpact[],
+    public localEnvironmentalImpact: TotalImpact[],
+    public localJusticeImpact: TotalImpact[],
+    public globalEnvironmentalImpact: TotalImpact[],
+    public globalJusticeImpact: TotalImpact[],
     public image?: string,
     ) {
-      this.totalImpact = totalImpact || [];
+      this.localEnvironmentalImpact = localEnvironmentalImpact || [];
+      this.localJusticeImpact = localJusticeImpact || [];
+      this.globalEnvironmentalImpact = globalEnvironmentalImpact || [];
+      this.globalJusticeImpact = globalJusticeImpact || [];
     }
 
   // legalGhgTarget = new TargetResult(Results.legalTargetGapGhgKt, 'Kt', Results.pricePerKtGhg);

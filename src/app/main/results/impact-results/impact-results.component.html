@@ -1,0 +1,46 @@
+<mat-card class="result-section">
+  <h3 *ngIf="!expand" class="result-section-collapsed">
+    <span class="collapsed-header">
+      <span *ngIf="!global"><mat-icon class="inline">flaky</mat-icon> {{ 'Local impact' | translate }}</span>
+      <span *ngIf="global"><mat-icon class="inline">public</mat-icon> {{ 'Global impact' | translate }}</span>
+    </span>
+
+    <span class="collapsed-header-summary">
+      <span *ngFor="let impactItem of allImpact">
+        <mat-icon class="inline icon-list-item" [class]="impactItem.class"
+          matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
+      </span>
+    </span>
+
+    <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalImpact()">
+      <mat-icon class="inline">
+        {{ expand ? 'expand_more' : 'chevron_left' }}
+      </mat-icon>
+    </a>
+  </h3>
+
+  <div *ngIf="expand">
+    <h3 class="header-with-collapse-icon">
+      <span *ngIf="!global"><mat-icon class="inline">forest</mat-icon> {{ 'Local environmental impact' | translate }}</span>
+      <span *ngIf="global"><mat-icon class="inline">public</mat-icon> {{ 'Global environmental impact' | translate }}</span>
+      <a [routerLink]="" class="unstyled-link" (click)="toggleTotalImpact()" *ngIf="!this.dialog">
+        <mat-icon class="inline">
+          {{ expand ? 'expand_more' : 'chevron_left' }}
+        </mat-icon>
+      </a>
+    </h3>
+
+    <div *ngFor="let impactItem of environmentalImpact; trackBy: getTotalImpactId">
+      <app-impact-result [impactItem]="impactItem"></app-impact-result>
+    </div>
+
+    <h3 style="margin-top: 16px">
+      <span *ngIf="!global"><mat-icon class="inline">account_balance</mat-icon> {{ 'Local justice impact' | translate }}</span>
+      <span *ngIf="global"><mat-icon class="inline">diversity_3</mat-icon> {{ 'Global justice impact' | translate }}</span>
+    </h3>
+
+    <div *ngFor="let impactItem of justiceImpact; trackBy: getTotalImpactId">
+      <app-impact-result [impactItem]="impactItem"></app-impact-result>
+    </div>
+  </div>
+</mat-card>

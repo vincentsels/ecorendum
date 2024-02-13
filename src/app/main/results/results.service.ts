@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { Cost, ImpactAmount, ImpactAmountMap, PolicyLevel, TargetType, Variant } from '../proposals/proposal';
+import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainType, ImpactDomainTypeMap, PolicyLevel, TargetType, Variant } from '../proposals/proposal';
 import { Results, TargetResult, TotalImpact } from './results';
 import { TargetsService } from '../targets/targets.service';
 import { ParametersService } from '../parameters/parameters.service';
@@ -104,6 +104,14 @@ export class ResultsService {
 
     totalImpact.sort((a, b) => b.amount - a.amount);
 
+    const localEnvironmentalImpact = this.getImpactForDomainType(totalImpact, ImpactDomainType.localEnvironmental);
+    const localJusticeImpact = this.getImpactForDomainType(totalImpact, ImpactDomainType.localJustice);
+    const globalEnvironmentalImpact = this.getImpactForDomainType(totalImpact, ImpactDomainType.globalEnvironmental);
+    const globalJusticeImpact = this.getImpactForDomainType(totalImpact, ImpactDomainType.globalJustice);
+
+    const allLocalImpact = [...localEnvironmentalImpact, ...localJusticeImpact].sort((a, b) => b.amount - a.amount);
+    const allGlobalImpact = [...localEnvironmentalImpact, ...localJusticeImpact].sort((a, b) => b.amount - a.amount);
+
     //let image = '';
     //for (let threshold of Results.moneyImageMap) {
     //  if (totalMoneyToRussia <= threshold.threshold) {
@@ -121,9 +129,16 @@ export class ResultsService {
       totalEuGhgTax,
       totalLegalPenalty,
       totalCostIncludingTax,
-      totalImpact,
+      allLocalImpact,
+      allGlobalImpact,
+      localEnvironmentalImpact,
+      localJusticeImpact,
+      globalEnvironmentalImpact,
+      globalJusticeImpact,
     );
   }
+
+  private getImpactForDomainType = (totalImpact: TotalImpact[], domainType: ImpactDomainType) => totalImpact.filter(i => ImpactDomainTypeMap[i.domain] === domainType)
 
   private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean, context: ContextType) {
     const singleRegionAmount = selectedVariants

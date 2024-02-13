@@ -66,6 +66,8 @@ import { MessageBarComponent } from './message-bar/message-bar.component';
 import { CostComponent } from './common/cost.component';
 import { CostScaleComponent } from './common/cost-scale.component';
 import { CostEditorComponent } from './main/proposals/proposal-editor/proposal-data-editor/cost-editor/cost-editor.component';
+import { ImpactResultComponent } from './main/results/impact-result.component';
+import { ImpactResultsComponent } from './main/results/impact-results/impact-results.coponent';
 
 // AoT requires an exported function for factories
 // tslint:disable-next-line:function-name
@@ -116,6 +118,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MessageBarComponent,
     CostComponent,
     CostEditorComponent,
+    ImpactResultComponent,
+    ImpactResultsComponent,
   ],
   imports: [
     BrowserModule,

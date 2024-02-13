@@ -6,7 +6,7 @@ import { Observable, map } from 'rxjs';
 import { CommonDialogService } from '../../common/dialog.component';
 import { EnumsService } from '../../common/enums.service';
 import { SubmitDialogComponent } from '../submit-dialog/submit-dialog.component';
-import { Results } from './results';
+import { Results, TotalImpact } from './results';
 import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
 import { ResultsService } from './results.service';
 import { ProposalService } from '../proposals/proposal.service';
@@ -24,7 +24,7 @@ export class ResultsComponent implements OnInit {
   risk$: Observable<'high-risk' | 'medium-risk' | 'low-risk'>;
 
   expandedTotalCost = false;
-  expandedTotalImpact = false;
+  expandedTotalImpact = true;
 
   @Input() dialog = false;
 
@@ -53,10 +53,6 @@ export class ResultsComponent implements OnInit {
 
   toggleTotalCost() {
     this.expandedTotalCost = !this.expandedTotalCost;
-  }
-
-  toggleTotalImpact() {
-    this.expandedTotalImpact = !this.expandedTotalImpact;
   }
 
   showCostComparisonDialog() {

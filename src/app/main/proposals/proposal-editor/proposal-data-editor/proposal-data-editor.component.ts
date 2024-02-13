@@ -112,7 +112,7 @@ export class ProposalDataEditorComponent {
   }
 
   addImpact(variant: Variant) {
-    variant.impacts.push(new Impact(ImpactDomain.aerosols, ImpactAmount.neutral));
+    variant.impacts.push(new Impact(ImpactDomain.localAirPollution, ImpactAmount.neutral));
   }
 
   removeImpact(variant: Variant, impactIndex: number) {
