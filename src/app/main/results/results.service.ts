@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainType, ImpactDomainTypeMap, PolicyLevel, TargetType, Variant } from '../proposals/proposal';
+import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainType, ImpactDomainTypeMap, PolicyLevel, Sector, TargetType, Variant } from '../proposals/proposal';
 import { Results, SectorEmissionsResult, SectorEmissionsResults, TargetResult, TotalImpact } from './results';
 import { TargetsService } from '../targets/targets.service';
 import { ParametersService } from '../parameters/parameters.service';
@@ -143,7 +143,24 @@ export class ResultsService {
     );
   }
 
-  calculateSectorEmissions(selectedVariants: Variant[], sectorEmissions: SectorEmissions) {
+  private getImpactForDomainType = (totalImpact: TotalImpact[], domainType: ImpactDomainType) => totalImpact.filter(i => ImpactDomainTypeMap[i.domain] === domainType)
+
+  private calculateTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean, context: ContextType) {
+    const singleRegionAmount = selectedVariants
+      .filter(v => includeEts || v.proposal?.ets === false)
+      .flatMap(v => v.targets?.filter(t => t.type === targetType).map(t => t?.amount || 0))
+      .reduce((a, b) => a + b, 0);
+
+    const federalAmountForRegion = selectedVariants
+      .filter(v => includeEts || v.proposal?.ets === false && v.regionalTargets && v.regionalTargets[context])
+      .filter(v => v.proposal?.policyLevel === PolicyLevel.federal)
+      .flatMap(v => v.regionalTargets![context].filter(t => t.type === targetType).map(t => t?.amount || 0))
+      .reduce((a, b) => a + b, 0);
+
+    return singleRegionAmount + federalAmountForRegion;
+  }
+
+  private calculateSectorEmissions(selectedVariants: Variant[], sectorEmissions: SectorEmissions) {
     const totalElectricityReduction = this.getReductionForSector(selectedVariants, Sector.electricityProduction);
     const totalIndustryReduction = this.getReductionForSector(selectedVariants, Sector.industry);
     const totalBuildingsReduction = this.getReductionForSector(selectedVariants, Sector.buildings);
@@ -160,42 +177,25 @@ export class ResultsService {
 
     return new SectorEmissionsResults(
       new SectorEmissionsResult(
-        sectorEmissions.electricity, sectorEmissions.electricity - totalElectricityReduction, 'warn', electricityReductionPercentage),
+        sectorEmissions.electricity, sectorEmissions.electricity - totalElectricityReduction, 'primary', electricityReductionPercentage),
       new SectorEmissionsResult(
-        sectorEmissions.industry, sectorEmissions.industry - totalIndustryReduction, 'warn', industryReductionPercentage),
+        sectorEmissions.industry, sectorEmissions.industry - totalIndustryReduction, 'primary', industryReductionPercentage),
       new SectorEmissionsResult(
-        sectorEmissions.buildings, sectorEmissions.buildings - totalBuildingsReduction, 'warn', buildingsReductionPercentage),
+        sectorEmissions.buildings, sectorEmissions.buildings - totalBuildingsReduction, 'primary', buildingsReductionPercentage),
       new SectorEmissionsResult(
-        sectorEmissions.transport, sectorEmissions.transport - totalTransportReduction, 'warn', transportReductionPercentage),
+        sectorEmissions.transport, sectorEmissions.transport - totalTransportReduction, 'primary', transportReductionPercentage),
       new SectorEmissionsResult(
-        sectorEmissions.agriculture, sectorEmissions.agriculture - totalAgricultureReduction, 'warn', agricultureReductionPercentage),
+        sectorEmissions.agriculture, sectorEmissions.agriculture - totalAgricultureReduction, 'primary', agricultureReductionPercentage),
       new SectorEmissionsResult(
-        sectorEmissions.waste, sectorEmissions.waste - totalWasteManagmentReduction, 'warn', wasteManagementReductionPercentage),
+        sectorEmissions.waste, sectorEmissions.waste - totalWasteManagmentReduction, 'primary', wasteManagementReductionPercentage),
       );
   }
 
-  getReductionForSector(selectedVariants: Variant[], sector: Sector) {
+  private getReductionForSector(selectedVariants: Variant[], sector: Sector) {
     return selectedVariants
       .filter(v => v.proposal!.sector === sector && v.targets.some(t => t.type === TargetType.ghgReduction))
       .reduce((t, v) => {
         return t + v.targets.find(t => t.type === TargetType.ghgReduction)!.amount
       }, 0);
-  }
-
-  private getImpactForDomainType = (totalImpact: TotalImpact[], domainType: ImpactDomainType) => totalImpact.filter(i => ImpactDomainTypeMap[i.domain] === domainType)
-
-  private getTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean, context: ContextType) {
-    const singleRegionAmount = selectedVariants
-      .filter(v => includeEts || v.proposal?.ets === false)
-      .flatMap(v => v.targets?.filter(t => t.type === targetType).map(t => t?.amount || 0))
-      .reduce((a, b) => a + b, 0);
-
-    const federalAmountForRegion = selectedVariants
-      .filter(v => includeEts || v.proposal?.ets === false && v.regionalTargets && v.regionalTargets[context])
-      .filter(v => v.proposal?.policyLevel === PolicyLevel.federal)
-      .flatMap(v => v.regionalTargets![context].filter(t => t.type === targetType).map(t => t?.amount || 0))
-      .reduce((a, b) => a + b, 0);
-
-    return singleRegionAmount + federalAmountForRegion;
   }
 }
