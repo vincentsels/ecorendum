@@ -2,6 +2,9 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, map } from 'rxjs';
+import * as Highcharts from 'highcharts';
+import theme from 'highcharts/themes/dark-unica';
+theme(Highcharts);
 
 import { CommonDialogService } from '../../common/dialog.component';
 import { EnumsService } from '../../common/enums.service';
@@ -23,10 +26,39 @@ export class ResultsComponent implements OnInit {
   results$: Observable<Results>;
   risk$: Observable<'high-risk' | 'medium-risk' | 'low-risk'>;
 
+  @Input() dialog = false;
+
   expandedTotalCost = false;
   expandedTotalImpact = true;
+  expandedCo2Reduction = true;
 
-  @Input() dialog = false;
+  Highcharts: typeof Highcharts = Highcharts; // required
+  chartConstructor: string = 'chart'; // optional string, defaults to 'chart'
+  chartOptions: Highcharts.Options = {
+    chart: {
+      backgroundColor: 'transparent',
+      type: 'column'
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    title: undefined,
+    series: [{
+      type: 'column',
+      name: 'BPL',
+      data: [3, 5, 1, 13]
+    }, {
+      type: 'column',
+      name: 'FA Cup',
+      data: [14, 8, 8, 12]
+    }] }; // required
+  updateFlag: boolean = false; // optional boolean
+  oneToOneFlag: boolean = true; // optional boolean, defaults to false
 
   constructor(service: ResultsService, public enums: EnumsService, public proposalService: ProposalService, public parametersService: ParametersService,
     private matDialog: MatDialog, private commonDialog: CommonDialogService, private translate: TranslateService) {
@@ -51,9 +83,8 @@ export class ResultsComponent implements OnInit {
     return sign.repeat(Math.abs(impactAmount));
   }
 
-  toggleTotalCost() {
-    this.expandedTotalCost = !this.expandedTotalCost;
-  }
+  toggleCo2Reduction = () => this.expandedCo2Reduction = !this.expandedCo2Reduction;
+  toggleTotalCost = () => this.expandedTotalCost = !this.expandedTotalCost;
 
   showCostComparisonDialog() {
     this.commonDialog.show(

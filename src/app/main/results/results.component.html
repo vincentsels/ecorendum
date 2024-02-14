@@ -7,49 +7,6 @@
 </h1>
 
 <div *ngIf="results$ | async; let results">
-  <!-- <mat-card class="result-section">
-    <h2>{{ 'Russian economy impact' | translate }}</h2>
-
-    <div class="result-section-with-image" ngClass.lt-sm="result-section-with-image-lt-md">
-      <img class="result-section-image" [src]="results.image" />
-
-      <div class="result-section-targets">
-        <h3 class="result-section-collapsed">
-          <span class="collapsed-header">
-            <mat-icon class="inline">request_quote</mat-icon>
-            {{ 'Yearly transfer' | translate }}
-          </span>
-
-          <span class="collapsed-header-summary" [class.color-accent]="results.totalMoneyToRussia === 0"> €&nbsp;{{ results.totalMoneyToRussia | number }}</span>
-        </h3>
-
-        <h3 class="result-section-collapsed">
-          <span class="collapsed-header">
-            <mat-icon class="inline">propane</mat-icon>
-            {{ 'Gas imported' | translate }}
-          </span>
-
-          <mat-progress-bar class="progress" mode="determinate"
-            [color]="results.rgTarget.color"
-            [value]="results.rgTarget.percentage">
-          </mat-progress-bar>
-        </h3>
-
-        <h3 class="result-section-collapsed">
-          <span class="collapsed-header">
-            <mat-icon class="inline">oil_barrel</mat-icon>
-            {{ 'Oil imported' | translate }}
-          </span>
-
-          <mat-progress-bar class="progress" mode="determinate"
-            [color]="results.roTarget.color"
-            [value]="results.roTarget.percentage">
-          </mat-progress-bar>
-        </h3>
-      </div>
-    </div>
-  </mat-card> -->
-
   <mat-card class="result-section">
     <h3 class="result-section-collapsed">
       <span class="collapsed-header">
@@ -61,7 +18,29 @@
       </span>
 
       <app-result-progress [target]="results.legalGhgTarget"></app-result-progress>
+
+      <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleCo2Reduction()">
+        <mat-icon class="inline">
+          {{ expandedCo2Reduction ? 'expand_more' : 'chevron_left' }}
+        </mat-icon>
+      </a>
     </h3>
+
+    <div *ngIf="expandedCo2Reduction">
+      {{ results.sectorEmissionsResults | json }}
+
+      <highcharts-chart
+        [Highcharts]="Highcharts"
+
+        [constructorType]="chartConstructor"
+        [options]="chartOptions"
+
+        [(update)]="updateFlag"
+        [oneToOne]="oneToOneFlag"
+
+        style="width: 100%; height: 400px; display: block;"
+      ></highcharts-chart>
+    </div>
   </mat-card>
 
   <mat-card class="result-section">
