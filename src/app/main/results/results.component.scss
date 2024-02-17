@@ -111,3 +111,41 @@ app-result-progress {
 .condensed-section {
   margin-bottom: 16px;
 }
+
+.chart-container {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+
+  .chart-column-container {
+    flex: 1 1;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+
+    .chart-column {
+      flex: 1 1;
+      display: flex;
+      flex-direction: column-reverse;
+
+      .chart-column-current-emissions {
+        display: flex;
+        flex-direction: column-reverse;
+
+        .chart-column-resulting-emissions {
+
+        }
+      }
+    }
+  }
+
+  .chart-labels-container {
+    flex: 0 1 auto;
+    display: flex;
+
+    .chart-label {
+      flex: 1 1;
+      text-align: center;
+    }
+  }
+}

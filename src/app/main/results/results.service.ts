@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainType, ImpactDomainTypeMap, PolicyLevel, Sector, TargetType, Variant } from '../proposals/proposal';
+import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainType, ImpactDomainTypeMap, PolicyLevel, Sector, SectorMap, TargetType, Variant } from '../proposals/proposal';
 import { Results, SectorEmissionsResult, SectorEmissionsResults, TargetResult, TotalImpact } from './results';
 import { TargetsService } from '../targets/targets.service';
 import { ParametersService } from '../parameters/parameters.service';
@@ -165,11 +165,12 @@ export class ResultsService {
 
     const results = sectorEmissions.map((se) => {
         const totalReduction = this.getReductionForSector(selectedVariants, se.sector);
-        const percentageReduction = Math.round(100 - totalReduction / se.emissions);
-        const percentageOfMax = Math.round(se.emissions / maxSectorEmissions);
+        const percentageReduction = Math.round(100 - (totalReduction / se.emissions * 100));
+        const percentageOfMax = Math.round(se.emissions / maxSectorEmissions * 100);
         const resultingEmissions = se.emissions - totalReduction;
+        const icon = SectorMap[se.sector || Sector.other];
 
-        return new SectorEmissionsResult(se.sector, se.emissions, resultingEmissions, 'primary',
+        return new SectorEmissionsResult(se.sector, icon, se.emissions, resultingEmissions, 'primary',
           percentageReduction, percentageOfMax)
       }
     );
