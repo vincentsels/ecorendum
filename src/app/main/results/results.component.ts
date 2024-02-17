@@ -23,6 +23,7 @@ export class ResultsComponent implements OnInit {
   results$: Observable<Results>;
   risk$: Observable<'high-risk' | 'medium-risk' | 'low-risk'>;
 
+  expandedCo2Reduction = true;
   expandedTotalCost = false;
   expandedTotalImpact = true;
 
@@ -51,9 +52,8 @@ export class ResultsComponent implements OnInit {
     return sign.repeat(Math.abs(impactAmount));
   }
 
-  toggleTotalCost() {
-    this.expandedTotalCost = !this.expandedTotalCost;
-  }
+  toggleTotalCost = () => this.expandedTotalCost = !this.expandedTotalCost;
+  toggleCo2Reduction = () => this.expandedTotalCost = !this.expandedTotalCost;
 
   showCostComparisonDialog() {
     this.commonDialog.show(
