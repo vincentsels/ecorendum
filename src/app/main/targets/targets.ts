@@ -1,4 +1,4 @@
-import { ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap } from '../proposals/proposal';
+import { ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap, Sector } from '../proposals/proposal';
 
 export class Targets {
   constructor(
@@ -20,12 +20,5 @@ export class Targets {
 }
 
 export class SectorEmissions {
-  constructor(
-    public electricity: number, //Elektriciteits-productie	17,4	8,6
-    public industry: number, //Industrie	28,9	26,1
-    public buildings: number, //Gebouwen	14,2	12,6
-    public transport: number, //Transport	13,8	16,1
-    public agriculture: number, //Landbouw	9,2	7,8
-    public waste: number, //Afval	3,3	2,3
-  ) {}
+  constructor (public sector: Sector, public emissions: number) {}
 }

@@ -160,35 +160,21 @@ export class ResultsService {
     return singleRegionAmount + federalAmountForRegion;
   }
 
-  private calculateSectorEmissions(selectedVariants: Variant[], sectorEmissions: SectorEmissions) {
-    const totalElectricityReduction = this.getReductionForSector(selectedVariants, Sector.electricityProduction);
-    const totalIndustryReduction = this.getReductionForSector(selectedVariants, Sector.industry);
-    const totalBuildingsReduction = this.getReductionForSector(selectedVariants, Sector.buildings);
-    const totalTransportReduction = this.getReductionForSector(selectedVariants, Sector.transport);
-    const totalAgricultureReduction = this.getReductionForSector(selectedVariants, Sector.agriculture);
-    const totalWasteManagmentReduction = this.getReductionForSector(selectedVariants, Sector.wasteManagement);
+  private calculateSectorEmissions(selectedVariants: Variant[], sectorEmissions: SectorEmissions[]) {
+    const maxSectorEmissions = Math.max(...sectorEmissions.map(e => e.emissions));
 
-    const electricityReductionPercentage = 100 - totalElectricityReduction / sectorEmissions.electricity;
-    const industryReductionPercentage = 100 - totalIndustryReduction / sectorEmissions.industry;
-    const buildingsReductionPercentage = 100 - totalBuildingsReduction / sectorEmissions.buildings;
-    const transportReductionPercentage = 100 - totalTransportReduction / sectorEmissions.transport;
-    const agricultureReductionPercentage = 100 - totalAgricultureReduction / sectorEmissions.agriculture;
-    const wasteManagementReductionPercentage = 100 - totalWasteManagmentReduction / sectorEmissions.waste;
+    const results = sectorEmissions.map((se) => {
+        const totalReduction = this.getReductionForSector(selectedVariants, se.sector);
+        const percentageReduction = Math.round(100 - totalReduction / se.emissions);
+        const percentageOfMax = Math.round(se.emissions / maxSectorEmissions);
+        const resultingEmissions = se.emissions - totalReduction;
 
-    return new SectorEmissionsResults(
-      new SectorEmissionsResult(
-        sectorEmissions.electricity, sectorEmissions.electricity - totalElectricityReduction, 'primary', electricityReductionPercentage),
-      new SectorEmissionsResult(
-        sectorEmissions.industry, sectorEmissions.industry - totalIndustryReduction, 'primary', industryReductionPercentage),
-      new SectorEmissionsResult(
-        sectorEmissions.buildings, sectorEmissions.buildings - totalBuildingsReduction, 'primary', buildingsReductionPercentage),
-      new SectorEmissionsResult(
-        sectorEmissions.transport, sectorEmissions.transport - totalTransportReduction, 'primary', transportReductionPercentage),
-      new SectorEmissionsResult(
-        sectorEmissions.agriculture, sectorEmissions.agriculture - totalAgricultureReduction, 'primary', agricultureReductionPercentage),
-      new SectorEmissionsResult(
-        sectorEmissions.waste, sectorEmissions.waste - totalWasteManagmentReduction, 'primary', wasteManagementReductionPercentage),
-      );
+        return new SectorEmissionsResult(se.sector, se.emissions, resultingEmissions, 'primary',
+          percentageReduction, percentageOfMax)
+      }
+    );
+
+    return new SectorEmissionsResults(results, maxSectorEmissions);
   }
 
   private getReductionForSector(selectedVariants: Variant[], sector: Sector) {

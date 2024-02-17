@@ -1,4 +1,4 @@
-import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap } from '../proposals/proposal';
+import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap, Sector } from '../proposals/proposal';
 
 export class Results {
   constructor(
@@ -47,21 +47,20 @@ export class TargetResult {
 
 export class SectorEmissionsResults {
   constructor(
-    public electricity: SectorEmissionsResult,
-    public industry: SectorEmissionsResult,
-    public buildings: SectorEmissionsResult,
-    public transport: SectorEmissionsResult,
-    public agriculture: SectorEmissionsResult,
-    public waste: SectorEmissionsResult,
-  ) {}
+    public sectors: SectorEmissionsResult[],
+    public max: number,
+  ) {
+  }
 }
 
 export class SectorEmissionsResult {
   constructor(
+    public sector: Sector,
     public currentEmissions: number,
     public resultingEmissions: number,
     public colorClass: string,
-    public percentage: number,
+    public percentageReduction: number,
+    public percentageOfMax: number,
   ) {}
 }
 

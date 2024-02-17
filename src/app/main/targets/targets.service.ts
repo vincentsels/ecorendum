@@ -3,15 +3,16 @@ import { BehaviorSubject } from "rxjs";
 
 import { SectorEmissions, Targets } from "./targets";
 import { ContextType, ContextService } from "../context/context.service";
+import { Sector } from "../proposals/proposal";
 
 @Injectable()
 export class TargetsService {
   targets$: BehaviorSubject<Targets>;
-  sectorEmissions$: BehaviorSubject<SectorEmissions>;
+  sectorEmissions$: BehaviorSubject<SectorEmissions[]>;
 
   constructor(private contextService: ContextService) {
     this.targets$ = new BehaviorSubject<Targets>(this.getTargetsByContext(this.contextService.context$.value));
-    this.sectorEmissions$ = new BehaviorSubject<SectorEmissions>(this.getSectorEmissionsByContext(this.contextService.context$.value));
+    this.sectorEmissions$ = new BehaviorSubject<SectorEmissions[]>(this.getSectorEmissionsByContext(this.contextService.context$.value));
 
     contextService.context$.subscribe(c => this.targets$.next(this.getTargetsByContext(c)));
   }
@@ -43,34 +44,34 @@ export class TargetsService {
     }
   }
 
-  getSectorEmissionsByContext(context: ContextType): SectorEmissions {
+  getSectorEmissionsByContext(context: ContextType): SectorEmissions[] {
     if (context === 'flanders') {
-      return new SectorEmissions(
-        8600, // electricity
-        26100, // industry
-        12600, // buildings
-        16100, // transport
-        7800, // agriculture
-        2300 // waste
-      );
+      return [
+        new SectorEmissions(Sector.electricityProduction, 8600),
+        new SectorEmissions(Sector.industry, 26100),
+        new SectorEmissions(Sector.buildings, 12600),
+        new SectorEmissions(Sector.transport, 16100),
+        new SectorEmissions(Sector.agriculture, 7800),
+        new SectorEmissions(Sector.wasteManagement, 2300),
+      ];
     } else if (context === 'brussels') {
-      return new SectorEmissions(
-        8600 / 10, // electricity
-        26100 / 10, // industry
-        12600 / 10, // buildings
-        16100 / 10, // transport
-        7800 / 10, // agriculture
-        2300 / 10 // waste
-      );
+      return [
+        new SectorEmissions(Sector.electricityProduction, 8600 / 10),
+        new SectorEmissions(Sector.industry, 26100 / 10),
+        new SectorEmissions(Sector.buildings, 12600 / 10),
+        new SectorEmissions(Sector.transport, 16100 / 10),
+        new SectorEmissions(Sector.agriculture, 7800 / 10),
+        new SectorEmissions(Sector.wasteManagement, 2300 / 10),
+      ];
     } else if (context === 'wallonia') {
-      return new SectorEmissions(
-        8600 / 2, // electricity
-        26100 / 2, // industry
-        12600 / 2, // buildings
-        16100 / 2, // transport
-        7800 / 2, // agriculture
-        2300 / 2 // waste
-      );
+      return [
+        new SectorEmissions(Sector.electricityProduction, 8600 / 2),
+        new SectorEmissions(Sector.industry, 26100 / 2),
+        new SectorEmissions(Sector.buildings, 12600 / 2),
+        new SectorEmissions(Sector.transport, 16100 / 2),
+        new SectorEmissions(Sector.agriculture, 7800 / 2),
+        new SectorEmissions(Sector.wasteManagement, 2300 / 2),
+      ];
     } else {
       throw new Error('Unknown context');
     }
