@@ -57,6 +57,7 @@ export class SectorEmissionsResult {
   constructor(
     public sector: Sector,
     public sectorIcon: string,
+    public reducedEmissions: number,
     public currentEmissions: number,
     public resultingEmissions: number,
     public colorClass: string,

@@ -1,3 +1,6 @@
+@use '@angular/material' as mat;
+@use 'parameters' as params;
+
 .chart-container {
   height: 200px;
   display: flex;
@@ -18,16 +21,20 @@
         display: flex;
         flex-direction: column-reverse;
         transition: 250ms cubic-bezier(0, 0, 0.2, 1);
+        opacity: 0.8;
+        &:hover { opacity: 1; }
 
         .chart-column-resulting-emissions {
           transition: 250ms cubic-bezier(0, 0, 0.2, 1);
-
+          opacity: 0.8;
+          &:hover { opacity: 1; }
         }
       }
     }
   }
 
   .chart-labels-container {
+    margin-top: 12px;
     flex: 0 1 auto;
     display: flex;
 
@@ -35,5 +42,23 @@
       flex: 1 1;
       text-align: center;
     }
+  }
+}
+
+.chart-column-current-emissions {
+  background-color: rgba(mat.get-theme-color(params.$ecorendum-theme, accent), 0.3);
+}
+
+.chart-column-resulting-emissions {
+  background-color: mat.get-theme-color(params.$ecorendum-theme, accent);
+}
+
+::ng-deep.light-mode {
+  .chart-column-current-emissions {
+    background-color: rgba(mat.get-theme-color(params.$ecorendum-light-theme, accent), 0.3);
+  }
+
+  .chart-column-resulting-emissions {
+    background-color: mat.get-theme-color(params.$ecorendum-light-theme, accent);
   }
 }

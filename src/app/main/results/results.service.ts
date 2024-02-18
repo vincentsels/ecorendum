@@ -164,7 +164,7 @@ export class ResultsService {
         const resultingEmissions = se.emissions - totalReduction;
         const icon = SectorMap[se.sector || Sector.other];
 
-        return new SectorEmissionsResult(se.sector, icon, se.emissions, resultingEmissions, 'primary',
+        return new SectorEmissionsResult(se.sector, icon, -totalReduction, se.emissions, resultingEmissions, 'primary',
           percentageReduction, percentageOfMax)
       }
     );

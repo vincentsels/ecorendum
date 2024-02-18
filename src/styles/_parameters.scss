@@ -29,13 +29,3 @@ $ecorendum-light-theme: mat.define-light-theme((
     warn: $ecorendum-light-warn
   )
 ));
-
-$ecorendum-primary: $ecorendum-dark-primary;
-$ecorendum-accent: $ecorendum-dark-accent;
-$ecorendum-warn: $ecorendum-dark-warn;
-
-.light-mode {
-  $ecorendum-primary: $ecorendum-light-primary;
-  $ecorendum-accent: $ecorendum-light-accent;
-  $ecorendum-warn: $ecorendum-light-warn;
-}

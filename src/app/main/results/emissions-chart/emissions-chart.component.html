@@ -1,8 +1,8 @@
 <div class="chart-container">
   <div class="chart-column-container">
     <div class="chart-column" *ngFor="let se of sectorEmissionsResults.sectors; trackBy: getSectorType">
-      <div class="chart-column-current-emissions bg-color-accent" [style.flex-basis]="se.percentageOfMax + '%'">
-        <div class="chart-column-resulting-emissions bg-color-primary" [style.flex-basis]="se.percentageReduction + '%'">
+      <div class="chart-column-current-emissions" [style.flex-basis]="se.percentageOfMax + '%'" matTooltip="{{ se.reducedEmissions | number }} kt" matTooltipPosition="above">
+        <div class="chart-column-resulting-emissions" [style.flex-basis]="se.percentageReduction + '%'" matTooltip="{{ se.resultingEmissions | number }} kt" matTooltipPosition="above">
 
         </div>
       </div>
@@ -10,7 +10,7 @@
   </div>
   <div class="chart-labels-container">
     <div class="chart-label" *ngFor="let se of sectorEmissionsResults.sectors">
-      <mat-icon class="inline">{{ se.sectorIcon }}</mat-icon> {{ se.sector }}
+      <mat-icon matTooltip="{{ se.sector | translateEnum:'Sector' | async }}">{{ se.sectorIcon }}</mat-icon>
     </div>
   </div>
 </div>
