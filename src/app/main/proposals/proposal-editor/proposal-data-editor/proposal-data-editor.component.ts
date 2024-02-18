@@ -33,7 +33,7 @@ export class ProposalDataEditorComponent {
 
   targetTypeToUnitMap = {
     [TargetType.energyEfficiency]: 'GWh',
-    [TargetType.ghgReduction]: 'Kt',
+    [TargetType.ghgReduction]: 'kt',
     [TargetType.renewableEnergy]: 'GWh',
     [TargetType.none]: '',
   }

@@ -25,9 +25,9 @@ export class Results {
       this.globalJusticeImpact = globalJusticeImpact || [];
     }
 
-  // legalGhgTarget = new TargetResult(Results.legalTargetGapGhgKt, 'Kt', Results.pricePerKtGhg);
+  // legalGhgTarget = new TargetResult(Results.legalTargetGapGhgKt, 'kt', Results.pricePerKtGhg);
 
-  // euGhgTarget = new TargetResult(Results.euTargetGapGhgKt, 'Kt', Results.pricePerKtGhg);
+  // euGhgTarget = new TargetResult(Results.euTargetGapGhgKt, 'kt', Results.pricePerKtGhg);
   // euEeTarget = new TargetResult(Results.euTargetGapEeGwh, 'Gwh');
   // euReTarget = new TargetResult(Results.euTargetGapReGwh, 'Gwh');
 }

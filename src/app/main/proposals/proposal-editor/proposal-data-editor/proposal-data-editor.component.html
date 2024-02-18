@@ -106,6 +106,14 @@
             <div *ngFor="let target of variant.targets; let targetIndex = index" class="card">
               <div class="row-form-with-button">
                 <mat-form-field appearance="fill">
+                  <mat-label>Sector</mat-label>
+                  <mat-select name="targetSector{{variantIndex}}_{{targetIndex}}" [(ngModel)]="target.sector">
+                    <mat-option [value]="undefined"></mat-option>
+                    <mat-option *ngFor="let sector of sectors" [value]="sector">{{ sector | translateEnum:'Sector' | async }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
                   <mat-label>Target Type</mat-label>
                   <mat-select name="targetType{{variantIndex}}_{{targetIndex}}" [(ngModel)]="target.type">
                     <mat-option *ngFor="let targetType of targetTypes" [value]="targetType">{{ targetType | translateEnum:'TargetType' | async }}</mat-option>
