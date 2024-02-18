@@ -77,6 +77,4 @@ export class ResultsComponent implements OnInit {
     if (fraction > 0.5) return 'medium-risk'; // The measures can be more than 50% more expensive than the minimum
     return 'low-risk';
   }
-
-  getSectorType = (_: any, sector: SectorEmissionsResult) => sector.sector;
 }

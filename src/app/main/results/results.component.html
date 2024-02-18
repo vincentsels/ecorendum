@@ -27,26 +27,7 @@
       </a>
     </h3>
 
-    <div *ngIf="expandedCo2Reduction">
-      {{ results.sectorEmissionsResults | json }}
-    </div>
-
-    <div class="chart-container" *ngIf="expandedCo2Reduction">
-      <div class="chart-column-container">
-        <div class="chart-column" *ngFor="let se of results.sectorEmissionsResults.sectors; trackBy: getSectorType">
-          <div class="chart-column-current-emissions bg-color-accent" [style.flex-basis]="se.percentageOfMax + '%'">
-            <div class="chart-column-resulting-emissions bg-color-primary" [style.flex-basis]="se.percentageReduction + '%'">
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="chart-labels-container">
-        <div class="chart-label" *ngFor="let se of results.sectorEmissionsResults.sectors">
-          <mat-icon class="inline">{{ se.sectorIcon }}</mat-icon> {{ se.sector }}
-        </div>
-      </div>
-    </div>
+    <app-emissions-chart *ngIf="expandedCo2Reduction" [sectorEmissionsResults]="results.sectorEmissionsResults"></app-emissions-chart>
 
   </mat-card>
 
