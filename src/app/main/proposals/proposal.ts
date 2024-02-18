@@ -158,12 +158,12 @@ export class Variant {
   /** Reference the parent proposal. Should be set manually after creating a new variant. Should be set to undefined before serializing. */
   proposal?: Proposal;
 
-  getTargetAmount(type: TargetType, context: ContextType) {
-    if (this.regionalTargets && this.regionalTargets[context]) {
-      return this.regionalTargets[context].find(t => t.type === type)?.amount || 0;
-    }
+  getTargetAmount(type: TargetType, context: ContextType, sector?: Sector) {
+    let targets = this.regionalTargets?.[context] || this.targets;
 
-    return this.targets.find(t => t.type === type)?.amount || 0;
+    return targets
+      .filter(t => t.type === type && (sector === undefined || (t.sector || this.proposal!.sector) === sector))
+      .reduce((t, a) => t + a.amount, 0);
   }
 
   getTotalCost() {
@@ -222,6 +222,8 @@ export class Target {
     Object.assign(this, props);
   }
 
+  /** Optional. Leave blank for 'main sector' targets; or fill in for additional or multi-sector targets */
+  sector?: Sector;
   type?: TargetType;
   amount: number = 0;
 }

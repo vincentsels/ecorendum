@@ -37,7 +37,10 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
           new Impact(ImpactDomain.globalHumanRights, ImpactAmount.somewhatNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 12800 }),
+          new Target({ sector: Sector.buildings, type: TargetType.ghgReduction, amount: 3600 }),
+          new Target({ sector: Sector.transport, type: TargetType.ghgReduction, amount: 5100 }),
+          new Target({ sector: Sector.agriculture, type: TargetType.ghgReduction, amount: 2800 }),
+          new Target({ sector: Sector.wasteManagement, type: TargetType.ghgReduction, amount: 1300 }),
           new Target({ type: TargetType.renewableEnergy, amount: 2000 }),
           new Target({ type: TargetType.energyEfficiency, amount: 2000 }),
         ]

@@ -174,9 +174,8 @@ export class ResultsService {
 
   private getReductionForSector(selectedVariants: Variant[], sector: Sector, context: ContextType) {
     return selectedVariants
-      .filter(v => v.proposal!.sector === sector)
       .reduce((t, v) => {
-        return t + v.getTargetAmount(TargetType.ghgReduction, context);
+        return t + v.getTargetAmount(TargetType.ghgReduction, context, sector);
       }, 0);
   }
 }
