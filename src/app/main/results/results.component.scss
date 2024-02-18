@@ -131,8 +131,10 @@ app-result-progress {
       .chart-column-current-emissions {
         display: flex;
         flex-direction: column-reverse;
+        transition: 250ms cubic-bezier(0, 0, 0.2, 1);
 
         .chart-column-resulting-emissions {
+          transition: 250ms cubic-bezier(0, 0, 0.2, 1);
 
         }
       }

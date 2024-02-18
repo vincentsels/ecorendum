@@ -6,7 +6,7 @@ import { Observable, map } from 'rxjs';
 import { CommonDialogService } from '../../common/dialog.component';
 import { EnumsService } from '../../common/enums.service';
 import { SubmitDialogComponent } from '../submit-dialog/submit-dialog.component';
-import { Results, TotalImpact } from './results';
+import { Results, SectorEmissionsResult, TotalImpact } from './results';
 import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
 import { ResultsService } from './results.service';
 import { ProposalService } from '../proposals/proposal.service';
@@ -52,8 +52,8 @@ export class ResultsComponent implements OnInit {
     return sign.repeat(Math.abs(impactAmount));
   }
 
+  toggleCo2Reduction = () => this.expandedCo2Reduction = !this.expandedCo2Reduction;
   toggleTotalCost = () => this.expandedTotalCost = !this.expandedTotalCost;
-  toggleCo2Reduction = () => this.expandedTotalCost = !this.expandedTotalCost;
 
   showCostComparisonDialog() {
     this.commonDialog.show(
@@ -77,4 +77,6 @@ export class ResultsComponent implements OnInit {
     if (fraction > 0.5) return 'medium-risk'; // The measures can be more than 50% more expensive than the minimum
     return 'low-risk';
   }
+
+  getSectorType = (_: any, sector: SectorEmissionsResult) => sector.sector;
 }

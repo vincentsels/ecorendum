@@ -79,7 +79,7 @@ export class ResultsService {
     const totalLegalPenalty = legalGhgReductionPercentage >= 100 ? 0 : parameters.monthlyLegalPenalty * 12 * 5;
     const totalCostIncludingTax = totalMeasurementCost.add(totalEuGhgTax).add(totalLegalPenalty);
 
-    const sectorEmissionsResults = this.calculateSectorEmissions(selectedVariants, sectorEmissions);
+    const sectorEmissionsResults = this.calculateSectorEmissions(selectedVariants, sectorEmissions, context);
 
     const totalImpact: TotalImpact[] = [];
 
@@ -146,25 +146,19 @@ export class ResultsService {
   private getImpactForDomainType = (totalImpact: TotalImpact[], domainType: ImpactDomainType) => totalImpact.filter(i => ImpactDomainTypeMap[i.domain] === domainType)
 
   private calculateTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean, context: ContextType) {
-    const singleRegionAmount = selectedVariants
+    const amount = selectedVariants
       .filter(v => includeEts || v.proposal?.ets === false)
-      .flatMap(v => v.targets?.filter(t => t.type === targetType).map(t => t?.amount || 0))
+      .flatMap(v => v.getTargetAmount(targetType, context))
       .reduce((a, b) => a + b, 0);
 
-    const federalAmountForRegion = selectedVariants
-      .filter(v => includeEts || v.proposal?.ets === false && v.regionalTargets && v.regionalTargets[context])
-      .filter(v => v.proposal?.policyLevel === PolicyLevel.federal)
-      .flatMap(v => v.regionalTargets![context].filter(t => t.type === targetType).map(t => t?.amount || 0))
-      .reduce((a, b) => a + b, 0);
-
-    return singleRegionAmount + federalAmountForRegion;
+    return amount;
   }
 
-  private calculateSectorEmissions(selectedVariants: Variant[], sectorEmissions: SectorEmissions[]) {
+  private calculateSectorEmissions(selectedVariants: Variant[], sectorEmissions: SectorEmissions[], context: ContextType) {
     const maxSectorEmissions = Math.max(...sectorEmissions.map(e => e.emissions));
 
     const results = sectorEmissions.map((se) => {
-        const totalReduction = this.getReductionForSector(selectedVariants, se.sector);
+        const totalReduction = this.getReductionForSector(selectedVariants, se.sector, context);
         const percentageReduction = Math.round(100 - (totalReduction / se.emissions * 100));
         const percentageOfMax = Math.round(se.emissions / maxSectorEmissions * 100);
         const resultingEmissions = se.emissions - totalReduction;
@@ -178,11 +172,11 @@ export class ResultsService {
     return new SectorEmissionsResults(results, maxSectorEmissions);
   }
 
-  private getReductionForSector(selectedVariants: Variant[], sector: Sector) {
+  private getReductionForSector(selectedVariants: Variant[], sector: Sector, context: ContextType) {
     return selectedVariants
-      .filter(v => v.proposal!.sector === sector && v.targets.some(t => t.type === TargetType.ghgReduction))
+      .filter(v => v.proposal!.sector === sector)
       .reduce((t, v) => {
-        return t + v.targets.find(t => t.type === TargetType.ghgReduction)!.amount
+        return t + v.getTargetAmount(TargetType.ghgReduction, context);
       }, 0);
   }
 }

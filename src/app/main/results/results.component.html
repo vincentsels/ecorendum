@@ -18,6 +18,8 @@
 
       </span>
 
+      <app-result-progress [target]="results.legalGhgTarget"></app-result-progress>
+
       <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleCo2Reduction()">
         <mat-icon class="inline">
           {{ expandedCo2Reduction ? 'expand_more' : 'chevron_left' }}
@@ -29,9 +31,9 @@
       {{ results.sectorEmissionsResults | json }}
     </div>
 
-    <div class="chart-container">
+    <div class="chart-container" *ngIf="expandedCo2Reduction">
       <div class="chart-column-container">
-        <div class="chart-column" *ngFor="let se of results.sectorEmissionsResults.sectors">
+        <div class="chart-column" *ngFor="let se of results.sectorEmissionsResults.sectors; trackBy: getSectorType">
           <div class="chart-column-current-emissions bg-color-accent" [style.flex-basis]="se.percentageOfMax + '%'">
             <div class="chart-column-resulting-emissions bg-color-primary" [style.flex-basis]="se.percentageReduction + '%'">
 
@@ -41,7 +43,7 @@
       </div>
       <div class="chart-labels-container">
         <div class="chart-label" *ngFor="let se of results.sectorEmissionsResults.sectors">
-          <mat-icon class="inline">{{ se.sectorIcon }}</mat-icon>
+          <mat-icon class="inline">{{ se.sectorIcon }}</mat-icon> {{ se.sector }}
         </div>
       </div>
     </div>
