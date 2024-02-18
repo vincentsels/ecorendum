@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TargetResult, TotalImpact } from './results';
+import { TargetResult, TotalImpact } from '../results';
 
 @Component({
   selector: 'app-impact-result',
