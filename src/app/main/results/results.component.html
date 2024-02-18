@@ -20,7 +20,7 @@
 
       <app-result-progress [target]="results.legalGhgTarget"></app-result-progress>
 
-      <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleCo2Reduction()">
+      <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleCo2Reduction()" *ngIf="!this.dialog">
         <mat-icon class="inline">
           {{ expandedCo2Reduction ? 'expand_more' : 'chevron_left' }}
         </mat-icon>

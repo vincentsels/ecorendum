@@ -2,9 +2,14 @@
 @use 'parameters' as params;
 
 .chart-container {
-  height: 200px;
+  height: 240px;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto;
 
   .chart-column-container {
     flex: 1 1;

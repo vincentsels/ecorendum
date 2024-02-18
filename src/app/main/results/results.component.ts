@@ -23,9 +23,8 @@ export class ResultsComponent implements OnInit {
   results$: Observable<Results>;
   risk$: Observable<'high-risk' | 'medium-risk' | 'low-risk'>;
 
-  expandedCo2Reduction = true;
+  expandedCo2Reduction = false;
   expandedTotalCost = false;
-  expandedTotalImpact = true;
 
   @Input() dialog = false;
 
@@ -38,7 +37,7 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
     if (this.dialog) {
       this.expandedTotalCost = true;
-      this.expandedTotalImpact = true;
+      this.expandedCo2Reduction = true;
     }
   }
 
