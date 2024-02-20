@@ -13,7 +13,11 @@
 }
 
 .variant-body {
-  max-width: 440px; /* Fits 3 next to each other on 1920 monitor */
+  max-width: 320px; /* Fits 3 next to each other on 1920 monitor */
+
+  h3 {
+    margin-bottom: 6px;
+  }
 }
 
 .all-parties-checkbox {

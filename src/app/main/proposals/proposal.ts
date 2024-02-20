@@ -250,6 +250,7 @@ export class Impact {
 
   getImpactDomainIcon = () => ImpactDomainMap[this.domain];
   getImpactAmountClass = () => ImpactAmountMap[this.amount];
+  getImpactDomainType = () => ImpactDomainTypeMap[this.domain];
 
   toImpactItem = () => new ImpactItem(this.domain, this.amount - 5, ImpactAmountMap[this.amount]);
 }

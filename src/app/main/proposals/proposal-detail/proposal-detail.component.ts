@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { EnumsService } from '../../../common/enums.service';
-import { Variant } from '../proposal';
+import { ImpactDomainType, Variant } from '../proposal';
 import { PartyOpinion, ProposalDetail } from '../proposal-details';
 import { ProposalService } from '../proposal.service';
 import { LanguageService } from '../../../common/language.service';
@@ -83,4 +83,8 @@ export class ProposalDetailComponent implements OnInit {
   getVariant = (variantId: number) => this.proposal?.variants.find(v => v.ambitionLevel === variantId);
 
   closeDialog = () => this.closeDialogEmitter.emit();
+
+  getImpactsOfTypes(variant: Variant, type: ImpactDomainType[]) {
+    return variant.impacts.filter(i => type.includes(i.getImpactDomainType()));
+  }
 }

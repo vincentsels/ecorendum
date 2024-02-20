@@ -43,12 +43,19 @@
           </div>
         </div>
 
-        <div *ngIf="variant.impacts && variant.impacts.length > 1" style="margin-top: 12px">
-          <h3>{{ 'Impact' | translate }}</h3>
-          <div *ngFor="let impact of variant.impacts">
-            <app-impact-result [impactItem]="impact.toImpactItem()"></app-impact-result>
-            <!-- <mat-icon class="inline icon-list-item" [class]="impact.getImpactAmountClass()" matTooltip="{{ impact.domain | translateEnum:'ImpactDomain' | async }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
-            <span fxHide.lt-sm>{{ impact.domain | translateEnum:'ImpactDomain' | async }}</span><span fxHide.lt-md>: {{ impact.amount | translateEnum:'ImpactAmount' | async }}</span> -->
+        <div>
+          <div *ngIf="getImpactsOfTypes(variant, [enums.ImpactDomainType.localEnvironmental, enums.ImpactDomainType.localJustice]); let localImpacts" style="margin-top: 12px">
+            <h3>{{ 'Local impact' | translate }}</h3>
+            <div *ngFor="let impact of localImpacts">
+              <app-impact-result [impactItem]="impact.toImpactItem()"></app-impact-result>
+            </div>
+          </div>
+
+          <div *ngIf="getImpactsOfTypes(variant, [enums.ImpactDomainType.globalEnvironmental, enums.ImpactDomainType.globalJustice]); let globalImpacts" style="margin-top: 12px">
+            <h3>{{ 'Global impact' | translate }}</h3>
+            <div *ngFor="let impact of globalImpacts">
+              <app-impact-result [impactItem]="impact.toImpactItem()"></app-impact-result>
+            </div>
           </div>
         </div>
 

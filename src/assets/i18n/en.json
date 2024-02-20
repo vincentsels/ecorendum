@@ -38,7 +38,7 @@
     },
     "ImpactDomain": {
       "unknown": "Unknown",
-      "localBiodiversityLoss": "Biodiversity loss",
+      "localBiodiversityLoss": "Biodiversity",
       "localNitrogenPollution": "Nitrogen pollution",
       "localPhosphorusPollution": "Phosphorus pollution",
       "localWaterConsumption": "Water consumption",
@@ -47,7 +47,7 @@
       "localLandSystemChange": "Land system change",
       "localRedistribution": "Redistribution",
       "localAnimalRights": "Animal rights",
-      "globalBiodiversityLoss": "Biodiversity loss",
+      "globalBiodiversityLoss": "Biodiversity",
       "globalNitrogenPollution": "Nitrogen pollution",
       "globalPhosphorusPollution": "Phosphorus pollution",
       "globalNovelEntities": "Novel entities",
