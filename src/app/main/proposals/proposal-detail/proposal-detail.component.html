@@ -21,12 +21,12 @@
       <div class="variant-body">
         <p *ngIf="proposal.variants.length > 1">{{ proposal | translateProp:'variant.summary':variant.ambitionLevel| async }}</p>
 
-        <div class="variant-body-numbers" fxLayout fxLayoutGap="12px">
+        <div fxLayout fxLayoutGap="12px">
           <div>
             <h3>{{ 'Cost' | translate }}</h3>
             <div>{{ 'Initial' | translate }}: {{ variant.costInitial | cost }}</div>
             <div *ngIf="variant.costPerYearFixed.isNotNull()">{{ 'Yearly' | translate }}: {{ variant.costPerYearFixed | cost }}</div>
-            <div><label>{{ 'Total' | translate }}: {{ variant.getTotalCost() | cost }}</label></div>
+            <div *ngIf="variant.costInitial && variant.costPerYearFixed.isNotNull()"><label>{{ 'Total' | translate }}: {{ variant.getTotalCost() | cost }}</label></div>
           </div>
 
           <div>
@@ -41,17 +41,18 @@
               <mat-icon class="inline">solar_power</mat-icon> {{ amount | number }} GWh
             </div>
           </div>
+        </div>
 
-          <div *ngIf="variant.impacts && variant.impacts.length > 1">
-            <h3>{{ 'Impact' | translate }}</h3>
-            <div *ngFor="let impact of variant.impacts" ngClass.xs="impact-xs">
-              <mat-icon class="inline icon-list-item" [class]="impact.getImpactAmountClass()" matTooltip="{{ impact.domain | translateEnum:'ImpactDomain' | async }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
-              <span fxHide.lt-sm>{{ impact.domain | translateEnum:'ImpactDomain' | async }}</span><span fxHide.lt-md>: {{ impact.amount | translateEnum:'ImpactAmount' | async }}</span>
-            </div>
+        <div *ngIf="variant.impacts && variant.impacts.length > 1" style="margin-top: 12px">
+          <h3>{{ 'Impact' | translate }}</h3>
+          <div *ngFor="let impact of variant.impacts">
+            <app-impact-result [impactItem]="impact.toImpactItem()"></app-impact-result>
+            <!-- <mat-icon class="inline icon-list-item" [class]="impact.getImpactAmountClass()" matTooltip="{{ impact.domain | translateEnum:'ImpactDomain' | async }}">{{ impact.getImpactDomainIcon() }}</mat-icon>
+            <span fxHide.lt-sm>{{ impact.domain | translateEnum:'ImpactDomain' | async }}</span><span fxHide.lt-md>: {{ impact.amount | translateEnum:'ImpactAmount' | async }}</span> -->
           </div>
         </div>
 
-        <mat-button-toggle [checked]="variant.selected" (change)="updateSelected(variant)" *ngIf="!proposal.committed" style="margin-top: 12px">
+        <mat-button-toggle [checked]="variant.selected" (change)="updateSelected(variant)" *ngIf="!proposal.committed && !set" style="margin-top: 12px">
           <span *ngIf="variant.selected"><mat-icon class="inline" style="width: 16px;">checked</mat-icon> {{ 'Selected' | translate }}</span>
           <span *ngIf="!variant.selected">{{ 'Select' | translate }}</span>
         </mat-button-toggle>

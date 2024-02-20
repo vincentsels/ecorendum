@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { SectorEmissionsResult, SectorEmissionsResults, TotalImpact } from "../results";
+import { SectorEmissionsResult, SectorEmissionsResults, ImpactItem } from "../results";
 
 @Component({
   selector: 'app-emissions-chart',

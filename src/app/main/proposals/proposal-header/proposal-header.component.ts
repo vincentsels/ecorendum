@@ -52,7 +52,7 @@ export class ProposalHeaderComponent {
   openProposalDetailDialog() {
     if (!this.proposal) return;
     this.dialogService.open(ProposalDetailsDialogComponent, {
-      data: { proposal: new ProposalDetail(this.proposal) },
+      data: { proposal: new ProposalDetail(this.proposal), set: this.set },
       autoFocus: false,
     });
   }

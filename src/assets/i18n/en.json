@@ -118,6 +118,7 @@
   "Targets": "Targets",
   "Impact": "Impact",
   "Select": "Select",
+  "Selected": "Selected",
   "Political party stances": "Political party stances",
   "Show all parties": "Show all parties",
   "Links": "Links",
@@ -160,6 +161,7 @@
   "Global environmental impact": "Global environmental impact",
   "Local justice impact": "Local justice impact",
   "Global justice impact": "Global justice impact",
+  "Total": "Total",
 
   "costComparisonExplanation": "This would give some examples of projects which in total add up to this amount.",
   "contributeText": "Do you have a question about this proposal which is not yet answered in the Frequently Asked Questions? Would you like to add a link to an article, scientific paper or anything else? Do you work in the field and would you like to contribute your knowledge? Click the button below to go to the website with proposals, login or create an account, and start contributing!",

@@ -6,7 +6,7 @@ import { Observable, map } from 'rxjs';
 import { CommonDialogService } from '../../common/dialog.component';
 import { EnumsService } from '../../common/enums.service';
 import { SubmitDialogComponent } from '../submit-dialog/submit-dialog.component';
-import { Results, SectorEmissionsResult, TotalImpact } from './results';
+import { Results, SectorEmissionsResult, ImpactItem } from './results';
 import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
 import { ResultsService } from './results.service';
 import { ProposalService } from '../proposals/proposal.service';

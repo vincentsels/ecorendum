@@ -31,6 +31,7 @@ export class ProposalDetailComponent implements OnInit {
   }
 
   @Input() dialog: boolean = false;
+  @Input() set: boolean = false;
 
   @Output('closeDialog') closeDialogEmitter = new EventEmitter();
 

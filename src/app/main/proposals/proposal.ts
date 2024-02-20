@@ -1,4 +1,5 @@
 import { ContextType } from "../context/context.service";
+import { ImpactItem } from "../results/results";
 import { ProposalDetail } from "./proposal-details";
 
 export class Proposal {
@@ -249,6 +250,8 @@ export class Impact {
 
   getImpactDomainIcon = () => ImpactDomainMap[this.domain];
   getImpactAmountClass = () => ImpactAmountMap[this.amount];
+
+  toImpactItem = () => new ImpactItem(this.domain, this.amount - 5, ImpactAmountMap[this.amount]);
 }
 
 export enum ImpactDomain {

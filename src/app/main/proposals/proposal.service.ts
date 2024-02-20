@@ -60,6 +60,10 @@ export class ProposalService {
     for (let proposal of proposals) {
       for (let variant of proposal.variants) {
         variant.proposal = proposal;
+
+        if (variant.impacts && variant.impacts.length > 0) {
+          variant.impacts.sort((a, b) => b.amount - a.amount);
+        }
       }
     }
   }

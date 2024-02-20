@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { TotalImpact } from "../results";
+import { ImpactItem } from "../results";
 
 @Component({
   selector: 'app-impact-results',
@@ -7,9 +7,9 @@ import { TotalImpact } from "../results";
   styleUrls: ['../results.component.scss']
 })
 export class ImpactResultsComponent implements OnInit {
-  @Input({ required: true }) allImpact!: TotalImpact[];
-  @Input({ required: true }) environmentalImpact!: TotalImpact[];
-  @Input({ required: true }) justiceImpact!: TotalImpact[];
+  @Input({ required: true }) allImpact!: ImpactItem[];
+  @Input({ required: true }) environmentalImpact!: ImpactItem[];
+  @Input({ required: true }) justiceImpact!: ImpactItem[];
   @Input({ required: true }) global!: boolean;
   @Input({ required: true }) dialog!: boolean;
 
@@ -23,5 +23,5 @@ export class ImpactResultsComponent implements OnInit {
     this.expand = !this.expand;
   }
 
-  getTotalImpactId = (_: any, item: TotalImpact) => item.domain;
+  getTotalImpactId = (_: any, item: ImpactItem) => item.domain;
 }

@@ -17,7 +17,7 @@ import { LanguageService } from '../../../common/language.service';
 </h2>
 <div mat-dialog-content class="dialog-content" [style]="'background-image: url(' + data.proposal.pictureThumb + ')'">
   <div class="dialog-content-overlay">
-    <app-proposal-detail class="dialog-detail" [dialog]="true" [proposal]="data.proposal" (closeDialog)="closeDialog()"></app-proposal-detail>
+    <app-proposal-detail class="dialog-detail" [dialog]="true" [set]="data.set" [proposal]="data.proposal" (closeDialog)="closeDialog()"></app-proposal-detail>
   </div>
 </div>
 `,
@@ -44,4 +44,5 @@ export class ProposalDetailsDialogComponent {
 
 export interface ProposalDetailDialogData {
   proposal: ProposalDetail;
+  set: boolean;
 }

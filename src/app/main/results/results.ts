@@ -11,12 +11,12 @@ export class Results {
     public totalEuGhgTax: number,
     public totalLegalPenalty: number,
     public totalCostIncludingTax: Cost,
-    public allLocalImpact: TotalImpact[],
-    public allGlobalImpact: TotalImpact[],
-    public localEnvironmentalImpact: TotalImpact[],
-    public localJusticeImpact: TotalImpact[],
-    public globalEnvironmentalImpact: TotalImpact[],
-    public globalJusticeImpact: TotalImpact[],
+    public allLocalImpact: ImpactItem[],
+    public allGlobalImpact: ImpactItem[],
+    public localEnvironmentalImpact: ImpactItem[],
+    public localJusticeImpact: ImpactItem[],
+    public globalEnvironmentalImpact: ImpactItem[],
+    public globalJusticeImpact: ImpactItem[],
     public image?: string,
     ) {
       this.localEnvironmentalImpact = localEnvironmentalImpact || [];
@@ -66,12 +66,12 @@ export class SectorEmissionsResult {
   ) {}
 }
 
-export class TotalImpact {
+export class ImpactItem {
   constructor(
     public domain: ImpactDomain,
-    public amount: number) {}
-
-  class: string = ImpactAmountMap[ImpactAmount.neutral];
+    public amount: number,
+    public cssClass: string = ImpactAmountMap[ImpactAmount.neutral]) {
+  }
 
   getImpactDomainIcon = () => ImpactDomainMap[this.domain];
 }

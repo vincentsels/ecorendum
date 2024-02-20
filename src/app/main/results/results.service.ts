@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { Cost, ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainType, ImpactDomainTypeMap, PolicyLevel, Sector, SectorMap, TargetType, Variant } from '../proposals/proposal';
-import { Results, SectorEmissionsResult, SectorEmissionsResults, TargetResult, TotalImpact } from './results';
+import { Results, SectorEmissionsResult, SectorEmissionsResults, TargetResult, ImpactItem } from './results';
 import { TargetsService } from '../targets/targets.service';
 import { ParametersService } from '../parameters/parameters.service';
 import { ProposalService } from '../proposals/proposal.service';
@@ -81,7 +81,7 @@ export class ResultsService {
 
     const sectorEmissionsResults = this.calculateSectorEmissions(selectedVariants, sectorEmissions, context);
 
-    const totalImpact: TotalImpact[] = [];
+    const totalImpact: ImpactItem[] = [];
 
     for (let variant of selectedVariants) {
       for (let impact of variant.impacts) {
@@ -89,21 +89,21 @@ export class ResultsService {
         if (impactItem) {
           impactItem.amount += (impact.amount - 5);
         } else {
-          totalImpact.push(new TotalImpact(impact.domain, impact.amount - 5 ));
+          totalImpact.push(new ImpactItem(impact.domain, impact.amount - 5 ));
         }
       }
     }
 
     for (let impact of totalImpact) {
-      if (impact.amount <= -8) impact.class = ImpactAmountMap[ImpactAmount.extremelyPositive];
-      else if (impact.amount <= -6) impact.class = ImpactAmountMap[ImpactAmount.veryPositive];
-      else if (impact.amount <= -4) impact.class = ImpactAmountMap[ImpactAmount.moderatelyPositive];
-      else if (impact.amount <= -2) impact.class = ImpactAmountMap[ImpactAmount.somewhatPositive];
-      else if (impact.amount >= 8) impact.class = ImpactAmountMap[ImpactAmount.extremelyNegative];
-      else if (impact.amount >= 6) impact.class = ImpactAmountMap[ImpactAmount.veryNegative];
-      else if (impact.amount >= 4) impact.class = ImpactAmountMap[ImpactAmount.moderatelyNegative];
-      else if (impact.amount >= 2) impact.class = ImpactAmountMap[ImpactAmount.somewhatNegative];
-      else impact.class = ImpactAmountMap[ImpactAmount.neutral];
+      if (impact.amount <= -8) impact.cssClass = ImpactAmountMap[ImpactAmount.extremelyPositive];
+      else if (impact.amount <= -6) impact.cssClass = ImpactAmountMap[ImpactAmount.veryPositive];
+      else if (impact.amount <= -4) impact.cssClass = ImpactAmountMap[ImpactAmount.moderatelyPositive];
+      else if (impact.amount <= -2) impact.cssClass = ImpactAmountMap[ImpactAmount.somewhatPositive];
+      else if (impact.amount >= 8) impact.cssClass = ImpactAmountMap[ImpactAmount.extremelyNegative];
+      else if (impact.amount >= 6) impact.cssClass = ImpactAmountMap[ImpactAmount.veryNegative];
+      else if (impact.amount >= 4) impact.cssClass = ImpactAmountMap[ImpactAmount.moderatelyNegative];
+      else if (impact.amount >= 2) impact.cssClass = ImpactAmountMap[ImpactAmount.somewhatNegative];
+      else impact.cssClass = ImpactAmountMap[ImpactAmount.neutral];
     }
 
     totalImpact.sort((a, b) => b.amount - a.amount);
@@ -143,7 +143,7 @@ export class ResultsService {
     );
   }
 
-  private getImpactForDomainType = (totalImpact: TotalImpact[], domainType: ImpactDomainType) => totalImpact.filter(i => ImpactDomainTypeMap[i.domain] === domainType)
+  private getImpactForDomainType = (totalImpact: ImpactItem[], domainType: ImpactDomainType) => totalImpact.filter(i => ImpactDomainTypeMap[i.domain] === domainType)
 
   private calculateTotalAmount(selectedVariants: Variant[], targetType: TargetType, includeEts: boolean, context: ContextType) {
     const amount = selectedVariants

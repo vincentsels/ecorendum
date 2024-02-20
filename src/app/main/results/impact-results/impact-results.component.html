@@ -7,7 +7,7 @@
 
     <span class="collapsed-header-summary">
       <span *ngFor="let impactItem of allImpact">
-        <mat-icon class="inline icon-list-item" [class]="impactItem.class"
+        <mat-icon class="inline icon-list-item" [class]="impactItem.cssClass"
           matTooltip="{{ impactItem.domain | translateEnum:'ImpactDomain' | async }}">{{ impactItem.getImpactDomainIcon() }}</mat-icon>
       </span>
     </span>
@@ -31,7 +31,7 @@
     </h3>
 
     <div *ngFor="let impactItem of environmentalImpact; trackBy: getTotalImpactId">
-      <app-impact-result [impactItem]="impactItem"></app-impact-result>
+      <app-impact-result [impactItem]="impactItem" [maxScale]="12"></app-impact-result>
     </div>
 
     <h3 style="margin-top: 16px">
@@ -40,7 +40,7 @@
     </h3>
 
     <div *ngFor="let impactItem of justiceImpact; trackBy: getTotalImpactId">
-      <app-impact-result [impactItem]="impactItem"></app-impact-result>
+      <app-impact-result [impactItem]="impactItem" [maxScale]="12"></app-impact-result>
     </div>
   </div>
 </mat-card>
