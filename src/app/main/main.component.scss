@@ -38,7 +38,8 @@ app-results-mobile-summary {
 
   .proposal-type-card {
     padding: 0px;
-    flex: 1 1 250px;
+    flex: 1 1 calc(33% - 2 * 12px);
+    min-width: 220px;
 
     .proposal-type-card-description {
       margin-left: 12px;
@@ -58,8 +59,9 @@ app-results-mobile-summary {
 }
 
 .proposals-header {
+  min-height: 40px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 6px;
 }

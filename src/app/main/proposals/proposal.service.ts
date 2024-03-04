@@ -23,7 +23,7 @@ export class ProposalService {
   committedProposals$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
   extraProposalsFromSet$: BehaviorSubject<ProposalDetail[]> = new BehaviorSubject<ProposalDetail[]>([]);
 
-  selectedProposalSetType: ProposalSetType = 'wam';
+  selectedProposalSetType: ProposalSetType = 'wem';
   selectedPartyId?: PartyId;
 
   selectionKey = '';
@@ -70,6 +70,7 @@ export class ProposalService {
 
   public getProposalSetByType(setType: ProposalSetType, selectedPartyId: PartyId) {
     switch (setType) {
+      case 'wem': return []; // Default / WEM: no 'extra' measures
       case 'wam': return []; // Default / WAM: no 'extra' measures
       case 'veka': return PROPOSAL_SET_VEKA;
       case 'beka': return PROPOSAL_SET_BEKA;
@@ -105,7 +106,11 @@ export class ProposalService {
 
     let selectedProposalSet: ProposalSet;
 
-    if (!proposalsToActivate || proposalsToActivate.setType === 'wam') {
+    if (!proposalsToActivate || proposalsToActivate.setType === 'wem') {
+      this.selectedProposalSetType = 'wem';
+      selectedProposalSet = [];
+      proposals = [];
+    } else if (!proposalsToActivate || proposalsToActivate.setType === 'wam') {
       this.selectedProposalSetType = 'wam';
       selectedProposalSet = [];
       proposals = proposals.filter(p => p.committed);

@@ -240,6 +240,11 @@
   },
 
   "sets": {
+    "wem": {
+      "title": "Situation today",
+      "summary": "A baseline scenario where we do not take any additional measures to reduce emissions.",
+      "description": "A baseline scenario where we do not take any additional measures to reduce emissions."
+    },
     "wam": {
       "title": "Current plans",
       "summary": "All relevant policy measures already planned between now and 2030, both in the Flemish (VEKP) and National Energy and Climate Plan (NEKP) as well as impactful plans in industry.",

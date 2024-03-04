@@ -240,6 +240,11 @@
   },
 
   "sets": {
+    "wem": {
+      "title" : "Situation aujourd'hui",
+      "summary" : "Scénario de référence dans lequel nous ne prenons aucune mesure supplémentaire pour réduire les émissions.",
+      "description" : "Un scénario de référence dans lequel nous ne prenons aucune mesure supplémentaire pour réduire les émissions."
+    },
     "wam": {
       "title" : "Plans en cours",
       "summary" : "Toutes les mesures politiques pertinentes déjà prévues d'ici à 2030, tant dans le plan flamand (VEKP) que dans le plan national pour l'énergie et le climat (NEKP), ainsi que les plans ayant un impact sur l'industrie.",

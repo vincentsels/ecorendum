@@ -14,13 +14,41 @@
       </div>
     </h1>
 
-    <mat-radio-group class="proposal-types" name="selectedProposalType" [value]="proposalService.selectedProposalSetType" (change)="proposalSetSelectionChanged($event)">
+    <mat-radio-group class="proposal-types" name="selectedProposalTypeXs" fxHide.gt-xs
+      [value]="proposalService.selectedProposalSetType" (change)="proposalSetSelectionChanged($event)">
+      <mat-radio-button value="wem">{{ 'sets.wem.title' | translate }}</mat-radio-button>
+      <mat-radio-button value="wam">{{ 'sets.wam.title' | translate }}</mat-radio-button>
+      <mat-radio-button [value]="setType" *ngFor="let setType of contextService.proposalSets$ | async">
+        {{ ('sets.' + setType + '.title') | translate }}
+      </mat-radio-button>
+      <mat-radio-button value="party">
+        <button mat-button (click)="showSelectPartyDialog()">
+          <span *ngIf="!proposalService.selectedPartyId">{{ 'sets.parties.title' | translate }}</span>
+          <app-party-logo-or-name *ngIf="proposalService.selectedPartyId" [partyId]="proposalService.selectedPartyId"></app-party-logo-or-name>
+        </button>
+      </mat-radio-button>
+      <mat-radio-button value="custom">{{ 'sets.own.title' | translate }}</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-radio-group class="proposal-types" name="selectedProposalType" fxHide.lt-sm
+      [value]="proposalService.selectedProposalSetType" (change)="proposalSetSelectionChanged($event)">
+      <mat-card class="proposal-type-card">
+        <mat-card-header>
+          <mat-radio-button value="wem">{{ 'sets.wem.title' | translate }}</mat-radio-button>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="proposal-type-card-description set-description" fxHide.lt-sm>
+            {{ ('sets.wem.summary') | translate }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+
       <mat-card class="proposal-type-card">
         <mat-card-header>
           <mat-radio-button value="wam">{{ 'sets.wam.title' | translate }}</mat-radio-button>
         </mat-card-header>
         <mat-card-content>
-          <p class="proposal-type-card-description set-description">
+          <p class="proposal-type-card-description set-description" fxHide.lt-sm>
             {{ ('sets.wam.summary') | translate }}
           </p>
         </mat-card-content>
@@ -33,7 +61,7 @@
           </mat-radio-button>
         </mat-card-header>
         <mat-card-content>
-          <p class="proposal-type-card-description set-description">
+          <p class="proposal-type-card-description set-description" fxHide.lt-sm>
             {{ ('sets.' + setType + '.summary') | translate }}
           </p>
         </mat-card-content>
@@ -49,7 +77,7 @@
           </mat-radio-button>
         </mat-card-header>
         <mat-card-content>
-          <p class="proposal-type-card-description set-description">
+          <p class="proposal-type-card-description set-description" fxHide.lt-sm>
             <ng-container *ngIf="!proposalService.selectedPartyId">
               {{ 'sets.parties.summary' | translate }}
             </ng-container>
@@ -65,56 +93,59 @@
           <mat-radio-button value="custom">{{ 'sets.own.title' | translate }}</mat-radio-button>
         </mat-card-header>
         <mat-card-content>
-          <p class="proposal-type-card-description set-description">
+          <p class="proposal-type-card-description set-description" fxHide.lt-sm>
             {{ 'sets.own.summary' | translate }}
           </p>
         </mat-card-content>
       </mat-card>
     </mat-radio-group>
 
-    <h1>{{ 'Measures' | translate }}
-      <mat-checkbox *ngIf="proposalService.selectedProposalSetType !== 'wam'" [(ngModel)]="includeCommitted" (ngModelChange)="filterChanged()" style="margin-right: 12px">
-        {{ 'Include already committed' | translate }}
-      </mat-checkbox>
-    </h1>
+    <ng-container *ngIf="proposalService.selectedProposalSetType !== 'wem'">
+      <h1 class="proposals-header" ngClass.xs="proposals-header-xs">
+        {{ 'Measures' | translate }}
+        <mat-checkbox *ngIf="proposalService.selectedProposalSetType !== 'wam'" [(ngModel)]="includeCommitted" (ngModelChange)="filterChanged()" style="margin-right: 12px">
+          {{ 'Include already committed' | translate }}
+        </mat-checkbox>
+      </h1>
 
-    <span *ngIf="proposalService.selectedProposalSetType !== 'custom'">
-      <!-- <p class="card-side-padding set-description">
-        <ng-container *ngIf="proposalService.selectedProposalSetType !== 'party'">
-          {{ ('sets.' + proposalService.selectedProposalSetType + '.description') | translate }}
+      <span *ngIf="proposalService.selectedProposalSetType !== 'custom'">
+        <p class="set-description" fxHide.gt-xs>
+          <ng-container *ngIf="proposalService.selectedProposalSetType !== 'party'">
+            {{ ('sets.' + proposalService.selectedProposalSetType + '.description') | translate }}
+          </ng-container>
+          <ng-container *ngIf="proposalService.selectedProposalSetType === 'party' && proposalService.selectedPartyId">
+            {{ ('sets.party.description') | translate:{ partyName: ( 'parties.' + enumsService.PartyId[proposalService.selectedPartyId] | translate) } }}
+          </ng-container>
+        </p>
+
+        <app-proposal-set [baseSet]="proposalService.selectedProposalSetType === 'wam'" class="block-card"
+          *ngIf="proposalService.selectedProposalSetType === 'wam' || includeCommitted === true"
+          [proposalSet]="(proposalService.committedProposals$ | async) || []"></app-proposal-set>
+
+        <ng-container *ngIf="(proposalService.extraProposalsFromSet$| async); let proposalSet">
+          <app-proposal-set *ngIf="proposalSet.length > 0" [proposalSet]="proposalSet"></app-proposal-set>
         </ng-container>
-        <ng-container *ngIf="proposalService.selectedProposalSetType === 'party' && proposalService.selectedPartyId">
-          {{ ('sets.party.description') | translate:{ partyName: ( 'parties.' + enumsService.PartyId[proposalService.selectedPartyId] | translate) } }}
-        </ng-container>
-      </p> -->
 
-      <app-proposal-set [baseSet]="proposalService.selectedProposalSetType === 'wam'" class="block-card"
-        *ngIf="proposalService.selectedProposalSetType === 'wam' || includeCommitted === true"
-        [proposalSet]="(proposalService.committedProposals$ | async) || []"></app-proposal-set>
+        <mat-card class="bg-color-danger alert-with-icon" *ngIf="proposalService.selectedProposalSetType === 'party' && (proposalService.extraProposalsFromSet$ | async)!.length === 0">
+          <mat-icon class="inline danger alert-icon">sentiment_dissatisfied</mat-icon>
+          <div>{{ 'partyHasNoMeasuresInfo' | translate }}</div>
+        </mat-card>
+      </span>
 
-      <ng-container *ngIf="(proposalService.extraProposalsFromSet$| async); let proposalSet">
-        <app-proposal-set *ngIf="proposalSet.length > 0" [proposalSet]="proposalSet"></app-proposal-set>
-      </ng-container>
+      <div *ngIf="proposalService.selectedProposalSetType === 'custom' && (filteredProposals$ | async); let filteredProposals">
+        <app-proposal-card *ngFor="let proposal of filteredProposals" [proposal]="proposal"></app-proposal-card>
 
-      <mat-card class="bg-color-danger alert-with-icon" *ngIf="proposalService.selectedProposalSetType === 'party' && (proposalService.extraProposalsFromSet$ | async)!.length === 0">
-        <mat-icon class="inline danger alert-icon">sentiment_dissatisfied</mat-icon>
-        <div>{{ 'partyHasNoMeasuresInfo' | translate }}</div>
-      </mat-card>
-    </span>
+        <p *ngIf="filteredProposals.length > 0 && filteredProposals.length < proposalService.activeProposals$.value.length">
+          {{ 'Cannot find the proposal you are looking for? There is a filter applied.' | translate }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
+        </p>
 
-    <div *ngIf="proposalService.selectedProposalSetType === 'custom' && (filteredProposals$ | async); let filteredProposals">
-      <app-proposal-card *ngFor="let proposal of filteredProposals" [proposal]="proposal"></app-proposal-card>
+        <p *ngIf="filteredProposals.length === 0">
+          {{ 'No proposals found with this filter.' }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
+        </p>
 
-      <p *ngIf="filteredProposals.length > 0 && filteredProposals.length < proposalService.activeProposals$.value.length">
-        {{ 'Cannot find the proposal you are looking for? There is a filter applied.' | translate }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
-      </p>
-
-      <p *ngIf="filteredProposals.length === 0">
-        {{ 'No proposals found with this filter.' }} <a (click)="clearFilter()">{{ 'Click here to clear it.' | translate }}</a>
-      </p>
-
-      <button mat-raised-button (click)="clearSelection()" style="margin-top: 12px">{{ 'Clear selection' | translate }}</button>
-    </div>
+        <button mat-raised-button (click)="clearSelection()" style="margin-top: 12px">{{ 'Clear selection' | translate }}</button>
+      </div>
+    </ng-container>
   </div>
   <div fxFlex="40%" fxFlex.lt-md="100%" ngClass.gt-sm="results">
     <app-results></app-results>

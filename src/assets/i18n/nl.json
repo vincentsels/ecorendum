@@ -240,6 +240,11 @@
   },
 
   "sets": {
+    "wem": {
+      "title": "Situatie vandaag",
+      "summary": "Een basisscenario waarbij we geen extra maatregelen nemen om de uitstoot te verminderen.",
+      "description": "Een basisscenario waarbij we geen extra maatregelen nemen om emissies te reduceren."
+    },
     "wam": {
       "title": "Huidige plannen",
       "summary": "Alle relevante beleidsmaatregelen die al gepland zijn tussen nu en 2030, zowel in het Vlaamse (VEKP) en Nationale Energie- en Klimaatplan (NEKP) als impactvolle plannen in de industrie.",
