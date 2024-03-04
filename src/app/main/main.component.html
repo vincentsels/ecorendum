@@ -5,12 +5,8 @@
 <div class="page-container" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="24px" id="tool">
   <div fxFlex="60%" fxFlex.lt-md="100%" class="proposals">
     <h1 class="proposals-header" ngClass.xs="proposals-header-xs">
-      <app-help-widget style="height: 40px;" tooltipKey="helpProposals" textKey="Proposals" dialogKey="helpDialogProposals"></app-help-widget>
+      <app-help-widget style="height: 40px;" tooltipKey="helpProposals" textKey="Scenarios" dialogKey="helpDialogProposals"></app-help-widget>
       <div class="project-filters" ngClass.xs="project-filters-xs">
-        <mat-checkbox *ngIf="proposalService.selectedProposalSetType !== 'wam'" [(ngModel)]="includeCommitted" (ngModelChange)="filterChanged()" style="margin-right: 12px">
-          {{ 'Include already committed' | translate }}
-        </mat-checkbox>
-
         <!-- <mat-form-field appearance="outline" >
           <mat-label>{{ 'Filter proposals' | translate }}</mat-label>
           <input matInput type="text" [(ngModel)]="proposalsFilter" (input)="filterChanged()">
@@ -75,6 +71,12 @@
         </mat-card-content>
       </mat-card>
     </mat-radio-group>
+
+    <h1>{{ 'Measures' | translate }}
+      <mat-checkbox *ngIf="proposalService.selectedProposalSetType !== 'wam'" [(ngModel)]="includeCommitted" (ngModelChange)="filterChanged()" style="margin-right: 12px">
+        {{ 'Include already committed' | translate }}
+      </mat-checkbox>
+    </h1>
 
     <span *ngIf="proposalService.selectedProposalSetType !== 'custom'">
       <!-- <p class="card-side-padding set-description">

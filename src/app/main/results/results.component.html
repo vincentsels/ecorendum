@@ -6,7 +6,7 @@
   </span>
 </h1>
 
-<div *ngIf="results$ | async; let results">
+<div *ngIf="results$ | async; let results" [ngClass.lt-md]="'margin-for-results-bar'">
 
   <mat-card class="result-section">
     <h3 class="result-section-collapsed">
@@ -28,7 +28,6 @@
     </h3>
 
     <app-emissions-chart *ngIf="expandedCo2Reduction" [sectorEmissionsResults]="results.sectorEmissionsResults"></app-emissions-chart>
-
   </mat-card>
 
   <mat-card class="result-section">
@@ -134,8 +133,8 @@
   <app-impact-results [dialog]="dialog" [global]="true" [environmentalImpact]="results.globalEnvironmentalImpact"
     [justiceImpact]="results.globalJusticeImpact" [allImpact]="results.allGlobalImpact"></app-impact-results>
 
+  <button *ngIf="proposalService.selectedProposalSetType === 'custom'"
+    mat-raised-button color="primary" (click)="submit()" [ngClass.gt-sm]="'submit-button-lg'">
+    {{ 'Publish results' | translate }}
+  </button>
 </div>
-
-<button fxHide.lt-md mat-raised-button color="primary" (click)="submit()" class="submit-button-lg">{{ 'Publish results' | translate }}</button>
-
-<button fxHide.gt-sm mat-raised-button color="primary" (click)="submit()" style="margin-bottom: 56px;">{{ 'Publish results' | translate }}</button>
