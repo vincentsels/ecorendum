@@ -19,18 +19,62 @@
     </h1>
 
     <div class="proposal-types">
-      <mat-radio-group [value]="proposalService.selectedProposalSetType" (change)="proposalSetSelectionChanged($event)">
-        <mat-radio-button value="wam" class="proposal-type">{{ 'Current plans' | translate }}</mat-radio-button>
-        <mat-radio-button *ngFor="let setType of contextService.proposalSets$ | async" [value]="setType" class="proposal-type">
-          {{ ('sets.' + setType + '.title') | translate }}
-        </mat-radio-button>
-        <mat-radio-button value="party" class="proposal-type">
-          <button mat-button (click)="showSelectPartyDialog()">
-            <span *ngIf="!proposalService.selectedPartyId">{{ 'Political parties' | translate }}</span>
-            <app-party-logo-or-name *ngIf="proposalService.selectedPartyId" [partyId]="proposalService.selectedPartyId"></app-party-logo-or-name>
-          </button>
-        </mat-radio-button>
-        <mat-radio-button value="custom" class="proposal-type">{{ 'Create your own' | translate }}</mat-radio-button>
+      <mat-radio-group name="selectedProposalType" [value]="proposalService.selectedProposalSetType" (change)="proposalSetSelectionChanged($event)">
+        <mat-card>
+          <mat-card-header>
+            <mat-radio-button value="wam">{{ 'Current plans' | translate }}</mat-radio-button>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="card-side-padding set-description">
+              {{ ('sets.wam.description') | translate }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card *ngFor="let setType of contextService.proposalSets$ | async">
+          <mat-card-header>
+            <mat-radio-button [value]="setType">
+              {{ ('sets.' + setType + '.title') | translate }}
+            </mat-radio-button>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="card-side-padding set-description">
+              {{ ('sets.' + setType + '.description') | translate }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-header>
+            <mat-radio-button value="party">
+              <button mat-button (click)="showSelectPartyDialog()">
+                <span *ngIf="!proposalService.selectedPartyId">{{ 'Political parties' | translate }}</span>
+                <app-party-logo-or-name *ngIf="proposalService.selectedPartyId" [partyId]="proposalService.selectedPartyId"></app-party-logo-or-name>
+              </button>
+            </mat-radio-button>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="card-side-padding set-description">
+              <ng-container *ngIf="!proposalService.selectedPartyId">
+                {{ 'selectAPartyToFindOutTheirProposal' | translate }}
+              </ng-container>
+              <ng-container *ngIf="proposalService.selectedPartyId">
+                {{ ('sets.party.description') | translate:{ partyName: ( 'parties.' + enumsService.PartyId[proposalService.selectedPartyId] | translate) } }}
+              </ng-container>
+            </p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-header>
+            <mat-radio-button value="custom">{{ 'Create your own' | translate }}</mat-radio-button>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="card-side-padding set-description">
+              {{ 'youAreTheClimateMinister' | translate }}
+            </p>
+          </mat-card-content>
+        </mat-card>
       </mat-radio-group>
     </div>
 
