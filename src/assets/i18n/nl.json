@@ -242,30 +242,37 @@
   "sets": {
     "wam": {
       "title": "Huidige plannen",
+      "summary": "Alle relevante beleidsmaatregelen die al gepland zijn tussen nu en 2030, zowel in het Vlaamse (VEKP) en Nationale Energie- en Klimaatplan (NEKP) als impactvolle plannen in de industrie.",
       "description": "Dit zijn alle relevante beleidsmaatregelen die al gepland staan tussen nu en 2030; zowel uit het regionale en Nationale Energie- en Klimaatplan (EKP) als reeds toegezegde impactvolle plannen in de industrie."
     },
     "parties": {
       "title": "Politieke partijen",
+      "summary": "Selecteer een politieke partij om hun voorstel te ontdekken.",
       "description": "Selecteer een politieke partij om hun voorstel te ontdekken."
     },
     "party": {
       "title": "Politieke partijen",
+      "summary": "Het scenario voorgesteld door {{ partyName }}.",
       "description": "Het scenario voorgesteld door {{ partyName }}."
     },
     "own": {
       "title": "Stel zelf je beleid samen",
+      "summary": "Jij bent klimaatminister! Selecteer zelf je ideale scenario, stuur het in en deel het op sociale media om het te bespreken.",
       "description": "Jij bent klimaatminister! Selecteer zelf je ideale scenario, stuur het in en deel het op sociale media om het te bespreken."
     },
     "veka": {
       "title": "Voorbeelden VEKA",
+      "summary": "Voorbeeldmaatregelen voorgesteld door het Vlaams Agentschap Energie en Klimaat, op vraag van minister Demir, onmiddellijk na de uitspraak van de rechtbank.",
       "description": "Toen de rechter bepaalde dat België zijn uitstoot met 55% moet verminderen, vroeg minister Demir aan het Vlaams Energie- en Klimaatagentschap (VEKA) om enkele voorbeeldmaatregelen te berekenen waarmee deze doelstelling zou worden gehaald. Ze kozen ervoor om de inspanning gelijk te verdelen over alle sectoren. Dit is hun voorbeeldreeks van maatregelen."
     },
     "beka": {
       "title": "Voorbeelden BEKA (nep)",
+      "summary": "We hebben momenteel geen echte voorbeeldgegevens voor Brussel. Deze gegevens zijn gekopieerd van de Vlaamse VEKA-gegevens.",
       "description": "We hebben momenteel geen echte voorbeeldgegevens voor Brussel. Deze gegevens zijn gekopieerd van de Vlaamse VEKA-gegevens."
     },
     "weka": {
       "title": "Voorbeelden WEKA (nep)",
+      "summary": "We hebben momenteel geen echte voorbeeldgegevens voor Wallonië. Deze gegevens zijn gekopieerd van de Vlaamse VEKA-gegevens.",
       "description": "We hebben momenteel geen echte voorbeeldgegevens voor Wallonië. Deze gegevens zijn gekopieerd van de Vlaamse VEKA-gegevens."
     }
   },

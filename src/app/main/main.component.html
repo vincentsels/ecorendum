@@ -21,7 +21,7 @@
         </mat-card-header>
         <mat-card-content>
           <p class="proposal-type-card-description set-description">
-            {{ ('sets.wam.description') | translate }}
+            {{ ('sets.wam.summary') | translate }}
           </p>
         </mat-card-content>
       </mat-card>
@@ -34,7 +34,7 @@
         </mat-card-header>
         <mat-card-content>
           <p class="proposal-type-card-description set-description">
-            {{ ('sets.' + setType + '.description') | translate }}
+            {{ ('sets.' + setType + '.summary') | translate }}
           </p>
         </mat-card-content>
       </mat-card>
@@ -51,10 +51,10 @@
         <mat-card-content>
           <p class="proposal-type-card-description set-description">
             <ng-container *ngIf="!proposalService.selectedPartyId">
-              {{ 'sets.parties.description' | translate }}
+              {{ 'sets.parties.summary' | translate }}
             </ng-container>
             <ng-container *ngIf="proposalService.selectedPartyId">
-              {{ ('sets.party.description') | translate:{ partyName: ( 'parties.' + enumsService.PartyId[proposalService.selectedPartyId] | translate) } }}
+              {{ ('sets.party.summary') | translate:{ partyName: ( 'parties.' + enumsService.PartyId[proposalService.selectedPartyId] | translate) } }}
             </ng-container>
           </p>
         </mat-card-content>
@@ -66,7 +66,7 @@
         </mat-card-header>
         <mat-card-content>
           <p class="proposal-type-card-description set-description">
-            {{ 'sets.own.description' | translate }}
+            {{ 'sets.own.summary' | translate }}
           </p>
         </mat-card-content>
       </mat-card>

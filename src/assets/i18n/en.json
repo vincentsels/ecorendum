@@ -242,30 +242,37 @@
   "sets": {
     "wam": {
       "title": "Current plans",
+      "summary": "All relevant policy measures already planned between now and 2030, both in the Flemish (VEKP) and National Energy and Climate Plan (NEKP) as well as impactful plans in industry.",
       "description": "These are all relevant policy measures already planned between now and 2030; both from the regional and National Energy- and Climate Plan (EKP) as well as already committed impactful plans in industry."
     },
     "parties": {
       "title": "Political parties",
+      "summary": "Select a political party to find out their proposal.",
       "description": "Select a political party to find out their proposal."
     },
     "party": {
       "title": "Political parties",
+      "summary": "The set of measures proposed by {{ partyName }}.",
       "description": "The set of measures proposed by {{ partyName }}."
     },
     "own": {
       "title": "Create your own",
+      "summary": "You are the climate minister! Compose your own ideal climate policy, submit it, and share it with your friends to discuss!",
       "description": "You are the climate minister! Compose your own ideal climate policy, submit it, and share it with your friends to discuss!"
     },
     "veka": {
       "title": "Examples VEKA",
+      "summary": "Example measures proposed by the Flemish Energy and Climate Agency, on request of minister Demir, directly after the court ruling.",
       "description": "When the judge ruled that Belgium has to reduce its emissions by 55%, minister Demir asked the Flemish Energy- and Climate Agency (VEKA) to calculate some example measures which would meet this target. They chose to distribute the effort equally among all sectors. This is their example set of measures."
     },
     "beka": {
       "title": "Examples BEKA (fake)",
+      "summary": "We currently do not have any real example data for Brussels. This data is copied from the Flemish VEKA data.",
       "description": "We currently do not have any real example data for Brussels. This data is copied from the Flemish VEKA data."
     },
     "weka": {
       "title": "Examples WEKA (fake)",
+      "summary": "We currently do not have any real example data for Wallonia. This data is copied from the Flemish VEKA data.",
       "description": "We currently do not have any real example data for Wallonia. This data is copied from the Flemish VEKA data."
     }
   },
