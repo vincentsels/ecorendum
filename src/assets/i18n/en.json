@@ -244,9 +244,17 @@
       "title": "Current plans",
       "description": "These are all relevant policy measures already planned between now and 2030; both from the regional and National Energy- and Climate Plan (EKP) as well as already committed impactful plans in industry."
     },
+    "parties": {
+      "title": "Political parties",
+      "description": "Select a political party to find out their proposal."
+    },
     "party": {
       "title": "Political parties",
       "description": "The set of measures proposed by {{ partyName }}."
+    },
+    "own": {
+      "title": "Create your own",
+      "description": "You are the climate minister! Compose your own ideal climate policy, submit it, and share it with your friends to discuss!"
     },
     "veka": {
       "title": "Examples VEKA",

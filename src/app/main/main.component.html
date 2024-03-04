@@ -18,75 +18,73 @@
       </div>
     </h1>
 
-    <div class="proposal-types">
-      <mat-radio-group name="selectedProposalType" [value]="proposalService.selectedProposalSetType" (change)="proposalSetSelectionChanged($event)">
-        <mat-card>
-          <mat-card-header>
-            <mat-radio-button value="wam">{{ 'Current plans' | translate }}</mat-radio-button>
-          </mat-card-header>
-          <mat-card-content>
-            <p class="card-side-padding set-description">
-              {{ ('sets.wam.description') | translate }}
-            </p>
-          </mat-card-content>
-        </mat-card>
+    <mat-radio-group class="proposal-types" name="selectedProposalType" [value]="proposalService.selectedProposalSetType" (change)="proposalSetSelectionChanged($event)">
+      <mat-card class="proposal-type-card">
+        <mat-card-header>
+          <mat-radio-button value="wam">{{ 'sets.wam.title' | translate }}</mat-radio-button>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="proposal-type-card-description set-description">
+            {{ ('sets.wam.description') | translate }}
+          </p>
+        </mat-card-content>
+      </mat-card>
 
-        <mat-card *ngFor="let setType of contextService.proposalSets$ | async">
-          <mat-card-header>
-            <mat-radio-button [value]="setType">
-              {{ ('sets.' + setType + '.title') | translate }}
-            </mat-radio-button>
-          </mat-card-header>
-          <mat-card-content>
-            <p class="card-side-padding set-description">
-              {{ ('sets.' + setType + '.description') | translate }}
-            </p>
-          </mat-card-content>
-        </mat-card>
+      <mat-card class="proposal-type-card" *ngFor="let setType of contextService.proposalSets$ | async">
+        <mat-card-header>
+          <mat-radio-button [value]="setType">
+            {{ ('sets.' + setType + '.title') | translate }}
+          </mat-radio-button>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="proposal-type-card-description set-description">
+            {{ ('sets.' + setType + '.description') | translate }}
+          </p>
+        </mat-card-content>
+      </mat-card>
 
-        <mat-card>
-          <mat-card-header>
-            <mat-radio-button value="party">
-              <button mat-button (click)="showSelectPartyDialog()">
-                <span *ngIf="!proposalService.selectedPartyId">{{ 'Political parties' | translate }}</span>
-                <app-party-logo-or-name *ngIf="proposalService.selectedPartyId" [partyId]="proposalService.selectedPartyId"></app-party-logo-or-name>
-              </button>
-            </mat-radio-button>
-          </mat-card-header>
-          <mat-card-content>
-            <p class="card-side-padding set-description">
-              <ng-container *ngIf="!proposalService.selectedPartyId">
-                {{ 'selectAPartyToFindOutTheirProposal' | translate }}
-              </ng-container>
-              <ng-container *ngIf="proposalService.selectedPartyId">
-                {{ ('sets.party.description') | translate:{ partyName: ( 'parties.' + enumsService.PartyId[proposalService.selectedPartyId] | translate) } }}
-              </ng-container>
-            </p>
-          </mat-card-content>
-        </mat-card>
+      <mat-card class="proposal-type-card">
+        <mat-card-header>
+          <mat-radio-button value="party">
+            <button mat-button (click)="showSelectPartyDialog()">
+              <span *ngIf="!proposalService.selectedPartyId">{{ 'sets.parties.title' | translate }}</span>
+              <app-party-logo-or-name *ngIf="proposalService.selectedPartyId" [partyId]="proposalService.selectedPartyId"></app-party-logo-or-name>
+            </button>
+          </mat-radio-button>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="proposal-type-card-description set-description">
+            <ng-container *ngIf="!proposalService.selectedPartyId">
+              {{ 'sets.parties.description' | translate }}
+            </ng-container>
+            <ng-container *ngIf="proposalService.selectedPartyId">
+              {{ ('sets.party.description') | translate:{ partyName: ( 'parties.' + enumsService.PartyId[proposalService.selectedPartyId] | translate) } }}
+            </ng-container>
+          </p>
+        </mat-card-content>
+      </mat-card>
 
-        <mat-card>
-          <mat-card-header>
-            <mat-radio-button value="custom">{{ 'Create your own' | translate }}</mat-radio-button>
-          </mat-card-header>
-          <mat-card-content>
-            <p class="card-side-padding set-description">
-              {{ 'youAreTheClimateMinister' | translate }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </mat-radio-group>
-    </div>
+      <mat-card class="proposal-type-card">
+        <mat-card-header>
+          <mat-radio-button value="custom">{{ 'sets.own.title' | translate }}</mat-radio-button>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="proposal-type-card-description set-description">
+            {{ 'sets.own.description' | translate }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-radio-group>
 
     <span *ngIf="proposalService.selectedProposalSetType !== 'custom'">
-      <p class="card-side-padding set-description">
+      <!-- <p class="card-side-padding set-description">
         <ng-container *ngIf="proposalService.selectedProposalSetType !== 'party'">
           {{ ('sets.' + proposalService.selectedProposalSetType + '.description') | translate }}
         </ng-container>
         <ng-container *ngIf="proposalService.selectedProposalSetType === 'party' && proposalService.selectedPartyId">
           {{ ('sets.party.description') | translate:{ partyName: ( 'parties.' + enumsService.PartyId[proposalService.selectedPartyId] | translate) } }}
         </ng-container>
-      </p>
+      </p> -->
 
       <app-proposal-set [baseSet]="proposalService.selectedProposalSetType === 'wam'" class="block-card"
         *ngIf="proposalService.selectedProposalSetType === 'wam' || includeCommitted === true"
