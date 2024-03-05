@@ -9,23 +9,25 @@
 <div *ngIf="results$ | async; let results" [ngClass.lt-md]="'margin-for-results-bar'">
 
   <mat-card class="result-section">
-    <h3 class="result-section-collapsed">
-      <span class="collapsed-header">
-        <!-- <span class="icon-with-icon-badge"> -->
-          <mat-icon class="inline">cloud_download</mat-icon>&nbsp;<app-help-widget tooltipKey="helpLegalReductionTarget" textKey="Legal reduction" dialogMdSrc="help-legal-reduction-target"></app-help-widget>
-          <!-- <mat-icon class="inline icon-badge">gavel</mat-icon> -->
-        <!-- </span> -->
+    <div class="result-section-collapsed">
+      <h3><mat-icon class="inline result-section-collapsed-icon">cloud_download</mat-icon></h3>
 
-      </span>
+      <div style="width: 100%;">
+        <div class="result-section-collapsed-content" style="display: flex;">
+          <h3 style="margin-bottom: 0px;"><app-help-widget class="collapsed-header" tooltipKey="helpLegalReductionTarget" textKey="Legal reduction" dialogMdSrc="help-legal-reduction-target"></app-help-widget></h3>
 
-      <app-result-progress [target]="results.legalGhgTarget"></app-result-progress>
+          <app-result-progress [target]="results.legalGhgTarget"></app-result-progress>
 
-      <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleCo2Reduction()" *ngIf="!this.dialog">
-        <mat-icon class="inline">
-          {{ expandedCo2Reduction ? 'expand_more' : 'chevron_left' }}
-        </mat-icon>
-      </a>
-    </h3>
+          <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleCo2Reduction()" *ngIf="!this.dialog">
+            <mat-icon class="inline">
+              {{ expandedCo2Reduction ? 'expand_more' : 'chevron_left' }}
+            </mat-icon>
+          </a>
+        </div>
+        <div>{{ 'Emissions per year' | translate }}: {{ results.legalGhgTarget.total }}</div>
+        <div>{{ 'Target per year' | translate }}: {{ results.legalGhgTarget.target }}</div>
+      </div>
+    </div>
 
     <app-emissions-chart *ngIf="expandedCo2Reduction" [sectorEmissionsResults]="results.sectorEmissionsResults"></app-emissions-chart>
   </mat-card>
@@ -61,11 +63,11 @@
   </mat-card>
 
   <mat-card class="result-section">
-    <h3 *ngIf="!expandedTotalCost" class="result-section-collapsed-cost">
-      <mat-icon class="cost-icon inline">sell</mat-icon>
+    <h3 *ngIf="!expandedTotalCost" class="result-section-collapsed">
+      <mat-icon class="result-section-collapsed-icon inline">sell</mat-icon>
 
-      <div class="cost-content">
-        <div class="cost-amount">
+      <div class="result-section-collapsed-content">
+        <div>
           {{ (results.totalCostIncludingTax.isNegative() ? 'Total profit' : 'Total cost') | translate }}
 
           <span [class.color-accent]="results.totalCostIncludingTax.isNegative()">
@@ -73,8 +75,8 @@
             <app-cost *ngIf="results.totalCostIncludingTax.isPositive()" [cost]="results.totalCostIncludingTax" valueType="avg"></app-cost>
           </span>
         </div>
-        <div class="cost-risk">
-          {{ 'Risk' | translate}} <span class="risk-value" *ngIf="risk$ | async; let risk;"
+        <div>
+          {{ 'Risk' | translate }} <span class="risk-value" *ngIf="risk$ | async; let risk;"
             [class.danger]="risk === 'high-risk'"
             [class.warning]="risk === 'medium-risk'"
             [class.success]="risk === 'low-risk'"

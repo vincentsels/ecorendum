@@ -63,17 +63,13 @@ app-result-progress {
     width: 100%;
     margin-left: 12px;
   }
-}
 
-.result-section-collapsed-cost {
-  display: flex;
-
-  .cost-icon {
+  .result-section-collapsed-icon {
     margin-top: 4px; // Not easy to align with text next to it otherwise
     margin-right: 8px; // Replace space character in other sections
   }
 
-  .cost-content {
+  .result-section-collapsed-content {
     flex-grow: 1;
   }
 }
