@@ -2,10 +2,10 @@ import { ImpactAmount, ImpactAmountMap, ImpactDomain, ImpactDomainMap, Sector } 
 
 export class Targets {
   constructor(
-    public legalTargetGapGhgKt: number,
-    public euTargetGapGhgKt: number,
-    public euTargetGapEeGwh: number,
-    public euTargetGapReGwh: number) {
+    public legalTargetGapGhgKt: Target,
+    public euTargetGapGhgKt: Target,
+    public euTargetGapEeGwh: Target,
+    public euTargetGapReGwh: Target) {
   }
 
   // moneyImageMap = [
@@ -21,4 +21,12 @@ export class Targets {
 
 export class SectorEmissions {
   constructor (public sector: Sector, public emissions: number) {}
+}
+
+export class Target {
+  constructor(
+    public valueNow: number,
+    public valueTarget: number,
+    public gap: number,
+  ) {}
 }
