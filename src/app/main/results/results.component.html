@@ -7,136 +7,138 @@
 </h1>
 
 <div *ngIf="results$ | async; let results" [ngClass.lt-md]="'margin-for-results-bar'">
+  <div *ngIf="targets$ | async; let targets">
 
-  <mat-card class="result-section">
-    <div class="result-section-collapsed">
-      <h3><mat-icon class="inline result-section-collapsed-icon">cloud_download</mat-icon></h3>
+    <mat-card class="result-section">
+      <div class="result-section-collapsed">
+        <h3><mat-icon class="inline result-section-collapsed-icon">cloud_download</mat-icon></h3>
 
-      <div style="width: 100%;">
-        <div class="result-section-collapsed-content" style="display: flex;">
-          <h3 style="margin-bottom: 0px;"><app-help-widget class="collapsed-header" tooltipKey="helpLegalReductionTarget" textKey="Legal reduction" dialogMdSrc="help-legal-reduction-target"></app-help-widget></h3>
+        <div style="width: 100%;">
+          <div class="result-section-collapsed-content" style="display: flex;">
+            <h3 style="margin-bottom: 0px;"><app-help-widget class="collapsed-header" tooltipKey="helpLegalReductionTarget" textKey="Legal reduction" dialogMdSrc="help-legal-reduction-target"></app-help-widget></h3>
 
-          <app-result-progress [target]="results.legalGhgTarget"></app-result-progress>
+            <app-result-progress [target]="results.legalGhgTarget"></app-result-progress>
 
-          <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleCo2Reduction()" *ngIf="!this.dialog">
-            <mat-icon class="inline">
-              {{ expandedCo2Reduction ? 'expand_more' : 'chevron_left' }}
-            </mat-icon>
-          </a>
-        </div>
-        <div>{{ 'Emissions per year' | translate }}: {{ results.legalGhgTarget.total }}</div>
-        <div>{{ 'Target per year' | translate }}: {{ results.legalGhgTarget.target }}</div>
-      </div>
-    </div>
-
-    <app-emissions-chart *ngIf="expandedCo2Reduction" [sectorEmissionsResults]="results.sectorEmissionsResults"></app-emissions-chart>
-  </mat-card>
-
-  <mat-card class="result-section">
-    <h2>{{ 'European targets' | translate }}</h2>
-    <h3 class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">cloud_download</mat-icon>&nbsp;<app-help-widget
-          tooltipKey="helpCo2reductionTarget" textKey="GHG reduction" dialogMdSrc="help-eu-reduction-target"></app-help-widget>
-      </span>
-
-      <app-result-progress [target]="results.euGhgTarget"></app-result-progress>
-    </h3>
-
-    <h3 class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">energy_savings_leaf</mat-icon>&nbsp;<app-help-widget
-          tooltipKey="helpEnergySavingsTarget" textKey="Energy efficiency"></app-help-widget>
-      </span>
-
-      <app-result-progress [target]="results.euEeTarget"></app-result-progress>
-    </h3>
-
-    <h3 class="result-section-collapsed">
-      <span class="collapsed-header">
-        <mat-icon class="inline">solar_power</mat-icon>&nbsp;<app-help-widget
-          tooltipKey="helpRenewableEnergyTarget" textKey="Renewable energy"></app-help-widget>
-      </span>
-
-      <app-result-progress [target]="results.euReTarget"></app-result-progress>
-    </h3>
-  </mat-card>
-
-  <mat-card class="result-section">
-    <h3 *ngIf="!expandedTotalCost" class="result-section-collapsed">
-      <mat-icon class="result-section-collapsed-icon inline">sell</mat-icon>
-
-      <div class="result-section-collapsed-content">
-        <div>
-          {{ (results.totalCostIncludingTax.isNegative() ? 'Total profit' : 'Total cost') | translate }}
-
-          <span [class.color-accent]="results.totalCostIncludingTax.isNegative()">
-            <app-cost *ngIf="results.totalCostIncludingTax.isNegative()" [cost]="results.totalCostIncludingTax.multiply(-1)" valueType="avg"></app-cost>
-            <app-cost *ngIf="results.totalCostIncludingTax.isPositive()" [cost]="results.totalCostIncludingTax" valueType="avg"></app-cost>
-          </span>
-        </div>
-        <div>
-          {{ 'Risk' | translate }} <span class="risk-value" *ngIf="risk$ | async; let risk;"
-            [class.danger]="risk === 'high-risk'"
-            [class.warning]="risk === 'medium-risk'"
-            [class.success]="risk === 'low-risk'"
-            >{{ risk | translate }}</span>
+            <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleCo2Reduction()" *ngIf="!this.dialog">
+              <mat-icon class="inline">
+                {{ expandedCo2Reduction ? 'expand_more' : 'chevron_left' }}
+              </mat-icon>
+            </a>
+          </div>
+          <div>{{ 'Emissions per year' | translate }}: {{ targets.legalTargetGapGhgKt.valueNow - results.legalGhgTarget.total }}</div>
+          <div>{{ 'Target per year' | translate }}: {{ targets.legalTargetGapGhgKt.valueTarget }}</div>
         </div>
       </div>
 
-      <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalCost()">
-        <mat-icon class="inline">
-          {{ expandedTotalCost ? 'expand_more' : 'chevron_left' }}
-        </mat-icon>
-      </a>
-    </h3>
+      <app-emissions-chart *ngIf="expandedCo2Reduction" [sectorEmissionsResults]="results.sectorEmissionsResults"></app-emissions-chart>
+    </mat-card>
 
-    <div *ngIf="expandedTotalCost">
-      <h3 class="header-with-collapse-icon">
-        <span><mat-icon class="inline">sell</mat-icon> {{ 'Total cost' | translate }}</span>
-        <a [routerLink]="" class="unstyled-link" (click)="toggleTotalCost()" *ngIf="!this.dialog">
+    <mat-card class="result-section">
+      <h2>{{ 'European targets' | translate }}</h2>
+      <h3 class="result-section-collapsed">
+        <span class="collapsed-header">
+          <mat-icon class="inline">cloud_download</mat-icon>&nbsp;<app-help-widget
+            tooltipKey="helpCo2reductionTarget" textKey="GHG reduction" dialogMdSrc="help-eu-reduction-target"></app-help-widget>
+        </span>
+
+        <app-result-progress [target]="results.euGhgTarget"></app-result-progress>
+      </h3>
+
+      <h3 class="result-section-collapsed">
+        <span class="collapsed-header">
+          <mat-icon class="inline">energy_savings_leaf</mat-icon>&nbsp;<app-help-widget
+            tooltipKey="helpEnergySavingsTarget" textKey="Energy efficiency"></app-help-widget>
+        </span>
+
+        <app-result-progress [target]="results.euEeTarget"></app-result-progress>
+      </h3>
+
+      <h3 class="result-section-collapsed">
+        <span class="collapsed-header">
+          <mat-icon class="inline">solar_power</mat-icon>&nbsp;<app-help-widget
+            tooltipKey="helpRenewableEnergyTarget" textKey="Renewable energy"></app-help-widget>
+        </span>
+
+        <app-result-progress [target]="results.euReTarget"></app-result-progress>
+      </h3>
+    </mat-card>
+
+    <mat-card class="result-section">
+      <h3 *ngIf="!expandedTotalCost" class="result-section-collapsed">
+        <mat-icon class="result-section-collapsed-icon inline">sell</mat-icon>
+
+        <div class="result-section-collapsed-content">
+          <div>
+            {{ (results.totalCostIncludingTax.isNegative() ? 'Total profit' : 'Total cost') | translate }}
+
+            <span [class.color-accent]="results.totalCostIncludingTax.isNegative()">
+              <app-cost *ngIf="results.totalCostIncludingTax.isNegative()" [cost]="results.totalCostIncludingTax.multiply(-1)" valueType="avg"></app-cost>
+              <app-cost *ngIf="results.totalCostIncludingTax.isPositive()" [cost]="results.totalCostIncludingTax" valueType="avg"></app-cost>
+            </span>
+          </div>
+          <div>
+            {{ 'Risk' | translate }} <span class="risk-value" *ngIf="risk$ | async; let risk;"
+              [class.danger]="risk === 'high-risk'"
+              [class.warning]="risk === 'medium-risk'"
+              [class.success]="risk === 'low-risk'"
+              >{{ risk | translate }}</span>
+          </div>
+        </div>
+
+        <a [routerLink]="" class="unstyled-link collapsed-expand" (click)="toggleTotalCost()">
           <mat-icon class="inline">
             {{ expandedTotalCost ? 'expand_more' : 'chevron_left' }}
           </mat-icon>
         </a>
       </h3>
 
-      <div class="calc-table" *ngIf="parametersService.parameters$ | async; let parameters">
-        <div class="calc-line">
-          <span class="calc-line-header">{{ 'Total measures cost' | translate }}</span>
-          <span class="calc-line-number">{{ results.totalMeasurementCost | cost }}</span>
+      <div *ngIf="expandedTotalCost">
+        <h3 class="header-with-collapse-icon">
+          <span><mat-icon class="inline">sell</mat-icon> {{ 'Total cost' | translate }}</span>
+          <a [routerLink]="" class="unstyled-link" (click)="toggleTotalCost()" *ngIf="!this.dialog">
+            <mat-icon class="inline">
+              {{ expandedTotalCost ? 'expand_more' : 'chevron_left' }}
+            </mat-icon>
+          </a>
+        </h3>
+
+        <div class="calc-table" *ngIf="parametersService.parameters$ | async; let parameters">
+          <div class="calc-line">
+            <span class="calc-line-header">{{ 'Total measures cost' | translate }}</span>
+            <span class="calc-line-number">{{ results.totalMeasurementCost | cost }}</span>
+          </div>
+          <div class="calc-line">
+            <span class="calc-line-header"><app-help-widget [tooltipKey]="(results.totalEuGhgTax > 0 ? 'helpCarbonTax' : 'helpCarbonIncome')" [tooltipParameters]="{ carbonTax: parameters.pricePerTonGhg | number }"
+              [textKey]="results.totalEuGhgTax > 0 ? 'Emissions trading cost' : 'Emissions trading profit'"></app-help-widget></span>
+            <span class="calc-line-number" [class.color-accent]="results.totalEuGhgTax < 0"> {{ (results.totalEuGhgTax > 0 ? results.totalEuGhgTax : -results.totalEuGhgTax) | cost }}</span>
+          </div>
+          <div class="calc-line">
+            <span class="calc-line-header"><app-help-widget tooltipKey="helpLegalPenalty" textKey="Legal penalty" [tooltipParameters]="{ legalPenalty: parameters.monthlyLegalPenalty | cost }"></app-help-widget></span>
+            <span class="calc-line-number" [class.color-accent]="results.totalLegalPenalty === 0"> {{ results.totalLegalPenalty | cost }}</span>
+          </div>
+          <div class="calc-line total-line">
+            <span class="calc-line-header">{{ 'Including emission trading' | translate }}</span>
+            <span class="calc-line-number" [class.color-accent]="results.totalCostIncludingTax.isNegative()"> {{ (results.totalCostIncludingTax.isNegative()
+              ? results.totalCostIncludingTax.multiply(-1)
+              : results.totalCostIncludingTax) | cost }}</span>
+          </div>
         </div>
-        <div class="calc-line">
-          <span class="calc-line-header"><app-help-widget [tooltipKey]="(results.totalEuGhgTax > 0 ? 'helpCarbonTax' : 'helpCarbonIncome')" [tooltipParameters]="{ carbonTax: parameters.pricePerTonGhg | number }"
-            [textKey]="results.totalEuGhgTax > 0 ? 'Emissions trading cost' : 'Emissions trading profit'"></app-help-widget></span>
-          <span class="calc-line-number" [class.color-accent]="results.totalEuGhgTax < 0"> {{ (results.totalEuGhgTax > 0 ? results.totalEuGhgTax : -results.totalEuGhgTax) | cost }}</span>
-        </div>
-        <div class="calc-line">
-          <span class="calc-line-header"><app-help-widget tooltipKey="helpLegalPenalty" textKey="Legal penalty" [tooltipParameters]="{ legalPenalty: parameters.monthlyLegalPenalty | cost }"></app-help-widget></span>
-          <span class="calc-line-number" [class.color-accent]="results.totalLegalPenalty === 0"> {{ results.totalLegalPenalty | cost }}</span>
-        </div>
-        <div class="calc-line total-line">
-          <span class="calc-line-header">{{ 'Including emission trading' | translate }}</span>
-          <span class="calc-line-number" [class.color-accent]="results.totalCostIncludingTax.isNegative()"> {{ (results.totalCostIncludingTax.isNegative()
-            ? results.totalCostIncludingTax.multiply(-1)
-            : results.totalCostIncludingTax) | cost }}</span>
-        </div>
+
+        <p *ngIf="results.totalCostIncludingTax.isPositive()" style="margin-top: 12px">
+          <a [href]="" (click)="showCostComparisonDialog()">{{ 'Find out what could be done with this budget instead' | translate }}</a>
+        </p>
       </div>
+    </mat-card>
 
-      <p *ngIf="results.totalCostIncludingTax.isPositive()" style="margin-top: 12px">
-        <a [href]="" (click)="showCostComparisonDialog()">{{ 'Find out what could be done with this budget instead' | translate }}</a>
-      </p>
-    </div>
-  </mat-card>
+    <app-impact-results [dialog]="dialog" [global]="false" [environmentalImpact]="results.localEnvironmentalImpact"
+      [justiceImpact]="results.localJusticeImpact" [allImpact]="results.allLocalImpact"></app-impact-results>
 
-  <app-impact-results [dialog]="dialog" [global]="false" [environmentalImpact]="results.localEnvironmentalImpact"
-    [justiceImpact]="results.localJusticeImpact" [allImpact]="results.allLocalImpact"></app-impact-results>
+    <app-impact-results [dialog]="dialog" [global]="true" [environmentalImpact]="results.globalEnvironmentalImpact"
+      [justiceImpact]="results.globalJusticeImpact" [allImpact]="results.allGlobalImpact"></app-impact-results>
 
-  <app-impact-results [dialog]="dialog" [global]="true" [environmentalImpact]="results.globalEnvironmentalImpact"
-    [justiceImpact]="results.globalJusticeImpact" [allImpact]="results.allGlobalImpact"></app-impact-results>
-
-  <button *ngIf="proposalService.selectedProposalSetType === 'custom'"
-    mat-raised-button color="primary" (click)="submit()" [ngClass.gt-sm]="'submit-button-lg'">
-    {{ 'Publish results' | translate }}
-  </button>
+    <button *ngIf="proposalService.selectedProposalSetType === 'custom'"
+      mat-raised-button color="primary" (click)="submit()" [ngClass.gt-sm]="'submit-button-lg'">
+      {{ 'Publish results' | translate }}
+    </button>
+  </div>
 </div>

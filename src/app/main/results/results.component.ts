@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, map } from 'rxjs';
@@ -6,13 +6,15 @@ import { Observable, map } from 'rxjs';
 import { CommonDialogService } from '../../common/dialog.component';
 import { EnumsService } from '../../common/enums.service';
 import { SubmitDialogComponent } from '../submit-dialog/submit-dialog.component';
-import { Results, SectorEmissionsResult, ImpactItem } from './results';
+import { Results } from './results';
 import { ShareDialogComponent } from '../share-dialog/share-dialog.component';
 import { ResultsService } from './results.service';
 import { ProposalService } from '../proposals/proposal.service';
 import { ConfigureParametersDialogComponent } from '../parameters/configure-parameters-dialog/configure-parameters-dialog.component';
 import { ParametersService } from '../parameters/parameters.service';
 import { Cost } from '../proposals/proposal';
+import { Targets } from '../targets/targets';
+import { TargetsService } from '../targets/targets.service';
 
 @Component({
   selector: 'app-results',
@@ -22,15 +24,18 @@ import { Cost } from '../proposals/proposal';
 export class ResultsComponent implements OnInit {
   results$: Observable<Results>;
   risk$: Observable<'high-risk' | 'medium-risk' | 'low-risk'>;
+  targets$: Observable<Targets>;
 
   expandedCo2Reduction = false;
   expandedTotalCost = false;
 
   @Input() dialog = false;
 
-  constructor(service: ResultsService, public enums: EnumsService, public proposalService: ProposalService, public parametersService: ParametersService,
+  constructor(service: ResultsService, public enums: EnumsService, public proposalService: ProposalService,
+    public parametersService: ParametersService, targetsService: TargetsService,
     private matDialog: MatDialog, private commonDialog: CommonDialogService, private translate: TranslateService) {
     this.results$ = service.results$;
+    this.targets$ = targetsService.targets$;
     this.risk$ = this.results$.pipe(map(r => this.getRisk(r.totalMeasurementCost)));
   }
 
