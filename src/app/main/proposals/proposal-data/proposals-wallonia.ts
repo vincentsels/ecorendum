@@ -27,9 +27,12 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.moderatelyNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 6400 }),
+          new Target({ sector: Sector.buildings, type: TargetType.ghgReduction, amount: 3600 / 2 }),
+          new Target({ sector: Sector.transport, type: TargetType.ghgReduction, amount: 5100 / 2 }),
+          new Target({ sector: Sector.agriculture, type: TargetType.ghgReduction, amount: 2800 / 2 }),
+          new Target({ sector: Sector.wasteManagement, type: TargetType.ghgReduction, amount: 1300 / 2 }),
           new Target({ type: TargetType.renewableEnergy, amount: 1000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 10000 }),
         ]
       }),
     ],
@@ -66,7 +69,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 1950 }),
-          new Target({ type: TargetType.energyEfficiency, amount: -500 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -5000 }),
         ]
       })
     ],
@@ -132,7 +135,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 500 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 250 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 2500 }),
         ]
       }),
       new Variant({
@@ -150,7 +153,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 1000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 500 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 5000 }),
         ]
       }),
     ],
@@ -185,7 +188,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 1250 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 500 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 5000 }),
         ]
       }),
       new Variant({
@@ -203,7 +206,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 2500 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 10000 }),
         ]
       }),
       new Variant({
@@ -221,7 +224,7 @@ export const PROPOSALS_WALLONIA: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 3750 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 1500 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 15000 }),
         ]
       }),
     ],

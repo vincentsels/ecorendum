@@ -36,15 +36,15 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         regionalTargets: {
           flanders: [
             new Target({ type: TargetType.ghgReduction, amount: 1500 }),
-            new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
+            new Target({ type: TargetType.energyEfficiency, amount: 10000 }),
           ],
           brussels: [
             new Target({ type: TargetType.ghgReduction, amount: 1500 / 10 }),
-            new Target({ type: TargetType.energyEfficiency, amount: 1000 / 10 }),
+            new Target({ type: TargetType.energyEfficiency, amount: 10000 / 10 }),
           ],
           wallonia: [
             new Target({ type: TargetType.ghgReduction, amount: 1500 / 2 }),
-            new Target({ type: TargetType.energyEfficiency, amount: 1000 / 2 }),
+            new Target({ type: TargetType.energyEfficiency, amount: 10000 / 2 }),
           ],
         },
       }),
@@ -69,15 +69,15 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         regionalTargets: {
           flanders: [
             new Target({ type: TargetType.ghgReduction, amount: 3000 }),
-            new Target({ type: TargetType.energyEfficiency, amount: 2000 }),
+            new Target({ type: TargetType.energyEfficiency, amount: 20000 }),
           ],
           brussels: [
             new Target({ type: TargetType.ghgReduction, amount: 3000 / 10 }),
-            new Target({ type: TargetType.energyEfficiency, amount: 2000 / 10 }),
+            new Target({ type: TargetType.energyEfficiency, amount: 20000 / 10 }),
           ],
           wallonia: [
             new Target({ type: TargetType.ghgReduction, amount: 3000 / 2 }),
-            new Target({ type: TargetType.energyEfficiency, amount: 2000 / 2 }),
+            new Target({ type: TargetType.energyEfficiency, amount: 20000 / 2 }),
           ],
         },
       }),
@@ -102,15 +102,15 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         regionalTargets: {
           flanders: [
             new Target({ type: TargetType.ghgReduction, amount: 4500 }),
-            new Target({ type: TargetType.energyEfficiency, amount: 3000 }),
+            new Target({ type: TargetType.energyEfficiency, amount: 30000 }),
           ],
           brussels: [
             new Target({ type: TargetType.ghgReduction, amount: 4500 / 10 }),
-            new Target({ type: TargetType.energyEfficiency, amount: 3000 / 10 }),
+            new Target({ type: TargetType.energyEfficiency, amount: 30000 / 10 }),
           ],
           wallonia: [
             new Target({ type: TargetType.ghgReduction, amount: 4500 / 2 }),
-            new Target({ type: TargetType.energyEfficiency, amount: 3000 / 2 }),
+            new Target({ type: TargetType.energyEfficiency, amount: 30000 / 2 }),
           ],
         },
       })
@@ -142,15 +142,15 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         regionalTargets: {
           flanders: [
             new Target({ type: TargetType.ghgReduction, amount: 1000 }),
-            new Target({ type: TargetType.energyEfficiency, amount: -500 }),
+            new Target({ type: TargetType.energyEfficiency, amount: -5000 }),
           ],
           brussels: [
             new Target({ type: TargetType.ghgReduction, amount: 1000 / 10 }),
-            new Target({ type: TargetType.energyEfficiency, amount: -500 / 10 }),
+            new Target({ type: TargetType.energyEfficiency, amount: -5000 / 10 }),
           ],
           wallonia: [
             new Target({ type: TargetType.ghgReduction, amount: 1000 / 2 }),
-            new Target({ type: TargetType.energyEfficiency, amount: -500 / 2 }),
+            new Target({ type: TargetType.energyEfficiency, amount: -5000 / 2 }),
           ],
         }
       }),
@@ -167,15 +167,15 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         regionalTargets: {
           flanders: [
             new Target({ type: TargetType.ghgReduction, amount: 2000 }),
-            new Target({ type: TargetType.energyEfficiency, amount: -1000 }),
+            new Target({ type: TargetType.energyEfficiency, amount: -10000 }),
           ],
           brussels: [
             new Target({ type: TargetType.ghgReduction, amount: 2000 / 10 }),
-            new Target({ type: TargetType.energyEfficiency, amount: -1000 / 10 }),
+            new Target({ type: TargetType.energyEfficiency, amount: -10000 / 10 }),
           ],
           wallonia: [
             new Target({ type: TargetType.ghgReduction, amount: 2000 / 2 }),
-            new Target({ type: TargetType.energyEfficiency, amount: -1000 / 2 }),
+            new Target({ type: TargetType.energyEfficiency, amount: -10000 / 2 }),
           ],
         }
       }),
@@ -192,15 +192,15 @@ export const PROPOSALS_FEDERAL: ProposalDetail[] = [
         regionalTargets: {
           flanders: [
             new Target({ type: TargetType.ghgReduction, amount: 3000 }),
-            new Target({ type: TargetType.energyEfficiency, amount: -1500 }),
+            new Target({ type: TargetType.energyEfficiency, amount: -15000 }),
           ],
           brussels: [
             new Target({ type: TargetType.ghgReduction, amount: 3000 / 10 }),
-            new Target({ type: TargetType.energyEfficiency, amount: -1500 / 10 }),
+            new Target({ type: TargetType.energyEfficiency, amount: -15000 / 10 }),
           ],
           wallonia: [
             new Target({ type: TargetType.ghgReduction, amount: 3000 / 2 }),
-            new Target({ type: TargetType.energyEfficiency, amount: -1500 / 2 }),
+            new Target({ type: TargetType.energyEfficiency, amount: -15000 / 2 }),
           ],
         }
       }),

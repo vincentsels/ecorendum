@@ -27,9 +27,12 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
           new Impact(ImpactDomain.localBiodiversityLoss, ImpactAmount.moderatelyNegative),
         ],
         targets: [
-          new Target({ type: TargetType.ghgReduction, amount: 1280 }),
+          new Target({ sector: Sector.buildings, type: TargetType.ghgReduction, amount: 3600 / 10 }),
+          new Target({ sector: Sector.transport, type: TargetType.ghgReduction, amount: 5100 / 10 }),
+          new Target({ sector: Sector.agriculture, type: TargetType.ghgReduction, amount: 2800 / 10 }),
+          new Target({ sector: Sector.wasteManagement, type: TargetType.ghgReduction, amount: 1300 / 10 }),
           new Target({ type: TargetType.renewableEnergy, amount: 200 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 200 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 2000 }),
         ]
       }),
     ],
@@ -66,7 +69,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 390 }),
-          new Target({ type: TargetType.energyEfficiency, amount: -100 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -1000 }),
         ]
       })
     ],
@@ -132,7 +135,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 100 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 50 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 500 }),
         ]
       }),
       new Variant({
@@ -150,7 +153,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 200 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 100 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
         ]
       }),
     ],
@@ -185,7 +188,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 250 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 100 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
         ]
       }),
       new Variant({
@@ -203,7 +206,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 500 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 200 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 2000 }),
         ]
       }),
       new Variant({
@@ -221,7 +224,7 @@ export const PROPOSALS_BRUSSELS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 750 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 300 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 3000 }),
         ]
       }),
     ],

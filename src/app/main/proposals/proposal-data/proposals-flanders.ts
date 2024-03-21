@@ -42,7 +42,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
           new Target({ sector: Sector.agriculture, type: TargetType.ghgReduction, amount: 2800 }),
           new Target({ sector: Sector.wasteManagement, type: TargetType.ghgReduction, amount: 1300 }),
           new Target({ type: TargetType.renewableEnergy, amount: 2000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 2000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 20000 }),
         ]
       }),
     ],
@@ -76,7 +76,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 3900 }),
-          new Target({ type: TargetType.energyEfficiency, amount: -1000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: -10000 }),
         ]
       })
     ],
@@ -152,7 +152,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 1000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 500 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 5000 }),
         ]
       }),
       new Variant({
@@ -177,7 +177,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 2000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 10000 }),
         ]
       }),
     ],
@@ -212,7 +212,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 2500 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 1000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 10000 }),
         ]
       }),
       new Variant({
@@ -230,7 +230,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 5000 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 2000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 20000 }),
         ]
       }),
       new Variant({
@@ -248,7 +248,7 @@ export const PROPOSALS_FLANDERS: ProposalDetail[] = [
         ],
         targets: [
           new Target({ type: TargetType.ghgReduction, amount: 7500 }),
-          new Target({ type: TargetType.energyEfficiency, amount: 3000 }),
+          new Target({ type: TargetType.energyEfficiency, amount: 30000 }),
         ]
       }),
     ],

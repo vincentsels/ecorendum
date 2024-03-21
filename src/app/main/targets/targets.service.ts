@@ -15,6 +15,7 @@ export class TargetsService {
     this.sectorEmissions$ = new BehaviorSubject<SectorEmissions[]>(this.getSectorEmissionsByContext(this.contextService.context$.value));
 
     contextService.context$.subscribe(c => this.targets$.next(this.getTargetsByContext(c)));
+    contextService.context$.subscribe(c => this.sectorEmissions$.next(this.getSectorEmissionsByContext(c)));
   }
 
   getTargetsByContext(context: ContextType): Targets {
