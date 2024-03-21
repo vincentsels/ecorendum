@@ -31,15 +31,15 @@ export class TargetsService {
       );
     } else if (context === 'brussels') {
       return new Targets(
-        new Target(73400 / 10, 39060 / 10, 1990, 34300 / 10, 86800/ 10, 55), // TODO
-        new Target(43700 / 10, 26700 / 10, 2005, 17000 / 10, 50400 / 10, 47), // TODO
+        new Target(73400 / 10, 39060 / 10, 34300 / 10, 1990, 86800/ 10, 55), // TODO
+        new Target(43700 / 10, 26700 / 10, 17000 / 10, 2005, 50400 / 10, 47), // TODO
         new Target(278000 / 10, 201000 / 10, 77000 / 10, 2005, 288000 / 10, 30), // TODO
         new Target(25820 / 10, 29820 / 10, 4000 / 10, 2005, 44500 / 10, 33), // TODO
       );
     } else if (context === 'wallonia') {
       return new Targets(
-        new Target(73400 / 2, 39060 / 2, 1990, 34300 / 2, 86800 / 2, 55), // Number VEKA
-        new Target(43700 / 2, 26700 / 2, 2005, 17000 / 2, 50400 / 2, 47), // TODO
+        new Target(73400 / 2, 39060 / 2, 34300 / 2, 1990, 86800 / 2, 55), // Number VEKA
+        new Target(43700 / 2, 26700 / 2, 17000 / 2, 2005, 50400 / 2, 47), // TODO
         new Target(278000 / 2, 201000 / 2, 77000 / 2, 2005, 288000 / 2, 30), // TODO
         new Target(25820 / 2, 29820 / 2, 4000 / 2, 2005, 44500 / 2, 33), // TODO
       );
