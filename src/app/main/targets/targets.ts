@@ -28,6 +28,7 @@ export class Target {
     public valueNow: number,
     public valueTarget: number,
     public gap: number,
+    public yearReference: number,
     public valueReference: number,
     public reductionPercentage: number,
   ) {}

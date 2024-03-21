@@ -11,7 +11,7 @@
 
     <mat-card class="result-section">
       <div class="result-section-collapsed">
-        <h3><mat-icon class="inline result-section-collapsed-icon">cloud_download</mat-icon></h3>
+        <h3 style="margin-bottom: 0px;"><mat-icon class="inline result-section-collapsed-icon">cloud_download</mat-icon></h3>
 
         <div style="width: 100%;">
           <div class="result-section-collapsed-content" style="display: flex;">
@@ -25,8 +25,40 @@
               </mat-icon>
             </a>
           </div>
-          <div>{{ 'Emissions per year' | translate }}: {{ targets.legalTargetGapGhgKt.valueNow - results.legalGhgTarget.total }}</div>
-          <div>{{ 'Target per year' | translate }}: {{ targets.legalTargetGapGhgKt.valueTarget }}</div>
+          <div *ngIf="expandedCo2Reduction">
+            <table class="target-overview">
+              <tr>
+                <th>{{ targets.legalTargetGapGhgKt.yearReference }}</th>
+                <td>{{ targets.legalTargetGapGhgKt.valueReference | number }} kt / {{ 'year' }}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>{{ '2030 Target' | translate }}</th>
+                <td>{{ targets.legalTargetGapGhgKt.valueTarget | number }} kt / {{ 'year' }}</td>
+                <td>(55%)</td>
+              </tr>
+              <tr>
+                <th>{{ 'Today' | translate }}</th>
+                <td>{{ targets.legalTargetGapGhgKt.valueNow | number }} kt / {{ 'year' }}</td>
+                <td>({{ (targets.legalTargetGapGhgKt.valueReference - targets.legalTargetGapGhgKt.valueNow) / targets.legalTargetGapGhgKt.valueReference * 100 | number:'1.0-0' }}%)</td>
+              </tr>
+              <tr>
+                <th>{{ 'Gap' | translate }}</th>
+                <td>{{ targets.legalTargetGapGhgKt.gap | number }} kt / {{ 'year' }}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>{{ 'Reduction' | translate }}</th>
+                <td>{{ results.legalGhgTarget.total | number }} kt / {{ 'year' }}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>{{ 'Selected scenario' | translate }}</th>
+                <th>{{ targets.legalTargetGapGhgKt.valueNow - results.legalGhgTarget.total | number }} kt / {{ 'year' }}</th>
+                <th>({{ 100 - ((targets.legalTargetGapGhgKt.valueNow - results.legalGhgTarget.total) / targets.legalTargetGapGhgKt.valueReference * 100) | number:'1.0-0' }}%)</th>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
 

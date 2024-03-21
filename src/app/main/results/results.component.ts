@@ -26,7 +26,7 @@ export class ResultsComponent implements OnInit {
   risk$: Observable<'high-risk' | 'medium-risk' | 'low-risk'>;
   targets$: Observable<Targets>;
 
-  expandedCo2Reduction = false;
+  expandedCo2Reduction = true; // TODO: undo upon commit
   expandedTotalCost = false;
 
   @Input() dialog = false;
